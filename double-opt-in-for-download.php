@@ -5,7 +5,7 @@
     Plugin URI: http://www.labwebdesigns.com/wordpress-plugins.html
     Description: Plugin for allowing download in exchange for email address
     Author: Labwebdesigns.com / Andy Bates
-    Version: 1.0 
+    Version: 0.1 
     Author URI: http://www.labwebdesigns.com
     License: GPLv3
 
