@@ -40,6 +40,12 @@ You can also use the "Double Opt-In Sign Up" widget on your pages.
 
 == Frequently Asked Questions ==
 
+Q: I upgraded to 0.3. Now I get an error when uploading a download file?
+
+A: The download folder had to be moved from the original location. Delete any current downloads you have.
+   You will see an error message. Don't worry about that. Click on the Plugins Menu. Deactivate Double OPT-IN for Downloads
+   the reactivate it. Upload your downloads again. You are now good to go. I apologize for the inconvenience.
+
 
 
 == Screenshots ==
