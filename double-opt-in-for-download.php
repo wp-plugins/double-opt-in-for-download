@@ -5,7 +5,7 @@
     Plugin URI: http://www.labwebdesigns.com/wordpress-plugins.html
     Description: Plugin for allowing download in exchange for email address
     Author: Labwebdesigns.com / Andy Bates
-    Version: 0.1 
+    Version: 0.2
     Author URI: http://www.labwebdesigns.com
     License: GPLv3
 
@@ -133,6 +133,7 @@ require_once( ABSPATH . 'wp-admin/includes/upgrade.php' );
         'landing_page' => '',
         'email_name' => '',
         'from_email' => '',
+        'add_to_wpusers' => '0',
         'email_message' => 'Dear {subscriber},
 
 Thank you for your interest in our free download {download}.
@@ -141,12 +142,12 @@ Below you will find the link to your download file. We hope you will enjoy it.
 
 {url}
 
-Thank You');
+Thank You'
+        );
     
     add_option( 'doifd_lab_options', $doifd_default_options );
     
     }
-
     
 // Create download directory if it does not exist
 
@@ -202,12 +203,15 @@ function doifd_lab_subscriber_registration_form($attr, $content) {
         return '<div id="doifd_user_reg_form">Oooops! There is no download id specified</div>';
     }
     
+    if (isset ( $attr[ 'text' ] ) ) {
+        $doifd_form_text = $attr[ 'text' ];
+    } else {
+        $doifd_form_text = $header_text = __( 'Please proivde your name and email address for your free download.', 'Double-Opt-In-For-Download' );
+    }
+    
     
     // used to create the _wpnounce in the form
     $doifd_lab_user_form_nonce = wp_create_nonce( 'doifd-subscriber-registration-nonce' );
-    
-    // header text for form.
-    $header_text = __( 'Please proivde your name and email address for your free download.', 'Double-Opt-In-For-Download' );
     
     // get subscribers name and assign to variable
     $subscriber_name = __( 'Name', 'Double-Opt-In-For-Download' );
@@ -264,20 +268,20 @@ function doifd_lab_subscriber_registration_form($attr, $content) {
             if (isset( $doifd_lab_msg ) ) {
                 
             return '<div id="doifd_user_reg_form">' . $doifd_lab_msg . '
-            <h4>'.$header_text.'</h4> 
+            <h4>'.$doifd_form_text.'</h4> 
             <form method="post" action="" enctype="multipart/form-data">
             <input type="hidden" name="download_id" id="download_id" value="' . $download_id . '"/>
             <input type="hidden" name="_wpnonce" id="_wpnonce" value="' . $doifd_lab_user_form_nonce . '"/>
             <ul>
-                <li><label for="name">'.$subscriber_name.'<span> *</span>: </label>
+                <li><label for="name">' . $subscriber_name . '<span> *</span>: </label>
                     <input type="text" name="doifd_user_name" id="doifd_user_name" value=""/></li>
 
 
-                <li><label for="name">'.$subscriber_email.'<span> *</span>: </label>
+                <li><label for="name">' . $subscriber_email . '<span> *</span>: </label>
                     <input type="text" name="doifd_user_email" id="doifd_user_email" value=""/></li>
             </ul>
             <div id="doifd_button_holder">
-            <input name="doifd-subscriber-registration" type="submit" value=" '.$button_text.' ">
+            <input name="doifd-subscriber-registration" type="submit" value=" ' . $button_text . ' ">
             </div>
             </form>
             </div>';
@@ -305,7 +309,38 @@ function doifd_lab_subscriber_registration_form($attr, $content) {
                             '%s'
                                 )
                         ) == TRUE) {
-
+                    
+                    /*************************************************************
+                     * Add to wordpress users table if admin selected that option.
+                     * ***********************************************************
+                     */
+                    
+                    // get options from options table and assign to variable
+                    $options = get_option( 'doifd_lab_options' );
+                    
+                    // see if the admin wants to add the subscriber to the wp user table
+                    $add_to_user_option_table = $options['add_to_wpusers'];
+                    
+                    // if yes, lets add the user if not, we will just go on our merry way.
+                    if ( ( $add_to_user_option_table == '1' ) && ($doifd_lab_check_duplicate_email == NULL ) ) {
+                        
+                        // generate a random password for the new user
+                        $random_password = wp_generate_password( $length=12, $include_standard_special_chars=false );
+                        
+                        // insert into wp user table and get user id for meta information
+                        $user_id = wp_create_user( $doifd_lab_subscriber_email, $random_password, $doifd_lab_subscriber_email );
+                        
+                        // just for fun lets explode the subscriber name. in case they entered their first and last name
+                        $name = explode(' ', $doifd_lab_subscriber_name);
+                        
+                        // add first name to user meta table
+                        update_user_meta($user_id,'first_name', $name[0]);
+                        
+                        // if subcriber entered 2 names lets add the second as the last name
+                        if ( !empty($name[1]) ) {
+                        update_user_meta($user_id,'last_name', $name[1]);
+                          }
+                    }
                     
                     //lets package the subscriber information and download id into an array and send it to the send email function
                     doifd_lab_verification_email( $value = array(
@@ -322,26 +357,26 @@ function doifd_lab_subscriber_registration_form($attr, $content) {
                     
                     //If the insert was NOT successfull or TRUE lets show a database error.
                     $text = __( 'Database Error', 'Double-Opt-In-For-Download' );
-                    return '<div class="doifd_error_msg">'.$text.'</div>';
+                    return '<div class="doifd_error_msg">' . $text . '</div>';
                 }
             }
         }
         
         return '<div id="doifd_user_reg_form">
-            <h4>'.$header_text.'</h4> 
+            <h4>' . $doifd_form_text . '</h4> 
             <form method="post" action="" enctype="multipart/form-data">
             <input type="hidden" name="download_id" id="download_id" value="' . $download_id . '"/>
             <input type="hidden" name="_wpnonce" id="_wpnonce" value="' . $doifd_lab_user_form_nonce . '"/>
             <ul>
-                <li><label for="name">'.$subscriber_name.'<span> *</span>: </label>
+                <li><label for="name">' . $subscriber_name . '<span> *</span>: </label>
                     <input type="text" name="doifd_user_name" id="doifd_user_name" value=""/></li>
 
 
-                <li><label for="name">'.$subscriber_email.'<span> *</span>: </label>
+                <li><label for="name">' . $subscriber_email . '<span> *</span>: </label>
                     <input type="text" name="doifd_user_email" id="doifd_user_email" value=""/></li>
             </ul>
             <div id="doifd_button_holder">
-            <input name="doifd-subscriber-registration" type="submit" value=" '.$button_text.' ">
+            <input name="doifd-subscriber-registration" type="submit" value=" ' . $button_text . ' ">
             </div>
         </form>
         </div>';

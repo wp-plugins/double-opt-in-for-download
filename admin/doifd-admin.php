@@ -12,7 +12,8 @@ function doifd_lab_admin_init () {
     register_setting ( 'doifd_lab_options' , 'doifd_lab_options' , 'doifd_lab_validate_options' ) ;
     add_settings_section ( 'doifd_lab_main' , 'General Settings' , '' , 'doifd_lab' ) ;
     add_settings_field ( 'doifd_lab_downloads_allowed' , 'Select Maximum Number of Downloads' , 'doifd_lab_setting_input' , 'doifd_lab' , 'doifd_lab_main' ) ;
-    add_settings_field ( 'doifd_lab_landing-page' , 'Select Landing page' , 'doifd_lab_setting_option' , 'doifd_lab' , 'doifd_lab_main' ) ;
+    add_settings_field ( 'doifd_lab_landing_page' , 'Select Landing page' , 'doifd_lab_setting_option' , 'doifd_lab' , 'doifd_lab_main' ) ;
+    add_settings_field ( 'doifd_lab_add_to_wpusers' , 'Add Subcribers to the Wordpress User Table?' , 'doifd_lab_add_to_wp_user_table' , 'doifd_lab' , 'doifd_lab_main' ) ;
     add_settings_section ( 'doifd_lab_email_section' , 'Email Settings' , '' , 'doifd_lab' ) ;
     add_settings_field ( 'doifd_lab_from_email' , 'Enter The Return Email Address' , 'doifd_lab_setting_from_email' , 'doifd_lab' , 'doifd_lab_email_section' ) ;
     add_settings_field ( 'doifd_lab_email_name' , 'Enter who the email is from<br>(Default is the Website or Blog name)' , 'doifd_lab_setting_email_name' , 'doifd_lab' , 'doifd_lab_email_section' ) ;
@@ -227,6 +228,20 @@ function doifd_download_page () {
             _e ( '<p>Select the landing page for your subscribers. This will be the page your subscribers will come to after they have clicked the link in their verification email. Once you have selected your landing page, place this shortcode <b>[lab_landing_page]</b> on that page.</p>' , 'Double-Opt-In-For-Download' ) ;
             echo '</div>' ;
         }
+        
+//Add user to wordpress user table radio select
+        function doifd_lab_add_to_wp_user_table () {
+            
+            // get options from options table
+            $options = get_option ( 'doifd_lab_options' ) ;
+            
+            // assign add_to_wpusers option to variable
+            $add_to_wp_user = $options[ 'add_to_wpusers' ] ;
+            
+            echo '<input type="radio" id="add_to_wpusers" name="doifd_lab_options[add_to_wpusers]" ' . ((isset($add_to_wp_user) && ($add_to_wp_user) == '1' ) ? 'checked="checked"' : "") . ' value="1" /> Yes ' ;
+            echo '<input type="radio" id="add_to_wpusers" name="doifd_lab_options[add_to_wpusers]" ' . (isset($add_to_wp_user) && ($add_to_wp_user == '0' ) ? 'checked="checked"' : "") . ' value="0" /> No ' ;
+            _e ( '<p>If you want to add the subscribers to the wordress user table, check yes. Otherwise they will only be added to the plugins subscriber table.</p>' , 'Double-Opt-In-For-Download' ) ;
+        }
 
 //Validate User Input
         function doifd_lab_validate_options ( $input ) {
@@ -237,6 +252,7 @@ function doifd_download_page () {
             $valid[ 'email_name' ] = preg_replace ( '/[^ \w]+/' , '' , $input[ 'email_name' ] ) ;
             $valid[ 'from_email' ] = $input[ 'from_email' ] ;
             $valid[ 'email_message' ] = $input[ 'email_message' ] ;
+            $valid[ 'add_to_wpusers' ] = preg_replace ( '/[^0-9]/' , '' , $input[ 'add_to_wpusers' ] ) ;
             return $valid ;
         }
 
