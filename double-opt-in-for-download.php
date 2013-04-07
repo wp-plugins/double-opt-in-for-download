@@ -5,7 +5,7 @@
     Plugin URI: http://www.labwebdesigns.com/wordpress-plugins.html
     Description: Plugin for allowing download in exchange for email address
     Author: Labwebdesigns.com / Andy Bates
-    Version: 0.2
+    Version: 0.3
     Author URI: http://www.labwebdesigns.com
     License: GPLv3
 
@@ -29,10 +29,12 @@
 
 // Define URL & DIR path to plugin folder and DIR path to download folder
 
+$uploads = wp_upload_dir();
+
 define('DOUBLE_OPT_IN_FOR_DOWNLOAD_URL', plugin_dir_url(__FILE__));
 define('DOUBLE_OPT_IN_FOR_DOWNLOAD_DIR', plugin_dir_path(__FILE__));
-define('DOUBLE_OPT_IN_FOR_DOWNLOAD_DOWNLOAD_DIR', plugin_dir_path(__FILE__) . 'downloads/');
-define('DOUBLE_OPT_IN_FOR_DOWNLOAD_DOWNLOAD_URL', plugin_dir_url(__FILE__) . 'downloads/');
+define('DOUBLE_OPT_IN_FOR_DOWNLOAD_DOWNLOAD_DIR', $uploads[ 'basedir' ] . '/doifd_downloads/');
+define('DOUBLE_OPT_IN_FOR_DOWNLOAD_DOWNLOAD_URL', $uploads[ 'baseurl' ] . '/doifd_downloads/');
 define('DOUBLE_OPT_IN_FOR_DOWNLOAD_LANGUAGES_DIR', plugin_dir_path(__FILE__) . 'languages/');
 define('DOUBLE_OPT_IN_FOR_DOWNLOAD_IMG_URL', plugin_dir_url(__FILE__) . 'img/');
 

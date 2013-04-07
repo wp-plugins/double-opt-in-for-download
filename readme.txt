@@ -6,7 +6,7 @@ License URI: http://www.gnu.org/licenses/gpl.html
 Tags: email, download
 Requires at least: 3.5
 Tested up to: 3.5
-Stable tag: 0.2
+Stable tag: 0.3
 
 Improve your client outreach by offering FREE downloads to your visitors in exchange for their email address with our Double Opt-In Plugin
 
@@ -48,12 +48,20 @@ You can also use the "Double Opt-In Sign Up" widget on your pages.
 
 == Changelog ==
 
+= 0.3 = 
+
+04/07/2013
+
+Changed location of download directory to avoid deletion when upgrading. 
+
 = 0.2 =
 
 04/07/2013
 
 1. Added the ability to add download subscribers to the wordpress users table.
-2. Added the ability to use custom text in the subscriber registration shortcode form. Example: [lab_subscriber_download_form download_id=1 text="Your Custom Text Here"]
+2. Added the ability to use custom text in the subscriber registration shortcode form.
+   Example: [lab_subscriber_download_form download_id=1 text="Your Custom Text Here"]
+3. Added the ability to add custom text to subscriber registration widget form.
 3. Correct formatting error that caused the widget to not work.
 
 
