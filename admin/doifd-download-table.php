@@ -36,6 +36,7 @@ class Doifd_Download_Table extends WP_List_Table {
         //Build row actions
         $actions = array (
             'delete' => sprintf ( '<a href="?page=%s&action=%s&_wpnonce=%s&id=%s&doifd_file_name=%s">Delete</a>' , $_REQUEST[ 'page' ] , 'delete' , $doifd_lab_nonce , $item[ 'doifd_download_id' ] , $item[ 'doifd_download_file_name' ] ) ,
+            'edit' => sprintf ( '<a href="?page=%s&doifd_download_id=%s&doifd_download_name=%s">Edit</a>' , 'double-opt-in-for-download/admin/doifd-admin.php_edit_downloads', $item[ 'doifd_download_id' ], $item[ 'doifd_download_name' ] ) ,
                 ) ;
 
         //Return the title contents
