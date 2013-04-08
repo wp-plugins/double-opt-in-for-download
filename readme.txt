@@ -6,17 +6,17 @@ License URI: http://www.gnu.org/licenses/gpl.html
 Tags: email, download
 Requires at least: 3.5
 Tested up to: 3.5
-Stable tag: 0.3
+Stable tag: 0.4
 
 Improve your client outreach by offering FREE downloads to your visitors in exchange for their email address with our Double Opt-In Plugin
 
 == Description ==
 
-Our Double Opt-In for download plugin is ideal for improving your customer out reach. Simply upload your free upload using the admin
-interface. Once the file is uploaded, add the generated shortcode to the pages or posts where you would like to show the sign up form. 
+Our Double Opt-In for download plugin is ideal for improving your customer out reach. Simply upload your free download using the plugin admin
+interface. Once the your file is uploaded, add the generated shortcode to the pages or posts where you would like to show the sign up form. 
 When the subscriber signs up to receive your free download an email with a verification link is sent to their email address. For the 
 subscriber to receive the free download they must click on the link in the email. The link returns the subscriber to your website where
-the plugin verifies the information and provides the subscriber with a button to retrieve the download. A link to the download is never
+the plugin verifies the information and provides the subscriber with a button to retrieve the download. A link to your download is never
 revealed.
 
 
@@ -25,13 +25,15 @@ revealed.
 1. Upload the 'double-opt-in-for-download folder to the "/wp-content/plugins/" directory
 2. Activate the Double Opt-In for Download plugin through the 'Plugins' menu in WordPress
 3. Create a landing page for your subscribers and add this shortcode to it, [lab_landing_page].
-3. Configure the plugin by going to the "Settings" sub-menu that appears under DOI-Download in your admin menu. Don't forget to select your landing page.
+3. Configure the plugin by going to the "Settings" sub-menu that appears under DOI-Download in your admin menu. Don't forget to select your landing page!!
 4. Upload your Free download by going to the "Downloads" sub-menu. Give your file a name, attach it, then upload it.
 5. Once your file is uploaded, copy the generated shortcode and paste it into the pages and posts of your choosing.
 
 = Widget =
 
 You can also use the "Double Opt-In Sign Up" widget on your pages.
+
+After you have completed steps 1 thru 5 above:
 
 1. Add widget to the sidebar of your choosing.
 2. Add a title for your free download if you desire.
@@ -40,11 +42,12 @@ You can also use the "Double Opt-In Sign Up" widget on your pages.
 
 == Frequently Asked Questions ==
 
-Q: I upgraded to 0.3. Now I get an error when uploading a download file?
+Q: How do I put the form on a page or post?
 
-A: The download folder had to be moved from the original location. Delete any current downloads you have.
-   You will see an error message. Don't worry about that. Click on the Plugins Menu. Deactivate Double OPT-IN for Downloads
-   the reactivate it. Upload your downloads again. You are now good to go. I apologize for the inconvenience.
+A: After you have uploaded a download item for your visitors you will see a "Shortode" in the download table.
+   It will look something like this: [lab_subscriber_download_form download_id=1]
+   Copy it and paste it into your post or page and save the page.
+   IMPORTANT: make sure you are in "TEXT" mode when using your post/page editor.
 
 
 
@@ -53,6 +56,16 @@ A: The download folder had to be moved from the original location. Delete any cu
 
 
 == Changelog ==
+
+= 0.4 =
+
+04/09/2013
+
+1. Added the ability to edit downloads
+    a. You can replace the current download
+    b. you can change the display name of the download
+    c. you can reset the download count
+2. Added more support info to plugin header and updated donate nag message
 
 = 0.3 = 
 

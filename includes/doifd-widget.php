@@ -2,15 +2,15 @@
 
 class doifd_lab_widget_signup extends WP_Widget {
 
-    function doifd_lab_widget_signup () {
+    function doifd_lab_widget_signup() {
         $widget_ops = array (
-            'classname' => 'doifd_lab_widget_signup_class' ,
-            'description' => 'Display Double-Opt-In Signup form'
-        ) ;
-        $this -> WP_Widget ( 'doifd_lab_widget_signup' , 'Double-Opt-In Signup' , $widget_ops ) ;
+            'classname'=>'doifd_lab_widget_signup_class' ,
+            'description'=>'Display Double-Opt-In Signup form'
+                ) ;
+        $this->WP_Widget ( 'doifd_lab_widget_signup' , 'Double-Opt-In Signup' , $widget_ops ) ;
     }
 
-    function widget ( $args , $instance ) {
+    function widget( $args , $instance ) {
 
         global $wpdb ;
 
@@ -18,13 +18,13 @@ class doifd_lab_widget_signup extends WP_Widget {
         extract ( $args ) ;
 
         // get $instance variables and assign to variables
-        $title = apply_filters ( 'widget_title' , $instance[ 'title' ] ) ;
-        $download_id = apply_filters ( 'widget_doifd_download_name' , $instance[ 'doifd_download_name' ] ) ;
-        $header_text = apply_filters ( 'widget_doifd_form_text' , $instance[ 'doifd_form_text' ] ) ;
-        
-        if (empty ( $header_text ) ) {
+        $title = apply_filters ( 'widget_title' , $instance['title'] ) ;
+        $download_id = apply_filters ( 'widget_doifd_download_name' , $instance['doifd_download_name'] ) ;
+        $header_text = apply_filters ( 'widget_doifd_form_text' , $instance['doifd_form_text'] ) ;
+
+        if ( empty ( $header_text ) || ( ! isset ( $header_text )) ) {
             // header text for widget form show to subscribers if not set by admin
-        $header_text = __ ( 'Please proivde your name and email address for your free download.' , 'Double-Opt-In-For-Download' ) ;
+            $header_text = __ ( 'Please proivde your name and email address for your free download.' , 'Double-Opt-In-For-Download' ) ;
         }
 
         // used to create the _wpnounce in the form
@@ -47,37 +47,37 @@ class doifd_lab_widget_signup extends WP_Widget {
         }
 
         // get verification number if it's set
-        if ( isset ( $_GET[ 'ver' ] ) ) {
-            $ver = $_GET[ 'ver' ] ;
+        if ( isset ( $_GET['ver'] ) ) {
+            $ver = $_GET['ver'] ;
         }
         else {
             $ver = '' ;
         }
 
 // If the subscriber is submitting the form lets do this....
-        if ( isset ( $_POST[ 'widget_doifd-subscriber-registration' ] ) ) {
+        if ( isset ( $_POST['widget_doifd-subscriber-registration'] ) ) {
 
             // assign table name to specific variable
-            $wpdb->doifd_subscribers = $wpdb -> prefix . 'doifd_lab_subscribers' ;
+            $wpdb->doifd_subscribers = $wpdb->prefix . 'doifd_lab_subscribers' ;
 
             // used to create the _wpnounce in the form
-            $doifd_lab_nonce = $_POST[ '_wpnonce' ] ;
+            $doifd_lab_nonce = $_POST['_wpnonce'] ;
 
             // check to make sure data is coming from our form, if not, die.
             if ( ! wp_verify_nonce ( $doifd_lab_nonce , 'doifd-subscriber-registration-nonce' ) )
                 wp_die ( 'Security check' ) ;
 
             // sanitize Name Field and assign to varialbe.
-            $doifd_lab_subscriber_name = sanitize_text_field ( $_POST[ 'doifd_subscriber_name' ] ) ;
+            $doifd_lab_subscriber_name = sanitize_text_field ( $_POST['doifd_subscriber_name'] ) ;
 
             // sanitize Email Field and assign to varialbe.
-            $doifd_lab_subscriber_email = sanitize_email ( $_POST[ 'doifd_subscriber_email' ] ) ;
+            $doifd_lab_subscriber_email = sanitize_email ( $_POST['doifd_subscriber_email'] ) ;
 
             // sanitize download id field and assign to varialbe.
-            $download_id = preg_replace ( "/[^0-9]/" , "" , $_POST[ 'download_id' ] ) ;
+            $download_id = preg_replace ( "/[^0-9]/" , "" , $_POST['download_id'] ) ;
 
             // check for duplicate email address. 
-            $doifd_lab_check_duplicate_email = $wpdb -> get_row ( $wpdb -> prepare ( "SELECT * FROM $wpdb->doifd_subscribers WHERE doifd_email = %s AND doifd_download_id = %d" , $doifd_lab_subscriber_email , $download_id ) , ARRAY_A ) ;
+            $doifd_lab_check_duplicate_email = $wpdb->get_row ( $wpdb->prepare ( "SELECT * FROM $wpdb->doifd_subscribers WHERE doifd_email = %s AND doifd_download_id = %d" , $doifd_lab_subscriber_email , $download_id ) , ARRAY_A ) ;
 
             // check if subscriber name field is populated after sanitization.
             if ( empty ( $doifd_lab_subscriber_name ) ) {
@@ -121,18 +121,17 @@ class doifd_lab_widget_signup extends WP_Widget {
 
                 // If no error message was created lets go ahead and add the subscriber to the database and send them
                 // a verification email.
-                
                 // create verification number using sha1 and the current time and assign it to a variable       
                 $doifd_lab_ver = sha1 ( time () ) ;
 
                 // insert subscriber into the database
-                if ( $wpdb -> insert (
-                                $wpdb -> prefix . 'doifd_lab_subscribers' , array (
-                            'doifd_name' => $doifd_lab_subscriber_name ,
-                            'doifd_email' => $doifd_lab_subscriber_email ,
-                            'doifd_verification_number' => $doifd_lab_ver ,
-                            'doifd_download_id' => $download_id ,
-                            'time' => current_time ( 'mysql' , 0 )
+                if ( $wpdb->insert (
+                                $wpdb->prefix . 'doifd_lab_subscribers' , array (
+                            'doifd_name'=>$doifd_lab_subscriber_name ,
+                            'doifd_email'=>$doifd_lab_subscriber_email ,
+                            'doifd_verification_number'=>$doifd_lab_ver ,
+                            'doifd_download_id'=>$download_id ,
+                            'time'=>current_time ( 'mysql' , 0 )
                                 ) , array (
                             '%s' ,
                             '%s' ,
@@ -140,46 +139,46 @@ class doifd_lab_widget_signup extends WP_Widget {
                             '%s'
                                 )
                         ) == TRUE ) {
-                    
-                     /*************************************************************
+
+                    /*                     * ***********************************************************
                      * Add to wordpress users table if admin selected that option.
                      * ***********************************************************
                      */
-                    
+
                     // get options from options table and assign to variable
-                    $options = get_option( 'doifd_lab_options' );
-                    
+                    $options = get_option ( 'doifd_lab_options' ) ;
+
                     // see if the admin wants to add the subscriber to the wp user table
-                    $add_to_user_option_table = $options['add_to_wpusers'];
-                    
+                    $add_to_user_option_table = $options['add_to_wpusers'] ;
+
                     // if yes, lets add the user if not, we will just go on our merry way.
                     if ( ( $add_to_user_option_table == '1' ) && ($doifd_lab_check_duplicate_email == NULL ) ) {
-                        
+
                         // generate a random password for the new user
-                        $random_password = wp_generate_password( $length=12, $include_standard_special_chars=false );
-                        
+                        $random_password = wp_generate_password ( $length = 12 , $include_standard_special_chars = false ) ;
+
                         // insert into wp user table and get user id for meta information
-                        $user_id = wp_create_user( $doifd_lab_subscriber_email, $random_password, $doifd_lab_subscriber_email );
-                        
+                        $user_id = wp_create_user ( $doifd_lab_subscriber_email , $random_password , $doifd_lab_subscriber_email ) ;
+
                         // just for fun lets explode the subscriber name. in case they entered their first and last name
-                        $name = explode(' ', $doifd_lab_subscriber_name);
-                        
+                        $name = explode ( ' ' , $doifd_lab_subscriber_name ) ;
+
                         // add first name to user meta table
-                        update_user_meta($user_id,'first_name', $name[0]);
-                        
+                        update_user_meta ( $user_id , 'first_name' , $name[0] ) ;
+
                         // if subcriber entered 2 names lets add the second as the last name
-                        if ( !empty($name[1]) ) {
-                        update_user_meta($user_id,'last_name', $name[1]);
-                          }
+                        if ( ! empty ( $name[1] ) ) {
+                            update_user_meta ( $user_id , 'last_name' , $name[1] ) ;
+                        }
                     }
-                    
+
 
                     //lets package the subscriber information and download id into an array and send it to the send email function
                     doifd_lab_verification_email ( $value = array (
-                        "user_name" => $doifd_lab_subscriber_name ,
-                        "user_email" => $doifd_lab_subscriber_email ,
-                        "user_ver" => $doifd_lab_ver ,
-                        "download_id" => $download_id ) ) ;
+                        "user_name"=>$doifd_lab_subscriber_name ,
+                        "user_email"=>$doifd_lab_subscriber_email ,
+                        "user_ver"=>$doifd_lab_ver ,
+                        "download_id"=>$download_id ) ) ;
 
                     // return the "Thank You For Registering"
                     echo '<div id="widget_doifd_user_reg_form" class="thankyou"><h4>Thank You for Registering!</h4>Please check your email for your link to your Free download.</div>' ;
@@ -216,50 +215,51 @@ class doifd_lab_widget_signup extends WP_Widget {
         echo $after_widget ;
     }
 
-    function update ( $new_instance , $old_instance ) {
+    function update( $new_instance , $old_instance ) {
         return $new_instance ;
     }
 
-    function form ( $instance ) {
+    function form( $instance ) {
 
 // this function creates the widget form in the admin area
 
         global $wpdb ;
 
         // get the $instances and assign them to variables.
-        if ( isset ( $instance[ 'title' ] ) && $instance[ 'doifd_download_name' ] ) {
-            $title = esc_attr ( $instance[ 'title' ] ) ;
-            $dlid = esc_attr ( $instance[ 'doifd_download_name' ] ) ;
-            $widget_form_text = esc_attr ( $instance[ 'doifd_form_text' ] ) ;
+        if ( isset ( $instance['title'] ) && $instance['doifd_download_name'] ) {
+            $title = esc_attr ( $instance['title'] ) ;
+            $dlid = esc_attr ( $instance['doifd_download_name'] ) ;
+            $widget_form_text = esc_attr ( $instance['doifd_form_text'] ) ;
         }
         else {
             $title = '' ;
             $dlid = '' ;
-            $widget_form_text = '';
+            $widget_form_text = '' ;
         }
         ?>
         <!--Show the Form-->
         <p>
-            <label for="<?php echo $this -> get_field_id ( 'title' ) ; ?>"><?php _e ( 'Title:' ) ; ?>
-                <input class="widefat" id="<?php echo $this -> get_field_id ( 'title' ) ; ?>" name="<?php echo $this -> get_field_name ( 'title' ) ; ?>" type="text" value="<?php echo $title ; ?>" />
+            <label for="<?php echo $this->get_field_id ( 'title' ) ;?>"><?php _e ( 'Title:' ) ;?>
+                <input class="widefat" id="<?php echo $this->get_field_id ( 'title' ) ;?>" name="<?php echo $this->get_field_name ( 'title' ) ;?>" type="text" value="<?php echo $title ;?>" />
             </label>
-            <label for="<?php echo $this -> get_field_id ( 'doifd_form_text' ) ; ?>"><?php _e ( 'Form Text:' ) ; ?>
-                <textarea class="widefat" rows="3" id="<?php echo $this -> get_field_id ( 'doifd_form_text' ) ; ?>" name="<?php echo $this -> get_field_name ( 'doifd_form_text' ) ; ?>" type="text"><?php echo $widget_form_text ; ?></textarea>
+            <label for="<?php echo $this->get_field_id ( 'doifd_form_text' ) ;?>"><?php _e ( 'Form Text:' ) ;?>
+                <textarea class="widefat" rows="3" id="<?php echo $this->get_field_id ( 'doifd_form_text' ) ;?>" name="<?php echo $this->get_field_name ( 'doifd_form_text' ) ;?>" type="text"><?php echo $widget_form_text ;?></textarea>
             </label>
-            <label for="<?php echo $this -> get_field_id ( 'Download' ) ; ?>"><?php _e ( 'Select Download:' ) ; ?>
-                <select name="<?php echo $this -> get_field_name ( 'doifd_download_name' ) ; ?>" id="<?php echo $this -> get_field_id ( 'doifd_download_id' ) ; ?>" class="widefat">
+            <label for="<?php echo $this->get_field_id ( 'Download' ) ;?>"><?php _e ( 'Select Download:' ) ;?>
+                <select name="<?php echo $this->get_field_name ( 'doifd_download_name' ) ;?>" id="<?php echo $this->get_field_id ( 'doifd_download_id' ) ;?>" class="widefat">
                     <!--Get list of Downloads and populate drop down select in form-->
-        <?php
-        $sql = "SELECT * FROM " . $wpdb -> prefix . "doifd_lab_downloads " ;
-        $downloads = $wpdb -> get_results ( $sql ) ;
-        foreach ( $downloads as $download ) {
-            echo '<option value="' . $download -> doifd_download_id . '"' . ( ( $dlid == $download -> doifd_download_id ) ? 'selected="selected"' : "" ) . '">' . $download -> doifd_download_name . '</option>' ;
-        }
-        ?> 
+                    <?php
+                    $sql = "SELECT * FROM " . $wpdb->prefix . "doifd_lab_downloads " ;
+                    $downloads = $wpdb->get_results ( $sql ) ;
+                    foreach ( $downloads as $download ) {
+                        echo '<option value="' . $download->doifd_download_id . '"' . ( ( $dlid == $download->doifd_download_id ) ? 'selected="selected"' : "" ) . '">' . $download->doifd_download_name . '</option>' ;
+                    }
+                    ?> 
                 </select>
             </label>
         </p>
         <?php
     }
+
 }
 ?>

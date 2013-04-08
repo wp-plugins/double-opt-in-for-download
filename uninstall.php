@@ -31,4 +31,5 @@ $table_name = $wpdb -> prefix . doifd_lab_downloads ;
 $sql2 = "DROP TABLE IF EXISTS " . $table_name ;
 
 $wpdb -> query ( $sql2 ) ;
+
 ?>
