@@ -43,3 +43,23 @@
     margin: 35px 35px 0 0;
 }
 
+.doifd_admin_widget_table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.doifd_admin_widget_th {
+    text-align: center;
+    font-size: 1.2em;
+    color: #0066cc;
+    border-bottom: #999 thin inset;
+    line-height: 3em;
+    width: 50%;
+}
+
+.doifd_admin_widget_td {
+    text-align: center;
+    font-size: 1em;
+    padding: 5px 0;
+} 
+
