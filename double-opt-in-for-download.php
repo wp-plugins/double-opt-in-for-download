@@ -5,7 +5,7 @@
   Plugin URI: http://www.labwebdesigns.com/wordpress-plugins.html
   Description: Plugin for allowing download in exchange for email address
   Author: Labwebdesigns.com / Andy Bates
-  Version: 0.4
+  Version: 0.5
   Author URI: http://www.labwebdesigns.com
   License: GPLv3
 
@@ -74,7 +74,7 @@ function doifd_lab_install() {
 
 //Declares version number of Plugin for future upgrades
 
-    $doifd_lab_version = '0.4' ;
+    $doifd_lab_version = '0.5' ;
 
 //If wordpress version is 3.0 or below, deactivate plugin
 
@@ -136,6 +136,7 @@ function doifd_lab_install() {
             'email_name'=>'' ,
             'from_email'=>'' ,
             'add_to_wpusers'=>'0' ,
+            'promo_link'=>'0' ,
             'email_message'=>'Dear {subscriber},
 
 Thank you for your interest in our free download {download}.
@@ -222,6 +223,21 @@ function doifd_lab_subscriber_registration_form( $attr , $content ) {
 
     // get button text and assign to variable
     $button_text = __ ( 'Get Your Free Download' , 'Double-Opt-In-For-Download' ) ;
+    
+//Set promotional link if option is on
+    
+    // get options from options table and assign to variable
+        $options = get_option ( 'doifd_lab_options' ) ;
+
+    // see if the admin wants to add the subscriber to the wp user table
+        $option = $options['promo_link'] ;
+                
+            if ( $option == '1') {
+                $doifd_promo_link = '<p class="doifd_promo_link"><a href="http://www.labwebdesigns.com" target="new">Powered by Lab Web Designs & Hosting</a></p>';
+                
+                } else {
+                    $doifd_promo_link = '';
+                }
 
 // If the subscriber is submitting the form lets do this....
 
@@ -248,7 +264,7 @@ function doifd_lab_subscriber_registration_form( $attr , $content ) {
 
         //query the database to see if this is a duplicate email address. 
         $doifd_lab_check_duplicate_email = $wpdb->get_row ( $wpdb->prepare ( "SELECT * FROM $wpdb->doifd_subscribers WHERE doifd_email = %s AND doifd_download_id = %d" , $doifd_lab_subscriber_email , $download_id ) , ARRAY_A ) ;
-
+        
         //if the subscriber name is empty after sanitation lets return an error message
         if ( empty ( $doifd_lab_subscriber_name ) ) {
             $text = __ ( 'Please provide your name.' , 'Double-Opt-In-For-Download' ) ;
@@ -282,8 +298,9 @@ function doifd_lab_subscriber_registration_form( $attr , $content ) {
                     <input type="text" name="doifd_user_email" id="doifd_user_email" value=""/></li>
             </ul>
             <div id="doifd_button_holder">
-            <input name="doifd-subscriber-registration" type="submit" value=" ' . $button_text . ' ">
-            </div>
+            <input name="doifd-subscriber-registration" type="submit" value=" ' . $button_text . ' "><br />'
+                . $doifd_promo_link .
+            '</div>
             </form>
             </div>' ;
         }
@@ -350,7 +367,9 @@ function doifd_lab_subscriber_registration_form( $attr , $content ) {
                     "download_id"=>$download_id ) ) ;
 
                 // return thank you message to subscriber
-                return '<div id="doifd_user_reg_form" class="thankyou"><h4>Thank You for Registering!</h4>Please check your email for your link to your Free download.</div>' ;
+                return '<div id="doifd_user_reg_form" class="thankyou"><h4>Thank You for Registering!</h4>Please check your email for your link to your Free download.<br />'
+                . $doifd_promo_link .
+            '</div>' ;
             }
             else {
 
@@ -375,8 +394,9 @@ function doifd_lab_subscriber_registration_form( $attr , $content ) {
                     <input type="text" name="doifd_user_email" id="doifd_user_email" value=""/></li>
             </ul>
             <div id="doifd_button_holder">
-            <input name="doifd-subscriber-registration" type="submit" value=" ' . $button_text . ' ">
-            </div>
+            <input name="doifd-subscriber-registration" type="submit" value=" ' . $button_text . ' "><br />'
+                . $doifd_promo_link .
+            '</div>
         </form>
         </div>' ;
 }

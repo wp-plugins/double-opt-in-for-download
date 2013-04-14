@@ -12,12 +12,16 @@ Improve your client outreach by offering FREE downloads to your visitors in exch
 
 == Description ==
 
-Our Double Opt-In for download plugin is ideal for improving your customer out reach. Simply upload your free download using the plugin admin
-interface. Once the your file is uploaded, add the generated shortcode to the pages or posts where you would like to show the sign up form. 
-When the subscriber signs up to receive your free download an email with a verification link is sent to their email address. For the 
-subscriber to receive the free download they must click on the link in the email. The link returns the subscriber to your website where
-the plugin verifies the information and provides the subscriber with a button to retrieve the download. A link to your download is never
-revealed.
+Our Double Opt-In for download plugin is ideal for improving your customer out reach. 
+
+You simply upload your free download using the plugin admin interface. Once your file is uploaded, just add the generated shortcode to the pages or posts where you would like to show the sign up form.
+ 
+When the subscriber signs up to receive your free download an email with a verification link is sent to their email address.
+
+For the subscriber to receive the free download they must click on the link in the email. The link returns the subscriber to your website where
+the plugin verifies the information and provides the subscriber with a button to retrieve the download.
+
+A link to your download is never revealed.
 
 
 == Installation ==
@@ -57,14 +61,19 @@ A: After you have uploaded a download item for your visitors you will see a "Sho
 
 == Changelog ==
 
+= 0.5 =
+
+1. Added a widget to the admin dashboard that summerizes your total subscribers and downloads.
+2. Added an option to display a promotional link to plugin authors website
+
 = 0.4 =
 
 04/09/2013
 
 1. Added the ability to edit downloads
-    a. You can replace the current download
-    b. you can change the display name of the download
-    c. you can reset the download count
+2. You can now replace the current download without changing the shortcode
+3. You can now change the display name of the download without changing the shortcode
+4. You can now reset the download count
 2. Added more support info to plugin header and updated donate nag message
 
 = 0.3 = 

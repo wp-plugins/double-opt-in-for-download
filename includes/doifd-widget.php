@@ -38,6 +38,21 @@ class doifd_lab_widget_signup extends WP_Widget {
 
         // text shown on submit button in the form
         $button_text = __ ( 'Get Your Free Download' , 'Double-Opt-In-For-Download' ) ;
+        
+        //Set promotional link if option is on
+    
+    // get options from options table and assign to variable
+        $options = get_option ( 'doifd_lab_options' ) ;
+
+    // see if the admin wants to add the subscriber to the wp user table
+        $option = $options['promo_link'] ;
+                
+            if ( $option == '1') {
+                $doifd_promo_link = '<p class="doifd_widget_promo_link"><a href="http://www.labwebdesigns.com" target="new">Powered by<br />Lab Web Designs & Hosting</a></p>';
+                
+                } else {
+                    $doifd_promo_link = '';
+                }
 
         echo $before_widget ;
 
@@ -112,8 +127,9 @@ class doifd_lab_widget_signup extends WP_Widget {
                     <input type="text" name="doifd_subscriber_email" id="doifd_subscriber_email" value=""/></li>
             </ul>
             <div id="doifd_button_holder">
-            <input name="widget_doifd-subscriber-registration" type="submit" value=" ' . $button_text . ' ">
-            </div>
+            <input name="widget_doifd-subscriber-registration" type="submit" value=" ' . $button_text . ' "><br />'
+                . $doifd_promo_link .
+            '</div>
         </form>
         </div>' ;
             }
@@ -181,7 +197,9 @@ class doifd_lab_widget_signup extends WP_Widget {
                         "download_id"=>$download_id ) ) ;
 
                     // return the "Thank You For Registering"
-                    echo '<div id="widget_doifd_user_reg_form" class="thankyou"><h4>Thank You for Registering!</h4>Please check your email for your link to your Free download.</div>' ;
+                    echo '<div id="widget_doifd_user_reg_form" class="thankyou"><h4>Thank You for Registering!</h4>Please check your email for your link to your Free download.<br />'
+                . $doifd_promo_link .
+            '</div>' ;
                 }
                 else {
 
@@ -206,8 +224,9 @@ class doifd_lab_widget_signup extends WP_Widget {
                 <input type="text" name="doifd_subscriber_email" id="doifd_subscriber_email" value=""/></li>
                 </ul>
                 <div id="doifd_button_holder">
-                <input name="widget_doifd-subscriber-registration" type="submit" value=" ' . $button_text . ' ">
-                </div>
+                <input name="widget_doifd-subscriber-registration" type="submit" value=" ' . $button_text . ' "><br />'
+                . $doifd_promo_link .
+            '</div>
                 </form>
         </div>' ;
         }

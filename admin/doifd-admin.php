@@ -13,6 +13,7 @@ function doifd_lab_admin_init() {
     add_settings_field ( 'doifd_lab_downloads_allowed' , 'Select Maximum Number of Downloads' , 'doifd_lab_setting_input' , 'doifd_lab' , 'doifd_lab_main' ) ;
     add_settings_field ( 'doifd_lab_landing_page' , 'Select Landing page' , 'doifd_lab_setting_option' , 'doifd_lab' , 'doifd_lab_main' ) ;
     add_settings_field ( 'doifd_lab_add_to_wpusers' , 'Add Subcribers to the Wordpress User Table?' , 'doifd_lab_add_to_wp_user_table' , 'doifd_lab' , 'doifd_lab_main' ) ;
+    add_settings_field ( 'doifd_lab_promo_link' , 'Help Us Out?<br />Add a promotional link' , 'doifd_lab_add_promo_link' , 'doifd_lab' , 'doifd_lab_main' ) ;
     add_settings_section ( 'doifd_lab_email_section' , 'Email Settings' , '' , 'doifd_lab' ) ;
     add_settings_field ( 'doifd_lab_from_email' , 'Enter The Return Email Address' , 'doifd_lab_setting_from_email' , 'doifd_lab' , 'doifd_lab_email_section' ) ;
     add_settings_field ( 'doifd_lab_email_name' , 'Enter who the email is from<br>(Default is the Website or Blog name)' , 'doifd_lab_setting_email_name' , 'doifd_lab' , 'doifd_lab_email_section' ) ;
@@ -387,6 +388,22 @@ function doifd_download_page() {
             _e ( '<p>If you want to add the subscribers to the wordress user table, check yes. Otherwise they will only be added to the plugins subscriber table.</p>' , 'Double-Opt-In-For-Download' ) ;
         }
 
+//Add promo link to forms
+        function doifd_lab_add_promo_link() {
+
+            // get options from options table
+            $options = get_option ( 'doifd_lab_options' ) ;
+
+            // assign add_to_wpusers option to variable
+            if ( isset($options[ 'promo_link' ] ) ) {
+            $add_promo_link = $options[ 'promo_link' ] ;
+            }
+
+            echo '<input type="radio" id="promo_link" name="doifd_lab_options[promo_link]" ' . ((isset ( $add_promo_link ) && ( $add_promo_link ) == '1' ) ? 'checked="checked"' : "") . ' value="1" /> Yes ' ;
+            echo '<input type="radio" id="promo_link" name="doifd_lab_options[promo_link]" ' . (isset ( $add_promo_link ) && ( $add_promo_link == '0' ) ? 'checked="checked"' : "") . ' value="0" /> No ' ;
+            _e ( '<p>If you check "YES", this will add a small promotional link at the bottom of the registration forms.</p>' , 'Double-Opt-In-For-Download' ) ;
+        }
+
 //Validate User Input
         function doifd_lab_validate_options( $input ) {
 
@@ -397,6 +414,7 @@ function doifd_download_page() {
             $valid['from_email'] = $input['from_email'] ;
             $valid['email_message'] = $input['email_message'] ;
             $valid['add_to_wpusers'] = preg_replace ( '/[^0-9]/' , '' , $input['add_to_wpusers'] ) ;
+            $valid['promo_link'] = preg_replace ( '/[^0-9]/' , '' , $input['promo_link'] ) ;
             return $valid ;
         }
 
@@ -645,7 +663,7 @@ function doifd_lab_dashboard_widget_function() {
             $sql = "SELECT * FROM " . $wpdb->prefix . "doifd_lab_downloads " ;
             $doifd_downloads_result = $wpdb->get_results ( $sql , ARRAY_A ) ;
             
-	// Display whatever it is you want to show
+	// display a mini download table with subscriber and download counts
         echo '<table class="doifd_admin_widget_table">';
         echo '<tr>';
         echo '<th class="doifd_admin_widget_th">Total Subscribers: ' . $doifd_subscriber_count . '</th>';
