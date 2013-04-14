@@ -230,9 +230,11 @@ function doifd_lab_subscriber_registration_form( $attr , $content ) {
         $options = get_option ( 'doifd_lab_options' ) ;
 
     // see if the admin wants to add the subscriber to the wp user table
-        $option = $options['promo_link'] ;
-                
-            if ( $option == '1') {
+        if ( isset( $options[ 'promo_link' ] ) ) {
+        $option = $options[ 'promo_link' ] ;
+        }
+          
+            if ( ( isset( $option ) ) && ($option == '1') ) {
                 $doifd_promo_link = '<p class="doifd_promo_link"><a href="http://www.labwebdesigns.com" target="new">Powered by Lab Web Designs & Hosting</a></p>';
                 
                 } else {

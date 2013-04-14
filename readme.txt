@@ -12,7 +12,7 @@ Improve your client outreach by offering FREE downloads to your visitors in exch
 
 == Description ==
 
-Our Double Opt-In for download plugin is ideal for improving your customer out reach. 
+The Double Opt-In for download plugin is ideal for improving your customer out reach.
 
 You simply upload your free download using the plugin admin interface. Once your file is uploaded, just add the generated shortcode to the pages or posts where you would like to show the sign up form.
  
@@ -57,7 +57,15 @@ A: After you have uploaded a download item for your visitors you will see a "Sho
 
 == Screenshots ==
 
+1. This is a screen shot of the registration forms, both page/post and widget.
 
+2. This is a screen shot of the thank you message after a user registers.
+
+3. This is a screen shot of the admin options.
+
+4. This is a screen shot of the download admin screen.
+
+5. This is a screen shot of the subscribers admin screen.
 
 == Changelog ==
 
