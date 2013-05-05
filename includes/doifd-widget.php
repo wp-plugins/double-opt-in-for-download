@@ -21,12 +21,18 @@ class doifd_lab_widget_signup extends WP_Widget {
         $title = apply_filters ( 'widget_title' , $instance['title'] ) ;
         $download_id = apply_filters ( 'widget_doifd_download_name' , $instance['doifd_download_name'] ) ;
         $header_text = apply_filters ( 'widget_doifd_form_text' , $instance['doifd_form_text'] ) ;
+        $lab_widget_form_button_text = apply_filters ( 'widget_doifd_form_button_text' , $instance['doifd_form_button_text'] ) ;
 
         if ( empty ( $header_text ) || ( ! isset ( $header_text )) ) {
             // header text for widget form show to subscribers if not set by admin
             $header_text = __ ( 'Please proivde your name and email address for your free download.' , 'Double-Opt-In-For-Download' ) ;
         }
-
+        
+        // text shown on submit button in the form
+        if ( empty ( $lab_widget_form_button_text ) || ( ! isset ( $lab_widget_form_button_text )) ) {
+        $lab_widget_button_text = __ ( 'Get Your Free Download' , 'Double-Opt-In-For-Download' ) ;    
+        }
+        
         // used to create the _wpnounce in the form
         $doifd_lab_subscriber_form_nonce = wp_create_nonce ( 'doifd-subscriber-registration-nonce' ) ;
 
@@ -36,9 +42,6 @@ class doifd_lab_widget_signup extends WP_Widget {
         // label for email text input box
         $subscriber_email = __ ( 'Email Address' , 'Double-Opt-In-For-Download' ) ;
 
-        // text shown on submit button in the form
-        $button_text = __ ( 'Get Your Free Download' , 'Double-Opt-In-For-Download' ) ;
-        
         //Set promotional link if option is on
     
     // get options from options table and assign to variable
@@ -129,7 +132,7 @@ class doifd_lab_widget_signup extends WP_Widget {
                     <input type="text" name="doifd_subscriber_email" id="doifd_subscriber_email" value=""/></li>
             </ul>
             <div id="doifd_button_holder">
-            <input name="widget_doifd-subscriber-registration" type="submit" value=" ' . $button_text . ' "><br />'
+            <input name="widget_doifd-subscriber-registration" type="submit" value=" ' . $lab_widget_button_text . ' "><br />'
                 . $doifd_promo_link .
             '</div>
         </form>
@@ -226,7 +229,7 @@ class doifd_lab_widget_signup extends WP_Widget {
                 <input type="text" name="doifd_subscriber_email" id="doifd_subscriber_email" value=""/></li>
                 </ul>
                 <div id="doifd_button_holder">
-                <input name="widget_doifd-subscriber-registration" type="submit" value=" ' . $button_text . ' "><br />'
+                <input name="widget_doifd-subscriber-registration" type="submit" value=" ' . $lab_widget_form_button_text . ' "><br />'
                 . $doifd_promo_link .
             '</div>
                 </form>
@@ -251,11 +254,13 @@ class doifd_lab_widget_signup extends WP_Widget {
             $title = esc_attr ( $instance['title'] ) ;
             $dlid = esc_attr ( $instance['doifd_download_name'] ) ;
             $widget_form_text = esc_attr ( $instance['doifd_form_text'] ) ;
+            $widget_form_button_text = esc_attr ( $instance['doifd_form_button_text'] ) ;
         }
         else {
             $title = '' ;
             $dlid = '' ;
             $widget_form_text = '' ;
+            $widget_form_button_text = '' ;
         }
         ?>
         <!--Show the Form-->
@@ -265,6 +270,9 @@ class doifd_lab_widget_signup extends WP_Widget {
             </label>
             <label for="<?php echo $this->get_field_id ( 'doifd_form_text' ) ;?>"><?php _e ( 'Form Text:' ) ;?>
                 <textarea class="widefat" rows="3" id="<?php echo $this->get_field_id ( 'doifd_form_text' ) ;?>" name="<?php echo $this->get_field_name ( 'doifd_form_text' ) ;?>" type="text"><?php echo $widget_form_text ;?></textarea>
+            </label>
+            <label for="<?php echo $this->get_field_id ( 'doifd_form_button_text' ) ;?>"><?php _e ( 'Button Text:' ) ;?>
+                <input class="widefat" id="<?php echo $this->get_field_id ( 'doifd_form_button_text' ) ;?>" name="<?php echo $this->get_field_name ( 'doifd_form_button_text' ) ;?>" type="text" value="<?php echo $widget_form_button_text ;?>" />
             </label>
             <label for="<?php echo $this->get_field_id ( 'Download' ) ;?>"><?php _e ( 'Select Download:' ) ;?>
                 <select name="<?php echo $this->get_field_name ( 'doifd_download_name' ) ;?>" id="<?php echo $this->get_field_id ( 'doifd_download_id' ) ;?>" class="widefat">

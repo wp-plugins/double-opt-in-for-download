@@ -5,7 +5,7 @@
   Plugin URI: http://www.labwebdesigns.com/wordpress-plugins.html
   Description: Plugin for allowing download in exchange for email address
   Author: Labwebdesigns.com / Andy Bates
-  Version: 0.5
+  Version: 0.6
   Author URI: http://www.labwebdesigns.com
   License: GPLv3
 
@@ -211,6 +211,14 @@ function doifd_lab_subscriber_registration_form( $attr , $content ) {
         $doifd_form_text = $header_text = __ ( 'Please proivde your name and email address for your free download.' , 'Double-Opt-In-For-Download' ) ;
     }
 
+    // assign button text. if admin did not assign a specific text then use the default
+    
+    if ( isset ( $attr['button_text'] ) ) {
+        $doifd_form_button_text = $attr['button_text'] ;
+    }
+    else {
+        $doifd_form_button_text = $button_text = __ ( 'Get Your Free Download' , 'Double-Opt-In-For-Download' ) ;
+    }
 
     // used to create the _wpnounce in the form
     $doifd_lab_user_form_nonce = wp_create_nonce ( 'doifd-subscriber-registration-nonce' ) ;
@@ -220,9 +228,6 @@ function doifd_lab_subscriber_registration_form( $attr , $content ) {
 
     // get subscribers email and assign to variable
     $subscriber_email = __ ( 'Email Address' , 'Double-Opt-In-For-Download' ) ;
-
-    // get button text and assign to variable
-    $button_text = __ ( 'Get Your Free Download' , 'Double-Opt-In-For-Download' ) ;
     
 //Set promotional link if option is on
     
@@ -300,7 +305,7 @@ function doifd_lab_subscriber_registration_form( $attr , $content ) {
                     <input type="text" name="doifd_user_email" id="doifd_user_email" value=""/></li>
             </ul>
             <div id="doifd_button_holder">
-            <input name="doifd-subscriber-registration" type="submit" value=" ' . $button_text . ' "><br />'
+            <input name="doifd-subscriber-registration" type="submit" value=" ' . $doifd_form_button_text . ' "><br />'
                 . $doifd_promo_link .
             '</div>
             </form>
@@ -396,7 +401,7 @@ function doifd_lab_subscriber_registration_form( $attr , $content ) {
                     <input type="text" name="doifd_user_email" id="doifd_user_email" value=""/></li>
             </ul>
             <div id="doifd_button_holder">
-            <input name="doifd-subscriber-registration" type="submit" value=" ' . $button_text . ' "><br />'
+            <input name="doifd-subscriber-registration" type="submit" value=" ' . $doifd_form_button_text . ' "><br />'
                 . $doifd_promo_link .
             '</div>
         </form>

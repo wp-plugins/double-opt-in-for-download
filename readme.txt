@@ -6,7 +6,7 @@ License URI: http://www.gnu.org/licenses/gpl.html
 Tags: email, download
 Requires at least: 3.5
 Tested up to: 3.5
-Stable tag: 0.5
+Stable tag: 0.6
 
 Improve your client outreach by offering FREE downloads to your visitors in exchange for their email address with our Double Opt-In Plugin
 
@@ -69,7 +69,18 @@ A: After you have uploaded a download item for your visitors you will see a "Sho
 
 == Changelog ==
 
+= 0.6 =
+
+05/04/2013
+
+1. Added ability to change wording on the form submit button. You can now add the following option to the short code to change the button text: button_text="Your Button Text".
+   Example: [lab_subscriber_download_form download_id=1 text="Your Custom Text Here" button_text="Your Button Text Here"]
+2. Added the ability to change the submit button text in the widget form as well.
+
+
 = 0.5 =
+
+04/14/2013
 
 1. Added a widget to the admin dashboard that summerizes your total subscribers and downloads.
 2. Added an option to display a promotional link to plugin authors website
