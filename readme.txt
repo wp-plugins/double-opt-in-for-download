@@ -53,7 +53,24 @@ A: After you have uploaded a download item for your visitors you will see a "Sho
    Copy it and paste it into your post or page and save the page.
    IMPORTANT: make sure you are in "TEXT" mode when using your post/page editor.
 
+Q: How do I change the text in the form?
 
+A: Add the following to the shortcode: text="Your Text Here" Example: [lab_subscriber_download_form download_id=1 text="Your Text Here"]
+
+Q: How do I change the submit button text in the form?
+
+A: Add the following to the shortcode: button_text="Your Submit Button Text Here" Example: [lab_subscriber_download_form download_id=1 button_text="Your Submit Button Text Here"]
+
+Q: Is there a way to get around the file size limit for uploads?
+
+A: Yes! 
+
+1. Create a dummy upload using a similar type file. 
+2. Give it the actual name that you want to use.
+3. FTP into your site. Go to the wp-content folder, then to uploads, then to doifd_downloads. Look for the file you just uploaded. Take note of the name.
+4. Rename the actual file that you want to use to the name that is in the doifd_downloads directory, then upload the file into the directory overwriting the dummy file that is in there.
+
+That will do it.
 
 == Screenshots ==
 
