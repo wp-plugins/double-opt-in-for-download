@@ -1,0 +1,112 @@
+
+#doifd_user_reg_form {
+    margin: 15px auto;
+    width: 400px;
+    border: #333333 thin solid;
+     -moz-border-radius: 10px;
+    -webkit-border-radius: 10px;
+    -khtml-border-radius: 10px;
+    border-radius: 10px;   
+}
+
+#doifd_user_reg_form ul li{
+    list-style: none;
+}
+
+#doifd_user_reg_form label {
+    display: block;
+    width: 150px;
+    float: left;
+    margin: 2px 4px 6px 4px;
+    text-align: right;
+}
+
+#doifd_user_reg_form input[type=text]{
+    border: 1px solid #006;
+    background: #ffc;
+}
+
+#doifd_user_reg_form h4 {
+    width: 80%;
+    color: #333333;
+    margin: 15px auto;
+    text-align: center;
+    font-weight: bold;
+
+}
+
+#doifd_button_holder {
+    width: 100%;
+    margin: 15px auto;
+    text-align: center;
+}
+.doifd_error_msg {
+    
+    font-size: .9em;
+    color: #ff0000;
+    font-weight: bold;
+    text-align: center;
+    padding: 15px 0;
+}
+
+.thankyou {
+    text-align: center;
+    padding: 15px;
+    font-weight: bold;
+}
+
+.freedownload {
+    text-align: center;
+    padding: 15px;
+    font-weight: bold;
+}
+
+.exceeded {
+    color: red;
+    text-align: center;
+    padding: 15px;
+    font-weight: bold;
+}
+
+#widget_doifd_user_reg_form {
+    margin: 5px auto;
+    width: 200px;
+    border: #333333 thin solid;
+     -moz-border-radius: 10px;
+    -webkit-border-radius: 10px;
+    -khtml-border-radius: 10px;
+    border-radius: 10px;
+    padding: 10px;
+}
+
+#widget_doifd_user_reg_form ul li {
+    list-style-type: none;
+    padding: 0px;
+    margin: 0px;
+}
+
+.doifd_promo_link {
+    font-size: 0.6em !important;
+    padding-top: 15px !important;
+}
+
+.doifd_promo_link a:link,
+.doifd_promo_link a:visited,
+.doifd_promo_link a:hover,
+.doifd_promo_link a:active {
+    color: #CCCCCC !important;
+}
+
+.doifd_widget_promo_link {
+    font-size: 0.7em !important;
+    padding-top: 15px !important;
+}
+
+.doifd_widget_promo_link a:link,
+.doifd_widget_promo_link a:visited,
+.doifd_widget_promo_link a:hover,
+.doifd_widget_promo_link a:active {
+    color: #CCCCCC !important;
+}
+
+

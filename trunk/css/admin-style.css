@@ -1,0 +1,65 @@
+
+.document_icon {
+    width: 32px;
+    height: 32px;
+    border: none;
+}
+
+#doifd_admin_header {
+    width: 100%;
+    text-align: left;
+}
+
+#doifd_admin_header p {
+    font-size: 1.2em;
+}
+
+.doifd_admin_paypal {
+    width: 325px;
+    margin: -200px 25px 10px 0;
+    float: right;
+    padding: 5px;
+    text-align: center;
+    border: #333333 thin solid;
+     -moz-border-radius: 10px;
+    -webkit-border-radius: 10px;
+    -khtml-border-radius: 10px;
+    border-radius: 10px;   
+}
+
+#doifd_admin_header hr {
+    clear: both;
+}
+
+.coffee {
+    float: left;
+}
+
+.paypal_form {
+    margin-left: 150px;
+}
+
+.paypal_form_inner {
+    margin: 35px 35px 0 0;
+}
+
+.doifd_admin_widget_table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.doifd_admin_widget_th {
+    text-align: center;
+    font-size: 1.2em;
+    color: #0066cc;
+    border-bottom: #999 thin inset;
+    line-height: 3em;
+    width: 50%;
+}
+
+.doifd_admin_widget_td {
+    text-align: center;
+    font-size: 1em;
+    padding: 5px 0;
+} 
+
