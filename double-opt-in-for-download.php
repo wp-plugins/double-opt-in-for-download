@@ -5,7 +5,7 @@
   Plugin URI: http://www.labwebdesigns.com/wordpress-plugins.html
   Description: Plugin for allowing download in exchange for email address
   Author: Labwebdesigns.com / Andy Bates
-  Version: 0.6
+  Version: 0.7
   Author URI: http://www.labwebdesigns.com
   License: GPLv3
 
@@ -644,6 +644,9 @@ function doifd_lab_link_to_download() {
             }
             elseif ( $extension == 'docx' ) {
                 header ( "Content-type: application/vnd.openxmlformats-officedocument.wordprocessingml.document" ) ;
+            }
+            elseif ( $extension == 'pdf' ) {
+                header ( "Content-type: application/pdf" ) ;
             }
             header ( 'Content-Transfer-Encoding: binary' ) ;
             header ( "Content-Disposition: attachment; filename=$fakeFileName" ) ;
