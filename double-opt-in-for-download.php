@@ -208,7 +208,7 @@ function doifd_lab_subscriber_registration_form( $attr , $content ) {
         $doifd_form_text = $attr['text'] ;
     }
     else {
-        $doifd_form_text = $header_text = __ ( 'Please proivde your name and email address for your free download.' , 'Double-Opt-In-For-Download' ) ;
+        $doifd_form_text = $header_text = __ ( 'Please provide your name and email address for your free download.' , 'Double-Opt-In-For-Download' ) ;
     }
 
     // assign button text. if admin did not assign a specific text then use the default
