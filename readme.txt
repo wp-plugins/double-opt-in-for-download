@@ -6,7 +6,7 @@ License URI: http://www.gnu.org/licenses/gpl.html
 Tags: email, download
 Requires at least: 3.5
 Tested up to: 3.5
-Stable tag: 0.7
+Stable tag: 0.8
 
 Improve your client outreach by offering FREE downloads to your visitors in exchange for their email address with our Double Opt-In Plugin
 
@@ -85,6 +85,10 @@ That will do it.
 5. This is a screen shot of the subscribers admin screen.
 
 == Changelog ==
+
+= 0.8 =
+
+Corrected spelling error in form
 
 = 0.7 =
 
