@@ -132,7 +132,7 @@ class doifd_lab_widget_signup extends WP_Widget {
                     <input type="text" name="doifd_subscriber_email" id="doifd_subscriber_email" value=""/></li>
             </ul>
             <div id="doifd_button_holder">
-            <input name="widget_doifd-subscriber-registration" type="submit" value=" ' . $lab_widget_button_text . ' "><br />'
+            <input name="widget_doifd-subscriber-registration" type="submit" value=" ' . $lab_widget_form_button_text . ' "><br />'
                 . $doifd_promo_link .
             '</div>
         </form>

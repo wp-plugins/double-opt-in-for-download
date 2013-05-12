@@ -67,24 +67,6 @@
     padding: 15px;
     font-weight: bold;
 }
-
-#widget_doifd_user_reg_form {
-    margin: 5px auto;
-    width: 200px;
-    border: #333333 thin solid;
-     -moz-border-radius: 10px;
-    -webkit-border-radius: 10px;
-    -khtml-border-radius: 10px;
-    border-radius: 10px;
-    padding: 10px;
-}
-
-#widget_doifd_user_reg_form ul li {
-    list-style-type: none;
-    padding: 0px;
-    margin: 0px;
-}
-
 .doifd_promo_link {
     font-size: 0.6em !important;
     padding-top: 15px !important;
@@ -94,18 +76,6 @@
 .doifd_promo_link a:visited,
 .doifd_promo_link a:hover,
 .doifd_promo_link a:active {
-    color: #CCCCCC !important;
-}
-
-.doifd_widget_promo_link {
-    font-size: 0.7em !important;
-    padding-top: 15px !important;
-}
-
-.doifd_widget_promo_link a:link,
-.doifd_widget_promo_link a:visited,
-.doifd_widget_promo_link a:hover,
-.doifd_widget_promo_link a:active {
     color: #CCCCCC !important;
 }
 

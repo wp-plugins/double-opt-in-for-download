@@ -18,6 +18,14 @@ function doifd_lab_admin_init() {
     add_settings_field ( 'doifd_lab_from_email' , 'Enter The Return Email Address' , 'doifd_lab_setting_from_email' , 'doifd_lab' , 'doifd_lab_email_section' ) ;
     add_settings_field ( 'doifd_lab_email_name' , 'Enter who the email is from<br>(Default is the Website or Blog name)' , 'doifd_lab_setting_email_name' , 'doifd_lab' , 'doifd_lab_email_section' ) ;
     add_settings_field ( 'doifd_lab_email_message' , 'Email Message:' , 'doifd_lab_setting_email_message' , 'doifd_lab' , 'doifd_lab_email_section' ) ;
+    add_settings_section ( 'doifd_lab_widget_style_section' , 'Widget Style Settings' , '' , 'doifd_lab' ) ;
+    add_settings_field ( 'doifd_lab_widget_style_width' , 'Width of Widget' , 'doifd_lab_setting_widget_width' , 'doifd_lab' , 'doifd_lab_widget_style_section' ) ;
+    add_settings_field ( 'doifd_lab_widget_style_inside_padding' , 'Widget Inside Padding' , 'doifd_lab_setting_widget_inside_padding' , 'doifd_lab' , 'doifd_lab_widget_style_section' ) ;
+    add_settings_field ( 'doifd_lab_widget_style_margin_top' , 'Widget Margin Top' , 'doifd_lab_setting_widget_margin_top' , 'doifd_lab' , 'doifd_lab_widget_style_section' ) ;
+    add_settings_field ( 'doifd_lab_widget_style_margin_right' , 'Widget Margin Right' , 'doifd_lab_setting_widget_margin_right' , 'doifd_lab' , 'doifd_lab_widget_style_section' ) ;
+    add_settings_field ( 'doifd_lab_widget_style_margin_bottom' , 'Widget Margin Bottom' , 'doifd_lab_setting_widget_margin_bottom' , 'doifd_lab' , 'doifd_lab_widget_style_section' ) ;
+    add_settings_field ( 'doifd_lab_widget_style_margin_left' , 'Widget Margin Left' , 'doifd_lab_setting_widget_margin_left' , 'doifd_lab' , 'doifd_lab_widget_style_section' ) ;
+    
 }
 
 add_action ( 'admin_menu' , 'register_doifd_custom_menu_page' ) ;
@@ -415,6 +423,12 @@ function doifd_download_page() {
             $valid['email_message'] = $input['email_message'] ;
             $valid['add_to_wpusers'] = preg_replace ( '/[^0-9]/' , '' , $input['add_to_wpusers'] ) ;
             $valid['promo_link'] = preg_replace ( '/[^0-9]/' , '' , $input['promo_link'] ) ;
+            $valid['widget_width'] = preg_replace ( '/[^0-9]/' , '' , $input['widget_width'] ) ;
+            $valid['widget_inside_padding'] = preg_replace ( '/[^0-9]/' , '' , $input['widget_inside_padding'] ) ;
+            $valid['widget_margin_top'] = preg_replace ( '/[^0-9]/' , '' , $input['widget_margin_top'] ) ;
+            $valid['widget_margin_right'] = preg_replace ( '/[^0-9]/' , '' , $input['widget_margin_right'] ) ;
+            $valid['widget_margin_bottom'] = preg_replace ( '/[^0-9]/' , '' , $input['widget_margin_bottom'] ) ;
+            $valid['widget_margin_left'] = preg_replace ( '/[^0-9]/' , '' , $input['widget_margin_left'] ) ;
             return $valid ;
         }
 
@@ -465,6 +479,130 @@ function doifd_download_page() {
                      <b>{subscriber} = Subscribers Name<br />
                      {url} = Verification Link<br />
                      {download} = The name of the download the subscriber has selected</b><br />' , 'Double-Opt-In-For-Download' ) ;
+            echo '</div>' ;
+        }
+        
+function doifd_lab_setting_widget_width() {
+
+// Widget Width
+            // get options from options table
+            $doifd_option = get_option ( 'doifd_lab_options' ) ;
+
+            // get widget width and assign to variable
+            if ( isset( $doifd_option[ 'widget_width' ] ) ) {
+            $widget_width = $doifd_option['widget_width'] ;
+            } else {
+                $widget_width = '190';
+            }
+
+            // echo widget width form
+            echo '<div id="doifd_lab_admin_options">' ;
+            echo '<input type="text" name="doifd_lab_options[widget_width]" id="widget_width" value="' . $widget_width . '">' ;
+            _e ( '<p>This is the width of the widget in the sidebar. <b>Use numbers only, DO NOT ADD the px at the end.</b></p>' , 'Double-Opt-In-For-Download' ) ;
+            echo '</div>' ;
+        }
+
+function doifd_lab_setting_widget_inside_padding() {
+
+// Widget Inside Padding
+            // get options from options table
+            $doifd_option = get_option ( 'doifd_lab_options' ) ;
+
+            // get widget width and assign to variable
+            if ( isset( $doifd_option[ 'widget_inside_padding' ] ) ) {
+            $widget_inside_padding = $doifd_option[ 'widget_inside_padding' ] ;
+            } else {
+                $widget_inside_padding = '5';
+            }
+
+            // echo widget width form
+            echo '<div id="doifd_lab_admin_options">' ;
+            echo '<input type="text" name="doifd_lab_options[widget_inside_padding]" id="widget_inside_padding" value="' . $widget_inside_padding . '">' ;
+            _e ( '<p>This is the amount of padding used inside of the widget form. <b>Use numbers only, DO NOT ADD the px at the end.</b></p>' , 'Double-Opt-In-For-Download' ) ;
+            echo '</div>' ;
+        }
+
+function doifd_lab_setting_widget_margin_top() {
+
+// Widget Margin Top
+
+            // get options from options table
+            $doifd_option = get_option ( 'doifd_lab_options' ) ;
+
+            // get widget width and assign to variable
+            if ( isset( $doifd_option[ 'widget_margin_top' ] ) ) {
+            $widget_margin_top = $doifd_option[ 'widget_margin_top' ] ;
+            } else {
+                $widget_margin_top = '25';
+            }
+
+            // echo widget width form
+            echo '<div id="doifd_lab_admin_options">' ;
+            echo '<input type="text" name="doifd_lab_options[widget_margin_top]" id="widget_margin_top" value="' . $widget_margin_top . '">' ;
+            _e ( '<p>This is the top margin of the widget. <b>Use numbers only, DO NOT add the px at the end.</b></p>' , 'Double-Opt-In-For-Download' ) ;
+            echo '</div>' ;
+        }
+
+function doifd_lab_setting_widget_margin_right() {
+
+// Widget Margin Right
+
+            // get options from options table
+            $doifd_option = get_option ( 'doifd_lab_options' ) ;
+
+            // get widget width and assign to variable
+            if ( isset( $doifd_option[ 'widget_margin_right' ] ) ) {
+            $widget_margin_right = $doifd_option[ 'widget_margin_right' ] ;
+            } else {
+                $widget_margin_right = '0';
+            }
+
+            // echo widget width form
+            echo '<div id="doifd_lab_admin_options">' ;
+            echo '<input type="text" name="doifd_lab_options[widget_margin_right]" id="widget_margin_right" value="' . $widget_margin_right . '">' ;
+            _e ( '<p>This is the right margin of the widget. <b>Use numbers only, DO NOT add the px at the end.</b></p>' , 'Double-Opt-In-For-Download' ) ;
+            echo '</div>' ;
+        }
+        
+function doifd_lab_setting_widget_margin_bottom() {
+
+// Widget Margin Bottom
+
+            // get options from options table
+            $doifd_option = get_option ( 'doifd_lab_options' ) ;
+
+            // get widget width and assign to variable
+            if ( isset( $doifd_option[ 'widget_margin_bottom' ] ) ) {
+            $widget_margin_bottom = $doifd_option[ 'widget_margin_bottom' ] ;
+            } else {
+                $widget_margin_bottom = '25';
+            }
+
+            // echo widget width form
+            echo '<div id="doifd_lab_admin_options">' ;
+            echo '<input type="text" name="doifd_lab_options[widget_margin_bottom]" id="widget_margin_bottom" value="' . $widget_margin_bottom . '">' ;
+            _e ( '<p>This is the bottom margin of the widget. <b>Use numbers only, DO NOT add the px at the end.</b></p>' , 'Double-Opt-In-For-Download' ) ;
+            echo '</div>' ;
+        }
+
+function doifd_lab_setting_widget_margin_left() {
+
+// Widget Margin Left
+
+            // get options from options table
+            $doifd_option = get_option ( 'doifd_lab_options' ) ;
+
+            // get widget width and assign to variable
+            if ( isset( $doifd_option[ 'widget_margin_top' ] ) ) {
+            $widget_margin_left = $doifd_option[ 'widget_margin_left' ] ;
+            } else {
+                $widget_margin_left = '0';
+            }
+
+            // echo widget width form
+            echo '<div id="doifd_lab_admin_options">' ;
+            echo '<input type="text" name="doifd_lab_options[widget_margin_left]" id="widget_margine_left" value="' . $widget_margin_left . '">' ;
+            _e ( '<p>This is the left margin of the widget. <b>Use numbers only, DO NOT add the px at the end.</b></p>' , 'Double-Opt-In-For-Download' ) ;
             echo '</div>' ;
         }
 

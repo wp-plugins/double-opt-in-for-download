@@ -186,6 +186,8 @@ function doifd_lab_add_stylesheet() {
 
     wp_register_style ( 'doifd-style' , plugins_url ( 'css/style.css' , __FILE__ ) ) ;
     wp_enqueue_style ( 'doifd-style' ) ;
+    wp_register_style ( 'doifd-widget-style' , plugins_url ( 'css/widget-style.php' , __FILE__ ) ) ;
+    wp_enqueue_style ( 'doifd-widget-style' ) ;
 }
 
 //Add the shortcode for the registration form
