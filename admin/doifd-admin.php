@@ -25,7 +25,6 @@ function doifd_lab_admin_init() {
     add_settings_field ( 'doifd_lab_widget_style_margin_right' , 'Widget Margin Right' , 'doifd_lab_setting_widget_margin_right' , 'doifd_lab' , 'doifd_lab_widget_style_section' ) ;
     add_settings_field ( 'doifd_lab_widget_style_margin_bottom' , 'Widget Margin Bottom' , 'doifd_lab_setting_widget_margin_bottom' , 'doifd_lab' , 'doifd_lab_widget_style_section' ) ;
     add_settings_field ( 'doifd_lab_widget_style_margin_left' , 'Widget Margin Left' , 'doifd_lab_setting_widget_margin_left' , 'doifd_lab' , 'doifd_lab_widget_style_section' ) ;
-    
 }
 
 add_action ( 'admin_menu' , 'register_doifd_custom_menu_page' ) ;
@@ -62,10 +61,8 @@ function doifd_download_page() {
         <form method="post" action="" enctype="multipart/form-data">
 
             <table class="form-table">
-                <input type="hidden" name="_wpnonce" id="_wpnonce" value="<?php
-    $doifd_lab_nonce = wp_create_nonce ( 'doifd-add-download-nonce' ) ;
-    echo $doifd_lab_nonce ;
-    ?>"/>
+                <input type="hidden" name="_wpnonce" id="_wpnonce" value="<?php $doifd_lab_nonce = wp_create_nonce ( 'doifd-add-download-nonce' ) ;
+    echo $doifd_lab_nonce ;?>"/>
                 <tr valign="top">
 
                     <th scope="row"><label for="name">Name of Your Download<span> *</span>: </label></th>
@@ -117,10 +114,7 @@ function doifd_download_page() {
             <form method="post" action="" enctype="multipart/form-data">
 
                 <table class="form-table">
-                    <input type="hidden" name="_wpnonce" id="_wpnonce" value="<?php
-    $doifd_lab_edit_download_form_nonce = wp_create_nonce ( 'doifd-edit-download-nonce' ) ;
-    echo $doifd_lab_edit_download_form_nonce ;
-        ?>"/>
+                    <input type="hidden" name="_wpnonce" id="_wpnonce" value="<?php $doifd_lab_edit_download_form_nonce = wp_create_nonce ( 'doifd-edit-download-nonce' ) ; echo $doifd_lab_edit_download_form_nonce ;?>"/>
                     <input type="hidden" name="doifd_download_id" value="<?php echo $_GET['doifd_download_id'] ;?>" />
                     <input type="hidden" name="doifd_download_file_name" value="<?php echo $_GET['doifd_download_file_name'] ;?>" />
                     <tr valign="top">
@@ -403,8 +397,8 @@ function doifd_download_page() {
             $options = get_option ( 'doifd_lab_options' ) ;
 
             // assign add_to_wpusers option to variable
-            if ( isset($options[ 'promo_link' ] ) ) {
-            $add_promo_link = $options[ 'promo_link' ] ;
+            if ( isset ( $options['promo_link'] ) ) {
+                $add_promo_link = $options['promo_link'] ;
             }
 
             echo '<input type="radio" id="promo_link" name="doifd_lab_options[promo_link]" ' . ((isset ( $add_promo_link ) && ( $add_promo_link ) == '1' ) ? 'checked="checked"' : "") . ' value="1" /> Yes ' ;
@@ -481,18 +475,19 @@ function doifd_download_page() {
                      {download} = The name of the download the subscriber has selected</b><br />' , 'Double-Opt-In-For-Download' ) ;
             echo '</div>' ;
         }
-        
-function doifd_lab_setting_widget_width() {
+
+        function doifd_lab_setting_widget_width() {
 
 // Widget Width
             // get options from options table
             $doifd_option = get_option ( 'doifd_lab_options' ) ;
 
             // get widget width and assign to variable
-            if ( isset( $doifd_option[ 'widget_width' ] ) ) {
-            $widget_width = $doifd_option['widget_width'] ;
-            } else {
-                $widget_width = '190';
+            if ( isset ( $doifd_option['widget_width'] ) ) {
+                $widget_width = $doifd_option['widget_width'] ;
+            }
+            else {
+                $widget_width = '190' ;
             }
 
             // echo widget width form
@@ -502,17 +497,18 @@ function doifd_lab_setting_widget_width() {
             echo '</div>' ;
         }
 
-function doifd_lab_setting_widget_inside_padding() {
+        function doifd_lab_setting_widget_inside_padding() {
 
 // Widget Inside Padding
             // get options from options table
             $doifd_option = get_option ( 'doifd_lab_options' ) ;
 
             // get widget width and assign to variable
-            if ( isset( $doifd_option[ 'widget_inside_padding' ] ) ) {
-            $widget_inside_padding = $doifd_option[ 'widget_inside_padding' ] ;
-            } else {
-                $widget_inside_padding = '5';
+            if ( isset ( $doifd_option['widget_inside_padding'] ) ) {
+                $widget_inside_padding = $doifd_option['widget_inside_padding'] ;
+            }
+            else {
+                $widget_inside_padding = '5' ;
             }
 
             // echo widget width form
@@ -522,18 +518,18 @@ function doifd_lab_setting_widget_inside_padding() {
             echo '</div>' ;
         }
 
-function doifd_lab_setting_widget_margin_top() {
+        function doifd_lab_setting_widget_margin_top() {
 
 // Widget Margin Top
-
             // get options from options table
             $doifd_option = get_option ( 'doifd_lab_options' ) ;
 
             // get widget width and assign to variable
-            if ( isset( $doifd_option[ 'widget_margin_top' ] ) ) {
-            $widget_margin_top = $doifd_option[ 'widget_margin_top' ] ;
-            } else {
-                $widget_margin_top = '25';
+            if ( isset ( $doifd_option['widget_margin_top'] ) ) {
+                $widget_margin_top = $doifd_option['widget_margin_top'] ;
+            }
+            else {
+                $widget_margin_top = '25' ;
             }
 
             // echo widget width form
@@ -543,18 +539,18 @@ function doifd_lab_setting_widget_margin_top() {
             echo '</div>' ;
         }
 
-function doifd_lab_setting_widget_margin_right() {
+        function doifd_lab_setting_widget_margin_right() {
 
 // Widget Margin Right
-
             // get options from options table
             $doifd_option = get_option ( 'doifd_lab_options' ) ;
 
             // get widget width and assign to variable
-            if ( isset( $doifd_option[ 'widget_margin_right' ] ) ) {
-            $widget_margin_right = $doifd_option[ 'widget_margin_right' ] ;
-            } else {
-                $widget_margin_right = '0';
+            if ( isset ( $doifd_option['widget_margin_right'] ) ) {
+                $widget_margin_right = $doifd_option['widget_margin_right'] ;
+            }
+            else {
+                $widget_margin_right = '0' ;
             }
 
             // echo widget width form
@@ -563,19 +559,19 @@ function doifd_lab_setting_widget_margin_right() {
             _e ( '<p>This is the right margin of the widget. <b>Use numbers only, DO NOT add the px at the end.</b></p>' , 'Double-Opt-In-For-Download' ) ;
             echo '</div>' ;
         }
-        
-function doifd_lab_setting_widget_margin_bottom() {
+
+        function doifd_lab_setting_widget_margin_bottom() {
 
 // Widget Margin Bottom
-
             // get options from options table
             $doifd_option = get_option ( 'doifd_lab_options' ) ;
 
             // get widget width and assign to variable
-            if ( isset( $doifd_option[ 'widget_margin_bottom' ] ) ) {
-            $widget_margin_bottom = $doifd_option[ 'widget_margin_bottom' ] ;
-            } else {
-                $widget_margin_bottom = '25';
+            if ( isset ( $doifd_option['widget_margin_bottom'] ) ) {
+                $widget_margin_bottom = $doifd_option['widget_margin_bottom'] ;
+            }
+            else {
+                $widget_margin_bottom = '25' ;
             }
 
             // echo widget width form
@@ -585,18 +581,18 @@ function doifd_lab_setting_widget_margin_bottom() {
             echo '</div>' ;
         }
 
-function doifd_lab_setting_widget_margin_left() {
+        function doifd_lab_setting_widget_margin_left() {
 
 // Widget Margin Left
-
             // get options from options table
             $doifd_option = get_option ( 'doifd_lab_options' ) ;
 
             // get widget width and assign to variable
-            if ( isset( $doifd_option[ 'widget_margin_top' ] ) ) {
-            $widget_margin_left = $doifd_option[ 'widget_margin_left' ] ;
-            } else {
-                $widget_margin_left = '0';
+            if ( isset ( $doifd_option['widget_margin_top'] ) ) {
+                $widget_margin_left = $doifd_option['widget_margin_left'] ;
+            }
+            else {
+                $widget_margin_left = '0' ;
             }
 
             // echo widget width form
@@ -784,43 +780,43 @@ function doifd_lab_setting_widget_margin_left() {
                 }
             }
         }
-        
-function doifd_lab_dashboard_widget_function() {
-    
-    global $wpdb;
-    
-    // get the total count of subscribers
+
+        function doifd_lab_dashboard_widget_function() {
+
+            global $wpdb ;
+
+            // get the total count of subscribers
             $sql = "SELECT COUNT(*) FROM " . $wpdb->prefix . "doifd_lab_subscribers " ;
             $doifd_subscriber_count = $wpdb->get_var ( $sql ) ;
-            
-   // get the total count of downloads
+
+            // get the total count of downloads
             $sql = "SELECT SUM(doifd_number_of_downloads) FROM " . $wpdb->prefix . "doifd_lab_downloads " ;
             $doifd_download_count = $wpdb->get_var ( $sql ) ;
-            
-   // get downloads
+
+            // get downloads
             $sql = "SELECT * FROM " . $wpdb->prefix . "doifd_lab_downloads " ;
             $doifd_downloads_result = $wpdb->get_results ( $sql , ARRAY_A ) ;
-            
-	// display a mini download table with subscriber and download counts
-        echo '<table class="doifd_admin_widget_table">';
-        echo '<tr>';
-        echo '<th class="doifd_admin_widget_th">Total Subscribers: ' . $doifd_subscriber_count . '</th>';
-	echo '<th class="doifd_admin_widget_th">Overall Total Downloads: ' . $doifd_download_count . '</th>';
-        echo '</tr>';
-        foreach ($doifd_downloads_result as $value) {
-            echo '<tr>';
-            echo "<td class='doifd_admin_widget_td'>" . $value[ 'doifd_download_name' ] . "</td>";
-            echo "<td class='doifd_admin_widget_td'>" . $value[ 'doifd_number_of_downloads' ] . "</td>";
-            echo '</tr>';
+
+            // display a mini download table with subscriber and download counts
+            echo '<table class="doifd_admin_widget_table">' ;
+            echo '<tr>' ;
+            echo '<th class="doifd_admin_widget_th">Total Subscribers: ' . $doifd_subscriber_count . '</th>' ;
+            echo '<th class="doifd_admin_widget_th">Overall Total Downloads: ' . $doifd_download_count . '</th>' ;
+            echo '</tr>' ;
+            foreach ( $doifd_downloads_result as $value ) {
+                echo '<tr>' ;
+                echo "<td class='doifd_admin_widget_td'>" . $value['doifd_download_name'] . "</td>" ;
+                echo "<td class='doifd_admin_widget_td'>" . $value['doifd_number_of_downloads'] . "</td>" ;
+                echo '</tr>' ;
+            }
+            echo '</table>' ;
         }
-        echo '</table>';
-}
-        
-function doifd_lab_add_dashboard_widgets() {
-    wp_add_dashboard_widget('doifd_dashboard_widget', 'Double Opt-In For Downloads', 'doifd_lab_dashboard_widget_function');	
-} 
+
+        function doifd_lab_add_dashboard_widgets() {
+            wp_add_dashboard_widget ( 'doifd_dashboard_widget' , 'Double Opt-In For Downloads' , 'doifd_lab_dashboard_widget_function' ) ;
+        }
 
 // Hook into the 'wp_dashboard_setup' action to register our other functions
 
-add_action('wp_dashboard_setup', 'doifd_lab_add_dashboard_widgets' );
+        add_action ( 'wp_dashboard_setup' , 'doifd_lab_add_dashboard_widgets' ) ;
         ?>
