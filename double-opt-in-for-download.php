@@ -74,7 +74,7 @@ function doifd_lab_install() {
 
 //Declares version number of Plugin for future upgrades
 
-    $doifd_lab_version = '0.5' ;
+    $doifd_lab_version = '0.9' ;
 
 //If wordpress version is 3.0 or below, deactivate plugin
 

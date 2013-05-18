@@ -30,7 +30,7 @@ class doifd_lab_widget_signup extends WP_Widget {
         
         // text shown on submit button in the form
         if ( empty ( $lab_widget_form_button_text ) || ( ! isset ( $lab_widget_form_button_text )) ) {
-        $lab_widget_button_text = __ ( 'Get Your Free Download' , 'Double-Opt-In-For-Download' ) ;    
+        $lab_widget_form_button_text = __ ( 'Get Your Free Download' , 'Double-Opt-In-For-Download' ) ;    
         }
         
         // used to create the _wpnounce in the form
