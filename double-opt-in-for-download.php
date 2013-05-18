@@ -648,7 +648,7 @@ function doifd_lab_link_to_download() {
                 header ( "Content-type: application/vnd.openxmlformats-officedocument.wordprocessingml.document" ) ;
             }
             elseif ( $extension == 'pdf' ) {
-                header ( "Content-type: application/pdf" ) ;
+                header ( "Content-type: application/octet-stream" ) ;
             }
             header ( 'Content-Transfer-Encoding: binary' ) ;
             header ( "Content-Disposition: attachment; filename=$fakeFileName" ) ;
