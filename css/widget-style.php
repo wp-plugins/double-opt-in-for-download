@@ -27,6 +27,11 @@ $doifd_widget_option = get_option ( 'doifd_lab_options' ) ;
     margin: 0px;
 }
 
+#widget_doifd_user_reg_form input[type=text] {
+
+    width: <?php if (isset($doifd_widget_option['widget_input_width'])) { echo $doifd_widget_option['widget_input_width']; }else{ echo '180'; }?>px;
+}    
+
 .doifd_widget_promo_link {
     font-size: 0.7em !important;
     padding-top: 15px !important;

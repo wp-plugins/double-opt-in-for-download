@@ -5,8 +5,8 @@ License: GPLv3
 License URI: http://www.gnu.org/licenses/gpl.html
 Tags: email, download
 Requires at least: 3.5
-Tested up to: 3.5
-Stable tag: 0.8
+Tested up to: 3.5.1
+Stable tag: 0.9
 
 Improve your client outreach by offering FREE downloads to your visitors in exchange for their email address with our Double Opt-In Plugin
 
@@ -86,6 +86,11 @@ That will do it.
 
 == Changelog ==
 
+= 0.9 =
+
+1. Added ability to style the widget in the plugin admin panel.
+2. Minor code fixes.
+
 = 0.8 =
 
 Corrected spelling error in form
@@ -146,3 +151,5 @@ Changed location of download directory to avoid deletion when upgrading.
 * Initial beta release.
 
 == Upgrade Notice ==
+
+The ability to style the widget has now been added in the setting section.
