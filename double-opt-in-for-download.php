@@ -5,7 +5,7 @@
   Plugin URI: http://www.labwebdesigns.com/wordpress-plugins.html
   Description: Plugin for allowing download in exchange for email address
   Author: Labwebdesigns.com / Andy Bates
-  Version: 0.8
+  Version: 0.9
   Author URI: http://www.labwebdesigns.com
   License: GPLv3
 
@@ -74,7 +74,7 @@ function doifd_lab_install() {
 
 //Declares version number of Plugin for future upgrades
 
-    $doifd_lab_version = '0.5' ;
+    $doifd_lab_version = '0.9' ;
 
 //If wordpress version is 3.0 or below, deactivate plugin
 
@@ -186,6 +186,8 @@ function doifd_lab_add_stylesheet() {
 
     wp_register_style ( 'doifd-style' , plugins_url ( 'css/style.css' , __FILE__ ) ) ;
     wp_enqueue_style ( 'doifd-style' ) ;
+    wp_register_style ( 'doifd-widget-style' , plugins_url ( 'css/widget-style.php' , __FILE__ ) ) ;
+    wp_enqueue_style ( 'doifd-widget-style' ) ;
 }
 
 //Add the shortcode for the registration form
@@ -646,7 +648,7 @@ function doifd_lab_link_to_download() {
                 header ( "Content-type: application/vnd.openxmlformats-officedocument.wordprocessingml.document" ) ;
             }
             elseif ( $extension == 'pdf' ) {
-                header ( "Content-type: application/pdf" ) ;
+                header ( "Content-type: application/octet-stream" ) ;
             }
             header ( 'Content-Transfer-Encoding: binary' ) ;
             header ( "Content-Disposition: attachment; filename=$fakeFileName" ) ;

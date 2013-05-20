@@ -43,6 +43,10 @@
     margin: 35px 35px 0 0;
 }
 
+#doifd_lab_admin_options {
+    padding-bottom: -10px;
+}
+
 .doifd_admin_widget_table {
     width: 100%;
     border-collapse: collapse;
