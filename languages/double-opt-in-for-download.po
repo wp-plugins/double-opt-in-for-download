@@ -1,0 +1,136 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: Double OPT-IN for Download\n"
+"POT-Creation-Date: 2013-04-03 17:26-0800\n"
+"PO-Revision-Date: 2013-04-03 17:26-0800\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 1.5.5\n"
+"X-Poedit-KeywordsList: __;_e\n"
+"X-Poedit-Basepath: .\n"
+"X-Poedit-SearchPath-0: ..\n"
+
+#: ../double-opt-in-for-download.php:216 ../includes/doifd-widget.php:54
+msgid "Please proivde your name and email address for your free download."
+msgstr ""
+
+#: ../double-opt-in-for-download.php:219 ../includes/doifd-widget.php:57
+msgid "Name"
+msgstr ""
+
+#: ../double-opt-in-for-download.php:222 ../includes/doifd-widget.php:60
+msgid "Email Address"
+msgstr ""
+
+#: ../double-opt-in-for-download.php:225 ../includes/doifd-widget.php:63
+msgid "Get Your Free Download"
+msgstr ""
+
+#: ../double-opt-in-for-download.php:255 ../includes/doifd-widget.php:106
+msgid "Please provide your name."
+msgstr ""
+
+#: ../double-opt-in-for-download.php:260
+msgid "Not a valid email address."
+msgstr ""
+
+#: ../double-opt-in-for-download.php:265 ../includes/doifd-widget.php:116
+msgid "This email address has already been used."
+msgstr ""
+
+#: ../double-opt-in-for-download.php:330 ../includes/doifd-widget.php:179
+msgid "Database Error"
+msgstr ""
+
+#: ../admin/doifd-admin.php:174
+msgid "You do not have sufficient permissions to access this page."
+msgstr ""
+
+#: ../admin/doifd-admin.php:213
+msgid "Select Maximum Downloads"
+msgstr ""
+
+#: ../admin/doifd-admin.php:226
+msgid ""
+"<p>Select the maximum number of times a subscriber can download an item. The "
+"default is <b>1</b>."
+msgstr ""
+
+#: ../admin/doifd-admin.php:243
+msgid "Select Landing Page"
+msgstr ""
+
+#: ../admin/doifd-admin.php:253
+msgid ""
+"<p>Select the landing page for your subscribers. This will be the page your "
+"subscribers will come to after they have clicked the link in their "
+"verification email. Once you have selected your landing page, place this "
+"shortcode <b>[lab_landing_page]</b> on that page.</p>"
+msgstr ""
+
+#: ../admin/doifd-admin.php:281
+msgid ""
+"<p>This is the email address that shows in the <b>From</b> field in the "
+"verification email. If this is left blank it will default to the admin email "
+"address</p>"
+msgstr ""
+
+#: ../admin/doifd-admin.php:296
+msgid ""
+"<p>This is the <b>Name</b> that will show in the <b>From</b> field in the "
+"verification email. If this is left blank it will default to your website/"
+"blog name.</p>"
+msgstr ""
+
+#: ../admin/doifd-admin.php:312
+msgid ""
+"<p>This is the verification email that is sent to a new subscriber. Just "
+"remember, at the very least, you need to keep the <b>{URL}</b> in your "
+"email, as this provides the subscriber with the verification link. See the "
+"complete list below.<br />\n"
+"                     <b>{subscriber} = Subscribers Name<br />\n"
+"                     {url} = Verification Link<br />\n"
+"                     {download} = The name of the download the subscriber "
+"has selected</b><br />"
+msgstr ""
+
+#: ../admin/doifd-admin.php:338
+msgid "Return Back"
+msgstr ""
+
+#: ../admin/doifd-admin.php:359
+msgid "Please name your file."
+msgstr ""
+
+#: ../admin/doifd-admin.php:364
+msgid "Please select a file to upload"
+msgstr ""
+
+#: ../admin/doifd-admin.php:370
+msgid ""
+"Unknown File Type (.jpg, .jpeg, .png, .bmp, .gif, .pdf, .zip, .doc, .docx "
+"only)."
+msgstr ""
+
+#: ../admin/doifd-admin.php:400
+msgid "File Uploaded Successfully"
+msgstr ""
+
+#: ../admin/doifd-admin.php:406
+msgid "Error Uploading File"
+msgstr ""
+
+#: ../includes/doifd-widget.php:111
+msgid "Email is not valid."
+msgstr ""
+
+#: ../includes/doifd-widget.php:233
+msgid "Title:"
+msgstr ""
+
+#: ../includes/doifd-widget.php:236
+msgid "Download:"
+msgstr ""
