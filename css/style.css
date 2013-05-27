@@ -11,6 +11,7 @@
 
 #doifd_user_reg_form ul li{
     list-style: none;
+    padding-top: 10px;
 }
 
 #doifd_user_reg_form label {
@@ -70,6 +71,7 @@
 .doifd_promo_link {
     font-size: 0.6em !important;
     padding-top: 15px !important;
+    text-align: center;
 }
 
 .doifd_promo_link a:link,
@@ -79,4 +81,7 @@
     color: #CCCCCC !important;
 }
 
-
+#doifd_captcha {
+    width: 400px;
+    margin: 0px 40px;
+}
