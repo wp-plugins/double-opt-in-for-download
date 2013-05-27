@@ -36,6 +36,8 @@ define ( 'DOUBLE_OPT_IN_FOR_DOWNLOAD_DIR' , plugin_dir_path ( __FILE__ ) ) ;
 define ( 'DOUBLE_OPT_IN_FOR_DOWNLOAD_DOWNLOAD_DIR' , $uploads['basedir'] . '/doifd_downloads/' ) ;
 define ( 'DOUBLE_OPT_IN_FOR_DOWNLOAD_DOWNLOAD_URL' , $uploads['baseurl'] . '/doifd_downloads/' ) ;
 define ( 'DOUBLE_OPT_IN_FOR_DOWNLOAD_LANGUAGES_DIR' , plugin_dir_path ( __FILE__ ) . 'languages/' ) ;
+define ( 'DOUBLE_OPT_IN_FOR_DOWNLOAD_CAPTCHA_URL' , plugin_dir_url ( __FILE__ ) . 'captcha/' ) ;
+define ( 'DOUBLE_OPT_IN_FOR_DOWNLOAD_CAPTCHA_DIR' , plugin_dir_path ( __FILE__ ) . 'captcha/' ) ;
 define ( 'DOUBLE_OPT_IN_FOR_DOWNLOAD_IMG_URL' , plugin_dir_url ( __FILE__ ) . 'img/' ) ;
 
 // Load language translation files if used
@@ -190,14 +192,25 @@ function doifd_lab_add_stylesheet() {
     wp_enqueue_style ( 'doifd-widget-style' ) ;
 }
 
+// Start a session for captcha
+
+add_action('init', 'myStartSession', 1);
+function myStartSession() {
+    if(!session_id()) {
+        session_start();
+    }
+}
+
 //Add the shortcode for the registration form
 
 add_shortcode ( 'lab_subscriber_download_form' , 'doifd_lab_subscriber_registration_form' ) ;
 
 function doifd_lab_subscriber_registration_form( $attr , $content ) {
-
+            
     global $wpdb ;
-
+    
+//    require_once( DOUBLE_OPT_IN_FOR_DOWNLOAD_CAPTCHA_DIR . 'recaptchalib.php');
+    
     //Get the download id from the short code, if not send an error to the potential subscriber.
     if ( isset ( $attr['download_id'] ) ) {
         $download_id = $attr['download_id'] ;
@@ -251,6 +264,16 @@ function doifd_lab_subscriber_registration_form( $attr , $content ) {
 // If the subscriber is submitting the form lets do this....
 
     if ( isset ( $_POST['doifd-subscriber-registration'] ) ) {
+    
+                        // reCapcha
+        require_once( DOUBLE_OPT_IN_FOR_DOWNLOAD_CAPTCHA_DIR . 'recaptchalib.php');
+        $privatekey = "6Ldo7eESAAAAAA_en-CwymylgXIVq7jgzEeJRXiz";
+        $doifd_resp = recaptcha_check_answer ($privatekey,
+                                $_SERVER["REMOTE_ADDR"],
+                                $_POST["recaptcha_challenge_field"],
+                                $_POST["recaptcha_response_field"]);
+ 
+        print_r($doifd_resp);
 
         // assign table name to specific variable
         $wpdb->doifd_subscribers = $wpdb->prefix . 'doifd_lab_subscribers' ;
@@ -273,9 +296,12 @@ function doifd_lab_subscriber_registration_form( $attr , $content ) {
 
         //query the database to see if this is a duplicate email address. 
         $doifd_lab_check_duplicate_email = $wpdb->get_row ( $wpdb->prepare ( "SELECT * FROM $wpdb->doifd_subscribers WHERE doifd_email = %s AND doifd_download_id = %d" , $doifd_lab_subscriber_email , $download_id ) , ARRAY_A ) ;
-        
+
+        if (!$doifd_resp->is_valid) {
+	$doifd_lab_msg = '<div class="doifd_error_msg">The Validation code does not match!</div>';
+	}
         //if the subscriber name is empty after sanitation lets return an error message
-        if ( empty ( $doifd_lab_subscriber_name ) ) {
+        elseif ( empty ( $doifd_lab_subscriber_name ) ) {
             $text = __ ( 'Please provide your name.' , 'Double-Opt-In-For-Download' ) ;
             $doifd_lab_msg = '<div class="doifd_error_msg">' . $text . '</div>' ;
         }
@@ -293,25 +319,33 @@ function doifd_lab_subscriber_registration_form( $attr , $content ) {
         // If and error message is returned let show the form again with the error message
         if ( isset ( $doifd_lab_msg ) ) {
 
+//            require_once( DOUBLE_OPT_IN_FOR_DOWNLOAD_CAPTCHA_DIR . 'recaptchalib.php');
+            $publickey = "6Ldo7eESAAAAAAVnndDvTOZlQ_u08b-8abAUxrIb";
+
+
             return '<div id="doifd_user_reg_form">' . $doifd_lab_msg . '
+            <script type="text/javascript">
+            var RecaptchaOptions = {
+            theme : "red"
+            };
+            </script>
             <h4>' . $doifd_form_text . '</h4> 
             <form method="post" action="" enctype="multipart/form-data">
             <input type="hidden" name="download_id" id="download_id" value="' . $download_id . '"/>
             <input type="hidden" name="_wpnonce" id="_wpnonce" value="' . $doifd_lab_user_form_nonce . '"/>
             <ul>
-                <li><label for="name">' . $subscriber_name . '<span> *</span>: </label>
+                <li><label for="name">' . $subscriber_name . '<span>*</span>: </label>
                     <input type="text" name="doifd_user_name" id="doifd_user_name" value=""/></li>
 
-
-                <li><label for="name">' . $subscriber_email . '<span> *</span>: </label>
+                <li><label for="name">' . $subscriber_email . '<span>*</span>: </label>
                     <input type="text" name="doifd_user_email" id="doifd_user_email" value=""/></li>
             </ul>
-            <div id="doifd_button_holder">
-            <input name="doifd-subscriber-registration" type="submit" value=" ' . $doifd_form_button_text . ' "><br />'
+                <div id="doifd_captcha">' . recaptcha_get_html($publickey) . '</div>
+                <div id="doifd_button_holder">
+                <input name="doifd-subscriber-registration" type="submit" value=" ' . $doifd_form_button_text . ' "><br /></div>'
                 . $doifd_promo_link .
-            '</div>
-            </form>
-            </div>' ;
+            '</form>
+                </div>' ;
         }
         else {
 
@@ -336,7 +370,7 @@ function doifd_lab_subscriber_registration_form( $attr , $content ) {
                             )
                     ) == TRUE ) {
 
-                /*                 * ***********************************************************
+                /* ***********************************************************
                  * Add to wordpress users table if admin selected that option.
                  * ***********************************************************
                  */
@@ -389,25 +423,33 @@ function doifd_lab_subscriber_registration_form( $attr , $content ) {
         }
     }
 
-    return '<div id="doifd_user_reg_form">
+//    require_once( DOUBLE_OPT_IN_FOR_DOWNLOAD_CAPTCHA_DIR . 'recaptchalib.php');
+    $publickey = "6Ldo7eESAAAAAAVnndDvTOZlQ_u08b-8abAUxrIb";
+    $privatekey = "6Ldo7eESAAAAAA_en-CwymylgXIVq7jgzEeJRXiz";
+
+    return '<script type="text/javascript">
+            var RecaptchaOptions = {
+            theme : "red"
+            };
+            </script>
+            <div id="doifd_user_reg_form">
             <h4>' . $doifd_form_text . '</h4> 
             <form method="post" action="" enctype="multipart/form-data">
             <input type="hidden" name="download_id" id="download_id" value="' . $download_id . '"/>
             <input type="hidden" name="_wpnonce" id="_wpnonce" value="' . $doifd_lab_user_form_nonce . '"/>
             <ul>
-                <li><label for="name">' . $subscriber_name . '<span> *</span>: </label>
+                <li><label for="name">' . $subscriber_name . '<span>*</span>: </label>
                     <input type="text" name="doifd_user_name" id="doifd_user_name" value=""/></li>
 
-
-                <li><label for="name">' . $subscriber_email . '<span> *</span>: </label>
+                <li><label for="name">' . $subscriber_email . '<span>*</span>: </label>
                     <input type="text" name="doifd_user_email" id="doifd_user_email" value=""/></li>
             </ul>
-            <div id="doifd_button_holder">
-            <input name="doifd-subscriber-registration" type="submit" value=" ' . $doifd_form_button_text . ' "><br />'
+                <div id="doifd_captcha">' . recaptcha_get_html($publickey) . '</div>
+                <div id="doifd_button_holder">
+                <input name="doifd-subscriber-registration" type="submit" value=" ' . $doifd_form_button_text . ' "><br /></div>'
                 . $doifd_promo_link .
-            '</div>
-        </form>
-        </div>' ;
+            '</form>
+                </div>' ;
 }
 
 // This shortcode goes on the landing page. When the user clicks the link in thier email
