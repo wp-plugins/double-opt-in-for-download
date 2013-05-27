@@ -48,6 +48,10 @@ load_plugin_textdomain ( 'double-opt-in-for-download' , false , DOUBLE_OPT_IN_FO
 
 require 'includes/doifd-widget.php' ;
 
+// Load reCaptcha Library
+
+require_once( DOUBLE_OPT_IN_FOR_DOWNLOAD_CAPTCHA_DIR . 'recaptchalib.php');
+
 // Include admin script if the admin is logged in.
 
 if ( is_admin () ) {
@@ -209,8 +213,6 @@ function doifd_lab_subscriber_registration_form( $attr , $content ) {
             
     global $wpdb ;
     
-//    require_once( DOUBLE_OPT_IN_FOR_DOWNLOAD_CAPTCHA_DIR . 'recaptchalib.php');
-    
     //Get the download id from the short code, if not send an error to the potential subscriber.
     if ( isset ( $attr['download_id'] ) ) {
         $download_id = $attr['download_id'] ;
@@ -265,15 +267,12 @@ function doifd_lab_subscriber_registration_form( $attr , $content ) {
 
     if ( isset ( $_POST['doifd-subscriber-registration'] ) ) {
     
-                        // reCapcha
-        require_once( DOUBLE_OPT_IN_FOR_DOWNLOAD_CAPTCHA_DIR . 'recaptchalib.php');
+        // reCaptcha
         $privatekey = "6Ldo7eESAAAAAA_en-CwymylgXIVq7jgzEeJRXiz";
-        $doifd_resp = recaptcha_check_answer ($privatekey,
+        $doifd_resp = doifd_recaptcha_check_answer ($privatekey,
                                 $_SERVER["REMOTE_ADDR"],
                                 $_POST["recaptcha_challenge_field"],
                                 $_POST["recaptcha_response_field"]);
- 
-        print_r($doifd_resp);
 
         // assign table name to specific variable
         $wpdb->doifd_subscribers = $wpdb->prefix . 'doifd_lab_subscribers' ;
@@ -340,7 +339,7 @@ function doifd_lab_subscriber_registration_form( $attr , $content ) {
                 <li><label for="name">' . $subscriber_email . '<span>*</span>: </label>
                     <input type="text" name="doifd_user_email" id="doifd_user_email" value=""/></li>
             </ul>
-                <div id="doifd_captcha">' . recaptcha_get_html($publickey) . '</div>
+                <div id="doifd_captcha">' . doifd_recaptcha_get_html($publickey) . '</div>
                 <div id="doifd_button_holder">
                 <input name="doifd-subscriber-registration" type="submit" value=" ' . $doifd_form_button_text . ' "><br /></div>'
                 . $doifd_promo_link .
@@ -423,9 +422,7 @@ function doifd_lab_subscriber_registration_form( $attr , $content ) {
         }
     }
 
-//    require_once( DOUBLE_OPT_IN_FOR_DOWNLOAD_CAPTCHA_DIR . 'recaptchalib.php');
     $publickey = "6Ldo7eESAAAAAAVnndDvTOZlQ_u08b-8abAUxrIb";
-    $privatekey = "6Ldo7eESAAAAAA_en-CwymylgXIVq7jgzEeJRXiz";
 
     return '<script type="text/javascript">
             var RecaptchaOptions = {
@@ -444,7 +441,7 @@ function doifd_lab_subscriber_registration_form( $attr , $content ) {
                 <li><label for="name">' . $subscriber_email . '<span>*</span>: </label>
                     <input type="text" name="doifd_user_email" id="doifd_user_email" value=""/></li>
             </ul>
-                <div id="doifd_captcha">' . recaptcha_get_html($publickey) . '</div>
+                <div id="doifd_captcha">' . doifd_recaptcha_get_html($publickey) . '</div>
                 <div id="doifd_button_holder">
                 <input name="doifd-subscriber-registration" type="submit" value=" ' . $doifd_form_button_text . ' "><br /></div>'
                 . $doifd_promo_link .
