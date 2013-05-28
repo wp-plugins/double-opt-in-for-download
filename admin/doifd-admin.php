@@ -45,18 +45,23 @@ function register_doifd_custom_menu_page() {
 
     //create sub menu page for editing downloads
     add_submenu_page ( __FILE__ , 'doifd edit downloads' , '' , 'manage_options' , __FILE__ . '_edit_downloads' , 'doifd_lab_edit_downloads_page' ) ;
+    
+    //create sub menu page for subscribers
+    add_submenu_page ( __FILE__ , 'doifd recaptcha' , 'reCaptcha' , 'manage_options' , __FILE__ . '_recaptcha' , 'doifd_lab_recaptcha_page' ) ;
+
 }
 
 function doifd_download_page() {
-
-    include 'doifd-download-table.php' ;
-    include DOUBLE_OPT_IN_FOR_DOWNLOAD_DIR . 'includes/doifd-admin-header.php' ;
     ?>
     <!--Begin HTML--> 
     <div class="wrap">
         <h2>Add a download file</h2>
         <div id="icon-edit-pages" class="icon32"></div>
+<?php
 
+    include 'doifd-download-table.php' ;
+    include DOUBLE_OPT_IN_FOR_DOWNLOAD_DIR . 'includes/doifd-admin-header.php' ;
+    ?>
         <!--HTML for upload form begins here-->
 
         <form method="post" action="" enctype="multipart/form-data">
@@ -252,21 +257,19 @@ function doifd_download_page() {
 
             global $wpdb ;
 
-            include 'doifd-subscriber-table.php' ;
-            include DOUBLE_OPT_IN_FOR_DOWNLOAD_DIR . 'includes/doifd-admin-header.php' ;
-
             // get the total count of subscribers
             $sql = "SELECT COUNT(*) FROM " . $wpdb->prefix . "doifd_lab_subscribers " ;
             $doifd_subscriber_count = $wpdb->get_var ( $sql ) ;
             ?>
 
             <!--HTML for subscribers section starts here-->
-
+            <div class="wrap">
+            <h2>Subscribers ( <?php echo $doifd_subscriber_count ;?> )</h2>
             <div id="icon-users" class="icon32"></div>
-            <div class="wrap"> 
-                <h2>Subscribers ( <?php echo $doifd_subscriber_count ;?> )</h2>
-
+            
                 <?php
+                    include 'doifd-subscriber-table.php' ;
+                    include DOUBLE_OPT_IN_FOR_DOWNLOAD_DIR . 'includes/doifd-admin-header.php' ;
                 // create an instance of subscriber table class
                 $doifd_sub_table = new Doifd_Subscriber_Table() ;
 
@@ -296,8 +299,6 @@ function doifd_download_page() {
             if ( ! current_user_can ( 'manage_options' ) ) {
                 wp_die ( __ ( 'You do not have sufficient permissions to access this page.' ) ) ;
             }
-
-            include DOUBLE_OPT_IN_FOR_DOWNLOAD_DIR . 'includes/doifd-admin-header.php' ;
             ?>
 
             <!--Begin HTML markup-->
@@ -305,6 +306,8 @@ function doifd_download_page() {
                 <div id="icon-options-general" class="icon32"></div>
                 <h2>Settings</h2>
 
+                <?php include DOUBLE_OPT_IN_FOR_DOWNLOAD_DIR . 'includes/doifd-admin-header.php' ; ?>
+                
                 <!--Save Options Button-->
 
                 <form action="options.php" method="post">
@@ -319,7 +322,19 @@ function doifd_download_page() {
 
             <?php
         }
+        
+        function doifd_lab_recaptcha_page() {
+            
+                        global $wpdb ;
 
+            // check to see if the user has the privileges to access the options page.
+            if ( ! current_user_can ( 'manage_options' ) ) {
+                wp_die ( __ ( 'You do not have sufficient permissions to access this page.' ) ) ;
+            }
+
+    include DOUBLE_OPT_IN_FOR_DOWNLOAD_DIR . 'includes/doifd-admin-header.php' ;
+    include DOUBLE_OPT_IN_FOR_DOWNLOAD_DIR . 'admin/doifd-admin-recaptcha.php' ;
+        }
 // set maximum number of downloads
         function doifd_lab_setting_input() {
 
