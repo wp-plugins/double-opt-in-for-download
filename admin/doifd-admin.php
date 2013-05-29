@@ -323,7 +323,7 @@ function doifd_download_page() {
             <?php
         }
         
-        function doifd_lab_recaptcha_page() {
+function doifd_lab_recaptcha_page() {
             
                         global $wpdb ;
 
@@ -334,6 +334,8 @@ function doifd_download_page() {
 
     include DOUBLE_OPT_IN_FOR_DOWNLOAD_DIR . 'includes/doifd-admin-header.php' ;
     include DOUBLE_OPT_IN_FOR_DOWNLOAD_DIR . 'admin/doifd-admin-recaptcha.php' ;
+    
+        echo '<h3>reCaptcha Settings</h3>';
         }
 // set maximum number of downloads
         function doifd_lab_setting_input() {

@@ -10,6 +10,8 @@ function doifd_lab_recaptcha_init() {
     
 }
 
+
+
 function doifd_lab_recaptcha_options() {
 
             global $wpdb ;
