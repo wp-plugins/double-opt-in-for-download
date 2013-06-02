@@ -49,12 +49,13 @@ load_plugin_textdomain ( 'double-opt-in-for-download' , false , DOUBLE_OPT_IN_FO
 require 'includes/doifd-widget.php' ;
 
 // Load reCaptcha Library
-
+require DOUBLE_OPT_IN_FOR_DOWNLOAD_CAPTCHA_DIR  . 'class-captcha.php';
 require_once( DOUBLE_OPT_IN_FOR_DOWNLOAD_CAPTCHA_DIR . 'recaptchalib.php');
 
 // Include admin script if the admin is logged in.
 
 if ( is_admin () ) {
+    require( dirname( __FILE__ ). '/admin/class-admin-downloads.php') ;
     require_once( dirname ( __FILE__ ) . '/admin/doifd-admin.php' ) ;
 }
 
@@ -91,7 +92,7 @@ function doifd_lab_install() {
 
     $doifd_lab_installed_ver = get_option ( 'doifd_lab_version' ) ;
 
-//If version number is different create/update plugin tables
+// If version number is different create/update plugin tables
 
     if ( $doifd_lab_installed_ver != $doifd_lab_version ) {
 
@@ -196,15 +197,6 @@ function doifd_lab_add_stylesheet() {
     wp_enqueue_style ( 'doifd-widget-style' ) ;
 }
 
-// Start a session for captcha
-
-add_action('init', 'myStartSession', 1);
-function myStartSession() {
-    if(!session_id()) {
-        session_start();
-    }
-}
-
 //Add the shortcode for the registration form
 
 add_shortcode ( 'lab_subscriber_download_form' , 'doifd_lab_subscriber_registration_form' ) ;
@@ -267,12 +259,8 @@ function doifd_lab_subscriber_registration_form( $attr , $content ) {
 
     if ( isset ( $_POST['doifd-subscriber-registration'] ) ) {
     
-        // reCaptcha
-        $privatekey = "6Ldo7eESAAAAAA_en-CwymylgXIVq7jgzEeJRXiz";
-        $doifd_resp = doifd_recaptcha_check_answer ($privatekey,
-                                $_SERVER["REMOTE_ADDR"],
-                                $_POST["recaptcha_challenge_field"],
-                                $_POST["recaptcha_response_field"]);
+        $DoifdCaptcha = new DoifdCaptcha;
+        $doifd_resp = $DoifdCaptcha->reCaptcha_process();
 
         // assign table name to specific variable
         $wpdb->doifd_subscribers = $wpdb->prefix . 'doifd_lab_subscribers' ;
@@ -317,10 +305,9 @@ function doifd_lab_subscriber_registration_form( $attr , $content ) {
 
         // If and error message is returned let show the form again with the error message
         if ( isset ( $doifd_lab_msg ) ) {
-
-//            require_once( DOUBLE_OPT_IN_FOR_DOWNLOAD_CAPTCHA_DIR . 'recaptchalib.php');
-            $publickey = "6Ldo7eESAAAAAAVnndDvTOZlQ_u08b-8abAUxrIb";
-
+            
+            $DoifdCaptcha = new DoifdCaptcha;
+            $publickey = $DoifdCaptcha->reCaptcha_public_key();
 
             return '<div id="doifd_user_reg_form">' . $doifd_lab_msg . '
             <script type="text/javascript">
@@ -421,9 +408,10 @@ function doifd_lab_subscriber_registration_form( $attr , $content ) {
             }
         }
     }
-
-    $publickey = "6Ldo7eESAAAAAAVnndDvTOZlQ_u08b-8abAUxrIb";
-
+    
+            $DoifdCaptcha = new DoifdCaptcha;
+            $publickey = $DoifdCaptcha->reCaptcha_public_key();
+            
     return '<script type="text/javascript">
             var RecaptchaOptions = {
             theme : "red"
