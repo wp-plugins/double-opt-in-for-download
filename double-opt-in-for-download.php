@@ -52,11 +52,16 @@ require 'includes/doifd-widget.php' ;
 require DOUBLE_OPT_IN_FOR_DOWNLOAD_CAPTCHA_DIR  . 'class-captcha.php';
 require_once( DOUBLE_OPT_IN_FOR_DOWNLOAD_CAPTCHA_DIR . 'recaptchalib.php');
 
-// Include admin script if the admin is logged in.
+// Include admin scripts if the admin is logged in.
 
 if ( is_admin () ) {
+    
     require( dirname( __FILE__ ). '/admin/class-admin-downloads.php') ;
+    
+    require( dirname( __FILE__ ). '/admin/class-admin-subscribers.php') ;
+    
     require_once( dirname ( __FILE__ ) . '/admin/doifd-admin.php' ) ;
+    
 }
 
 // For Debuggin Purposes - Saves plugin activation errors to file for review
