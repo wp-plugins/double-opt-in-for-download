@@ -60,6 +60,8 @@ if ( is_admin () ) {
     
     require( dirname( __FILE__ ). '/admin/class-admin-subscribers.php') ;
     
+    require( dirname( __FILE__ ). '/admin/class-admin-csv.php') ;
+    
     require_once( dirname ( __FILE__ ) . '/admin/doifd-admin.php' ) ;
     
 }
