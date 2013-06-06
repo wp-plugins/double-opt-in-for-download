@@ -111,35 +111,15 @@ add_action ( 'admin_init' , 'doifd_edit_download' ) ;
 
 // This will be the contests of the Settings or options page
         function doifd_lab_options_page() {
-
-            global $wpdb ;
-
-            // check to see if the user has the privileges to access the options page.
+            
             if ( ! current_user_can ( 'manage_options' ) ) {
-                wp_die ( __ ( 'You do not have sufficient permissions to access this page.' ) ) ;
-            }
-            ?>
-
-            <!--Begin HTML markup-->
-            <div class="wrap">
-                <div id="icon-options-general" class="icon32"></div>
-                <h2>Settings</h2>
-
-                <?php include DOUBLE_OPT_IN_FOR_DOWNLOAD_DIR . 'includes/doifd-admin-header.php' ; ?>
                 
-                <!--Save Options Button-->
+                wp_die ( __ ( 'You do not have sufficient permissions to access this page.' ) ) ;
+                
+            }
 
-                <form action="options.php" method="post">
-                    <?php
-                    settings_fields ( 'doifd_lab_options' ) ;
-                    do_settings_sections ( 'doifd_lab' ) ;
-                    ?>
-                    <input class='button-primary' name="Submit" type="submit" value="Save Changes">
-                </form>
-
-            </div> <!--Wrap End--> 
-
-            <?php
+            return DoifdAdminOptions::options_page();
+            
         }
         
 function doifd_lab_recaptcha_page() {
@@ -183,159 +163,56 @@ function doifd_lab_validate_recaptcha_options( $input ) {
 // set maximum number of downloads
         function doifd_lab_setting_input() {
 
-
-            // get options from options table
-            $options = get_option ( 'doifd_lab_options' ) ;
-
-            // get maximum number of downloads and assign to variable
-            $downloads_allowed = $options['downloads_allowed'] ;
-
-            echo '<div id="doifd_lab_admin_options">' ;
-            echo '<select name="doifd_lab_options[downloads_allowed]" id="downloads_allowed">' ;
-            echo "<option value='{$options['downloads_allowed']}'>" ;
-            echo esc_attr ( __ ( 'Select Maximum Downloads' ) ) ;
-            echo '</option>' ;
-            echo '<option value="1" ' . (($downloads_allowed == 1 ) ? 'selected="selected"' : "") . '>1</option>' ;
-            echo '<option value="2" ' . (($downloads_allowed == 2 ) ? 'selected="selected"' : "") . '>2</option>' ;
-            echo '<option value="3" ' . (($downloads_allowed == 3 ) ? 'selected="selected"' : "") . '>3</option>' ;
-            echo '<option value="4" ' . (($downloads_allowed == 4 ) ? 'selected="selected"' : "") . '>4</option>' ;
-            echo '<option value="5" ' . (($downloads_allowed == 5 ) ? 'selected="selected"' : "") . '>5</option>' ;
-            echo '<option value="6" ' . (($downloads_allowed == 6 ) ? 'selected="selected"' : "") . '>6</option>' ;
-            echo '<option value="7" ' . (($downloads_allowed == 7 ) ? 'selected="selected"' : "") . '>7</option>' ;
-            echo '<option value="8" ' . (($downloads_allowed == 8 ) ? 'selected="selected"' : "") . '>8</option>' ;
-            echo '<option value="9" ' . (($downloads_allowed == 9 ) ? 'selected="selected"' : "") . '>9</option>' ;
-            echo '<option value="10" ' . (($downloads_allowed == 10 ) ? 'selected="selected"' : "") . '>10</option>' ;
-            echo '</select>' ;
-            _e ( '<p>Select the maximum number of times a subscriber can download an item. The default is <b>1</b>.' , 'Double-Opt-In-For-Download' ) ;
-            echo '</div>' ;
+            return DoifdAdminOptions::allowed_downloads();
+            
         }
 
 // Landing page dropdown select
         function doifd_lab_setting_option() {
 
-            // get options from options table
-            $options = get_option ( 'doifd_lab_options' ) ;
-
-            // assign landing page option to variable
-            $landing_page = $options['landing_page'] ;
-
-            // echo dropdown
-            echo '<div id="doifd_lab_admin_options">' ;
-            echo '<select name="doifd_lab_options[landing_page]" id="landing_page">' ;
-            echo "<option value='{$options['landing_page']}'>" ;
-            echo esc_attr ( __ ( 'Select Landing Page' ) ) ;
-            echo '</option>' ;
-            $pages = get_pages () ;
-            foreach ( $pages as $page ) {
-                $option = '<option value="' . $page->ID . '" ' . (($landing_page == $page->ID ) ? 'selected="selected"' : "") . '>' ;
-                $option .= $page->post_title ;
-                $option .= '</option>' ;
-                echo $option ;
-            }
-            echo '</select>' ;
-            _e ( '<p>Select the landing page for your subscribers. This will be the page your subscribers will come to after they have clicked the link in their verification email. Once you have selected your landing page, place this shortcode <b>[lab_landing_page]</b> on that page.</p>' , 'Double-Opt-In-For-Download' ) ;
-            echo '</div>' ;
+           return DoifdAdminOptions::select_landing_page();
+           
         }
 
 //Add user to wordpress user table radio select
         function doifd_lab_add_to_wp_user_table() {
 
-            // get options from options table
-            $options = get_option ( 'doifd_lab_options' ) ;
-
-            // assign add_to_wpusers option to variable
-            $add_to_wp_user = $options['add_to_wpusers'] ;
-
-            echo '<input type="radio" id="add_to_wpusers" name="doifd_lab_options[add_to_wpusers]" ' . ((isset ( $add_to_wp_user ) && ($add_to_wp_user) == '1' ) ? 'checked="checked"' : "") . ' value="1" /> Yes ' ;
-            echo '<input type="radio" id="add_to_wpusers" name="doifd_lab_options[add_to_wpusers]" ' . (isset ( $add_to_wp_user ) && ($add_to_wp_user == '0' ) ? 'checked="checked"' : "") . ' value="0" /> No ' ;
-            _e ( '<p>If you want to add the subscribers to the wordress user table, check yes. Otherwise they will only be added to the plugins subscriber table.</p>' , 'Double-Opt-In-For-Download' ) ;
+            return DoifdAdminOptions::add_to_user_table ();
+            
         }
 
 //Add promo link to forms
         function doifd_lab_add_promo_link() {
 
-            // get options from options table
-            $options = get_option ( 'doifd_lab_options' ) ;
-
-            // assign add_to_wpusers option to variable
-            if ( isset ( $options['promo_link'] ) ) {
-                $add_promo_link = $options['promo_link'] ;
-            }
-
-            echo '<input type="radio" id="promo_link" name="doifd_lab_options[promo_link]" ' . ((isset ( $add_promo_link ) && ( $add_promo_link ) == '1' ) ? 'checked="checked"' : "") . ' value="1" /> Yes ' ;
-            echo '<input type="radio" id="promo_link" name="doifd_lab_options[promo_link]" ' . (isset ( $add_promo_link ) && ( $add_promo_link == '0' ) ? 'checked="checked"' : "") . ' value="0" /> No ' ;
-            _e ( '<p>If you check "YES", this will add a small promotional link at the bottom of the registration forms.</p>' , 'Double-Opt-In-For-Download' ) ;
+            return DoifdAdminOptions::add_promo_link ();
+            
         }
 
 //Validate User Input
         function doifd_lab_validate_options( $input ) {
 
-            $valid = array ( ) ;
-            $valid['landing_page'] = preg_replace ( '/[^0-9]/' , '' , $input['landing_page'] ) ;
-            $valid['downloads_allowed'] = preg_replace ( '/[^0-9]/' , '' , $input['downloads_allowed'] ) ;
-            $valid['email_name'] = preg_replace ( '/[^ \w]+/' , '' , $input['email_name'] ) ;
-            $valid['from_email'] = $input['from_email'] ;
-            $valid['email_message'] = $input['email_message'] ;
-            $valid['add_to_wpusers'] = preg_replace ( '/[^0-9]/' , '' , $input['add_to_wpusers'] ) ;
-            $valid['promo_link'] = preg_replace ( '/[^0-9]/' , '' , $input['promo_link'] ) ;
-            $valid['widget_width'] = preg_replace ( '/[^0-9]/' , '' , $input['widget_width'] ) ;
-            $valid['widget_inside_padding'] = preg_replace ( '/[^0-9]/' , '' , $input['widget_inside_padding'] ) ;
-            $valid['widget_margin_top'] = preg_replace ( '/[^0-9]/' , '' , $input['widget_margin_top'] ) ;
-            $valid['widget_margin_right'] = preg_replace ( '/[^0-9]/' , '' , $input['widget_margin_right'] ) ;
-            $valid['widget_margin_bottom'] = preg_replace ( '/[^0-9]/' , '' , $input['widget_margin_bottom'] ) ;
-            $valid['widget_margin_left'] = preg_replace ( '/[^0-9]/' , '' , $input['widget_margin_left'] ) ;
-            $valid['widget_input_width'] = preg_replace ( '/[^0-9]/' , '' , $input['widget_input_width'] ) ;
-            return $valid ;
+            $validate_options = new AdminValidation();
+            return $validate_options->admin_options_validation( $input );
+            
         }
 
         function doifd_lab_setting_from_email() {
 
-// Email options form
-            // get options from options table
-            $email_options = get_option ( 'doifd_lab_options' ) ;
-
-            // get from email and assign to variable
-            $from_email = $email_options['from_email'] ;
-
-            // echo email form
-            echo '<div id="doifd_lab_admin_options">' ;
-            echo '<input type="text" name="doifd_lab_options[from_email]" id="from_email" value="' . $from_email . '">' ;
-            _e ( '<p>This is the email address that shows in the <b>From</b> field in the verification email. If this is left blank it will default to the admin email address</p>' , 'Double-Opt-In-For-Download' ) ;
-            echo '</div>' ;
+            return DoifdAdminOptions::from_email_address_field ();
+            
         }
 
         function doifd_lab_setting_email_name() {
 
-            // get options from options table
-            $email_options = get_option ( 'doifd_lab_options' ) ;
-
-            // get email name from options table and assign to variable
-            $email_name = $email_options['email_name'] ;
-
-            // show email name input field
-            echo '<div id="doifd_lab_admin_options">' ;
-            echo '<input type="text" name="doifd_lab_options[email_name]" id="email_name" value="' . $email_name . '">' ;
-            _e ( '<p>This is the <b>Name</b> that will show in the <b>From</b> field in the verification email. If this is left blank it will default to your website/blog name.</p>' , 'Double-Opt-In-For-Download' ) ;
-            echo '</div>' ;
+            return DoifdAdminOptions::from_email_name_field ();
+            
         }
 
 // Email message for verification email
         function doifd_lab_setting_email_message() {
 
-            // get options from options table
-            $email_options = get_option ( 'doifd_lab_options' ) ;
-
-            // get email message from options table and assign to variable
-            $email_message = $email_options['email_message'] ;
-
-            // show email message textarea
-            echo '<div id="doifd_lab_admin_options">' ;
-            echo '<textarea rows="10" cols="60" name="doifd_lab_options[email_message]" id="email_message">' . $email_message . '</textarea>' ;
-            _e ( '<p>This is the verification email that is sent to a new subscriber. Just remember, at the very least, you need to keep the <b>{URL}</b> in your email, as this provides the subscriber with the verification link. See the complete list below.<br />
-                     <b>{subscriber} = Subscribers Name<br />
-                     {url} = Verification Link<br />
-                     {download} = The name of the download the subscriber has selected</b><br />' , 'Double-Opt-In-For-Download' ) ;
-            echo '</div>' ;
+            return DoifdAdminOptions::email_message_field();
+            
         }
 
         function doifd_lab_setting_widget_width() {
@@ -501,7 +378,7 @@ function doifd_lab_validate_recaptcha_options( $input ) {
 
         function doifd_lab_create_csv_file_of_subscribers() {
 
-            $process = new DoifdCVS;
+            $process = new DoifdCSV();
             $process->csv_download();
             
         }
@@ -511,29 +388,8 @@ function doifd_lab_validate_recaptcha_options( $input ) {
 
         function doifd_lab_resend_verification_email() {
 
-            // check if it's coming from the resend verification email button and the user has privileges
-            if ( isset ( $_REQUEST['name'] ) && ( $_REQUEST['name'] == 'doifd_lab_resend_verification_email' ) && ( current_user_can ( 'manage_options' ) ) ) {
-
-                // sanitize variables from form and assign to variables
-                $a = sanitize_text_field ( $_REQUEST['user_name'] ) ;
-                $b = sanitize_email ( $_REQUEST['user_email'] ) ;
-                $c = preg_replace ( '/[^ \w]+/' , '' , $_REQUEST['user_ver'] ) ;
-                $d = preg_replace ( "/[^0-9]/" , "" , $_REQUEST['download_id'] ) ;
-
-                // package clean variable into an array and send them to the send email function
-                $send = doifd_lab_verification_email ( $value = array (
-                    "user_name"=>$a ,
-                    "user_email"=>$b ,
-                    "user_ver"=>$c ,
-                    "download_id"=>$d ) ) ;
-
-                if ( $send === TRUE ) {
-                    echo '<div class="updated"><p><strong>Email Sent To Subscriber <a href="' . str_replace ( '%7E' , '~' , $_SERVER['REQUEST_URI'] ) . '">Return Back</a></strong></p></div>' ;
-                }
-                else {
-                    echo '<div class="error"><p><strong>A Problem Prevented the Email From Being Sent<a href="' . str_replace ( '%7E' , '~' , $_SERVER['REQUEST_URI'] ) . '">Return Back</a></strong></p></div>' ;
-                }
-            }
+            $resend_email = new DoifdEmail();
+            return $resend_email->admin_resend_verification_email();
         }
 
         function doifd_lab_dashboard_widget_function() {

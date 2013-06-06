@@ -47,6 +47,7 @@ load_plugin_textdomain ( 'double-opt-in-for-download' , false , DOUBLE_OPT_IN_FO
 // Load widget file
 
 require 'includes/doifd-widget.php' ;
+require 'includes/class-email.php' ;
 
 // Load reCaptcha Library
 require DOUBLE_OPT_IN_FOR_DOWNLOAD_CAPTCHA_DIR  . 'class-captcha.php';
@@ -55,6 +56,10 @@ require_once( DOUBLE_OPT_IN_FOR_DOWNLOAD_CAPTCHA_DIR . 'recaptchalib.php');
 // Include admin scripts if the admin is logged in.
 
 if ( is_admin () ) {
+    
+    require( dirname( __FILE__ ). '/admin/class-admin-validation.php') ;
+    
+    require( dirname( __FILE__ ). '/admin/class-admin-options.php') ;
     
     require( dirname( __FILE__ ). '/admin/class-admin-downloads.php') ;
     

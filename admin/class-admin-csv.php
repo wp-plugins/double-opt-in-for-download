@@ -1,8 +1,8 @@
 <?php
 
-class DoifdCVS {
+class DoifdCSV {
     
-    public function __construct() {
+    public function __construct() { 
         
     }
     
@@ -15,7 +15,7 @@ class DoifdCVS {
 
                 // create name for file "Website Name-Subscribers-Date"
                 $fileName = get_bloginfo ( 'name' ) . '-Subscribers-' . date ( 'Y-m-d' ) . '.csv' ;
-
+                
                 // header for download
                 header ( "Cache-Control: must-revalidate, post-check=0, pre-check=0" ) ;
                 header ( 'Content-Description: File Transfer' ) ;
@@ -24,7 +24,6 @@ class DoifdCVS {
                 header ( "Expires: 0" ) ;
                 header ( "Pragma: public" ) ;
                 
-
                 // create file
                 $fh = @fopen ( 'php://output' , 'w' ) ;
 
