@@ -26,7 +26,7 @@
   along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-// Define URL & DIR path to plugin folder and DIR path to download folder
+/* Define URL & DIR path to plugin folder and DIR path to download folder */
 
 $uploads = wp_upload_dir () ;
 
@@ -39,8 +39,7 @@ define ( 'DOUBLE_OPT_IN_FOR_DOWNLOAD_CAPTCHA_URL' , plugin_dir_url ( __FILE__ ) 
 define ( 'DOUBLE_OPT_IN_FOR_DOWNLOAD_CAPTCHA_DIR' , plugin_dir_path ( __FILE__ ) . 'captcha/' ) ;
 define ( 'DOUBLE_OPT_IN_FOR_DOWNLOAD_IMG_URL' , plugin_dir_url ( __FILE__ ) . 'img/' ) ;
 
-
-include_once 'class-doifd.php';
+include_once( 'class-doifd.php' );
 
 $new = new DOIFD();
 
