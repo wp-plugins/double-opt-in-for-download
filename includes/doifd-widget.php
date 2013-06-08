@@ -1,8 +1,8 @@
 <?php
 
-class doifd_lab_widget_signup extends WP_Widget {
-
-    function doifd_lab_widget_signup() {
+class DoifdFormWidget extends WP_Widget {
+     
+    function DoifdFormWidget() {
         $widget_ops = array (
             'classname'=>'doifd_lab_widget_signup_class' ,
             'description'=>'Display Double-Opt-In Signup form'

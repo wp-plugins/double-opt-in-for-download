@@ -4,9 +4,11 @@ class DoifdCSV {
     
     public function __construct() { 
         
+        add_action ( 'admin_init', array( &$this, 'csv_download' ) );
+        
     }
     
-    public static function csv_download() {
+    function csv_download() {
         
         global $wpdb ;
 
