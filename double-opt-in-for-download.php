@@ -1,5 +1,4 @@
 <?php
-
 /*
   Plugin Name: Double Opt In For Download
   Plugin URI: http://www.labwebdesigns.com/wordpress-plugins.html
@@ -30,6 +29,8 @@
 
 $uploads = wp_upload_dir () ;
 
+define('ALLOW_INCLUDE', true);
+
 define ( 'DOUBLE_OPT_IN_FOR_DOWNLOAD_URL' , plugin_dir_url ( __FILE__ ) ) ;
 define ( 'DOUBLE_OPT_IN_FOR_DOWNLOAD_DIR' , plugin_dir_path ( __FILE__ ) ) ;
 define ( 'DOUBLE_OPT_IN_FOR_DOWNLOAD_DOWNLOAD_DIR' , $uploads['basedir'] . '/doifd_downloads/' ) ;
@@ -39,8 +40,11 @@ define ( 'DOUBLE_OPT_IN_FOR_DOWNLOAD_CAPTCHA_URL' , plugin_dir_url ( __FILE__ ) 
 define ( 'DOUBLE_OPT_IN_FOR_DOWNLOAD_CAPTCHA_DIR' , plugin_dir_path ( __FILE__ ) . 'captcha/' ) ;
 define ( 'DOUBLE_OPT_IN_FOR_DOWNLOAD_IMG_URL' , plugin_dir_url ( __FILE__ ) . 'img/' ) ;
 
-include_once( 'class-doifd.php' );
+include_once( DOUBLE_OPT_IN_FOR_DOWNLOAD_DIR . '/includes/class-doifd.php' );
 
-$new = new DOIFD();
+register_activation_hook ( __FILE__, array( 'DoifdInstall', 'activate_doifd_plugin' ) );
+
+
+DOIFD::get_instance ();
 
 ?>

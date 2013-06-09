@@ -5,19 +5,23 @@ class DoifdCaptcha {
     public function __construct() {
         
     }
-
-    public function reCaptcha_process() {
-
-        $privatekey = "6Ldo7eESAAAAAA_en-CwymylgXIVq7jgzEeJRXiz";
+    
+    /* This function processes the reCAPTCHA phrase with GOOGLE */
+    
+    public static function reCaptcha_process() {
         
-        $doifd_resp = doifd_recaptcha_check_answer($privatekey, $_SERVER["REMOTE_ADDR"], $_POST["recaptcha_challenge_field"], $_POST["recaptcha_response_field"]);
+        $options = get_option( 'doifd_lab_recaptcha_options' );
+
+        $privatekey = $options[ 'doifd_recaptcha_private' ];
         
-        return $doifd_resp;
+        $response = doifd_recaptcha_check_answer($privatekey, $_SERVER["REMOTE_ADDR"], $_POST["recaptcha_challenge_field"], $_POST["recaptcha_response_field"]);
+        
+        return $response;
     }
     
+    /* This fucntion gets the public key from the wp options table */
+    
     public function reCaptcha_public_key() {
-
-        // get recaptcha public key from options table and assign to variable
         
          $options = get_option('doifd_lab_recaptcha_options');
         
@@ -27,6 +31,8 @@ class DoifdCaptcha {
         
     }
 
+    /* This fucntion creates the reCAPTCHA admin options page */
+    
     public static function reCaptcha_admin_options_page() {
         
         ?>
@@ -62,18 +68,20 @@ class DoifdCaptcha {
             <?php
             
     }
+    
+    /* This function creates the private key field in the admin reCAPTCHA options section */
 
     public static function recaptcha_private_key_field() {
 
-        // get options from options table
+        /* Get options from options table */
         
         $doifd_recaptcha_option = get_option('doifd_lab_recaptcha_options');
 
-        // get recaptcha keys and assign to variable
+        /* Get recaptcha keys and assign to variable */
         
         $doifd_recaptcha_private = $doifd_recaptcha_option['doifd_recaptcha_private'];
 
-        // echo email form
+        /* Echo reCAPTCHA private key field */
         
         echo '<div id="doifd_lab_admin_options">';
         
