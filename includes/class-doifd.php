@@ -10,9 +10,6 @@ include_once( DOUBLE_OPT_IN_FOR_DOWNLOAD_DIR . '/includes/class-download.php' );
 include_once( DOUBLE_OPT_IN_FOR_DOWNLOAD_CAPTCHA_DIR . 'class-captcha.php' );
 
 class DOIFD {
-
-    
-    protected $version = '0.9';
     
     protected $plugin_slug = 'Double-Opt-In-For-Download';
     

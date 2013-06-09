@@ -21,7 +21,7 @@ class DoifdCaptcha {
     
     /* This fucntion gets the public key from the wp options table */
     
-    public function reCaptcha_public_key() {
+    public static function reCaptcha_public_key() {
         
          $options = get_option('doifd_lab_recaptcha_options');
         

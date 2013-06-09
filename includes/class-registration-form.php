@@ -152,7 +152,7 @@ class DoifdRegistrationForm {
             
             if ( isset ( $doifd_lab_msg ) ) {
 
-                $publickey = DoifdCaptcha::recaptcha_public_key_field () ;
+                $publickey = DoifdCaptcha::reCaptcha_public_key () ;
 
                 return '<div id="doifd_user_reg_form">' . $doifd_lab_msg . '
             <script type="text/javascript">
@@ -271,7 +271,7 @@ class DoifdRegistrationForm {
             }
         }
 
-        $publickey = DoifdCaptcha::recaptcha_public_key_field();
+        $publickey = DoifdCaptcha::reCaptcha_public_key ();
 
         return '<script type="text/javascript">
             var RecaptchaOptions = {

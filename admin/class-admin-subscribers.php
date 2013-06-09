@@ -10,7 +10,7 @@ class DoifdSubscribers {
 
         global $wpdb;
 
-// get the total count of subscribers
+        /* Get the total count of subscribers */
 
         $sql = "SELECT COUNT(*) FROM " . $wpdb->prefix . "doifd_lab_subscribers ";
 
@@ -21,5 +21,4 @@ class DoifdSubscribers {
     }
 
 }
-
 ?>

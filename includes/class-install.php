@@ -1,6 +1,10 @@
 <?php
 
 class DoifdInstall {
+    
+    /* Declare version number of Plugin */
+    
+    protected $version = 'test';
 
     public static function install_plugin() {
 
@@ -9,10 +13,6 @@ class DoifdInstall {
         require( ABSPATH . 'wp-admin/includes/upgrade.php' );
 
         global $wpdb;
-
-        /* Declares version number of Plugin for future upgrades */
-
-        $doifd_lab_version = '0.9';
 
         /* If wordpress version is 3.0 or below, deactivate plugin */
 
@@ -26,7 +26,7 @@ class DoifdInstall {
 
         /* If version number is different create/update plugin tables */
 
-        if ( $doifd_lab_installed_ver != $doifd_lab_version ) {
+        if ( $doifd_lab_installed_ver != $this->version ) {
 
             /* Assign subscribers table name to variable */
             
@@ -62,12 +62,13 @@ class DoifdInstall {
                         UNIQUE KEY id (doifd_download_id)
                         );";
             dbDelta ( $doifd_lab_sql2 );
-        }
-
+            
         /* Add version to Wordpress options table */
 
-        add_option ( 'doifd_lab_version', $doifd_lab_version );
-
+        add_option( 'doifd_lab_version', $this->version );
+        
+        }
+            
         /* Add plugin default options to wordpress options table */
 
         if ( !get_option ( 'doifd_lab_options' ) ) {
@@ -124,7 +125,7 @@ Thank You'
             
             fclose ( $file_handle );
         }
-
+        
     }
 
 }
