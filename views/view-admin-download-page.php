@@ -1,6 +1,6 @@
 <div class="wrap">
 
-    <h2>Add a download file</h2>
+    <h2>Downloads</h2>
 
     <div id="icon-edit-pages" class="icon32"></div>
 
@@ -13,7 +13,12 @@
     ?>
 
     <!--HTML for upload form begins here-->
-
+    <h2>Upload Your Dowload File Here</h2>
+    <p>Here is where you upload your free download. You simply give your download a name, then click the browse button and select your download
+        file from your computer. Once you have selected your download, press the upload button. When the page refreshes you will see your download
+        in the download table below. You will also see that the shortcode is generated for you. If you choose to put the sign up form in a post or page
+        just copy the shortcode and paste it into the page or post you want it to show up in. If you choose to use the widget, you will just need to select
+        the download in the dropdown box when setting up your widget.</p>
     <form method="post" action="" enctype="multipart/form-data">
 
         <table class="form-table">
@@ -29,7 +34,8 @@
 
                 <th scope="row"><label for="name">Name of Your Download<span> *</span>: </label></th>
 
-                <td><input type="text" name="name" id="name" value=""/></td>
+                <td><input type="text" name="name" id="name" size="50" value=""/><p>The name you give your download file will also appear in the verification email.</p></td>
+                
 
             </tr>
 
@@ -37,7 +43,7 @@
 
                 <th scope="row"><label for="name">Select Your File<span> *</span>: </label></th>
 
-                <td><input type="file" name="userfile" id="userfile"><p>( Currently, the following file types are allowed; .jpg, .jpeg, .png, .bmp, .gif, .pdf, .zip, .doc, .docx )</p></td>
+                <td><input type="file" name="userfile" size="50" id="userfile"><p>( Currently, the following file types are allowed; .jpg, .jpeg, .png, .bmp, .gif, .pdf, .zip, .doc, .docx )</p></td>
 
             </tr>
 
@@ -54,7 +60,8 @@
     <br />
 
     <hr />
-
+        <h2>Downloads</h2>
+        <p>You can Edit, Delete or view your download count here.</p>
     <br />
 
     <?php

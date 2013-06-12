@@ -1,8 +1,9 @@
 <div class = "wrap">
 
-<h2>Edit Download File <?php echo $_GET[ 'doifd_download_name' ] ; ?></h2>
-
-<div id="icon-edit-pages" class="icon32"></div>
+    <div id="icon-edit-pages" class="icon32"></div>
+    
+    <h2>Edit Download File <?php echo $_GET[ 'doifd_download_name' ] ; ?></h2>
+    <p>Here you can either rename your download file, replace it with a different file <i>(The old one will be deleted from the server)</i> or you can reset the download count.</p>
 
 <form method="post" action="" enctype="multipart/form-data">
 

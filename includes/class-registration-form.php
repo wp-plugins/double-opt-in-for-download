@@ -316,24 +316,38 @@ class DoifdRegistrationForm {
         if ( isset ( $_GET[ 'ver' ] ) ) {
 
             $ver = $_GET[ 'ver' ];
-
+            
             /* Query the database to check the verification number and get the value
              * for downloads_allowed and assign the results to a variable
              */
             
-            $checkver = $wpdb->get_row ( "SELECT doifd_email_verified, doifd_downloads_allowed FROM " . $wpdb->prefix . "doifd_lab_subscribers  WHERE doifd_verification_number = '$ver' " );
+            $checkver = $wpdb->get_row ( "SELECT doifd_email_verified, doifd_downloads_allowed, doifd_download_id FROM " . $wpdb->prefix . "doifd_lab_subscribers  WHERE doifd_verification_number = '$ver' " );
 
-            /* If the email is already verified and they have already exceed the number
-             * of downloads allowed set session value to 3
+            /* Query the database to get the download name
+             * **NEED TO UPDATE AND COMBINE BOTH QUERIES***
              */
+            
+            $fileName = $wpdb->get_var ( "SELECT doifd_download_file_name FROM " . $wpdb->prefix . "doifd_lab_downloads  WHERE doifd_download_id = '$checkver->doifd_download_id' " ) ;
+        
+            /* Use PHP to see if the file is really there */
+            
+            $file = DOUBLE_OPT_IN_FOR_DOWNLOAD_DOWNLOAD_DIR . '/' . $fileName ;
+            
+            /* If we find there is no file on the server, show the user a generic error message with code */
+            
+            if (!file_exists($file)) {  
+                
+                return '<div id="doifd_user_reg_form" class="exceeded">There was an error<br />Please notify the website administrator.</div>';
+                
+            }
+            
+            /* If the email is already verified and they have already exceed the number of downloads, lets show a message */
 
-            if ( ( $checkver->doifd_email_verified == '1' ) && ( $checkver->doifd_downloads_allowed >= $allowed ) ) {
+            elseif ( ( $checkver->doifd_email_verified == '1' ) && ( $checkver->doifd_downloads_allowed >= $allowed ) ) {
 
                 return '<div id="doifd_user_reg_form" class="exceeded">You have exceeded your number of<br />downloads for this item.</div>';
 
-                /* If the email is already verified and they have NOT exceed the number of
-                 * downloads allowed set session value to 2
-                 */
+                /* If the email is already verified and they have NOT exceed the number of downloads, lets show the download button */
                 
             } elseif ( ( $checkver->doifd_email_verified == '1' ) && ( $checkver->doifd_downloads_allowed <= $allowed ) ) {
 

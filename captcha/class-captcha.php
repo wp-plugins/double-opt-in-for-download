@@ -45,7 +45,7 @@ class DoifdCaptcha {
             
             <h2>reCaptcha Settings</h2>
 
-            <?php include DOUBLE_OPT_IN_FOR_DOWNLOAD_DIR . 'includes/doifd-admin-header.php'; ?>
+            <?php include DOUBLE_OPT_IN_FOR_DOWNLOAD_DIR . 'views/view-admin-header.php'; ?>
 
             <!--Save Options Button-->
 

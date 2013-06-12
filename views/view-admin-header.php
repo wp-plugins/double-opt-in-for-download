@@ -7,7 +7,7 @@
     <p>You can also get assistance at our website <a href="http://www.labwebdesigns.com" target="new" >Lab Web Designs & Hosting</a></p>
     <p>If you like this plugin please review it <a href="http://wordpress.org/support/view/plugin-reviews/double-opt-in-for-download" target="new">here</a></p>
     <div class="doifd_admin_paypal">
-        <h2>Is this plugin working for you?</h2>
+        <h2>Is this plugin working for you? Do you need some good Karma? </h2>
         <img src="<?php echo DOUBLE_OPT_IN_FOR_DOWNLOAD_URL; ?>img/coffee.jpg" class="coffee" />
         <div class="paypal_form_inner">
             <h3>How about buying me a cup of coffee?</h3>

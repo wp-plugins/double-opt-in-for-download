@@ -195,7 +195,7 @@ class DoifdFormWidget extends WP_Widget {
 
 
                     //lets package the subscriber information and download id into an array and send it to the send email function
-                    doifd_lab_verification_email ( $value = array (
+                    DoifdEmail::send_verification_email( $value = array (
                         "user_name"=>$doifd_lab_subscriber_name ,
                         "user_email"=>$doifd_lab_subscriber_email ,
                         "user_ver"=>$doifd_lab_ver ,

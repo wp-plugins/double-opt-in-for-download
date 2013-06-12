@@ -12,7 +12,7 @@ Improve your client outreach by offering FREE downloads to your visitors in exch
 
 == Description ==
 
-The Double Opt-In for download plugin is ideal for improving your customer out reach.
+The Double Opt-In for download plugin is ideal for improving your customer outreach.
 
 You simply upload your free download using the plugin admin interface. Once your file is uploaded, just add the generated shortcode to the pages or posts where you would like to show the sign up form.
  
@@ -85,6 +85,13 @@ That will do it.
 5. This is a screen shot of the subscribers admin screen.
 
 == Changelog ==
+
+= 1.0.0 =
+
+1. Added ability to upload mp3 files
+2. Code enhancements for smother operation
+3. Added Error codes to help trouble shoot problems.
+4. Improved instructions throughout the pages
 
 = 0.9 =
 

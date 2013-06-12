@@ -2,7 +2,7 @@
 
 /*  Load necessary classes */
 
-include_once( DOUBLE_OPT_IN_FOR_DOWNLOAD_DIR . '/class-install.php' );
+include_once( DOUBLE_OPT_IN_FOR_DOWNLOAD_DIR . '/includes/class-install.php' );
 include_once( DOUBLE_OPT_IN_FOR_DOWNLOAD_DIR . '/includes/doifd-widget.php' );
 include_once( DOUBLE_OPT_IN_FOR_DOWNLOAD_DIR . '/includes/class-email.php' );
 include_once( DOUBLE_OPT_IN_FOR_DOWNLOAD_DIR . '/includes/class-registration-form.php' );

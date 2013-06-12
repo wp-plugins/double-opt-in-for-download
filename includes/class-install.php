@@ -4,9 +4,11 @@ class DoifdInstall {
     
     /* Declare version number of Plugin */
     
-    protected $version = 'test';
-
-    public static function install_plugin() {
+     function __construct() {
+         
+     }
+    
+    public static function activate_doifd_plugin() {
 
         /* Install function that creates the tables needed by the plugin and adds our options to wordpres */
 
@@ -25,9 +27,12 @@ class DoifdInstall {
         $doifd_lab_installed_ver = get_option ( 'doifd_lab_version' );
 
         /* If version number is different create/update plugin tables */
+        
+        $current_version = "0.9";
 
-        if ( $doifd_lab_installed_ver != $this->version ) {
-
+        if ( $doifd_lab_installed_ver != $current_version ) {
+            
+            update_option( 'doifd_lab_version', $current_version );
             /* Assign subscribers table name to variable */
             
             $doifd_lab_table_name1 = $wpdb->prefix . 'doifd_lab_subscribers';
@@ -65,7 +70,7 @@ class DoifdInstall {
             
         /* Add version to Wordpress options table */
 
-        add_option( 'doifd_lab_version', $this->version );
+        
         
         }
             
@@ -91,6 +96,7 @@ Thank You'
                     );
 
             add_option ( 'doifd_lab_options', $doifd_default_options );
+            
         }
 
         /* Create download directory if it does not exist */

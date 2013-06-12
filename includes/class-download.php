@@ -88,11 +88,13 @@ public static function link_to_download() {
             
             $file = DOUBLE_OPT_IN_FOR_DOWNLOAD_DOWNLOAD_DIR . '/' . $realFileName ;
 
+            /* Assign the appropriate Content-Type header for the file and send file to subscribers browser */
+            
+            
+                
             /* Open the file */
             
-            $fp = fopen ( $file , 'rb' ) ;
-
-            /* Assign the appropriate Content-Type header for the file and send file to subscribers browser */
+            $fp = fopen ( $file , 'rb' ) ;  
             
             if ( $extension == 'jpg' ) {
                 header ( 'Content-Type: image/jpg' ) ;
@@ -119,13 +121,16 @@ public static function link_to_download() {
                 header ( "Content-type: application/vnd.openxmlformats-officedocument.wordprocessingml.document" ) ;
             }
             elseif ( $extension == 'pdf' ) {
-                header ( "Content-type: application/octet-stream" ) ;
+                header ( "Content-type: application/pdf" ) ;
+            }
+            elseif ( $extension == 'mp3' ) {
+                header ( "Content-Type: audio/mpeg" ) ;
             }
             header ( 'Content-Transfer-Encoding: binary' ) ;
             header ( "Content-Disposition: attachment; filename=$fakeFileName" ) ;
             header ( "Content-Length:" . filesize ( $file ) ) ;
             fpassthru ( $fp ) ;
-
+            
             /* If the conection / download status was successful update subscriber
              * status to show successful download and download table to show total downloads
              */
