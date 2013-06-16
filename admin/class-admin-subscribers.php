@@ -1,24 +1,29 @@
 <?php
 
-class DoifdSubscribers {
+if ( !class_exists ( 'DoifdSubscribers' ) ) {
 
-    public function __construct() {
-        
-    }
+    class DoifdSubscribers {
 
-    public function get_subscriber_count() {
+        public function __construct() {
+            
+        }
 
-        global $wpdb;
+        public function get_subscriber_count() {
 
-        /* Get the total count of subscribers */
+            global $wpdb;
 
-        $sql = "SELECT COUNT(*) FROM " . $wpdb->prefix . "doifd_lab_subscribers ";
+            /* Get the total count of subscribers */
 
-        $count = $wpdb->get_var ( $sql );
+            $sql = "SELECT COUNT(*) FROM " . $wpdb->prefix . "doifd_lab_subscribers ";
 
-        return $count;
+            $count = $wpdb->get_var ( $sql );
+
+            return $count;
+
+        }
 
     }
 
 }
+
 ?>

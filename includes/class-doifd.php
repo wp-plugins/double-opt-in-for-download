@@ -7,175 +7,187 @@ include_once( DOUBLE_OPT_IN_FOR_DOWNLOAD_DIR . '/includes/doifd-widget.php' );
 include_once( DOUBLE_OPT_IN_FOR_DOWNLOAD_DIR . '/includes/class-email.php' );
 include_once( DOUBLE_OPT_IN_FOR_DOWNLOAD_DIR . '/includes/class-registration-form.php' );
 include_once( DOUBLE_OPT_IN_FOR_DOWNLOAD_DIR . '/includes/class-download.php' );
-include_once( DOUBLE_OPT_IN_FOR_DOWNLOAD_CAPTCHA_DIR . 'class-captcha.php' );
 
-class DOIFD {
-    
-    protected $plugin_slug = 'Double-Opt-In-For-Download';
-    
-    protected static $instance = null;
+if (file_exists( DOUBLE_OPT_IN_FOR_DOWNLOAD_CAPTCHA_DIR )) {
+ 
+    include_once( DOUBLE_OPT_IN_FOR_DOWNLOAD_CAPTCHA_DIR . 'class-captcha.php' );
+}
 
-    protected $plugin_screen_hook_suffix = null;
+if ( !class_exists ( 'DOIFD' ) ) {
 
+    class DOIFD {
 
-    function __construct() {
+        protected $plugin_slug = 'Double-Opt-In-For-Download';
+        protected static $instance = null;
+        protected $plugin_screen_hook_suffix = null;
 
-        /* require the recaptcha library */
-        
-        $this->require_library ();
+        function __construct() {
 
-        /* register the hooks */
+            /* require the recaptcha library */
+            
+            if (file_exists( DOUBLE_OPT_IN_FOR_DOWNLOAD_CAPTCHA_DIR )) {
+                
+                $this->require_library();
+                
+                }
 
-        $this->register_actions ();
+            
 
-        /* register the shortcodes */
+            /* register the hooks */
 
-        $this->register_shortcodes ();
+            $this->register_actions ();
 
-        /* register the languages (textdomain) */
+            /* register the shortcodes */
 
-        $this->language ();
-        
-        /* Call the admin function */
+            $this->register_shortcodes ();
 
-        $this->doifd_admin ();
-        
-        /* Call the Download Class to handle the download */
+            /* register the languages (textdomain) */
 
-        DoifdDownload::link_to_download();
-    }
+            $this->language ();
 
-    public static function get_instance() {
+            /* Call the admin function */
 
-    /* If the single instance hasn't been set, set it now. */
-    
-        if ( null == self::$instance ) {
-        
-            self::$instance = new self;
+            $this->doifd_admin ();
+
+            /* Call the Download Class to handle the download */
+
+            DoifdDownload::link_to_download ();
+
         }
 
-        return self::$instance;
+        public static function get_instance() {
 
-    }
+            /* If the single instance hasn't been set, set it now. */
 
-    function register_actions() {
+            if ( null == self::$instance ) {
 
-        /* Creates an error log for errors during activation */
+                self::$instance = new self;
+            }
 
-        add_action ( 'activated_plugin', array( &$this, 'save_error' ) );
+            return self::$instance;
 
-        /* Enqueues the style sheets */
-
-        add_action ( 'wp_enqueue_scripts', array( &$this, 'doifd_lab_add_stylesheet' ) );
-
-        /* Process the email */
-
-        add_action ( 'init', array( &$this, 'doifd_lab_verification_email' ) );
-
-        /* Registers the Widget */
-
-        add_action ( 'widgets_init', array( &$this, 'doifd_lab_widget' ) );
-
-    }
-
-    function register_shortcodes() {
-
-        /* Landing Page Button */
-
-        add_shortcode ( 'lab_landing_page', array( &$this, 'doifd_lab_verify_email' ) );
-
-        /* The Registration Form for Posts & Pages */
-
-        add_shortcode ( 'lab_subscriber_download_form', array( &$this, 'doifd_lab_subscriber_registration_form' ) );
-
-    }
-
-    /* Load language translation files */
-
-    function language() {
-
-        load_plugin_textdomain ( $this->plugin_slug , false, DOUBLE_OPT_IN_FOR_DOWNLOAD_LANGUAGES_DIR );
-
-    }
-
-    /* Include admin scripts if the admin is logged in. */
-
-    function doifd_admin() {
-
-        if ( is_admin () ) {
-
-            require_once( DOUBLE_OPT_IN_FOR_DOWNLOAD_DIR . '/admin/doifd-admin.php' );
-
-            $doifd = new DoifdAdmin();
         }
 
-    }
+        function register_actions() {
 
-    /* For Debuggin Purposes - Saves plugin activation errors to file for review */
+            /* Creates an error log for errors during activation */
 
-    function save_error() {
+            add_action ( 'activated_plugin', array( &$this, 'save_error' ) );
 
-        file_put_contents ( ABSPATH . 'wp-content/uploads/2013/error_activation.html', ob_get_contents () );
+            /* Enqueues the style sheets */
 
-    }
+            add_action ( 'wp_enqueue_scripts', array( &$this, 'doifd_lab_add_stylesheet' ) );
 
-    /* Engueue the style sheets for the plugin */
+            /* Process the email */
 
-    function doifd_lab_add_stylesheet() {
+            add_action ( 'init', array( &$this, 'doifd_lab_verification_email' ) );
 
-        /* Register Style Sheet for forms and widget */
+            /* Registers the Widget */
+
+            add_action ( 'widgets_init', array( &$this, 'doifd_lab_widget' ) );
+
+        }
+
+        function register_shortcodes() {
+
+            /* Landing Page Button */
+
+            add_shortcode ( 'lab_landing_page', array( &$this, 'doifd_lab_verify_email' ) );
+
+            /* The Registration Form for Posts & Pages */
+
+            add_shortcode ( 'lab_subscriber_download_form', array( &$this, 'doifd_lab_subscriber_registration_form' ) );
+
+        }
+
+        /* Load language translation files */
+
+        function language() {
+
+            load_plugin_textdomain ( $this->plugin_slug, false, DOUBLE_OPT_IN_FOR_DOWNLOAD_LANGUAGES_DIR );
+
+        }
+
+        /* Include admin scripts if the admin is logged in. */
+
+        function doifd_admin() {
+
+            if ( is_admin () ) {
+
+                require_once( DOUBLE_OPT_IN_FOR_DOWNLOAD_DIR . '/admin/doifd-admin.php' );
+
+                $doifd = new DoifdAdmin();
+            }
+
+        }
+
+        /* For Debuggin Purposes - Saves plugin activation errors to file for review */
+
+        function save_error() {
+
+            file_put_contents ( ABSPATH . 'wp-content/uploads/2013/error_activation.html', ob_get_contents () );
+
+        }
+
+        /* Engueue the style sheets for the plugin */
+
+        function doifd_lab_add_stylesheet() {
+
+            /* Register Style Sheet for forms and widget */
+
+            wp_register_style ( 'doifd-style', DOUBLE_OPT_IN_FOR_DOWNLOAD_URL . 'css/style.css', __FILE__ );
+            wp_register_style ( 'doifd-widget-style', DOUBLE_OPT_IN_FOR_DOWNLOAD_URL . 'css/widget-style.php', __FILE__ );
+
+            /* Enqueue Style Sheets */
+
+            wp_enqueue_style ( 'doifd-style' );
+            wp_enqueue_style ( 'doifd-widget-style' );
+
+        }
         
-        wp_register_style ( 'doifd-style', DOUBLE_OPT_IN_FOR_DOWNLOAD_URL . 'css/style.css', __FILE__  );
-        wp_register_style ( 'doifd-widget-style', DOUBLE_OPT_IN_FOR_DOWNLOAD_URL .  'css/widget-style.php', __FILE__  );
-        
-        /* Enqueue Style Sheets */
-        
-        wp_enqueue_style ( 'doifd-style' );
-        wp_enqueue_style ( 'doifd-widget-style' );
+        /* Include the reCAPTCHA library */
 
-    }
+        function require_library() {
 
-    /* Include the reCAPTCHA library */
+            require_once( DOUBLE_OPT_IN_FOR_DOWNLOAD_DIR . '/captcha/recaptchalib.php');
 
-    function require_library() {
-        
-        require_once( DOUBLE_OPT_IN_FOR_DOWNLOAD_DIR . '/captcha/recaptchalib.php');
+        }
 
-    }
+        /* Create the registration form */
 
-    /* Create the registration form */
+        function doifd_lab_subscriber_registration_form( $attr, $content ) {
 
-    function doifd_lab_subscriber_registration_form( $attr, $content ) {
+            return DoifdRegistrationForm::registration_form ( $attr, $content );
 
-        return DoifdRegistrationForm::registration_form ( $attr, $content );
+        }
 
-    }
+        /* This function does the bulk of the work. When the user clicks the
+         * link in thier email this function checks the verification code to
+         * make sure it's valid and to see if the have exceeded there
+         * download limit.
+         */
 
-    /* This function does the bulk of the work. When the user clicks the
-     * link in thier email this function checks the verification code to
-     * make sure it's valid and to see if the have exceeded there
-     * download limit.
-     */
+        function doifd_lab_verify_email() {
 
-    function doifd_lab_verify_email() {
+            return DoifdRegistrationForm::verify_email ();
 
-       return DoifdRegistrationForm::verify_email();
+        }
 
-    }
+        /* This is the function that sends the email to the subscriber */
 
-    /* This is the function that sends the email to the subscriber */
+        function doifd_lab_verification_email( $value ) {
 
-    function doifd_lab_verification_email( $value ) {
+            DoifdEmail::send_verification_email ( $value );
 
-        DoifdEmail::send_verification_email($value);
+        }
 
-    }
+        /* Register the widget */
 
-    /* Register the widget */
+        function doifd_lab_widget() {
 
-    function doifd_lab_widget() {
+            register_widget ( 'DoifdFormWidget' );
 
-        register_widget ( 'DoifdFormWidget' );
+        }
 
     }
 

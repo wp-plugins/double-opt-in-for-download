@@ -1,79 +1,84 @@
 <?php
 
-class DoifdCSV {
+if ( !class_exists ( 'DoifdCSV' ) ) {
 
-    public function __construct() {
+    class DoifdCSV {
 
-        add_action ( 'admin_init', array( &$this, 'csv_download' ) );
+        public function __construct() {
 
-    }
+            add_action ( 'admin_init', array( &$this, 'csv_download' ) );
 
-    function csv_download() {
+        }
 
-        global $wpdb;
+        function csv_download() {
 
-        /* Check if it's coming from the download subsribers button and the user has privileges */
+            global $wpdb;
 
-        if ( isset ( $_POST[ 'doifd_lab_export_csv' ] ) && ( current_user_can ( 'manage_options' ) ) ) {
+            /* Check if it's coming from the download subsribers button and the user has privileges */
 
-            /* Create name for file "Website Name-Subscribers-Date" */
-            
-            $fileName = get_bloginfo ( 'name' ) . '-Subscribers-' . date ( 'Y-m-d' ) . '.csv';
+            if ( isset ( $_POST[ 'doifd_lab_export_csv' ] ) && ( current_user_can ( 'manage_options' ) ) ) {
 
-            /* Header for download */
-            
-            header ( "Cache-Control: must-revalidate, post-check=0, pre-check=0" );
-            header ( 'Content-Description: File Transfer' );
-            header ( "Content-type: text/csv" );
-            header ( "Content-Disposition: attachment; filename={$fileName}" );
-            header ( "Expires: 0" );
-            header ( "Pragma: public" );
+                /* Create name for file "Website Name-Subscribers-Date" */
 
-            /* Create file */
-            
-            $fh = @fopen ( 'php://output', 'w' );
+                $fileName = get_bloginfo ( 'name' ) . '-Subscribers-' . date ( 'Y-m-d' ) . '.csv';
 
-            /* Query database for list of subscribers. Only pull verified email addresses
-             * and don't include duplicates.
-             */
-            
-            $sql = "SELECT doifd_name AS Name, doifd_email AS Email
+                /* Header for download */
+
+                header ( "Cache-Control: must-revalidate, post-check=0, pre-check=0" );
+                header ( 'Content-Description: File Transfer' );
+                header ( "Content-type: text/csv" );
+                header ( "Content-Disposition: attachment; filename={$fileName}" );
+                header ( "Expires: 0" );
+                header ( "Pragma: public" );
+
+                /* Create file */
+
+                $fh = @fopen ( 'php://output', 'w' );
+
+                /* Query database for list of subscribers. Only pull verified email addresses
+                 * and don't include duplicates.
+                 */
+
+                $sql = "SELECT doifd_name AS Name, doifd_email AS Email
                 FROM {$wpdb->prefix}doifd_lab_subscribers
                 WHERE doifd_email_verified = '1'
                 GROUP BY doifd_email";
-            
+
                 $results = $wpdb->get_results ( $sql, ARRAY_A );
 
-            $headerDisplayed = false;
+                $headerDisplayed = false;
 
-            foreach ( $results as $data ) {
+                foreach ( $results as $data ) {
 
-                /* Add header rows if not already displayed */
-                
-                if ( !$headerDisplayed ) {
+                    /* Add header rows if not already displayed */
 
-                    /* Use the keys from $data as the titles */
-                    
-                    fputcsv ( $fh, array_keys ( $data ) );
-                    
-                    $headerDisplayed = true;
+                    if ( !$headerDisplayed ) {
+
+                        /* Use the keys from $data as the titles */
+
+                        fputcsv ( $fh, array_keys ( $data ) );
+
+                        $headerDisplayed = true;
+                    }
+
+                    /* Put the data into the file */
+
+                    fputcsv ( $fh, $data );
                 }
 
-                /* Put the data into the file */
-                
-                fputcsv ( $fh, $data );
+                /* Close the file */
+
+                fclose ( $fh );
+
+                /* Make sure nothing else is sent, our file is done */
+
+                exit;
             }
 
-            /* Close the file */
-            
-            fclose ( $fh );
-
-            /* Make sure nothing else is sent, our file is done */
-            
-            exit;
         }
 
     }
 
 }
+
 ?>

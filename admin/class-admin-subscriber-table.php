@@ -1,7 +1,7 @@
 <?php
 
-
 if ( ! class_exists ( 'WP_List_Table' ) ) {
+    
     require_once( ABSPATH . 'wp-admin/includes/class-wp-list-table.php' );
 }
 
@@ -33,8 +33,8 @@ class Doifd_Subscriber_Table extends WP_List_Table {
         $doifd_lab_nonce = wp_create_nonce ( 'doifd-delete-subscriber-nonce' );
         //Build row actions
         $actions = array (
-            'resend' => sprintf ( '<a href="?page=%s&action=%s&name=%s&user_name=%s&user_email=%s&user_ver=%s&download_id=%s">Resend Email</a>', $_REQUEST[ 'page' ], 'doifd_lab_resend_verification_email', 'doifd_lab_resend_verification_email', $item[ 'name' ] , $item[ 'email' ], $item[ 'ver' ], $item[ 'download_id' ] ),
-            'delete' => sprintf ( '<a href="?page=%s&action=%s&name=%s&_wpnonce=%s&id=%s">Delete</a>', $_REQUEST[ 'page' ], 'delete', 'delete' , $doifd_lab_nonce, $item[ 'subscriber_id' ] ),
+            'resend' => sprintf ( '<a href="?page=%s&action=%s&name=%s&user_name=%s&user_email=%s&user_ver=%s&download_id=%s" >Resend Email</a>', $_REQUEST[ 'page' ], 'doifd_lab_resend_verification_email', 'doifd_lab_resend_verification_email', $item[ 'name' ] , $item[ 'email' ], $item[ 'ver' ], $item[ 'download_id' ] ),
+            'delete' => sprintf ( '<a href="?page=%s&action=%s&name=%s&_wpnonce=%s&id=%s" class="confirm" >Delete</a>', $_REQUEST[ 'page' ], 'delete', 'delete' , $doifd_lab_nonce, $item[ 'subscriber_id' ] ),
         );
 
         //Return the title contents

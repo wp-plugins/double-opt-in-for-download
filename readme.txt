@@ -88,8 +88,9 @@ That will do it.
 
 = 1.0.0 =
 
-1. Added ability to upload mp3 files
-2. Code enhancements for smother operation
+1. Added ability to upload mp3 files for download.
+2. Added Delete confirmations for downloads and subscribers.
+2. Code enhancements for smother operation.
 3. Added Error codes to help trouble shoot problems.
 4. Improved instructions throughout the pages
 

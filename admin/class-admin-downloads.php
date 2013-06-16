@@ -1,79 +1,231 @@
 <?php
 
-class DoifdDownloads {
+if ( !class_exists ( 'DoifdDownloads' ) ) {
 
-    public function __construct() {
-        
-        add_action ( 'admin_init', array( &$this, 'upload_file' ) );
-        add_action ( 'admin_init', array( &$this, 'edit_download' ) );
-        
-    }
+    class DoifdDownloads {
 
-    /* This function handles the editing of the download */
-    
-    function edit_download() {
+        public function __construct() {
 
-        global $wpdb;
+            add_action ( 'admin_init', array( &$this, 'upload_file' ) );
+            add_action ( 'admin_init', array( &$this, 'edit_download' ) );
 
-        $rb = __ ( 'Return Back', 'Double-Opt-In-For-Download' );
+        }
 
-        if ( isset ( $_POST[ 'update_download' ] ) && ( current_user_can ( 'manage_options' ) ) ) {
+        /* This function handles the editing of the download */
 
-            $doifd_old_file_name = $_POST[ 'doifd_download_file_name' ];
+        function edit_download() {
 
-            /* get the wpnonce from the form and verify it's coming from our form, if not, die */
+            global $wpdb;
 
-            $doifd_edit_download_nonce = $_POST[ '_wpnonce' ];
+            $rb = __ ( 'Return Back', 'Double-Opt-In-For-Download' );
 
-            if ( !wp_verify_nonce ( $doifd_edit_download_nonce, 'doifd-edit-download-nonce' ) ) wp_die ( 'Security check' );
+            if ( isset ( $_POST[ 'update_download' ] ) && ( current_user_can ( 'manage_options' ) ) ) {
 
-            $clean_doifd_reset_download_count = preg_replace ( '/[^0-9]/', '', $_POST[ 'doifd_reset_download_count' ] );
+                $doifd_old_file_name = $_POST[ 'doifd_download_file_name' ];
 
-            /* clean and sanitize Download name field */
+                /* get the wpnonce from the form and verify it's coming from our form, if not, die */
 
-            $clean_doifd_lab_name = sanitize_text_field ( $_POST[ 'name' ] );
+                $doifd_edit_download_nonce = $_POST[ '_wpnonce' ];
 
-            /* clean and sanitize download id */
+                if ( !wp_verify_nonce ( $doifd_edit_download_nonce, 'doifd-edit-download-nonce' ) ) wp_die ( 'Security check' );
 
-            $doifd_clean_download_id = preg_replace ( '/[^0-9]/', '', $_POST[ 'doifd_download_id' ] );
+                $clean_doifd_reset_download_count = preg_replace ( '/[^0-9]/', '', $_POST[ 'doifd_reset_download_count' ] );
 
-            /* assign file name to variable */
+                /* Get old file name for comparison */
+                
+                $old_name = $_POST['doifd_download_name'];
+                
+                /* clean and sanitize Download name field */
+                
+                $clean_doifd_lab_name = sanitize_text_field ( $_POST[ 'name' ] );
 
-            $doifd_lab_current_image = $_FILES[ 'userfile' ][ 'name' ];
+                /* clean and sanitize download id */
 
-            /* if file name is empty after being sanitized show error message */
+                $doifd_clean_download_id = preg_replace ( '/[^0-9]/', '', $_POST[ 'doifd_download_id' ] );
 
-            if ( empty ( $clean_doifd_lab_name ) ) {
+                /* assign file name to variable */
 
-                $text = __ ( 'Please name your file.', 'Double-Opt-In-For-Download' );
+                $doifd_lab_current_image = $_FILES[ 'userfile' ][ 'name' ];
 
-                echo '<div id="message" class="error"><p><strong>' . $text . '  <a href="' . str_replace ( '%7E', '~', $_SERVER[ 'REQUEST_URI' ] ) . '">' . $rb . '</a></p></strong></div>';
+                /* if file name is empty after being sanitized show error message */
+
+                if ( empty ( $clean_doifd_lab_name ) ) {
+
+                    $text = __ ( 'Please name your file.', 'Double-Opt-In-For-Download' );
+
+                    echo '<div id="message" class="error"><p><strong>' . $text . '  <a href="' . str_replace ( '%7E', '~', $_SERVER[ 'REQUEST_URI' ] ) . '">' . $rb . '</a></p></strong></div>';
+                }
+
+                /* Update the file name */
+
+                if ( !empty ( $clean_doifd_lab_name ) ) {
+
+                    $wpdb->update (
+                            $wpdb->prefix . 'doifd_lab_downloads', array(
+                        'doifd_download_name' => $clean_doifd_lab_name
+                            ), array( 'doifd_download_id' => $doifd_clean_download_id ), array(
+                        '%s',
+                            ), array( '%d' )
+                    );
+
+                    $text = __ ( 'You successfully changed your download file name.' );
+                    
+                    if ( ($clean_doifd_lab_name) != ( $old_name ) ) {
+
+                    echo '<div id="message" class="updated"><p><strong>' . $text . '  <a href="' . str_replace ( '%7E', '~', $_SERVER[ 'REQUEST_URI' ] ) . ' ">' . $rb . '</a></strong></p></div>';
+                    
+                    
+                    }
+                    
+                    }
+
+                /* If they have added a new file to replace the old download file, lets do all this fun stuff */
+
+                if ( !empty ( $doifd_lab_current_image ) ) {
+
+                    /* Get file extension and assign to variable */
+
+                    $clean_doifd_lab_extension = substr ( strrchr ( $doifd_lab_current_image, '.' ), 1 );
+
+                    /* Check to make sure that the file extension is one that is allowed by this plugin. If not, show error message */
+
+                    if ( ($clean_doifd_lab_extension != "jpg") && ($clean_doifd_lab_extension != "jpeg") && ($clean_doifd_lab_extension != "gif") && ($clean_doifd_lab_extension != "png") && ($clean_doifd_lab_extension != "bmp") && ($clean_doifd_lab_extension != "pdf") && ($clean_doifd_lab_extension != "zip") && ($clean_doifd_lab_extension != "doc") && ($clean_doifd_lab_extension != "docx") ) {
+
+                        $text = __ ( 'Unknown File Type (.jpg, .jpeg, .png, .bmp, .gif, .pdf, .zip, .doc, .docx only).' );
+
+                        echo '<div id="message" class="error"><p><strong>' . $text . '  <a href="' . str_replace ( '%7E', '~', $_SERVER[ 'REQUEST_URI' ] ) . '">' . $rb . '</a></strong></p></div>';
+                    } else {
+
+                        /* Rename the file to a radom file name to avoid duplicate file names */
+
+                        $doifd_lab_file_name = 'doifd_' . uniqid ( mt_rand ( 3, 5 ) ) . '_' . time () . '.' . $clean_doifd_lab_extension;
+
+                        /* Upload the file to download directory */
+
+                        $doifd_lab_upload = $this->move_file ( DOUBLE_OPT_IN_FOR_DOWNLOAD_DOWNLOAD_DIR, $doifd_lab_file_name, $_FILES[ 'userfile' ][ 'tmp_name' ] );
+
+                        if ( $doifd_lab_upload == 0 ) {
+
+                            $text = __ ( 'There was an error uploading your new file' );
+
+                            echo '<div id="message" class="error"><p><strong>' . $text . '  <a href="' . str_replace ( '%7E', '~', $_SERVER[ 'REQUEST_URI' ] ) . '">' . $rb . '</a></strong></p></div>';
+                        }
+
+                        /* If the download folder does not exist show this error message */ elseif ( $doifd_lab_upload == 2 ) {
+
+                            $text = __ ( 'The download directory does not exist. Check your permissions and try reactivating the plugin', 'Double-Opt-In-For-Download' );
+
+                            echo '<div id="message" class="error"><p><strong>' . $text . '  <a href="' . str_replace ( '%7E', '~', $_SERVER[ 'REQUEST_URI' ] ) . '">' . $rb . '</a></p></strong></div>';
+                        }
+
+                        /* If the download folder is not writable show error message */ elseif ( $doifd_lab_upload == 3 ) {
+
+                            $text = __ ( 'The download directory exists but is not writable. Check your folder permissions and try reactivating the plugin', 'Double-Opt-In-For-Download' );
+
+                            echo '<div id="message" class="error"><p><strong>' . $text . '  <a href="' . str_replace ( '%7E', '~', $_SERVER[ 'REQUEST_URI' ] ) . '">' . $rb . '</a></p></strong></div>';
+                        }
+
+                        /* If the upload was successful, update the download table and show the success message */ elseif ( $doifd_lab_upload == 1 ) {
+
+                            $wpdb->update (
+                                    $wpdb->prefix . 'doifd_lab_downloads', array(
+                                'doifd_download_file_name' => $doifd_lab_file_name
+                                    ), array( 'doifd_download_id' => $doifd_clean_download_id ), array(
+                                '%s',
+                                    ), array( '%d' )
+                            );
+
+                            /* Now, lets delete the old download file */
+
+                            unlink ( DOUBLE_OPT_IN_FOR_DOWNLOAD_DOWNLOAD_DIR . $doifd_old_file_name );
+
+                            $text = __ ( 'You successfully changed your download file.' );
+
+                            echo '<div id="message" class="updated"><p><strong>' . $text . '  <a href="' . str_replace ( '%7E', '~', $_SERVER[ 'REQUEST_URI' ] ) . '">' . $rb . '</a></strong></p></div>';
+                        } else {
+
+                            /* Show error message if upload failed */
+
+                            $text = __ ( 'Error Uploading File', 'Double-Opt-In-For-Download' );
+
+                            echo '<div class="error"><strong>' . $text . '  <a href="' . str_replace ( '%7E', '~', $_SERVER[ 'REQUEST_URI' ] ) . '">' . $rb . '</a></strong></div>';
+                        }
+                    }
+                }
+
+                /* If the admin has selected to reset the download count, let's do that */
+
+                if ( $clean_doifd_reset_download_count == '1' ) {
+
+                    $wpdb->update (
+                            $wpdb->prefix . 'doifd_lab_downloads', array(
+                        'doifd_number_of_downloads' => 0
+                            ), array( 'doifd_download_id' => $doifd_clean_download_id ), array(
+                        '%s',
+                            ), array( '%d' )
+                    );
+
+                    $text = __ ( 'You successfully reset your download count.' );
+
+                    echo '<div id="message" class="updated"><p><strong>' . $text . '  <a href="' . str_replace ( '%7E', '~', $_SERVER[ 'REQUEST_URI' ] ) . ' ">' . $rb . '</a></strong></p></div>';
+                }
+
+                /* Redirect back to the admin page after success */
+
+//                wp_redirect ( 'admin.php?page=double-opt-in-for-download/admin/doifd-admin.php_downloads' );
             }
 
-            /* Update the file name */
+        }
 
-            if ( !empty ( $clean_doifd_lab_name ) ) {
+        /* This function handles the actual uploading of the download file */
 
-                $wpdb->update (
-                        $wpdb->prefix . 'doifd_lab_downloads', array(
-                    'doifd_download_name' => $clean_doifd_lab_name
-                        ), array( 'doifd_download_id' => $doifd_clean_download_id ), array(
-                    '%s',
-                        ), array( '%d' )
-                );
-            }
+        function upload_file() {
 
-            /* If they have added a new file to replace the old download file, lets do all this fun stuff */
+            global $wpdb;
 
-            if ( !empty ( $doifd_lab_current_image ) ) {
+            /* Assign the return back link to a variable */
+
+            $rb = __ ( 'Return Back', 'Double-Opt-In-For-Download' );
+
+            /* Check to see if it's coming from the upload form and the user has the privileges to upload a file */
+
+            if ( isset ( $_POST[ 'upload' ] ) && ( current_user_can ( 'manage_options' ) ) ) {
+
+                /* Get the wpnonce from the form and verify it's coming from our form, if not, die */
+
+                $doifd_lab_nonce = $_POST[ '_wpnonce' ];
+
+                if ( !wp_verify_nonce ( $doifd_lab_nonce, 'doifd-add-download-nonce' ) ) wp_die ( 'Security check' );
+
+                /* Clean and sanitize Download name field */
+
+                $clean_doifd_lab_name = sanitize_text_field ( $_POST[ 'name' ] );
+
+                /* Assign file name to variable */
+
+                $doifd_lab_current_image = $_FILES[ 'userfile' ][ 'name' ];
 
                 /* Get file extension and assign to variable */
 
                 $clean_doifd_lab_extension = substr ( strrchr ( $doifd_lab_current_image, '.' ), 1 );
 
-                /* Check to make sure that the file extension is one that is allowed by this plugin. If not, show error message */
+                /* If file name is empty after being sanitized show error message */
 
-                if ( ($clean_doifd_lab_extension != "jpg") && ($clean_doifd_lab_extension != "jpeg") && ($clean_doifd_lab_extension != "gif") && ($clean_doifd_lab_extension != "png") && ($clean_doifd_lab_extension != "bmp") && ($clean_doifd_lab_extension != "pdf") && ($clean_doifd_lab_extension != "zip") && ($clean_doifd_lab_extension != "doc") && ($clean_doifd_lab_extension != "docx") ) {
+                if ( empty ( $clean_doifd_lab_name ) ) {
+
+                    $text = __ ( 'Please name your file.', 'Double-Opt-In-For-Download' );
+
+                    echo '<div id="message" class="error"><p><strong>' . $text . '  <a href="' . str_replace ( '%7E', '~', $_SERVER[ 'REQUEST_URI' ] ) . '">' . $rb . '</a></p></strong></div>';
+                }
+
+                /* If the file name is empty show error message */ elseif ( empty ( $_FILES[ 'userfile' ][ 'tmp_name' ] ) ) {
+
+                    $text = __ ( 'Please select a file to upload', 'Double-Opt-In-For-Download' );
+
+                    echo '<div id="message" class="error"><p><strong>' . $text . '  <a href="' . str_replace ( '%7E', '~', $_SERVER[ 'REQUEST_URI' ] ) . '">' . $rb . '</a></strong></p></div>';
+                }
+
+                /* Check to make sure that the file extension is one that is allowed by this plugin. If not, show error message */ elseif ( ($clean_doifd_lab_extension != "jpg") && ($clean_doifd_lab_extension != "jpeg") && ($clean_doifd_lab_extension != "gif") && ($clean_doifd_lab_extension != "png") && ($clean_doifd_lab_extension != "bmp") && ($clean_doifd_lab_extension != "pdf") && ($clean_doifd_lab_extension != "zip") && ($clean_doifd_lab_extension != "doc") && ($clean_doifd_lab_extension != "docx") ) {
 
                     $text = __ ( 'Unknown File Type (.jpg, .jpeg, .png, .bmp, .gif, .pdf, .zip, .doc, .docx only).' );
 
@@ -84,167 +236,97 @@ class DoifdDownloads {
 
                     $doifd_lab_file_name = 'doifd_' . uniqid ( mt_rand ( 3, 5 ) ) . '_' . time () . '.' . $clean_doifd_lab_extension;
 
-                    /* Upload the file to download directory */
+                    /* upload file to Download directory */
 
-                    $doifd_lab_upload = doifd_lab_uploadFiles ( DOUBLE_OPT_IN_FOR_DOWNLOAD_DOWNLOAD_DIR, $doifd_lab_file_name, $_FILES[ 'userfile' ][ 'tmp_name' ] );
+                    $doifd_lab_upload = $this->move_file ( DOUBLE_OPT_IN_FOR_DOWNLOAD_DOWNLOAD_DIR, $doifd_lab_file_name, $_FILES[ 'userfile' ][ 'tmp_name' ] );
 
-                    /* If the upload was successful, update the download table and show the success message */
+                    /* If upload was unsuccessful send message to admin */
 
-                    if ( $doifd_lab_upload == 1 ) {
+                    if ( $doifd_lab_upload == 0 ) {
 
-                        $wpdb->update (
-                                $wpdb->prefix . 'doifd_lab_downloads', array(
-                            'doifd_download_file_name' => $doifd_lab_file_name
-                                ), array( 'doifd_download_id' => $doifd_clean_download_id ), array(
-                            '%s',
-                                ), array( '%d' )
+                        $text = __ ( 'There was an error uploading your new file' );
+
+                        echo '<div id="message" class="error"><p><strong>' . $text . '  <a href="' . str_replace ( '%7E', '~', $_SERVER[ 'REQUEST_URI' ] ) . '">' . $rb . '</a></strong></p></div>';
+                    }
+
+                    /* If the download folder does not exist show this error message */ elseif ( $doifd_lab_upload == 2 ) {
+
+                        $text = __ ( 'The download directory does not exist. Check your permissions and try reactivating the plugin', 'Double-Opt-In-For-Download' );
+
+                        echo '<div id="message" class="error"><p><strong>' . $text . '  <a href="' . str_replace ( '%7E', '~', $_SERVER[ 'REQUEST_URI' ] ) . '">' . $rb . '</a></p></strong></div>';
+                    }
+
+                    /* If the download folder is not writable show error message */ elseif ( $doifd_lab_upload == 3 ) {
+
+                        $text = __ ( 'The download directory exists but is not writable. Check your folder permissions and try reactivating the plugin', 'Double-Opt-In-For-Download' );
+
+                        echo '<div id="message" class="error"><p><strong>' . $text . '  <a href="' . str_replace ( '%7E', '~', $_SERVER[ 'REQUEST_URI' ] ) . '">' . $rb . '</a></p></strong></div>';
+                    }
+
+                    /* If upload successful insert into download table and show success message */ elseif ( $doifd_lab_upload == 1 ) {
+
+                        /* Put values into an array */
+
+                        $values = array(
+                            'doifd_download_name' => $clean_doifd_lab_name,
+                            'doifd_download_file_name' => $doifd_lab_file_name,
+                            'time' => current_time ( 'mysql', 0 )
                         );
 
-                        /* Now, lets delete the old download file */
+                        $values_formats = array(
+                            '%s',
+                            '%s'
+                        );
 
-                        unlink ( DOUBLE_OPT_IN_FOR_DOWNLOAD_DOWNLOAD_DIR . $doifd_old_file_name );
+                        /* Insert array values into the download table */
+
+                        $wpdb->insert ( $wpdb->prefix . 'doifd_lab_downloads', $values, $values_formats );
+
+                        /* Show success message */
+
+                        $text = __ ( 'File Uploaded Successfully', 'Double-Opt-In-For-Download' );
+
+                        echo '<div class="updated"><strong>' . $text . ' <a href="' . str_replace ( '%7E', '~', $_SERVER[ 'REQUEST_URI' ] ) . '">' . $rb . '</a></strong></div>';
+                    } else {
+
+                        /* Show error message if upload failed */
+
+                        $text = __ ( 'Error Uploading File', 'Double-Opt-In-For-Download' );
+
+                        echo '<div class="error"><strong>' . $text . '  <a href="' . str_replace ( '%7E', '~', $_SERVER[ 'REQUEST_URI' ] ) . '">' . $rb . '</a></strong></div>';
                     }
                 }
             }
 
-            /* If the admin has selected to reset the download count, let's do that */
-
-            if ( $clean_doifd_reset_download_count == '1' ) {
-
-                $wpdb->update (
-                        $wpdb->prefix . 'doifd_lab_downloads', array(
-                    'doifd_number_of_downloads' => 0
-                        ), array( 'doifd_download_id' => $doifd_clean_download_id ), array(
-                    '%s',
-                        ), array( '%d' )
-                );
-            }
-            
-            /* Redirect back to the admin page after success */
-            
-            wp_redirect ( 'admin.php?page=double-opt-in-for-download/admin/doifd-admin.php_downloads' );
         }
 
-    }
+        /* This functions moves the download file to the download directory. */
 
-    /* This function handles the actual uploading of the download file */
-    
-    function upload_file() {
+        function move_file( $directory, $file_name, $file_tmp_name ) {
 
-        global $wpdb;
+            /* Make sure the download folder exists. If not return the value of 2 */
 
-        /* Assign the return back link to a variable */
+            if ( !file_exists ( DOUBLE_OPT_IN_FOR_DOWNLOAD_DOWNLOAD_DIR ) ) {
 
-        $rb = __ ( 'Return Back', 'Double-Opt-In-For-Download' );
+                return 2;
+            } elseif ( !is_writable ( DOUBLE_OPT_IN_FOR_DOWNLOAD_DOWNLOAD_DIR ) ) {
 
-        /* Check to see if it's coming from the upload form and the user has the privileges to upload a file */
-
-        if ( isset ( $_POST[ 'upload' ] ) && ( current_user_can ( 'manage_options' ) ) ) {
-
-            /* Get the wpnonce from the form and verify it's coming from our form, if not, die */
-
-            $doifd_lab_nonce = $_POST[ '_wpnonce' ];
-
-            if ( !wp_verify_nonce ( $doifd_lab_nonce, 'doifd-add-download-nonce' ) ) wp_die ( 'Security check' );
-
-            /* Clean and sanitize Download name field */
-
-            $clean_doifd_lab_name = sanitize_text_field ( $_POST[ 'name' ] );
-
-            /* Assign file name to variable */
-
-            $doifd_lab_current_image = $_FILES[ 'userfile' ][ 'name' ];
-
-            /* Get file extension and assign to variable */
-
-            $clean_doifd_lab_extension = substr ( strrchr ( $doifd_lab_current_image, '.' ), 1 );
-
-            /* If file name is empty after being sanitized show error message */
-
-            if ( empty ( $clean_doifd_lab_name ) ) {
-
-                $text = __ ( 'Please name your file.', 'Double-Opt-In-For-Download' );
-
-                echo '<div id="message" class="error"><p><strong>' . $text . '  <a href="' . str_replace ( '%7E', '~', $_SERVER[ 'REQUEST_URI' ] ) . '">' . $rb . '</a></p></strong></div>';
-            }
-
-            /* If the file name is empty show error message */
-            
-            elseif ( empty ( $_FILES[ 'userfile' ][ 'tmp_name' ] ) ) {
-
-                $text = __ ( 'Please select a file to upload', 'Double-Opt-In-For-Download' );
-
-                echo '<div id="message" class="error"><p><strong>' . $text . '  <a href="' . str_replace ( '%7E', '~', $_SERVER[ 'REQUEST_URI' ] ) . '">' . $rb . '</a></strong></p></div>';
-            }
-
-            /* Check to make sure that the file extension is one that is allowed by this plugin. If not, show error message */
-            
-            elseif ( ($clean_doifd_lab_extension != "jpg") && ($clean_doifd_lab_extension != "jpeg") && ($clean_doifd_lab_extension != "gif") && ($clean_doifd_lab_extension != "png") && ($clean_doifd_lab_extension != "bmp") && ($clean_doifd_lab_extension != "pdf") && ($clean_doifd_lab_extension != "zip") && ($clean_doifd_lab_extension != "doc") && ($clean_doifd_lab_extension != "docx") ) {
-
-                $text = __ ( 'Unknown File Type (.jpg, .jpeg, .png, .bmp, .gif, .pdf, .zip, .doc, .docx only).' );
-
-                echo '<div id="message" class="error"><p><strong>' . $text . '  <a href="' . str_replace ( '%7E', '~', $_SERVER[ 'REQUEST_URI' ] ) . '">' . $rb . '</a></strong></p></div>';
+                return 3;
             } else {
 
-                /* Rename the file to a radom file name to avoid duplicate file names */
+                $move = move_uploaded_file ( $file_tmp_name, $directory . '/' . $file_name );
 
-                $doifd_lab_file_name = 'doifd_' . uniqid ( mt_rand ( 3, 5 ) ) . '_' . time () . '.' . $clean_doifd_lab_extension;
+                /* if move is successful it returns 1 or true else return an error of 0 */
 
-                /* upload file to Download directory */
+                if ( $move == 1 ) {
 
-                $doifd_lab_upload = $this->doifd_lab_uploadFiles ( DOUBLE_OPT_IN_FOR_DOWNLOAD_DOWNLOAD_DIR, $doifd_lab_file_name, $_FILES[ 'userfile' ][ 'tmp_name' ] );
-
-                /* If upload successful insert into download table and show success message */
-
-                if ( $doifd_lab_upload == 1 ) {
-
-                    /* Put values into an array */
-
-                    $values = array(
-                        'doifd_download_name' => $clean_doifd_lab_name,
-                        'doifd_download_file_name' => $doifd_lab_file_name,
-                        'time' => current_time ( 'mysql', 0 )
-                    );
-
-                    $values_formats = array(
-                        '%s',
-                        '%s'
-                    );
-
-                    /* Insert array values into the download table */
-
-                    $wpdb->insert ( $wpdb->prefix . 'doifd_lab_downloads', $values, $values_formats );
-
-                    /* Show success message */
-
-                    $text = __ ( 'File Uploaded Successfully', 'Double-Opt-In-For-Download' );
-
-                    echo '<div class="updated"><strong>' . $text . ' <a href="' . str_replace ( '%7E', '~', $_SERVER[ 'REQUEST_URI' ] ) . '">' . $rb . '</a></strong></div>';
+                    return 1;
                 } else {
 
-                    /* Show error message if upload failed */
-
-                    $text = __ ( 'Error Uploading File', 'Double-Opt-In-For-Download' );
-
-                    echo '<div class="error"><strong>' . $text . '  <a href="' . str_replace ( '%7E', '~', $_SERVER[ 'REQUEST_URI' ] ) . '">' . $rb . '</a></strong></div>';
+                    return 0;
                 }
             }
-        }
 
-    }
-
-    /* This functions moves the download file to the download directory. */
-
-    public function doifd_lab_uploadFiles( $directory, $file_name, $file_tmp_name ) {
-
-        if ( move_uploaded_file ( $file_tmp_name, $directory . '/' . $file_name ) ) {
-
-            /* if move is successful it returns 1 or true else return an error of 0 */
-
-            return 1;
-        } else {
-
-            return 0;
         }
 
     }

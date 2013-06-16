@@ -1,3 +1,5 @@
+<?php include( DOUBLE_OPT_IN_FOR_DOWNLOAD_DIR . 'views/view-admin-header.php' ) ; ?>
+
 <div class="wrap">
 
     <h2>Downloads</h2>
@@ -7,8 +9,6 @@
     <?php
 
     include( DOUBLE_OPT_IN_FOR_DOWNLOAD_DIR . 'admin/class-admin-download-table.php' ) ;
-
-    include( DOUBLE_OPT_IN_FOR_DOWNLOAD_DIR . 'views/view-admin-header.php' ) ;
 
     ?>
 
@@ -85,4 +85,6 @@
     echo '</div>';
 
 ?>
+
+    <div id="dialog" title="Delete Confirmation Required">You are about to send this download into the cyber abyss! Are you sure?</div>
     

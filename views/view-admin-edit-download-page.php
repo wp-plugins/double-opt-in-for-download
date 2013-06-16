@@ -1,3 +1,5 @@
+<?php include( DOUBLE_OPT_IN_FOR_DOWNLOAD_DIR . 'views/view-admin-header.php' ) ; ?>
+
 <div class = "wrap">
 
     <div id="icon-edit-pages" class="icon32"></div>
@@ -20,13 +22,15 @@
         <input type="hidden" name="doifd_download_id" value="<?php echo $_GET[ 'doifd_download_id' ]; ?>" />
 
         <input type="hidden" name="doifd_download_file_name" value="<?php echo $_GET[ 'doifd_download_file_name' ]; ?>" />
+        
+        <input type="hidden" name="doifd_download_name" value="<?php echo $_GET[ 'doifd_download_name' ]; ?>" />
 
         <tr valign="top">
 
 
             <th scope="row"><label for="name">Rename Your File<span> *</span>: </label></th>
 
-            <td><input type="text" name="name" id="name" value="<?php echo $_GET[ 'doifd_download_name' ]; ?>"/></td>
+            <td><input type="text" name="name" id="name" value="<?php if (isset($_POST['name'])) { echo $_POST['name']; }else { echo $_GET[ 'doifd_download_name' ]; } ?>"/></td>
 
         </tr>
 

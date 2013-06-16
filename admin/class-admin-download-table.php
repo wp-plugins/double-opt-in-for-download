@@ -1,6 +1,7 @@
 <?php
 
 if ( ! class_exists ( 'WP_List_Table' ) ) {
+    
     require_once( ABSPATH . 'wp-admin/includes/class-wp-list-table.php' ) ;
 }
 
@@ -34,7 +35,7 @@ class Doifd_Download_Table extends WP_List_Table {
         $doifd_lab_nonce = wp_create_nonce ( 'doifd-delete-download-nonce' ) ;
         //Build row actions
         $actions = array (
-            'delete'=>sprintf ( '<a href="?page=%s&action=%s&_wpnonce=%s&id=%s&doifd_file_name=%s">Delete</a>' , $_REQUEST['page'] , 'delete' , $doifd_lab_nonce , $item['doifd_download_id'] , $item['doifd_download_file_name'] ) ,
+            'delete'=>sprintf ( '<a class="confirm" href="?page=%s&action=%s&_wpnonce=%s&id=%s&doifd_file_name=%s" id="' . $item["doifd_download_id"] .'" title="' . $item["doifd_download_name"] .'" >Delete</a>' , $_REQUEST['page'] , 'delete' , $doifd_lab_nonce , $item['doifd_download_id'] , $item['doifd_download_file_name'] ) ,
             'edit'=>sprintf ( '<a href="?page=%s&doifd_download_id=%s&doifd_download_name=%s&doifd_download_file_name=%s">Edit</a>' , 'double-opt-in-for-download/admin/doifd-admin.php_edit_downloads' , $item['doifd_download_id'] , $item['doifd_download_name'] , $item['doifd_download_file_name'] ) ,
                 ) ;
 
