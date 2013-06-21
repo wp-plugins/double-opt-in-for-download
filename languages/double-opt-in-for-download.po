@@ -1,9 +1,9 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Double OPT-IN for Download\n"
-"POT-Creation-Date: 2013-04-03 17:26-0800\n"
-"PO-Revision-Date: 2013-04-03 17:26-0800\n"
-"Last-Translator: \n"
+"POT-Creation-Date: 2013-06-20 23:09-0800\n"
+"PO-Revision-Date: 2013-06-20 23:13-0800\n"
+"Last-Translator: Andy <andy@labwebdesigns.com>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -13,124 +13,408 @@ msgstr ""
 "X-Poedit-Basepath: .\n"
 "X-Poedit-SearchPath-0: ..\n"
 
-#: ../double-opt-in-for-download.php:216 ../includes/doifd-widget.php:54
-msgid "Please proivde your name and email address for your free download."
-msgstr ""
+#: ../admin/class-admin-dashboard-widget.php:39
+msgid "Total Subscribers:"
+msgstr "Total de suscriptores:"
 
-#: ../double-opt-in-for-download.php:219 ../includes/doifd-widget.php:57
-msgid "Name"
-msgstr ""
+#: ../admin/class-admin-dashboard-widget.php:40
+msgid "Total Downloads:"
+msgstr "Número total de descargas:"
 
-#: ../double-opt-in-for-download.php:222 ../includes/doifd-widget.php:60
-msgid "Email Address"
-msgstr ""
-
-#: ../double-opt-in-for-download.php:225 ../includes/doifd-widget.php:63
-msgid "Get Your Free Download"
-msgstr ""
-
-#: ../double-opt-in-for-download.php:255 ../includes/doifd-widget.php:106
-msgid "Please provide your name."
-msgstr ""
-
-#: ../double-opt-in-for-download.php:260
-msgid "Not a valid email address."
-msgstr ""
-
-#: ../double-opt-in-for-download.php:265 ../includes/doifd-widget.php:116
-msgid "This email address has already been used."
-msgstr ""
-
-#: ../double-opt-in-for-download.php:330 ../includes/doifd-widget.php:179
-msgid "Database Error"
-msgstr ""
-
-#: ../admin/doifd-admin.php:174
-msgid "You do not have sufficient permissions to access this page."
-msgstr ""
-
-#: ../admin/doifd-admin.php:213
-msgid "Select Maximum Downloads"
-msgstr ""
-
-#: ../admin/doifd-admin.php:226
-msgid ""
-"<p>Select the maximum number of times a subscriber can download an item. The "
-"default is <b>1</b>."
-msgstr ""
-
-#: ../admin/doifd-admin.php:243
-msgid "Select Landing Page"
-msgstr ""
-
-#: ../admin/doifd-admin.php:253
-msgid ""
-"<p>Select the landing page for your subscribers. This will be the page your "
-"subscribers will come to after they have clicked the link in their "
-"verification email. Once you have selected your landing page, place this "
-"shortcode <b>[lab_landing_page]</b> on that page.</p>"
-msgstr ""
-
-#: ../admin/doifd-admin.php:281
-msgid ""
-"<p>This is the email address that shows in the <b>From</b> field in the "
-"verification email. If this is left blank it will default to the admin email "
-"address</p>"
-msgstr ""
-
-#: ../admin/doifd-admin.php:296
-msgid ""
-"<p>This is the <b>Name</b> that will show in the <b>From</b> field in the "
-"verification email. If this is left blank it will default to your website/"
-"blog name.</p>"
-msgstr ""
-
-#: ../admin/doifd-admin.php:312
-msgid ""
-"<p>This is the verification email that is sent to a new subscriber. Just "
-"remember, at the very least, you need to keep the <b>{URL}</b> in your "
-"email, as this provides the subscriber with the verification link. See the "
-"complete list below.<br />\n"
-"                     <b>{subscriber} = Subscribers Name<br />\n"
-"                     {url} = Verification Link<br />\n"
-"                     {download} = The name of the download the subscriber "
-"has selected</b><br />"
-msgstr ""
-
-#: ../admin/doifd-admin.php:338
+#: ../admin/class-admin-downloads.php:20
+#: ../admin/class-admin-downloads.php:185
 msgid "Return Back"
-msgstr ""
+msgstr "Retroceder"
 
-#: ../admin/doifd-admin.php:359
+#: ../admin/class-admin-downloads.php:54
+#: ../admin/class-admin-downloads.php:213
 msgid "Please name your file."
-msgstr ""
+msgstr "Por favor nombre a su archivo"
 
-#: ../admin/doifd-admin.php:364
-msgid "Please select a file to upload"
-msgstr ""
+#: ../admin/class-admin-downloads.php:71
+msgid "You successfully changed your download file name."
+msgstr "Has cambiado con éxito la descarga de nombre de archivo."
 
-#: ../admin/doifd-admin.php:370
+#: ../admin/class-admin-downloads.php:94
+#: ../admin/class-admin-downloads.php:227
 msgid ""
 "Unknown File Type (.jpg, .jpeg, .png, .bmp, .gif, .pdf, .zip, .doc, .docx "
 "only)."
 msgstr ""
+"Desconocido Tipo de archivo (. Jpg,. Jpeg,. Png,. Bmp,. Gif,. Pdf,. Zip,. "
+"Doc,. Sólo docx)."
 
-#: ../admin/doifd-admin.php:400
-msgid "File Uploaded Successfully"
+#: ../admin/class-admin-downloads.php:109
+#: ../admin/class-admin-downloads.php:244
+msgid "There was an error uploading your new file"
+msgstr "Se ha producido un error al subir el nuevo archivo"
+
+#: ../admin/class-admin-downloads.php:116
+#: ../admin/class-admin-downloads.php:251
+msgid ""
+"The download directory does not exist. Check your permissions and try "
+"reactivating the plugin"
 msgstr ""
+"El directorio de descarga no existe. Compruebe sus permisos y tratar de "
+"reactivar el plugin"
 
-#: ../admin/doifd-admin.php:406
+#: ../admin/class-admin-downloads.php:123
+#: ../admin/class-admin-downloads.php:258
+msgid ""
+"The download directory exists but is not writable. Check your folder "
+"permissions and try reactivating the plugin"
+msgstr ""
+"Existe el directorio de descarga, pero no se puede escribir. Compruebe sus "
+"permisos de carpeta y tratar de reactivar el plugin"
+
+#: ../admin/class-admin-downloads.php:142
+msgid "You successfully changed your download file."
+msgstr "Ha cambiado correctamente el archivo de descarga."
+
+#: ../admin/class-admin-downloads.php:149
+#: ../admin/class-admin-downloads.php:291
 msgid "Error Uploading File"
+msgstr "Cargando archivo Error"
+
+#: ../admin/class-admin-downloads.php:168
+msgid "You successfully reset your download count."
+msgstr "Se reinicia con éxito su número de descargas."
+
+#: ../admin/class-admin-downloads.php:220
+msgid "Please select a file to upload"
+msgstr "Selecciona un archivo para cargar"
+
+#: ../admin/class-admin-downloads.php:284
+msgid "File Uploaded Successfully"
+msgstr "Archivo subido con éxito"
+
+#: ../admin/class-admin-options.php:62
+msgid "Select Maximum Downloads"
+msgstr "Seleccione Descargas Máximo"
+
+#: ../admin/class-admin-options.php:75
+msgid ""
+"Select the maximum number of times a subscriber can download an item. The "
+"default is <b>1</b>."
+msgstr ""
+"Seleccione el número máximo de veces que un suscriptor puede descargar un "
+"elemento. El valor predeterminado es <b> 1 </ b>."
+
+#: ../admin/class-admin-options.php:95
+msgid "Select Landing Page"
+msgstr "Seleccione la página de destino"
+
+#: ../admin/class-admin-options.php:105
+msgid ""
+"Select the landing page for your subscribers. This will be the page your "
+"subscribers will come to after they have clicked the link in their "
+"verification email. Once you have selected your landing page, place this "
+"shortcode <b>[lab_landing_page]</b> on that page."
+msgstr ""
+"Seleccione la página de destino para sus suscriptores. Esta será la página "
+"de tus suscriptores vendrán después de haber hecho clic en el enlace de su "
+"correo electrónico de verificación. Una vez que haya seleccionado la página "
+"de destino, coloque el código corto <b> [lab_landing_page] </ b> en esa "
+"página."
+
+#: ../admin/class-admin-options.php:124
+msgid ""
+"If you want to add the subscribers to the wordress user table, check yes. "
+"Otherwise they will only be added to the plugins subscriber table."
+msgstr ""
+"Si desea agregar los abonados a la tabla de usuario Wordress, marque sí. De "
+"lo contrario, sólo se añadirán a la tabla del suscriptor plugins."
+
+#: ../admin/class-admin-options.php:145
+msgid ""
+"If you check \"YES\", this will add a small promotional link at the bottom "
+"of the registration forms."
 msgstr ""
 
-#: ../includes/doifd-widget.php:111
+#: ../admin/class-admin-options.php:165
+#, fuzzy
+msgid ""
+"This is the email address that shows in the <b>From</b> field in the "
+"verification email. If this is left blank it will default to the admin email "
+"address</p>"
+msgstr ""
+"<p> Esta es la dirección de correo electrónico que aparece en la <b> De </ "
+"b> en el mensaje de verificación. Si se deja en blanco se usará por defecto "
+"la dirección de correo electrónico de administración </ p>"
+
+#: ../admin/class-admin-options.php:186
+msgid ""
+"This is the <b>Name</b> that will show in the <b>From</b> field in the "
+"verification email. If this is left blank it will default to your website/"
+"blog name."
+msgstr ""
+"Este es el <b> Nombre </ b> que se mostrará en el <b> De </ b> en el mensaje "
+"de verificación. Si se deja en blanco se usará por defecto para su sitio "
+"web / blog nombre."
+
+#: ../admin/class-admin-options.php:207
+msgid ""
+"This is the verification email that is sent to a new subscriber. Just "
+"remember, at the very least, you need to keep the <b>{URL}</b> in your "
+"email, as this provides the subscriber with the verification link. See the "
+"complete list below."
+msgstr ""
+"Este es la correo electrónico de verificación que se envía a un nuevo "
+"suscriptor. Sólo recuerde, en el lo menos, usted tendrá que guardar la <b> "
+"{URL} </ b> en tu email, ya que esto proporciona el suscriptor con el enlace "
+"de verificación. Vea la lista completa por debajo de."
+
+#: ../admin/class-admin-options.php:209
+msgid "Subscribers Name"
+msgstr "suscriptores Nombre"
+
+#: ../admin/class-admin-options.php:210
+msgid "Verification Link"
+msgstr "Verificación Enlace"
+
+#: ../admin/class-admin-options.php:211
+msgid "The name of the download the subscriber has selected"
+msgstr "El nombre de la descarga el abonado ha seleccionado"
+
+#: ../admin/class-admin-widget-options.php:32
+msgid ""
+"<p>This is the width of the widget in the sidebar. <b>Use numbers only, DO "
+"NOT ADD the px at the end.</b></p>"
+msgstr ""
+"<p> Este es el ancho del widget en la barra lateral. <b> números de uso "
+"único, no añada el px al final. </ b> </ p>"
+
+#: ../admin/class-admin-widget-options.php:58
+msgid ""
+"<p>This is the amount of padding used inside of the widget form. <b>Use "
+"numbers only, DO NOT ADD the px at the end.</b></p>"
+msgstr ""
+"<p> Esta es la cantidad de relleno utilizado en el interior de la forma de "
+"widgets. <b> números de uso único, no añada el px al final. </ b> </ p>"
+
+#: ../admin/class-admin-widget-options.php:84
+msgid ""
+"<p>This is the top margin of the widget. <b>Use numbers only, DO NOT add the "
+"px at the end.</b></p>"
+msgstr ""
+"<p> Este es el margen superior del widget. <b> números de uso único, no "
+"añada el px al final. </ b> </ p>"
+
+#: ../admin/class-admin-widget-options.php:110
+msgid ""
+"<p>This is the right margin of the widget. <b>Use numbers only, DO NOT add "
+"the px at the end.</b></p>"
+msgstr ""
+"<p> Este es el margen derecha del widget. <b> números de uso único, no añada "
+"el px al final. </ b> </ p>"
+
+#: ../admin/class-admin-widget-options.php:136
+msgid ""
+"<p>This is the bottom margin of the widget. <b>Use numbers only, DO NOT add "
+"the px at the end.</b></p>"
+msgstr ""
+"<p> Este es el margen inferior del widget. <b> números de uso único, no "
+"añada el px al final. </ b> </ p>"
+
+#: ../admin/class-admin-widget-options.php:162
+msgid ""
+"<p>This is the left margin of the widget. <b>Use numbers only, DO NOT add "
+"the px at the end.</b></p>"
+msgstr ""
+"<p> Este es el margen izquierdo del widget. <b> números de uso único, no "
+"añada el px al final. </ b> </ p>"
+
+#: ../admin/class-admin-widget-options.php:188
+msgid ""
+"<p>This sets the width of the input field on the widget. <b>Use numbers "
+"only, DO NOT add the px at the end.</b></p>"
+msgstr ""
+"<p> establece el ancho del campo de entrada en el widget. <b> números de uso "
+"único, no añada el px al final. </ b> </ p>"
+
+#: ../admin/doifd-admin.php:83
+msgid "General Settings"
+msgstr "Configuración general"
+
+#: ../admin/doifd-admin.php:84
+msgid "Select Maximum Number of Downloads"
+msgstr "Seleccione Número máximo de Descargas"
+
+#: ../admin/doifd-admin.php:85
+msgid "Select Landing page"
+msgstr "Seleccione la página de destino"
+
+#: ../admin/doifd-admin.php:86
+msgid "Add Subcribers to the Wordpress User Table?"
+msgstr "Añadir subcribers a la tabla de usuarios de Wordpress?"
+
+#: ../admin/doifd-admin.php:87
+msgid "Help Us Out?<br />Add a promotional link"
+msgstr "Ayúdenos fuera? <br /> Añadir un enlace promocional"
+
+#: ../admin/doifd-admin.php:102
+msgid "Public Key"
+msgstr "clave Pública"
+
+#: ../admin/doifd-admin.php:103
+msgid "Private Key"
+msgstr "clave Privada"
+
+#: ../admin/doifd-admin.php:114
+msgid "DOI - Downloads"
+msgstr "DOI - Descargas"
+
+#: ../admin/doifd-admin.php:117
+msgid "Settings"
+msgstr "Configuración"
+
+#: ../admin/doifd-admin.php:120
+msgid "Downloads"
+msgstr "Descargas:"
+
+#: ../admin/doifd-admin.php:123
+msgid "Subscribers"
+msgstr "suscriptores:"
+
+#: ../admin/doifd-admin.php:146 ../admin/doifd-admin.php:160
+#: ../admin/doifd-admin.php:179 ../admin/doifd-admin.php:197
+#: ../admin/doifd-admin.php:210 ../admin/doifd-admin.php:224
+#: ../admin/doifd-admin.php:238 ../admin/doifd-admin.php:252
+#: ../admin/doifd-admin.php:275 ../admin/doifd-admin.php:289
+#: ../admin/doifd-admin.php:303 ../admin/doifd-admin.php:317
+#: ../admin/doifd-admin.php:331 ../admin/doifd-admin.php:345
+#: ../admin/doifd-admin.php:359 ../admin/doifd-admin.php:373
+#: ../admin/doifd-admin.php:387 ../admin/doifd-admin.php:401
+#: ../admin/doifd-admin.php:422 ../admin/doifd-admin.php:436
+#: ../admin/doifd-admin.php:451 ../admin/doifd-admin.php:465
+msgid "You do not have sufficient permissions to access this page."
+msgstr "Usted no tiene permisos suficientes para acceder a esta página."
+
+#: ../captcha/class-captcha.php:93
+msgid "<p>Enter your reCaptcha Private Key</p>"
+msgstr "<p> Ingrese su clave privada reCaptcha </ p>"
+
+#: ../captcha/class-captcha.php:114
+msgid "<p>Enter your reCaptcha Pulic Key</p>"
+msgstr "<p> Ingrese su reCaptcha Pulic clave </ p>"
+
+#: ../includes/class-download.php:66
+msgid "You have exceed your number of downloads for this item."
+msgstr "Has exceder el número de descargas para este artículo."
+
+#: ../includes/class-email.php:37
+msgid "Email Sent To Subscriber"
+msgstr "Correo electrónico enviado al suscriptor"
+
+#: ../includes/class-email.php:40
+msgid "A Problem Prevented the Email From Being Sent"
+msgstr "Un problema ha impedido el correo sea enviado"
+
+#: ../includes/class-install.php:88
+msgid ""
+"Dear {subscriber},\n"
+"\n"
+"Thank you for your interest in our free download {download}.\n"
+"\n"
+"Below you will find the link to your download file. We hope you will enjoy "
+"it.\n"
+"\n"
+"{url}\n"
+"\n"
+"Thank You"
+msgstr ""
+
+#: ../includes/class-registration-form.php:22
+msgid "Oooops! There is no download id specified"
+msgstr "¡Huy! No hay descarga de id especificada"
+
+#: ../includes/class-registration-form.php:30
+msgid "Please provide your name and email address for your free download."
+msgstr ""
+"Proporcione por favor su nombre y dirección de correo electrónico para su "
+"descarga gratuita."
+
+#: ../includes/class-registration-form.php:40 ../includes/doifd-widget.php:36
+msgid "Get Your Free Download"
+msgstr "Obtener su libre descarga"
+
+#: ../includes/class-registration-form.php:49 ../includes/doifd-widget.php:43
+msgid "Name"
+msgstr "nombre"
+
+#: ../includes/class-registration-form.php:53 ../includes/doifd-widget.php:46
+msgid "Email Address"
+msgstr "Dirección de correo electrónico"
+
+#: ../includes/class-registration-form.php:73
+msgid "Powered by Lab Web Designs & Hosting"
+msgstr "Desarrollado por Lab Web Designs & Hosting"
+
+#: ../includes/class-registration-form.php:120
+msgid "The Validation code does not match!"
+msgstr "El Código de validación no coincide!"
+
+#: ../includes/class-registration-form.php:125
+#: ../includes/doifd-widget.php:103
+msgid "Please provide your name."
+msgstr "Proporcione por favor su nombre."
+
+#: ../includes/class-registration-form.php:132
+msgid "Not a valid email address."
+msgstr "No es una dirección de correo electrónico válida."
+
+#: ../includes/class-registration-form.php:139
+#: ../includes/doifd-widget.php:113
+msgid "This email address has already been used."
+msgstr "Esta dirección de correo electrónico ya ha sido utilizada."
+
+#: ../includes/class-registration-form.php:264
+msgid "Thank You for Registering!"
+msgstr "¡Gracias por registrarte!"
+
+#: ../includes/class-registration-form.php:264
+msgid "Please check your email for your link to your Free download."
+msgstr "Por favor, comprueba tu email para su enlace a su descarga gratuita."
+
+#: ../includes/class-registration-form.php:270
+#: ../includes/doifd-widget.php:209
+msgid "Database Error"
+msgstr "Error de base de datos"
+
+#: ../includes/class-registration-form.php:356
+msgid "There was an error"
+msgstr "Se ha producido un error"
+
+#: ../includes/class-registration-form.php:361
+msgid "You have exceeded your number of<br />downloads for this item."
+msgstr "Se ha superado el número de <br /> descargas para este artículo."
+
+#: ../includes/class-registration-form.php:402
+msgid "Click Here For Your Free Download"
+msgstr "Haga clic aquí para su libre descarga"
+
+#: ../includes/doifd-widget.php:31
+msgid "Please proivde your name and email address for your free download."
+msgstr ""
+"Por favor proivde su nombre y dirección de correo electrónico para su "
+"descarga gratuita."
+
+#: ../includes/doifd-widget.php:108
 msgid "Email is not valid."
-msgstr ""
+msgstr "El correo electrónico no es válida."
 
-#: ../includes/doifd-widget.php:233
+#: ../includes/doifd-widget.php:266
 msgid "Title:"
-msgstr ""
+msgstr "Título:"
 
-#: ../includes/doifd-widget.php:236
-msgid "Download:"
-msgstr ""
+#: ../includes/doifd-widget.php:269
+msgid "Form Text:"
+msgstr "Formulario Texto:"
+
+#: ../includes/doifd-widget.php:272
+msgid "Button Text:"
+msgstr "Texto del botón:"
+
+#: ../includes/doifd-widget.php:275
+msgid "Select Download:"
+msgstr "Seleccione Descargar:"

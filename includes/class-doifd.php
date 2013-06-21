@@ -17,12 +17,12 @@ if ( !class_exists ( 'DOIFD' ) ) {
 
     class DOIFD {
 
-        protected $plugin_slug = 'Double-Opt-In-For-Download';
+        protected $plugin_slug = 'double-opt-in-for-download';
         protected static $instance = null;
         protected $plugin_screen_hook_suffix = null;
 
         function __construct() {
-
+            
             /* require the recaptcha library */
             
             if (file_exists( DOUBLE_OPT_IN_FOR_DOWNLOAD_CAPTCHA_DIR )) {
@@ -31,8 +31,6 @@ if ( !class_exists ( 'DOIFD' ) ) {
                 
                 }
 
-            
-
             /* register the hooks */
 
             $this->register_actions ();
@@ -40,10 +38,6 @@ if ( !class_exists ( 'DOIFD' ) ) {
             /* register the shortcodes */
 
             $this->register_shortcodes ();
-
-            /* register the languages (textdomain) */
-
-            $this->language ();
 
             /* Call the admin function */
 
@@ -69,6 +63,8 @@ if ( !class_exists ( 'DOIFD' ) ) {
         }
 
         function register_actions() {
+            
+            add_action('init', array( &$this, 'doifd_language') );
 
             /* Creates an error log for errors during activation */
 
@@ -102,9 +98,9 @@ if ( !class_exists ( 'DOIFD' ) ) {
 
         /* Load language translation files */
 
-        function language() {
-
-            load_plugin_textdomain ( $this->plugin_slug, false, DOUBLE_OPT_IN_FOR_DOWNLOAD_LANGUAGES_DIR );
+        function doifd_language() {
+            
+            $lang_loaded = load_plugin_textdomain( 'double-opt-in-for-download' , false, DOUBLE_OPT_IN_FOR_DOWNLOAD_LANGUAGES_DIR  );
 
         }
 

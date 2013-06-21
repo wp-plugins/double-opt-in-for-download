@@ -17,7 +17,7 @@ if ( !class_exists ( 'DoifdDownloads' ) ) {
 
             global $wpdb;
 
-            $rb = __ ( 'Return Back', 'Double-Opt-In-For-Download' );
+            $rb = __ ( 'Return Back', 'double-opt-in-for-download' );
 
             if ( isset ( $_POST[ 'update_download' ] ) && ( current_user_can ( 'manage_options' ) ) ) {
 
@@ -51,7 +51,7 @@ if ( !class_exists ( 'DoifdDownloads' ) ) {
 
                 if ( empty ( $clean_doifd_lab_name ) ) {
 
-                    $text = __ ( 'Please name your file.', 'Double-Opt-In-For-Download' );
+                    $text = __ ( 'Please name your file.', 'double-opt-in-for-download' );
 
                     echo '<div id="message" class="error"><p><strong>' . $text . '  <a href="' . str_replace ( '%7E', '~', $_SERVER[ 'REQUEST_URI' ] ) . '">' . $rb . '</a></p></strong></div>';
                 }
@@ -68,7 +68,7 @@ if ( !class_exists ( 'DoifdDownloads' ) ) {
                             ), array( '%d' )
                     );
 
-                    $text = __ ( 'You successfully changed your download file name.' );
+                    $text = __ ( 'You successfully changed your download file name.', 'double-opt-in-for-download' );
                     
                     if ( ($clean_doifd_lab_name) != ( $old_name ) ) {
 
@@ -91,7 +91,7 @@ if ( !class_exists ( 'DoifdDownloads' ) ) {
 
                     if ( ($clean_doifd_lab_extension != "jpg") && ($clean_doifd_lab_extension != "jpeg") && ($clean_doifd_lab_extension != "gif") && ($clean_doifd_lab_extension != "png") && ($clean_doifd_lab_extension != "bmp") && ($clean_doifd_lab_extension != "pdf") && ($clean_doifd_lab_extension != "zip") && ($clean_doifd_lab_extension != "doc") && ($clean_doifd_lab_extension != "docx") ) {
 
-                        $text = __ ( 'Unknown File Type (.jpg, .jpeg, .png, .bmp, .gif, .pdf, .zip, .doc, .docx only).' );
+                        $text = __ ( 'Unknown File Type (.jpg, .jpeg, .png, .bmp, .gif, .pdf, .zip, .doc, .docx only).', 'double-opt-in-for-download' );
 
                         echo '<div id="message" class="error"><p><strong>' . $text . '  <a href="' . str_replace ( '%7E', '~', $_SERVER[ 'REQUEST_URI' ] ) . '">' . $rb . '</a></strong></p></div>';
                     } else {
@@ -106,21 +106,21 @@ if ( !class_exists ( 'DoifdDownloads' ) ) {
 
                         if ( $doifd_lab_upload == 0 ) {
 
-                            $text = __ ( 'There was an error uploading your new file' );
+                            $text = __ ( 'There was an error uploading your new file', 'double-opt-in-for-download' );
 
                             echo '<div id="message" class="error"><p><strong>' . $text . '  <a href="' . str_replace ( '%7E', '~', $_SERVER[ 'REQUEST_URI' ] ) . '">' . $rb . '</a></strong></p></div>';
                         }
 
                         /* If the download folder does not exist show this error message */ elseif ( $doifd_lab_upload == 2 ) {
 
-                            $text = __ ( 'The download directory does not exist. Check your permissions and try reactivating the plugin', 'Double-Opt-In-For-Download' );
+                            $text = __ ( 'The download directory does not exist. Check your permissions and try reactivating the plugin', 'double-opt-in-for-download' );
 
                             echo '<div id="message" class="error"><p><strong>' . $text . '  <a href="' . str_replace ( '%7E', '~', $_SERVER[ 'REQUEST_URI' ] ) . '">' . $rb . '</a></p></strong></div>';
                         }
 
                         /* If the download folder is not writable show error message */ elseif ( $doifd_lab_upload == 3 ) {
 
-                            $text = __ ( 'The download directory exists but is not writable. Check your folder permissions and try reactivating the plugin', 'Double-Opt-In-For-Download' );
+                            $text = __ ( 'The download directory exists but is not writable. Check your folder permissions and try reactivating the plugin', 'double-opt-in-for-download' );
 
                             echo '<div id="message" class="error"><p><strong>' . $text . '  <a href="' . str_replace ( '%7E', '~', $_SERVER[ 'REQUEST_URI' ] ) . '">' . $rb . '</a></p></strong></div>';
                         }
@@ -139,14 +139,14 @@ if ( !class_exists ( 'DoifdDownloads' ) ) {
 
                             unlink ( DOUBLE_OPT_IN_FOR_DOWNLOAD_DOWNLOAD_DIR . $doifd_old_file_name );
 
-                            $text = __ ( 'You successfully changed your download file.' );
+                            $text = __ ( 'You successfully changed your download file.', 'double-opt-in-for-download' );
 
                             echo '<div id="message" class="updated"><p><strong>' . $text . '  <a href="' . str_replace ( '%7E', '~', $_SERVER[ 'REQUEST_URI' ] ) . '">' . $rb . '</a></strong></p></div>';
                         } else {
 
                             /* Show error message if upload failed */
 
-                            $text = __ ( 'Error Uploading File', 'Double-Opt-In-For-Download' );
+                            $text = __ ( 'Error Uploading File', 'double-opt-in-for-download' );
 
                             echo '<div class="error"><strong>' . $text . '  <a href="' . str_replace ( '%7E', '~', $_SERVER[ 'REQUEST_URI' ] ) . '">' . $rb . '</a></strong></div>';
                         }
@@ -165,14 +165,11 @@ if ( !class_exists ( 'DoifdDownloads' ) ) {
                             ), array( '%d' )
                     );
 
-                    $text = __ ( 'You successfully reset your download count.' );
+                    $text = __ ( 'You successfully reset your download count.', 'double-opt-in-for-download' );
 
                     echo '<div id="message" class="updated"><p><strong>' . $text . '  <a href="' . str_replace ( '%7E', '~', $_SERVER[ 'REQUEST_URI' ] ) . ' ">' . $rb . '</a></strong></p></div>';
                 }
 
-                /* Redirect back to the admin page after success */
-
-//                wp_redirect ( 'admin.php?page=double-opt-in-for-download/admin/doifd-admin.php_downloads' );
             }
 
         }
@@ -185,7 +182,7 @@ if ( !class_exists ( 'DoifdDownloads' ) ) {
 
             /* Assign the return back link to a variable */
 
-            $rb = __ ( 'Return Back', 'Double-Opt-In-For-Download' );
+            $rb = __ ( 'Return Back', 'double-opt-in-for-download' );
 
             /* Check to see if it's coming from the upload form and the user has the privileges to upload a file */
 
@@ -213,21 +210,21 @@ if ( !class_exists ( 'DoifdDownloads' ) ) {
 
                 if ( empty ( $clean_doifd_lab_name ) ) {
 
-                    $text = __ ( 'Please name your file.', 'Double-Opt-In-For-Download' );
+                    $text = __ ( 'Please name your file.', 'double-opt-in-for-download' );
 
                     echo '<div id="message" class="error"><p><strong>' . $text . '  <a href="' . str_replace ( '%7E', '~', $_SERVER[ 'REQUEST_URI' ] ) . '">' . $rb . '</a></p></strong></div>';
                 }
 
                 /* If the file name is empty show error message */ elseif ( empty ( $_FILES[ 'userfile' ][ 'tmp_name' ] ) ) {
 
-                    $text = __ ( 'Please select a file to upload', 'Double-Opt-In-For-Download' );
+                    $text = __ ( 'Please select a file to upload', 'double-opt-in-for-download' );
 
                     echo '<div id="message" class="error"><p><strong>' . $text . '  <a href="' . str_replace ( '%7E', '~', $_SERVER[ 'REQUEST_URI' ] ) . '">' . $rb . '</a></strong></p></div>';
                 }
 
                 /* Check to make sure that the file extension is one that is allowed by this plugin. If not, show error message */ elseif ( ($clean_doifd_lab_extension != "jpg") && ($clean_doifd_lab_extension != "jpeg") && ($clean_doifd_lab_extension != "gif") && ($clean_doifd_lab_extension != "png") && ($clean_doifd_lab_extension != "bmp") && ($clean_doifd_lab_extension != "pdf") && ($clean_doifd_lab_extension != "zip") && ($clean_doifd_lab_extension != "doc") && ($clean_doifd_lab_extension != "docx") ) {
 
-                    $text = __ ( 'Unknown File Type (.jpg, .jpeg, .png, .bmp, .gif, .pdf, .zip, .doc, .docx only).' );
+                    $text = __ ( 'Unknown File Type (.jpg, .jpeg, .png, .bmp, .gif, .pdf, .zip, .doc, .docx only).', 'double-opt-in-for-download' );
 
                     echo '<div id="message" class="error"><p><strong>' . $text . '  <a href="' . str_replace ( '%7E', '~', $_SERVER[ 'REQUEST_URI' ] ) . '">' . $rb . '</a></strong></p></div>';
                 } else {
@@ -244,21 +241,21 @@ if ( !class_exists ( 'DoifdDownloads' ) ) {
 
                     if ( $doifd_lab_upload == 0 ) {
 
-                        $text = __ ( 'There was an error uploading your new file' );
+                        $text = __ ( 'There was an error uploading your new file', 'double-opt-in-for-download' );
 
                         echo '<div id="message" class="error"><p><strong>' . $text . '  <a href="' . str_replace ( '%7E', '~', $_SERVER[ 'REQUEST_URI' ] ) . '">' . $rb . '</a></strong></p></div>';
                     }
 
                     /* If the download folder does not exist show this error message */ elseif ( $doifd_lab_upload == 2 ) {
 
-                        $text = __ ( 'The download directory does not exist. Check your permissions and try reactivating the plugin', 'Double-Opt-In-For-Download' );
+                        $text = __ ( 'The download directory does not exist. Check your permissions and try reactivating the plugin', 'double-opt-in-for-download' );
 
                         echo '<div id="message" class="error"><p><strong>' . $text . '  <a href="' . str_replace ( '%7E', '~', $_SERVER[ 'REQUEST_URI' ] ) . '">' . $rb . '</a></p></strong></div>';
                     }
 
                     /* If the download folder is not writable show error message */ elseif ( $doifd_lab_upload == 3 ) {
 
-                        $text = __ ( 'The download directory exists but is not writable. Check your folder permissions and try reactivating the plugin', 'Double-Opt-In-For-Download' );
+                        $text = __ ( 'The download directory exists but is not writable. Check your folder permissions and try reactivating the plugin', 'double-opt-in-for-download' );
 
                         echo '<div id="message" class="error"><p><strong>' . $text . '  <a href="' . str_replace ( '%7E', '~', $_SERVER[ 'REQUEST_URI' ] ) . '">' . $rb . '</a></p></strong></div>';
                     }
@@ -284,14 +281,14 @@ if ( !class_exists ( 'DoifdDownloads' ) ) {
 
                         /* Show success message */
 
-                        $text = __ ( 'File Uploaded Successfully', 'Double-Opt-In-For-Download' );
+                        $text = __ ( 'File Uploaded Successfully', 'double-opt-in-for-download' );
 
                         echo '<div class="updated"><strong>' . $text . ' <a href="' . str_replace ( '%7E', '~', $_SERVER[ 'REQUEST_URI' ] ) . '">' . $rb . '</a></strong></div>';
                     } else {
 
                         /* Show error message if upload failed */
 
-                        $text = __ ( 'Error Uploading File', 'Double-Opt-In-For-Download' );
+                        $text = __ ( 'Error Uploading File', 'double-opt-in-for-download' );
 
                         echo '<div class="error"><strong>' . $text . '  <a href="' . str_replace ( '%7E', '~', $_SERVER[ 'REQUEST_URI' ] ) . '">' . $rb . '</a></strong></div>';
                     }

@@ -34,10 +34,10 @@ if ( !class_exists ( 'DoifdEmail' ) ) {
 
                 if ( $send === TRUE ) {
 
-                    echo '<div class="updated"><p><strong>Email Sent To Subscriber <a href="' . str_replace ( '%7E', '~', $_SERVER[ 'REQUEST_URI' ] ) . '">Return Back</a></strong></p></div>';
+                    echo '<div class="updated"><p><strong>' . __( 'Email Sent To Subscriber', $plugin->slug ) . '<a href="' . str_replace ( '%7E', '~', $_SERVER[ 'REQUEST_URI' ] ) . '">Return Back</a></strong></p></div>';
                 } else {
 
-                    echo '<div class="error"><p><strong>A Problem Prevented the Email From Being Sent<a href="' . str_replace ( '%7E', '~', $_SERVER[ 'REQUEST_URI' ] ) . '">Return Back</a></strong></p></div>';
+                    echo '<div class="error"><p><strong>' .__( 'A Problem Prevented the Email From Being Sent', $plugin-slug ) . '<a href="' . str_replace ( '%7E', '~', $_SERVER[ 'REQUEST_URI' ] ) . '">Return Back</a></strong></p></div>';
                 }
             }
 

@@ -19,7 +19,7 @@ if ( !class_exists ( 'DOIFD' ) ) {
                 $download_id = $attr[ 'download_id' ];
             } else {
 
-                return '<div id="doifd_user_reg_form">Oooops! There is no download id specified</div>';
+                return '<div id="doifd_user_reg_form">'. __( 'Oooops! There is no download id specified', 'double-opt-in-for-download' ) . '</div>';
             }
 
             if ( isset ( $attr[ 'text' ] ) ) {
@@ -27,7 +27,7 @@ if ( !class_exists ( 'DOIFD' ) ) {
                 $doifd_form_text = $attr[ 'text' ];
             } else {
 
-                $doifd_form_text = $header_text = __ ( 'Please provide your name and email address for your free download.', 'Double-Opt-In-For-Download' );
+                $doifd_form_text = $header_text = __ ( 'Please provide your name and email address for your free download.', 'double-opt-in-for-download' );
             }
 
             /* Assign button text. if admin did not assign a specific text then use the default */
@@ -37,7 +37,7 @@ if ( !class_exists ( 'DOIFD' ) ) {
                 $doifd_form_button_text = $attr[ 'button_text' ];
             } else {
 
-                $doifd_form_button_text = $button_text = __ ( 'Get Your Free Download', 'Double-Opt-In-For-Download' );
+                $doifd_form_button_text = $button_text = __ ( 'Get Your Free Download', 'double-opt-in-for-download' );
             }
 
             /* Used to create the _wpnounce in the form */
@@ -46,11 +46,11 @@ if ( !class_exists ( 'DOIFD' ) ) {
 
             /* Get subscribers name and assign to variable */
 
-            $subscriber_name = __ ( 'Name', 'Double-Opt-In-For-Download' );
+            $subscriber_name = __ ( 'Name', 'double-opt-in-for-download' );
 
             /* Get subscribers email and assign to variable */
 
-            $subscriber_email = __ ( 'Email Address', 'Double-Opt-In-For-Download' );
+            $subscriber_email = __ ( 'Email Address', 'double-opt-in-for-download' );
 
             /*             * *************************************
              * Set promotional link if option is on
@@ -70,7 +70,7 @@ if ( !class_exists ( 'DOIFD' ) ) {
 
             if ( ( isset ( $option ) ) && ($option == '1') ) {
 
-                $doifd_promo_link = '<p class="doifd_promo_link"><a href="http://www.labwebdesigns.com" target="new">Powered by Lab Web Designs & Hosting</a></p>';
+                $doifd_promo_link = '<p class="doifd_promo_link"><a href="http://www.labwebdesigns.com" target="new" Title="' . __( 'Powered by Lab Web Designs & Hosting', 'double-opt-in-for-download' ) . '">' . __( 'Powered by Lab Web Designs & Hosting', 'double-opt-in-for-download' ) . '</a></p>';
             } else {
 
                 $doifd_promo_link = '';
@@ -117,26 +117,26 @@ if ( !class_exists ( 'DOIFD' ) ) {
 
                 if ( file_exists ( DOUBLE_OPT_IN_FOR_DOWNLOAD_CAPTCHA_DIR ) && (!$doifd_resp->is_valid ) ) {
 
-                    $doifd_lab_msg = '<div class="doifd_error_msg">The Validation code does not match!</div>';
+                    $doifd_lab_msg = '<div class="doifd_error_msg">' . __( 'The Validation code does not match!', 'double-opt-in-for-download' ) .'</div>';
                 }
 
                 /* If the subscriber name is empty after sanitation lets return an error message */ elseif ( empty ( $doifd_lab_subscriber_name ) ) {
 
-                    $text = __ ( 'Please provide your name.', 'Double-Opt-In-For-Download' );
+                    $text = __ ( 'Please provide your name.', 'double-opt-in-for-download' );
 
                     $doifd_lab_msg = '<div class="doifd_error_msg">' . $text . '</div>';
                 }
 
                 /* If email is not valid after sanitation lets return an error message */ elseif ( !is_email ( $doifd_lab_subscriber_email ) ) {
 
-                    $text = __ ( 'Not a valid email address.', 'Double-Opt-In-For-Download' );
+                    $text = __ ( 'Not a valid email address.', 'double-opt-in-for-download' );
 
                     $doifd_lab_msg = '<div class="doifd_error_msg">' . $text . '</div>';
                 }
 
                 /* If the email address is a duplicate lets return an error message */ elseif ( $doifd_lab_check_duplicate_email != null ) {
 
-                    $text = __ ( 'This email address has already been used.', 'Double-Opt-In-For-Download' );
+                    $text = __ ( 'This email address has already been used.', 'double-opt-in-for-download' );
 
                     $doifd_lab_msg = '<div class="doifd_error_msg">' . $text . '</div>';
                 }
@@ -210,7 +210,7 @@ if ( !class_exists ( 'DOIFD' ) ) {
                                     )
                             ) == TRUE ) {
 
-                        /*                         * ********************************************************
+                        /* ********************************************************
                          * Add to wordpress users table if admin selected that option.
                          * ***********************************************************
                          */
@@ -261,13 +261,13 @@ if ( !class_exists ( 'DOIFD' ) ) {
                     }
                     /* Return thank you message to subscriber */
 
-                    return '<div id="doifd_user_reg_form" class="thankyou"><h4>Thank You for Registering!</h4>Please check your email for your link to your Free download.<br />'
+                    return '<div id="doifd_user_reg_form" class="thankyou"><h4>' . __( 'Thank You for Registering!', 'double-opt-in-for-download' ) . '</h4>' . __( 'Please check your email for your link to your Free download.', 'double-opt-in-for-download' ) . '<br />'
                             . $doifd_promo_link .
                             '</div>';
 
                     /* If the insert was NOT successfull or TRUE lets show a database error. */
 
-                    $text = __ ( 'Database Error', 'Double-Opt-In-For-Download' );
+                    $text = __ ( 'Database Error', 'double-opt-in-for-download' );
 
                     return '<div class="doifd_error_msg">' . $text . '</div>';
                 }
@@ -353,12 +353,12 @@ if ( !class_exists ( 'DOIFD' ) ) {
 
                 if ( !file_exists ( $file ) ) {
 
-                    return '<div id="doifd_user_reg_form" class="exceeded">There was an error<br />Please notify the website administrator.</div>';
+                    return '<div id="doifd_user_reg_form" class="exceeded">' . __('There was an error', 'double-opt-in-for-download' ) . '<br />Please notify the website administrator.</div>';
                 }
 
                 /* If the email is already verified and they have already exceed the number of downloads, lets show a message */ elseif ( ( $checkver->doifd_email_verified == '1' ) && ( $checkver->doifd_downloads_allowed >= $allowed ) ) {
 
-                    return '<div id="doifd_user_reg_form" class="exceeded">You have exceeded your number of<br />downloads for this item.</div>';
+                    return '<div id="doifd_user_reg_form" class="exceeded">' . __( 'You have exceeded your number of<br />downloads for this item.', 'double-opt-in-for-download' ) . '</div>';
 
                     /* If the email is already verified and they have NOT exceed the number of downloads, lets show the download button */
                 } elseif ( ( $checkver->doifd_email_verified == '1' ) && ( $checkver->doifd_downloads_allowed <= $allowed ) ) {
@@ -399,7 +399,7 @@ if ( !class_exists ( 'DOIFD' ) ) {
                     return '<div id="doifd_user_reg_form" class="thankyou"><form method="post" action="" enctype="multipart/form-data">
                                                              <input type="hidden" name="download_id" value="' . $download_id_from_db . '">
                                                              <input type="hidden" name="ver" value="' . $ver . '">
-                                                             <input name="doifd_get_download" type="submit" value=" Click Here For Your Free Download ">
+                                                             <input name="doifd_get_download" type="submit" value="'. __( 'Click Here For Your Free Download', 'double-opt-in-for-download' ) . '">
                                                              </form>
                                                              </div>';
                 }

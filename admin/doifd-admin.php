@@ -1,5 +1,7 @@
 <?php
 
+require( DOUBLE_OPT_IN_FOR_DOWNLOAD_DIR . '/includes/class-doifd.php' );
+
 require( DOUBLE_OPT_IN_FOR_DOWNLOAD_DIR . '/admin/class-admin-validation.php');
 
 require( DOUBLE_OPT_IN_FOR_DOWNLOAD_DIR . '/admin/class-admin-options.php');
@@ -74,13 +76,15 @@ if ( !class_exists ( 'DoifdAdmin' ) ) {
         /* Register the options for the options page & reCAPTCHA option page */
 
         function doifd_lab_admin_init() {
+            
+            global $plugin_slug;
 
             register_setting ( 'doifd_lab_options', 'doifd_lab_options', array( &$this, 'doifd_lab_validate_options' ) );
-            add_settings_section ( 'doifd_lab_main', 'General Settings', '', 'doifd_lab' );
-            add_settings_field ( 'doifd_lab_downloads_allowed', 'Select Maximum Number of Downloads', array( &$this, 'doifd_lab_setting_input' ), 'doifd_lab', 'doifd_lab_main' );
-            add_settings_field ( 'doifd_lab_landing_page', 'Select Landing page', array( $this, 'doifd_lab_setting_option' ), 'doifd_lab', 'doifd_lab_main' );
-            add_settings_field ( 'doifd_lab_add_to_wpusers', 'Add Subcribers to the Wordpress User Table?', array( $this, 'doifd_lab_add_to_wp_user_table' ), 'doifd_lab', 'doifd_lab_main' );
-            add_settings_field ( 'doifd_lab_promo_link', 'Help Us Out?<br />Add a promotional link', array( $this, 'doifd_lab_add_promo_link' ), 'doifd_lab', 'doifd_lab_main' );
+            add_settings_section ( 'doifd_lab_main', __( 'General Settings', 'double-opt-in-for-download' ) , '', 'doifd_lab' );
+            add_settings_field ( 'doifd_lab_downloads_allowed', __( 'Select Maximum Number of Downloads', 'double-opt-in-for-download' ) , array( &$this, 'doifd_lab_setting_input' ), 'doifd_lab', 'doifd_lab_main' );
+            add_settings_field ( 'doifd_lab_landing_page', __( 'Select Landing page', 'double-opt-in-for-download' ), array( $this, 'doifd_lab_setting_option' ), 'doifd_lab', 'doifd_lab_main' );
+            add_settings_field ( 'doifd_lab_add_to_wpusers', __( 'Add Subcribers to the Wordpress User Table?', 'double-opt-in-for-download' ), array( $this, 'doifd_lab_add_to_wp_user_table' ), 'doifd_lab', 'doifd_lab_main' );
+            add_settings_field ( 'doifd_lab_promo_link', __( 'Help Us Out?<br />Add a promotional link', 'double-opt-in-for-download' ), array( $this, 'doifd_lab_add_promo_link' ), 'doifd_lab', 'doifd_lab_main' );
             add_settings_section ( 'doifd_lab_email_section', 'Email Settings', '', 'doifd_lab' );
             add_settings_field ( 'doifd_lab_from_email', 'Enter The Return Email Address', array( $this, 'doifd_lab_setting_from_email' ), 'doifd_lab', 'doifd_lab_email_section' );
             add_settings_field ( 'doifd_lab_email_name', 'Enter who the email is from<br>(Default is the Website or Blog name)', array( $this, 'doifd_lab_setting_email_name' ), 'doifd_lab', 'doifd_lab_email_section' );
@@ -95,26 +99,28 @@ if ( !class_exists ( 'DoifdAdmin' ) ) {
             add_settings_field ( 'doifd_lab_widget_style_input_width', 'Widget Input Width', array( $this, 'doifd_lab_setting_widget_input_width' ), 'doifd_lab', 'doifd_lab_widget_style_section' );
             register_setting ( 'doifd_lab_recaptcha_options', 'doifd_lab_recaptcha_options', array( $this, 'doifd_lab_validate_recaptcha_options' ) );
             add_settings_section ( 'doifd_lab_recaptcha_section', 'reCaptcha Settings', '', 'doifd_lab_recaptcha' );
-            add_settings_field ( 'doifd_lab_recaptcha_public_key', 'Enter Your reCaptcha Public Key', array( $this, 'doifd_lab_setting_recaptcha_public_key' ), 'doifd_lab_recaptcha', 'doifd_lab_recaptcha_section' );
-            add_settings_field ( 'doifd_lab_recaptcha_private_key', 'Enter Your reCaptcha Private Key', array( $this, 'doifd_lab_setting_recaptcha_private_key' ), 'doifd_lab_recaptcha', 'doifd_lab_recaptcha_section' );
+            add_settings_field ( 'doifd_lab_recaptcha_public_key', __( 'Public Key', 'double-opt-in-for-download' ) , array( $this, 'doifd_lab_setting_recaptcha_public_key' ), 'doifd_lab_recaptcha', 'doifd_lab_recaptcha_section' );
+            add_settings_field ( 'doifd_lab_recaptcha_private_key', __( 'Private Key', 'double-opt-in-for-download' ) , array( $this, 'doifd_lab_setting_recaptcha_private_key' ), 'doifd_lab_recaptcha', 'doifd_lab_recaptcha_section' );
 
         }
 
         /* Add the custom menu pages */
 
         function register_doifd_custom_menu_page() {
+            
+            global $plugin_slug;
 
             // create main menu page
-            add_menu_page ( 'doifd menu title', 'DOI - Downloads', 'manage_options', __FILE__, array( $this, 'doifd_lab_options_page' ) );
+            add_menu_page ( 'doifd menu title', __( 'DOI - Downloads', 'double-opt-in-for-download' ), 'manage_options', __FILE__, array( $this, 'doifd_lab_options_page' ) );
 
             //create sub menu page for downloads
-            add_submenu_page ( __FILE__, 'Settings', 'Settings', 'manage_options', __FILE__, array( $this, 'doifd_lab_options_page' ) );
+            add_submenu_page ( __FILE__, 'Settings', __( 'Settings', 'double-opt-in-for-download' ), 'manage_options', __FILE__, array( $this, 'doifd_lab_options_page' ) );
 
             //create sub menu page for downloads
-            add_submenu_page ( __FILE__, 'doifd downloads', 'Downloads', 'manage_options', __FILE__ . '_downloads', array( $this, 'doifd_download_page' ) );
+            add_submenu_page ( __FILE__, 'doifd downloads', __( 'Downloads', 'double-opt-in-for-download' ), 'manage_options', __FILE__ . '_downloads', array( $this, 'doifd_download_page' ) );
 
             //create sub menu page for subscribers
-            add_submenu_page ( __FILE__, 'doifd subscribers', 'Subscribers', 'manage_options', __FILE__ . '_subscribers', array( $this, 'doifd_lab_subscribers_page' ) );
+            add_submenu_page ( __FILE__, 'doifd subscribers', __( 'Subscribers', 'double-opt-in-for-download' ), 'manage_options', __FILE__ . '_subscribers', array( $this, 'doifd_lab_subscribers_page' ) );
 
             //create sub menu page for editing downloads
             add_submenu_page ( __FILE__, 'doifd edit downloads', '', 'manage_options', __FILE__ . '_edit_downloads', array( $this, 'doifd_lab_edit_downloads_page' ) );

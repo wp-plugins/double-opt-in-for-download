@@ -1,5 +1,7 @@
 <?php
 
+include_once 'class-doifd.php';
+
 if ( !class_exists ( 'DoifdInstall' ) ) {
 
     class DoifdInstall {
@@ -30,7 +32,7 @@ if ( !class_exists ( 'DoifdInstall' ) ) {
 
             /* If version number is different create/update plugin tables */
 
-            $current_version = "0.9";
+            $current_version = '0.9.0';
 
             if ( $doifd_lab_installed_ver != $current_version ) {
 
@@ -83,7 +85,7 @@ if ( !class_exists ( 'DoifdInstall' ) ) {
                     'from_email' => '',
                     'add_to_wpusers' => '0',
                     'promo_link' => '0',
-                    'email_message' => 'Dear {subscriber},
+                    'email_message' => __( 'Dear {subscriber},
 
 Thank you for your interest in our free download {download}.
 
@@ -91,7 +93,7 @@ Below you will find the link to your download file. We hope you will enjoy it.
 
 {url}
 
-Thank You'
+Thank You', $plugin_slug )
                 );
 
                 add_option ( 'doifd_lab_options', $doifd_default_options );
@@ -107,11 +109,11 @@ Thank You'
              * is there already an .htaccess file in the download directory?
              */
 
-            if ( !is_file ( DOUBLE_OPT_IN_FOR_DOWNLOAD_DOWNLOAD_DIR . '/.htaccess' ) ) {
+            if ( !is_file ( DOUBLE_OPT_IN_FOR_DOWNLOAD_DOWNLOAD_DIR . '.htaccess' ) ) {
 
                 /* Create the .htaccess file in the download directory. */
 
-                $create_name = DOUBLE_OPT_IN_FOR_DOWNLOAD_DOWNLOAD_DIR . '/.htaccess';
+                $create_name = DOUBLE_OPT_IN_FOR_DOWNLOAD_DOWNLOAD_DIR . '.htaccess';
 
                 /* Open the .htaccess file for editing */
 

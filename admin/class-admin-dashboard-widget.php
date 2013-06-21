@@ -36,8 +36,8 @@ if ( !class_exists ( 'DoifdAdminWidget' ) ) {
 
             echo '<table class="doifd_admin_widget_table">';
             echo '<tr>';
-            echo '<th class="doifd_admin_widget_th">Total Subscribers: ' . $doifd_subscriber_count . '</th>';
-            echo '<th class="doifd_admin_widget_th">Overall Total Downloads: ' . $doifd_download_count . '</th>';
+            echo '<th class="doifd_admin_widget_th">' . __( 'Total Subscribers:', 'double-opt-in-for-download' ) . $doifd_subscriber_count . '</th>';
+            echo '<th class="doifd_admin_widget_th">Overall' . __( 'Total Downloads:', 'double-opt-in-for-download' ) . $doifd_download_count . '</th>';
             echo '</tr>';
             foreach ( $doifd_downloads_result as $value ) {
                 echo '<tr>';

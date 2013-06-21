@@ -35,7 +35,7 @@ define ( 'DOUBLE_OPT_IN_FOR_DOWNLOAD_URL' , plugin_dir_url ( __FILE__ ) ) ;
 define ( 'DOUBLE_OPT_IN_FOR_DOWNLOAD_DIR' , plugin_dir_path ( __FILE__ ) ) ;
 define ( 'DOUBLE_OPT_IN_FOR_DOWNLOAD_DOWNLOAD_DIR' , $uploads['basedir'] . '/doifd_downloads/' ) ;
 define ( 'DOUBLE_OPT_IN_FOR_DOWNLOAD_DOWNLOAD_URL' , $uploads['baseurl'] . '/doifd_downloads/' ) ;
-define ( 'DOUBLE_OPT_IN_FOR_DOWNLOAD_LANGUAGES_DIR' , plugin_dir_path ( __FILE__ ) . 'languages/' ) ;
+define ( 'DOUBLE_OPT_IN_FOR_DOWNLOAD_LANGUAGES_DIR' , dirname( plugin_basename( __FILE__ ) ) . '/languages/'  ) ;
 define ( 'DOUBLE_OPT_IN_FOR_DOWNLOAD_CAPTCHA_URL' , plugin_dir_url ( __FILE__ ) . 'captcha/' ) ;
 define ( 'DOUBLE_OPT_IN_FOR_DOWNLOAD_CAPTCHA_DIR' , plugin_dir_path ( __FILE__ ) . 'captcha/' ) ;
 define ( 'DOUBLE_OPT_IN_FOR_DOWNLOAD_IMG_URL' , plugin_dir_url ( __FILE__ ) . 'img/' ) ;
@@ -43,7 +43,6 @@ define ( 'DOUBLE_OPT_IN_FOR_DOWNLOAD_IMG_URL' , plugin_dir_url ( __FILE__ ) . 'i
 include_once( DOUBLE_OPT_IN_FOR_DOWNLOAD_DIR . '/includes/class-doifd.php' );
 
 register_activation_hook ( __FILE__, array( 'DoifdInstall', 'activate_doifd_plugin' ) );
-
 
 DOIFD::get_instance ();
 
