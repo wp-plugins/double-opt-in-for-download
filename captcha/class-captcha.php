@@ -90,7 +90,7 @@ if ( !class_exists ( 'DoifdCaptcha' ) ) {
 
             echo '<input type="text" name="doifd_lab_recaptcha_options[doifd_recaptcha_private]" id="private_key" size="50" value="' . $doifd_recaptcha_private . '">';
 
-            _e ( '<p>Enter your reCaptcha Private Key</p>', 'Double-Opt-In-For-Download' );
+            echo '<p>' . __( 'Enter your reCaptcha Private Key', 'double-opt-in-for-download' ) . '</p>';
 
             echo '</div>';
 
@@ -111,7 +111,7 @@ if ( !class_exists ( 'DoifdCaptcha' ) ) {
 
             echo '<input type="text" name="doifd_lab_recaptcha_options[doifd_recaptcha_public]" id="public_key" size="50" value="' . $doifd_recaptcha_public . '">';
 
-            _e ( '<p>Enter your reCaptcha Pulic Key</p>', 'Double-Opt-In-For-Download' );
+            echo '<p>' . __( 'Enter your reCaptcha Pulic Key', 'double-opt-in-for-download' ) . '</p>';
 
             echo '</div>';
 

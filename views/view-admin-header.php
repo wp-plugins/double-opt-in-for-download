@@ -1,7 +1,7 @@
 <div id="doifd_admin_header">
     <h1>Double OPT-IN for Downloads - <a href="http://www.labwebdesigns.com" target="new" >LAB Web Designs</a></h1>
     <br />
-    <h2>It takes a village to build a plugin!</h2>
+    <h2><?php _e( 'It takes a village to build a plugin!', 'double-opt-in-for-download' ); ?></h2>
     <p>If you need assistance with this plugin, or you have some thoughts and suggestions<br>on how to improve
         this plugin please visit the <a href="http://wordpress.org/support/plugin/double-opt-in-for-download" target="new">support page</a></p>
     <p>You can also get assistance at our website <a href="http://www.labwebdesigns.com" target="new" >Lab Web Designs & Hosting</a></p>

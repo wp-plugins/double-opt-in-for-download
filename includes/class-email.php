@@ -117,7 +117,7 @@ if ( !class_exists ( 'DoifdEmail' ) ) {
 
                 $doifd_lab_headers[ ] = 'From:' . $msg_from_name . '   <' . $msg_from_email . '>';
 
-                /*                 * **********************************************************
+                /* **********************************************************
                  * Optional cc headers if you need to use them.
                  * $doifd_lab_headers[] = 'Cc: John Q Codex <jqc@wordpress.org>'; 
                  * $doifd_lab_headers[] = 'Cc: iluvwp@wordpress.org'; // note you can just use a simple email address 

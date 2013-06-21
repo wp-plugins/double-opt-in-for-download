@@ -28,22 +28,22 @@ if ( !class_exists ( 'DoifdFormWidget' ) ) {
 
             if ( empty ( $header_text ) || (!isset ( $header_text )) ) {
                 // header text for widget form show to subscribers if not set by admin
-                $header_text = __ ( 'Please proivde your name and email address for your free download.', 'Double-Opt-In-For-Download' );
+                $header_text = __ ( 'Please proivde your name and email address for your free download.', 'double-opt-in-for-download' );
             }
 
             // text shown on submit button in the form
             if ( empty ( $lab_widget_form_button_text ) || (!isset ( $lab_widget_form_button_text )) ) {
-                $lab_widget_form_button_text = __ ( 'Get Your Free Download', 'Double-Opt-In-For-Download' );
+                $lab_widget_form_button_text = __ ( 'Get Your Free Download', 'double-opt-in-for-download' );
             }
 
             // used to create the _wpnounce in the form
             $doifd_lab_subscriber_form_nonce = wp_create_nonce ( 'doifd-subscriber-registration-nonce' );
 
             // label for name text input box
-            $subscriber_name = __ ( 'Name', 'Double-Opt-In-For-Download' );
+            $subscriber_name = __ ( 'Name', 'double-opt-in-for-download' );
 
             // label for email text input box
-            $subscriber_email = __ ( 'Email Address', 'Double-Opt-In-For-Download' );
+            $subscriber_email = __ ( 'Email Address', 'double-opt-in-for-download' );
 
             //Set promotional link if option is on
             // get options from options table and assign to variable
@@ -55,7 +55,7 @@ if ( !class_exists ( 'DoifdFormWidget' ) ) {
             }
 
             if ( ( isset ( $option ) ) && ($option == '1') ) {
-                $doifd_promo_link = '<p class="doifd_widget_promo_link"><a href="http://www.labwebdesigns.com" target="new">Powered by<br />Lab Web Designs & Hosting</a></p>';
+                $doifd_promo_link = '<p class="doifd_widget_promo_link"><a href="http://www.labwebdesigns.com" target="new">' . __( 'Powered by<br />Lab Web Designs & Hosting', 'double-opt-in-for-download' ) . '</a></p>';
             } else {
                 $doifd_promo_link = '';
             }
@@ -100,17 +100,17 @@ if ( !class_exists ( 'DoifdFormWidget' ) ) {
 
                 // check if subscriber name field is populated after sanitization.
                 if ( empty ( $doifd_lab_subscriber_name ) ) {
-                    $text = __ ( 'Please provide your name.', 'Double-Opt-In-For-Download' );
+                    $text = __ ( 'Please provide your name.', 'double-opt-in-for-download' );
                     $doifd_lab_msg = '<div class="doifd_error_msg">' . $text . '</div>';
                 }
                 // check if email field is populated with a valid email address (example@example.com).
                 elseif ( !is_email ( $doifd_lab_subscriber_email ) ) {
-                    $text = __ ( 'Email is not valid.', 'Double-Opt-In-For-Download' );
+                    $text = __ ( 'Email is not valid.', 'double-opt-in-for-download' );
                     $doifd_lab_msg = '<div class="doifd_error_msg">' . $text . '</div>';
                 }
                 // if a duplicate email is found, send message to the subscriber
                 elseif ( $doifd_lab_check_duplicate_email != null ) {
-                    $text = __ ( 'This email address has already been used.', 'Double-Opt-In-For-Download' );
+                    $text = __ ( 'This email address has already been used.', 'double-opt-in-for-download' );
                     $doifd_lab_msg = '<div class="doifd_error_msg">' . $text . '</div>';
                 }
 
@@ -200,13 +200,13 @@ if ( !class_exists ( 'DoifdFormWidget' ) ) {
                             "download_id" => $download_id ) );
 
                         // return the "Thank You For Registering"
-                        echo '<div id="widget_doifd_user_reg_form" class="thankyou"><h4>Thank You for Registering!</h4>Please check your email for your link to your Free download.<br />'
+                        echo '<div id="widget_doifd_user_reg_form" class="thankyou"><h4>' . __( 'Thank You for Registering!' , 'double-opt-in-for-download' ) . '</h4>' . __( 'Please check your email for your link to your Free download.' , 'double-opt-in-for-download' ) . '<br />'
                         . $doifd_promo_link .
                         '</div>';
                     } else {
 
                         //If the insert was NOT successfull or TRUE lets show a database error.
-                        $text = __ ( 'Database Error', 'Double-Opt-In-For-Download' );
+                        $text = __ ( 'Database Error', 'double-opt-in-for-download' );
                         echo '<div class="doifd_error_msg">' . $text . '</div>';
                     }
                 }

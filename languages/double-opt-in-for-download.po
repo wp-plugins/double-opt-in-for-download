@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Double OPT-IN for Download\n"
-"POT-Creation-Date: 2013-06-20 23:09-0800\n"
-"PO-Revision-Date: 2013-06-20 23:13-0800\n"
+"POT-Creation-Date: 2013-06-21 13:54-0800\n"
+"PO-Revision-Date: 2013-06-21 14:21-0800\n"
 "Last-Translator: Andy <andy@labwebdesigns.com>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -127,30 +127,31 @@ msgstr ""
 
 #: ../admin/class-admin-options.php:145
 msgid ""
-"If you check \"YES\", this will add a small promotional link at the bottom "
-"of the registration forms."
+"If you check YES, this will add a small promotional link at the bottom of "
+"the registration forms."
 msgstr ""
+"Si selecciona YES, esto añadirá un pequeño enlace promocional en la parte "
+"inferior de los formularios de inscripción."
 
 #: ../admin/class-admin-options.php:165
-#, fuzzy
 msgid ""
 "This is the email address that shows in the <b>From</b> field in the "
 "verification email. If this is left blank it will default to the admin email "
-"address</p>"
+"address."
 msgstr ""
-"<p> Esta es la dirección de correo electrónico que aparece en la <b> De </ "
-"b> en el mensaje de verificación. Si se deja en blanco se usará por defecto "
-"la dirección de correo electrónico de administración </ p>"
+"Esta es la dirección de correo electrónico que aparece en la <b> De </ b> en "
+"el mensaje de verificación. Si se deja en blanco se usará por defecto la "
+"dirección de correo electrónico del administrador."
 
 #: ../admin/class-admin-options.php:186
 msgid ""
 "This is the <b>Name</b> that will show in the <b>From</b> field in the "
-"verification email. If this is left blank it will default to your website/"
+"verification email. If this is left blank it will default to your website or "
 "blog name."
 msgstr ""
 "Este es el <b> Nombre </ b> que se mostrará en el <b> De </ b> en el mensaje "
-"de verificación. Si se deja en blanco se usará por defecto para su sitio "
-"web / blog nombre."
+"de verificación. Si se deja en blanco se usará por defecto para su sitio web "
+"o blog nombre."
 
 #: ../admin/class-admin-options.php:207
 msgid ""
@@ -178,59 +179,59 @@ msgstr "El nombre de la descarga el abonado ha seleccionado"
 
 #: ../admin/class-admin-widget-options.php:32
 msgid ""
-"<p>This is the width of the widget in the sidebar. <b>Use numbers only, DO "
-"NOT ADD the px at the end.</b></p>"
+"This is the width of the widget in the sidebar. <b>Use numbers only, DO NOT "
+"ADD the px at the end."
 msgstr ""
-"<p> Este es el ancho del widget en la barra lateral. <b> números de uso "
-"único, no añada el px al final. </ b> </ p>"
+"Este es el ancho del widget en la barra lateral. <b> números de uso único, "
+"no añada el px al final."
 
 #: ../admin/class-admin-widget-options.php:58
 msgid ""
-"<p>This is the amount of padding used inside of the widget form. <b>Use "
-"numbers only, DO NOT ADD the px at the end.</b></p>"
+"This is the amount of padding used inside of the widget form. <b>Use numbers "
+"only, DO NOT ADD the px at the end."
 msgstr ""
-"<p> Esta es la cantidad de relleno utilizado en el interior de la forma de "
-"widgets. <b> números de uso único, no añada el px al final. </ b> </ p>"
+"Esta es la cantidad de relleno utilizado en el interior de la forma de "
+"widgets. <b> números de uso único, no añada el px al final."
 
 #: ../admin/class-admin-widget-options.php:84
 msgid ""
-"<p>This is the top margin of the widget. <b>Use numbers only, DO NOT add the "
-"px at the end.</b></p>"
+"This is the top margin of the widget. <b>Use numbers only, DO NOT add the px "
+"at the end."
 msgstr ""
-"<p> Este es el margen superior del widget. <b> números de uso único, no "
-"añada el px al final. </ b> </ p>"
+"Este es el margen superior del widget. <b> números de uso único, no añada el "
+"px al final."
 
 #: ../admin/class-admin-widget-options.php:110
 msgid ""
-"<p>This is the right margin of the widget. <b>Use numbers only, DO NOT add "
-"the px at the end.</b></p>"
+"This is the right margin of the widget. <b>Use numbers only, DO NOT add the "
+"px at the end."
 msgstr ""
-"<p> Este es el margen derecha del widget. <b> números de uso único, no añada "
-"el px al final. </ b> </ p>"
+"Este es el margen derecha del widget. <b> números de uso único, no añada el "
+"px al final."
 
 #: ../admin/class-admin-widget-options.php:136
 msgid ""
-"<p>This is the bottom margin of the widget. <b>Use numbers only, DO NOT add "
-"the px at the end.</b></p>"
+"This is the bottom margin of the widget. <b>Use numbers only, DO NOT add the "
+"px at the end."
 msgstr ""
-"<p> Este es el margen inferior del widget. <b> números de uso único, no "
-"añada el px al final. </ b> </ p>"
+"Este es el margen inferior del widget. <b> números de uso único, no añada el "
+"px al final."
 
 #: ../admin/class-admin-widget-options.php:162
 msgid ""
-"<p>This is the left margin of the widget. <b>Use numbers only, DO NOT add "
-"the px at the end.</b></p>"
+"This is the left margin of the widget. <b>Use numbers only, DO NOT add the "
+"px at the end."
 msgstr ""
-"<p> Este es el margen izquierdo del widget. <b> números de uso único, no "
-"añada el px al final. </ b> </ p>"
+"Este es el margen izquierdo del widget. <b> números de uso único, no añada "
+"el px al final."
 
 #: ../admin/class-admin-widget-options.php:188
 msgid ""
-"<p>This sets the width of the input field on the widget. <b>Use numbers "
-"only, DO NOT add the px at the end.</b></p>"
+"This sets the width of the input field on the widget. <b>Use numbers only, "
+"DO NOT add the px at the end."
 msgstr ""
-"<p> establece el ancho del campo de entrada en el widget. <b> números de uso "
-"único, no añada el px al final. </ b> </ p>"
+"Esto establece el ancho del campo de entrada en el widget. <b> números de "
+"uso único, no añada el px al final."
 
 #: ../admin/doifd-admin.php:83
 msgid "General Settings"
@@ -291,12 +292,12 @@ msgid "You do not have sufficient permissions to access this page."
 msgstr "Usted no tiene permisos suficientes para acceder a esta página."
 
 #: ../captcha/class-captcha.php:93
-msgid "<p>Enter your reCaptcha Private Key</p>"
-msgstr "<p> Ingrese su clave privada reCaptcha </ p>"
+msgid "Enter your reCaptcha Private Key"
+msgstr "Ingrese su clave privada reCaptcha"
 
 #: ../captcha/class-captcha.php:114
-msgid "<p>Enter your reCaptcha Pulic Key</p>"
-msgstr "<p> Ingrese su reCaptcha Pulic clave </ p>"
+msgid "Enter your reCaptcha Pulic Key"
+msgstr "Ingrese su Pulic clave reCaptcha"
 
 #: ../includes/class-download.php:66
 msgid "You have exceed your number of downloads for this item."
@@ -369,10 +370,12 @@ msgid "This email address has already been used."
 msgstr "Esta dirección de correo electrónico ya ha sido utilizada."
 
 #: ../includes/class-registration-form.php:264
+#: ../includes/doifd-widget.php:203
 msgid "Thank You for Registering!"
 msgstr "¡Gracias por registrarte!"
 
 #: ../includes/class-registration-form.php:264
+#: ../includes/doifd-widget.php:203
 msgid "Please check your email for your link to your Free download."
 msgstr "Por favor, comprueba tu email para su enlace a su descarga gratuita."
 
@@ -399,6 +402,10 @@ msgstr ""
 "Por favor proivde su nombre y dirección de correo electrónico para su "
 "descarga gratuita."
 
+#: ../includes/doifd-widget.php:58
+msgid "Powered by<br />Lab Web Designs & Hosting"
+msgstr "Desarrollado por<br />Lab Web Designs & Hosting"
+
 #: ../includes/doifd-widget.php:108
 msgid "Email is not valid."
 msgstr "El correo electrónico no es válida."
@@ -418,3 +425,7 @@ msgstr "Texto del botón:"
 #: ../includes/doifd-widget.php:275
 msgid "Select Download:"
 msgstr "Seleccione Descargar:"
+
+#: ../views/view-admin-header.php:4
+msgid "It takes a village to build a plugin!"
+msgstr "Se necesita una aldea para construir un plugin!"

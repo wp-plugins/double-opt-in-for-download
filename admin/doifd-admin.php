@@ -143,7 +143,7 @@ if ( !class_exists ( 'DoifdAdmin' ) ) {
 
             if ( !current_user_can ( 'manage_options' ) ) {
 
-                wp_die ( __ ( 'You do not have sufficient permissions to access this page.' ) );
+                wp_die ( __ ( 'You do not have sufficient permissions to access this page.' , 'double-opt-in-for-download' ) );
             } else {
 
                 include_once( DOUBLE_OPT_IN_FOR_DOWNLOAD_DIR . 'views/view-admin-download-page.php' );
@@ -157,7 +157,7 @@ if ( !class_exists ( 'DoifdAdmin' ) ) {
 
             if ( !current_user_can ( 'manage_options' ) ) {
 
-                wp_die ( __ ( 'You do not have sufficient permissions to access this page.' ) );
+                wp_die ( __ ( 'You do not have sufficient permissions to access this page.' , 'double-opt-in-for-download' ) );
             } else {
                 
                 include_once( DOUBLE_OPT_IN_FOR_DOWNLOAD_DIR . 'views/view-admin-edit-download-page.php' );
@@ -176,7 +176,7 @@ if ( !class_exists ( 'DoifdAdmin' ) ) {
 
             if ( !current_user_can ( 'manage_options' ) ) {
 
-                wp_die ( __ ( 'You do not have sufficient permissions to access this page.' ) );
+                wp_die ( __ ( 'You do not have sufficient permissions to access this page.' , 'double-opt-in-for-download' ) );
             }
 
             include_once( DOUBLE_OPT_IN_FOR_DOWNLOAD_DIR . 'views/view-admin-subscribers-page.php' );
@@ -194,7 +194,7 @@ if ( !class_exists ( 'DoifdAdmin' ) ) {
 
             if ( !current_user_can ( 'manage_options' ) ) {
 
-                wp_die ( __ ( 'You do not have sufficient permissions to access this page.' ) );
+                wp_die ( __ ( 'You do not have sufficient permissions to access this page.',  'double-opt-in-for-download' ) );
             }
 
             return DoifdAdminOptions::options_page ();
@@ -207,7 +207,7 @@ if ( !class_exists ( 'DoifdAdmin' ) ) {
 
             if ( !current_user_can ( 'manage_options' ) ) {
 
-                wp_die ( __ ( 'You do not have sufficient permissions to access this page.' ) );
+                wp_die ( __ ( 'You do not have sufficient permissions to access this page.',  'double-opt-in-for-download'  ) );
             } else {
 
                 return DoifdAdminOptions::allowed_downloads ();
@@ -221,7 +221,7 @@ if ( !class_exists ( 'DoifdAdmin' ) ) {
 
             if ( !current_user_can ( 'manage_options' ) ) {
 
-                wp_die ( __ ( 'You do not have sufficient permissions to access this page.' ) );
+                wp_die ( __ ( 'You do not have sufficient permissions to access this page.' ,  'double-opt-in-for-download'  ) );
             } else {
 
                 return DoifdAdminOptions::select_landing_page ();
@@ -235,7 +235,7 @@ if ( !class_exists ( 'DoifdAdmin' ) ) {
 
             if ( !current_user_can ( 'manage_options' ) ) {
 
-                wp_die ( __ ( 'You do not have sufficient permissions to access this page.' ) );
+                wp_die ( __ ( 'You do not have sufficient permissions to access this page.',  'double-opt-in-for-download'  ) );
             } else {
 
                 return DoifdAdminOptions::add_to_user_table ();
@@ -249,7 +249,7 @@ if ( !class_exists ( 'DoifdAdmin' ) ) {
 
             if ( !current_user_can ( 'manage_options' ) ) {
 
-                wp_die ( __ ( 'You do not have sufficient permissions to access this page.' ) );
+                wp_die ( __ ( 'You do not have sufficient permissions to access this page.' , 'double-opt-in-for-download' ) );
             } else {
 
                 return DoifdAdminOptions::add_promo_link ();
@@ -272,7 +272,7 @@ if ( !class_exists ( 'DoifdAdmin' ) ) {
 
             if ( !current_user_can ( 'manage_options' ) ) {
 
-                wp_die ( __ ( 'You do not have sufficient permissions to access this page.' ) );
+                wp_die ( __ ( 'You do not have sufficient permissions to access this page.' , 'double-opt-in-for-download' ) );
             } else {
 
                 return DoifdAdminOptions::from_email_address_field ();
@@ -286,7 +286,7 @@ if ( !class_exists ( 'DoifdAdmin' ) ) {
 
             if ( !current_user_can ( 'manage_options' ) ) {
 
-                wp_die ( __ ( 'You do not have sufficient permissions to access this page.' ) );
+                wp_die ( __ ( 'You do not have sufficient permissions to access this page.' , 'double-opt-in-for-download' ) );
             } else {
 
                 return DoifdAdminOptions::from_email_name_field ();
@@ -300,7 +300,7 @@ if ( !class_exists ( 'DoifdAdmin' ) ) {
 
             if ( !current_user_can ( 'manage_options' ) ) {
 
-                wp_die ( __ ( 'You do not have sufficient permissions to access this page.' ) );
+                wp_die ( __ ( 'You do not have sufficient permissions to access this page.' , 'double-opt-in-for-download' ) );
             } else {
 
                 return DoifdAdminOptions::email_message_field ();
@@ -314,7 +314,7 @@ if ( !class_exists ( 'DoifdAdmin' ) ) {
 
             if ( !current_user_can ( 'manage_options' ) ) {
 
-                wp_die ( __ ( 'You do not have sufficient permissions to access this page.' ) );
+                wp_die ( __ ( 'You do not have sufficient permissions to access this page.' , 'double-opt-in-for-download' ) );
             } else {
 
                 return DoifdAdminWidgetOptions::field_widget_width ();
@@ -328,7 +328,7 @@ if ( !class_exists ( 'DoifdAdmin' ) ) {
 
             if ( !current_user_can ( 'manage_options' ) ) {
 
-                wp_die ( __ ( 'You do not have sufficient permissions to access this page.' ) );
+                wp_die ( __ ( 'You do not have sufficient permissions to access this page.' , 'double-opt-in-for-download' ) );
             } else {
 
                 return DoifdAdminWidgetOptions::field_widget_inside_padding ();
@@ -342,7 +342,7 @@ if ( !class_exists ( 'DoifdAdmin' ) ) {
 
             if ( !current_user_can ( 'manage_options' ) ) {
 
-                wp_die ( __ ( 'You do not have sufficient permissions to access this page.' ) );
+                wp_die ( __ ( 'You do not have sufficient permissions to access this page.' , 'double-opt-in-for-download' ) );
             } else {
 
                 return DoifdAdminWidgetOptions::field_widget_top_margin ();
@@ -356,7 +356,7 @@ if ( !class_exists ( 'DoifdAdmin' ) ) {
 
             if ( !current_user_can ( 'manage_options' ) ) {
 
-                wp_die ( __ ( 'You do not have sufficient permissions to access this page.' ) );
+                wp_die ( __ ( 'You do not have sufficient permissions to access this page.', 'double-opt-in-for-download' ) );
             } else {
 
                 return DoifdAdminWidgetOptions::field_widget_right_margin ();
@@ -370,7 +370,7 @@ if ( !class_exists ( 'DoifdAdmin' ) ) {
 
             if ( !current_user_can ( 'manage_options' ) ) {
 
-                wp_die ( __ ( 'You do not have sufficient permissions to access this page.' ) );
+                wp_die ( __ ( 'You do not have sufficient permissions to access this page.', 'double-opt-in-for-download' ) );
             } else {
 
                 return DoifdAdminWidgetOptions::field_widget_bottom_margin ();
@@ -384,7 +384,7 @@ if ( !class_exists ( 'DoifdAdmin' ) ) {
 
             if ( !current_user_can ( 'manage_options' ) ) {
 
-                wp_die ( __ ( 'You do not have sufficient permissions to access this page.' ) );
+                wp_die ( __ ( 'You do not have sufficient permissions to access this page.' , 'double-opt-in-for-download' ) );
             } else {
 
                 return DoifdAdminWidgetOptions::field_widget_left_margin ();
@@ -398,7 +398,7 @@ if ( !class_exists ( 'DoifdAdmin' ) ) {
 
             if ( !current_user_can ( 'manage_options' ) ) {
 
-                wp_die ( __ ( 'You do not have sufficient permissions to access this page.' ) );
+                wp_die ( __ ( 'You do not have sufficient permissions to access this page.' , 'double-opt-in-for-download' ) );
             } else {
 
                 return DoifdAdminWidgetOptions::field_input_field_width ();
@@ -419,7 +419,7 @@ if ( !class_exists ( 'DoifdAdmin' ) ) {
 
             if ( !current_user_can ( 'manage_options' ) ) {
 
-                wp_die ( __ ( 'You do not have sufficient permissions to access this page.' ) );
+                wp_die ( __ ( 'You do not have sufficient permissions to access this page.' , 'double-opt-in-for-download' ) );
             } else {
 
                 return DoifdCaptcha::reCaptcha_admin_options_page ();
@@ -433,7 +433,7 @@ if ( !class_exists ( 'DoifdAdmin' ) ) {
 
             if ( !current_user_can ( 'manage_options' ) ) {
 
-                wp_die ( __ ( 'You do not have sufficient permissions to access this page.' ) );
+                wp_die ( __ ( 'You do not have sufficient permissions to access this page.' , 'double-opt-in-for-download' ) );
             } else {
 
 
@@ -448,7 +448,7 @@ if ( !class_exists ( 'DoifdAdmin' ) ) {
 
             if ( !current_user_can ( 'manage_options' ) ) {
 
-                wp_die ( __ ( 'You do not have sufficient permissions to access this page.' ) );
+                wp_die ( __ ( 'You do not have sufficient permissions to access this page.' , 'double-opt-in-for-download' ) );
             } else {
 
                 return DoifdCaptcha::recaptcha_private_key_field ();
@@ -462,7 +462,7 @@ if ( !class_exists ( 'DoifdAdmin' ) ) {
 
             if ( !current_user_can ( 'manage_options' ) ) {
 
-                wp_die ( __ ( 'You do not have sufficient permissions to access this page.' ) );
+                wp_die ( __ ( 'You do not have sufficient permissions to access this page.' , 'double-opt-in-for-download'  ) );
             } else {
 
                 return DoifdCaptcha::reCaptcha_validate ( $input );
@@ -470,7 +470,7 @@ if ( !class_exists ( 'DoifdAdmin' ) ) {
 
         }
 
-        /*         * *************************
+        /* *************************
          * Resend verification Email 
          * **************************
          */
@@ -487,5 +487,4 @@ if ( !class_exists ( 'DoifdAdmin' ) ) {
     }
 
 }
-
 ?>

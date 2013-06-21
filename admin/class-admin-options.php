@@ -142,7 +142,7 @@ if ( !class_exists ( 'DoifdAdminOptions' ) ) {
 
             echo '<input type="radio" id="promo_link" name="doifd_lab_options[promo_link]" ' . ((isset ( $add_promo_link ) && ( $add_promo_link ) == '1' ) ? 'checked="checked"' : "") . ' value="1" /> Yes ';
             echo '<input type="radio" id="promo_link" name="doifd_lab_options[promo_link]" ' . (isset ( $add_promo_link ) && ( $add_promo_link == '0' ) ? 'checked="checked"' : "") . ' value="0" /> No ';
-            echo '<p>' . __( 'If you check "YES", this will add a small promotional link at the bottom of the registration forms.', 'double-opt-in-for-download' ) . '</p>';
+            echo '<p>' . __( 'If you check YES, this will add a small promotional link at the bottom of the registration forms.', 'double-opt-in-for-download' ) . '</p>';
 
         }
 
@@ -162,7 +162,7 @@ if ( !class_exists ( 'DoifdAdminOptions' ) ) {
 
             echo '<div id="doifd_lab_admin_options">';
             echo '<input type="text" name="doifd_lab_options[from_email]" id="from_email" value="' . $from_email . '">';
-            echo '<p>' . __( 'This is the email address that shows in the <b>From</b> field in the verification email. If this is left blank it will default to the admin email address</p>', 'double-opt-in-for-download' ) . '</p>';
+            echo '<p>' . __( 'This is the email address that shows in the <b>From</b> field in the verification email. If this is left blank it will default to the admin email address.', 'double-opt-in-for-download' ) . '</p>';
             echo '</div>';
 
         }
@@ -183,7 +183,7 @@ if ( !class_exists ( 'DoifdAdminOptions' ) ) {
 
             echo '<div id="doifd_lab_admin_options">';
             echo '<input type="text" name="doifd_lab_options[email_name]" id="email_name" value="' . $email_name . '">';
-            echo '<p>' . __( 'This is the <b>Name</b> that will show in the <b>From</b> field in the verification email. If this is left blank it will default to your website/blog name.', 'double-opt-in-for-download' ) . '</p>';
+            echo '<p>' . __( 'This is the <b>Name</b> that will show in the <b>From</b> field in the verification email. If this is left blank it will default to your website or blog name.', 'double-opt-in-for-download' ) . '</p>';
             echo '</div>';
 
         }
@@ -206,9 +206,9 @@ if ( !class_exists ( 'DoifdAdminOptions' ) ) {
             echo '<textarea rows="10" cols="60" name="doifd_lab_options[email_message]" id="email_message">' . $email_message . '</textarea>';
             echo '<p>' . __( 'This is the verification email that is sent to a new subscriber. Just remember, at the very least, you need to keep the <b>{URL}</b> in your email, as this provides the subscriber with the verification link. See the complete list below.', 'double-opt-in-for-download' ) . '<br />
         
-            <b>{subscriber} =' . __( 'Subscribers Name', 'double-opt-in-for-download' ) . '<br />
-            {url} =' . __( 'Verification Link', 'double-opt-in-for-download' ) . '<br />
-            {download} =' . __( 'The name of the download the subscriber has selected', 'double-opt-in-for-download' ). '</b><br />';
+            <b>{subscriber} = ' . __( 'Subscribers Name', 'double-opt-in-for-download' ) . '<br />
+            {url} = ' . __( 'Verification Link', 'double-opt-in-for-download' ) . '<br />
+            {download} = ' . __( 'The name of the download the subscriber has selected', 'double-opt-in-for-download' ). '</b><br />';
 
             echo '</div>';
 

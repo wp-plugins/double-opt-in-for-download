@@ -17,7 +17,6 @@ if ( !class_exists ( 'DOIFD' ) ) {
 
     class DOIFD {
 
-        protected $plugin_slug = 'double-opt-in-for-download';
         protected static $instance = null;
         protected $plugin_screen_hook_suffix = null;
 
