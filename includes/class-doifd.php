@@ -99,7 +99,7 @@ if ( !class_exists ( 'DOIFD' ) ) {
 
         function doifd_language() {
             
-            $lang_loaded = load_plugin_textdomain( 'double-opt-in-for-download' , false, DOUBLE_OPT_IN_FOR_DOWNLOAD_LANGUAGES_DIR  );
+           $lang_loaded = load_plugin_textdomain( 'double-opt-in-for-download' , false, DOUBLE_OPT_IN_FOR_DOWNLOAD_LANGUAGES_DIR  );
 
         }
 

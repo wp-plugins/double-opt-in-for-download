@@ -1,6 +1,6 @@
 <div class="wrap">
 
-    <h2>Subscribers ( <?php $count = new DoifdSubscribers();
+    <h2><?php _e( 'Subscribers' , 'double-opt-in-for-download' ); ?>( <?php $count = new DoifdSubscribers();
 $count->get_subscriber_count ();
 echo $count->get_subscriber_count (); ?> )</h2>
 
@@ -15,10 +15,10 @@ echo $count->get_subscriber_count (); ?> )</h2>
 // create an instance of subscriber table class
 
     ?>
-    <h2>Subscriber List ( <?php $count = new DoifdSubscribers();
+    <h2><?php _e( 'Subscriber List' , 'double-opt-in-for-download' ); ?> ( <?php $count = new DoifdSubscribers();
     $count->get_subscriber_count ();
     echo $count->get_subscriber_count (); ?> )</h2>
-    Here you can resend a verification email, delete a subscriber or download/export the subscriber list into a convenient csv file.
+    <?php _e( 'Here you can resend a verification email, delete a subscriber or download/export the subscriber list into a convenient csv file.' , 'double-opt-in-for-download' ); ?>
 
     <?php
 
@@ -42,10 +42,12 @@ echo $count->get_subscriber_count (); ?> )</h2>
 
 <form method="post" action="" enctype="multipart/form-data">
 
-    <input class='button-primary' name="doifd_lab_export_csv" type="submit" value=" Download Subscribers (csv) ">
+    <input class='button-primary' name="doifd_lab_export_csv" type="submit" value="<?php _e( 'Download Subscribers (csv)' , 'double-opt-in-for-download' ); ?> ">
 
 </form>
-<p>** Since users can download different downloads with the same email address the csv download/export automatically weeds out duplicate emails so you do not have too.</p>
+
+<p><?php _e( '** Since users can download different downloads with the same email address the csv download/export automatically weeds out duplicate emails so you do not have too.' , 'double-opt-in-for-download' ); ?></p>
+
 </div>
 
-<div id="dialog" title="Delete Confirmation Required">You are about to send this Subscriber into the cyber abyss! Are you sure?</div>
+<div id="dialog" title="Delete Confirmation Required"><?php _e( 'You are about to send this Subscriber into the cyber abyss! Are you sure?' , 'double-opt-in-for-download' ); ?></div>

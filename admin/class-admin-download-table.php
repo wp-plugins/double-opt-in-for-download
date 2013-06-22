@@ -80,6 +80,9 @@ class Doifd_Download_Table extends WP_List_Table {
         if ( $ext == 'docx' ) {
             $img = '<img src="' . DOUBLE_OPT_IN_FOR_DOWNLOAD_IMG_URL . 'docx.png" alt="MS Word DOCX File Icon" class="document_icon" />' ;
         }
+        if ( $ext == 'mp3' ) {
+            $img = '<img src="' . DOUBLE_OPT_IN_FOR_DOWNLOAD_IMG_URL . 'mp3.png" alt="MP3 File Icon" class="document_icon" />' ;
+        }
 
         //Return the file type image contents
         return sprintf ( '%1$s' ,

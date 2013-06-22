@@ -14,12 +14,12 @@ if ( !class_exists ( 'DOIFD' ) ) {
 
             /* Get the download id from the short code, if not send an error to the potential subscriber. */
 
-            if ( isset ( $attr[ 'download_id' ] ) ) {
+            if ( !empty ( $attr[ 'download_id' ] ) ) {
 
                 $download_id = $attr[ 'download_id' ];
             } else {
 
-                return '<div id="doifd_user_reg_form">'. __( 'Oooops! There is no download id specified', 'double-opt-in-for-download' ) . '</div>';
+                return '<div id="doifd_no_id_specified">'. __( 'Oooops! There is no download ID specified', 'double-opt-in-for-download' ) . '</div>';
             }
 
             if ( isset ( $attr[ 'text' ] ) ) {

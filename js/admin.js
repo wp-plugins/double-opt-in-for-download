@@ -1,3 +1,5 @@
+/* Delete Confirmation for subscribers and downloads */
+
 jQuery(document).ready(function() {
     jQuery("#dialog").dialog({
       autoOpen: false,
@@ -22,15 +24,14 @@ jQuery(document).ready(function() {
     jQuery("#dialog").dialog("open");
   });
 });
-//jQuery('.confirm').click(function(e) {
-//    
-//            confirm( "Are you sure you want to delete?" );
-//            
-//            if (e = true ){
-//                
-//            }else{
-//                    e.preventDefault();
-//            }
-//                
-//    });
+
+/* Facebook Script */
+
+jQuery(document).ready(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/en_US/all.js#xfbml=1&appId=316169008473308";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));
 
