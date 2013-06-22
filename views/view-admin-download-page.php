@@ -82,9 +82,9 @@
 
     echo '</form>';
 
-    echo '</div>';
-
 ?>
+
+   
+<div id="dialog" title="Delete Confirmation Required"><?php _e( 'You are about to send this download into the cyber abyss! Are you sure?' , 'double-opt-in-for-download' ) ; ?></div>
+  
 </div>
-    <div id="dialog" title="Delete Confirmation Required"><?php _e( 'You are about to send this download into the cyber abyss! Are you sure?' , 'double-opt-in-for-download' ) ; ?></div>
-    
