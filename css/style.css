@@ -11,6 +11,8 @@
 
 #doifd_user_reg_form ul li{
     list-style: none;
+    padding-top: 10px;
+    margin: 0 auto;
 }
 
 #doifd_user_reg_form label {
@@ -23,7 +25,7 @@
 
 #doifd_user_reg_form input[type=text]{
     border: 1px solid #006;
-    background: #ffc;
+    background: transparent;
 }
 
 #doifd_user_reg_form h4 {
@@ -33,6 +35,20 @@
     text-align: center;
     font-weight: bold;
 
+}
+
+#doifd_no_id_specified {
+    margin: 15px auto;
+    width: 400px;
+    border: #333333 thin solid;
+     -moz-border-radius: 10px;
+    -webkit-border-radius: 10px;
+    -khtml-border-radius: 10px;
+    border-radius: 10px;   
+    padding: 15px;
+    text-align: center;
+    font-size: 1.5em;
+    color: #ff0000;
 }
 
 #doifd_button_holder {
@@ -70,6 +86,7 @@
 .doifd_promo_link {
     font-size: 0.6em !important;
     padding-top: 15px !important;
+    text-align: center;
 }
 
 .doifd_promo_link a:link,
@@ -79,4 +96,7 @@
     color: #CCCCCC !important;
 }
 
-
+#doifd_captcha {
+    width: 400px;
+    margin: 0px 40px;
+}

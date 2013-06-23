@@ -5,14 +5,14 @@ License: GPLv3
 License URI: http://www.gnu.org/licenses/gpl.html
 Tags: email, download
 Requires at least: 3.5
-Tested up to: 3.5.1
-Stable tag: 0.9
+Tested up to: 3.5.2
+Stable tag: 1.0.0
 
 Improve your client outreach by offering FREE downloads to your visitors in exchange for their email address with our Double Opt-In Plugin
 
 == Description ==
 
-The Double Opt-In for download plugin is ideal for improving your customer out reach.
+The Double Opt-In for download plugin is ideal for improving your customer outreach.
 
 You simply upload your free download using the plugin admin interface. Once your file is uploaded, just add the generated shortcode to the pages or posts where you would like to show the sign up form.
  
@@ -29,15 +29,16 @@ A link to your download is never revealed.
 1. Upload the 'double-opt-in-for-download folder to the "/wp-content/plugins/" directory
 2. Activate the Double Opt-In for Download plugin through the 'Plugins' menu in WordPress
 3. Create a landing page for your subscribers and add this shortcode to it, [lab_landing_page].
-3. Configure the plugin by going to the "Settings" sub-menu that appears under DOI-Download in your admin menu. Don't forget to select your landing page!!
-4. Upload your Free download by going to the "Downloads" sub-menu. Give your file a name, attach it, then upload it.
-5. Once your file is uploaded, copy the generated shortcode and paste it into the pages and posts of your choosing.
+4. Configure the plugin by going to the "Settings" sub-menu that appears under DOI-Download in your admin menu. 
+5. VERY IMPORTANT: Don't forget to select your landing page!! =)
+6. Upload your Free download by going to the "Downloads" sub-menu. Give your file a name, attach it, then upload it.
+7. Once your file is uploaded, copy the generated shortcode and paste it into the pages and posts of your choosing or use the sidebar widget.
 
 = Widget =
 
 You can also use the "Double Opt-In Sign Up" widget on your pages.
 
-After you have completed steps 1 thru 5 above:
+After you have completed steps 1 thru 6 above:
 
 1. Add widget to the sidebar of your choosing.
 2. Add a title for your free download if you desire.
@@ -72,6 +73,16 @@ A: Yes!
 
 That will do it.
 
+Q: Does your plugin support languages?
+
+A: As of 1.0.0, yes
+
+The following is a list of languages the plugin supports:
+
+1. Spanish - es_ES
+
+French is coming shortly. Post a comment on our Facebook page if you would like to see this plugin translated to your language.
+
 == Screenshots ==
 
 1. This is a screen shot of the registration forms, both page/post and widget.
@@ -85,6 +96,16 @@ That will do it.
 5. This is a screen shot of the subscribers admin screen.
 
 == Changelog ==
+
+= 1.0.0 =
+
+1. Added ability to upload mp3 files for download.
+2. Added Delete confirmations for downloads and subscribers.
+2. Code enhancements for smother operation. (Fingers crossed)
+3. Added Error messages to help trouble shoot problems.
+4. Improved instructions throughout the pages.
+5. Added Spanish (via Google Translate) language translation.
+6. Fixed the form. Looked cockeyed in Firefox.
 
 = 0.9 =
 

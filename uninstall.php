@@ -12,6 +12,7 @@ if ( ! defined ( 'WP_UNINSTALL_PLUGIN' ) )
 
 delete_option ( 'doifd_lab_version' ) ;
 delete_option ( 'doifd_lab_options' ) ;
+delete_option ( 'doifd_lab_recaptcha_options' );
 
 /* * ************************************
  * Remove tables created by plugin
