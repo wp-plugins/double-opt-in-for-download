@@ -5,11 +5,15 @@ if ( !class_exists ( 'DoifdFormWidget' ) ) {
     class DoifdFormWidget extends WP_Widget {
 
         function DoifdFormWidget() {
+            
+            $description = __( 'Display Double-Opt-In Signup Form', 'double-opt-in-for-download' );
+            $widget_title = __( 'Double Opt In For Download Form', 'double-opt-in-for-download' );
+            
             $widget_ops = array(
                 'classname' => 'doifd_lab_widget_signup_class',
-                'description' => 'Display Double-Opt-In Signup form'
+                'description' => $description
                     );
-            $this->WP_Widget ( 'doifd_lab_widget_signup', 'Double-Opt-In Signup', $widget_ops );
+            $this->WP_Widget ( 'doifd_lab_widget_signup', $widget_title , $widget_ops );
 
         }
 
@@ -266,13 +270,13 @@ if ( !class_exists ( 'DoifdFormWidget' ) ) {
                 <label for="<?php echo $this->get_field_id ( 'title' ); ?>"><?php _e ( 'Title:' ); ?>
                     <input class="widefat" id="<?php echo $this->get_field_id ( 'title' ); ?>" name="<?php echo $this->get_field_name ( 'title' ); ?>" type="text" value="<?php echo $title; ?>" />
                 </label>
-                <label for="<?php echo $this->get_field_id ( 'doifd_form_text' ); ?>"><?php _e ( 'Form Text:' ); ?>
+                <label for="<?php echo $this->get_field_id ( 'doifd_form_text' ); ?>"><?php _e( 'Form Text:', 'double-opt-in-for-download' ); ?>
                     <textarea class="widefat" rows="3" id="<?php echo $this->get_field_id ( 'doifd_form_text' ); ?>" name="<?php echo $this->get_field_name ( 'doifd_form_text' ); ?>" type="text"><?php echo $widget_form_text; ?></textarea>
                 </label>
-                <label for="<?php echo $this->get_field_id ( 'doifd_form_button_text' ); ?>"><?php _e ( 'Button Text:' ); ?>
+                <label for="<?php echo $this->get_field_id ( 'doifd_form_button_text' ); ?>"><?php _e ( 'Button Text:', 'double-opt-in-for-download' ); ?>
                     <input class="widefat" id="<?php echo $this->get_field_id ( 'doifd_form_button_text' ); ?>" name="<?php echo $this->get_field_name ( 'doifd_form_button_text' ); ?>" type="text" value="<?php echo $widget_form_button_text; ?>" />
                 </label>
-                <label for="<?php echo $this->get_field_id ( 'Download' ); ?>"><?php _e ( 'Select Download:' ); ?>
+                <label for="<?php echo $this->get_field_id ( 'Download' ); ?>"><?php _e ( 'Select Download:', 'double-opt-in-for-download' ); ?>
                     <select name="<?php echo $this->get_field_name ( 'doifd_download_name' ); ?>" id="<?php echo $this->get_field_id ( 'doifd_download_id' ); ?>" class="widefat">
                         <!--Get list of Downloads and populate drop down select in form-->
             <?php
