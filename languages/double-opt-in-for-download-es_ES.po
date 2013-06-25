@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Double OPT-IN for Download\n"
-"POT-Creation-Date: 2013-06-22 17:25-0800\n"
-"PO-Revision-Date: 2013-06-22 17:58-0800\n"
+"POT-Creation-Date: 2013-06-24 19:02-0800\n"
+"PO-Revision-Date: 2013-06-24 19:03-0800\n"
 "Last-Translator: Andy <andy@labwebdesigns.com>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -324,7 +324,7 @@ msgid "Settings"
 msgstr "Configuración"
 
 #: ../admin/doifd-admin.php:120 ../views/view-admin-download-page.php:3
-#: ../views/view-admin-download-page.php:63
+#: ../views/view-admin-download-page.php:61
 msgid "Downloads"
 msgstr "Descargas"
 
@@ -346,11 +346,11 @@ msgstr "Suscriptores"
 msgid "You do not have sufficient permissions to access this page."
 msgstr "Usted no tiene permisos suficientes para acceder a esta página."
 
-#: ../captcha22/class-captcha.php:93
+#: ../captcha/class-captcha.php:93
 msgid "Enter your reCaptcha Private Key"
 msgstr "Ingrese su clave privada reCaptcha"
 
-#: ../captcha22/class-captcha.php:114
+#: ../captcha/class-captcha.php:114
 msgid "Enter your reCaptcha Pulic Key"
 msgstr "Ingrese su Pulic clave reCaptcha"
 
@@ -497,42 +497,39 @@ msgstr "Texto del botón:"
 msgid "Select Download:"
 msgstr "Seleccione Descargar:"
 
-#: ../views/view-admin-download-page.php:16
+#: ../views/view-admin-download-page.php:17
 msgid "Upload Your Dowload File Here"
 msgstr "Cargue su archivo Dowload aquí"
 
-#: ../views/view-admin-download-page.php:17
+#: ../views/view-admin-download-page.php:18
 msgid ""
 "Here is where you upload your free download. You simply give your download a "
-"name, then click the browse button and select your download\n"
-"        file from your computer. Once you have selected your download, press "
-"the upload button. When the page refreshes you will see your download\n"
-"        in the download table below. You will also see that the shortcode is "
-"generated for you. If you choose to put the sign up form in a post or page\n"
-"        just copy the shortcode and paste it into the page or post you want "
-"it to show up in. If you choose to use the widget, you will just need to "
-"select\n"
-"        the download in the dropdown box when setting up your widget."
+"name, then click the browse button and select your download file from your "
+"computer. Once you have selected your download, press the upload button. "
+"When the page refreshes you will see your download in the download table "
+"below. You will also see that the shortcode is generated for you. If you "
+"choose to put the sign up form in a post or page just copy the shortcode and "
+"paste it into the page or post you want it to show up in. If you choose to "
+"use the widget, you will just need to select the download in the dropdown "
+"box when setting up your widget."
 msgstr ""
 "Aquí es donde usted cargue su descarga gratuita. Sólo tiene que darle a su "
-"descarga un nombre y haga clic en el botón Examinar y seleccione la "
-"descarga\n"
-"         archivo de su computadora. Una vez que haya seleccionado su "
-"descarga, pulse el botón de subida. Cuando se actualiza la página, verá la "
-"descarga\n"
-"         en la tabla de descarga a continuación. También verá que el código "
-"corto se genera para usted. Si usted decide poner el formulario de registro "
-"en un post o página\n"
+"descarga un nombre y haga clic en el botón Examinar y seleccione la descarga "
+"archivo de su computadora. Una vez que haya seleccionado su descarga, pulse "
+"el botón de subida. Cuando se actualiza la página, verá la descarga         "
+"en la tabla de descarga a continuación. También verá que el código corto se "
+"genera para usted. Si usted decide poner el formulario de registro en un "
+"post o página\n"
 "         sólo tienes que copiar el código corto y pégala en la página o "
 "mensaje que desea que aparezca pulg Si usted elige utilizar el widget, usted "
 "sólo tiene que seleccionar\n"
 "         la descarga en el cuadro desplegable al configurar el widget."
 
-#: ../views/view-admin-download-page.php:35
+#: ../views/view-admin-download-page.php:33
 msgid "Name of Your Download"
 msgstr "Nombre de la descarga"
 
-#: ../views/view-admin-download-page.php:37
+#: ../views/view-admin-download-page.php:35
 msgid ""
 "The name you give your download file will also appear in the verification "
 "email."
@@ -540,11 +537,11 @@ msgstr ""
 "El nombre que le asigne el archivo de descarga también aparecerá en el "
 "correo electrónico de verificación."
 
-#: ../views/view-admin-download-page.php:44
+#: ../views/view-admin-download-page.php:42
 msgid "Select Your File"
 msgstr "Seleccione su archivo"
 
-#: ../views/view-admin-download-page.php:46
+#: ../views/view-admin-download-page.php:44
 msgid ""
 "( Currently, the following file types are allowed; .jpg, .jpeg, .png, .bmp, ."
 "gif, .pdf, .zip, .doc, .docx, ,mp3 )"
@@ -552,15 +549,15 @@ msgstr ""
 "(En la actualidad, se permiten los siguientes tipos de archivo,. Jpg, jpeg, "
 "png, bmp, gif, pdf, zip, doc, docx,, mp3. )"
 
-#: ../views/view-admin-download-page.php:52
+#: ../views/view-admin-download-page.php:50
 msgid "Upload"
 msgstr "subir"
 
-#: ../views/view-admin-download-page.php:64
+#: ../views/view-admin-download-page.php:62
 msgid "You can edit, delete or view your download count here."
 msgstr "Puede editar, eliminar o ver el tiempo de descarga aquí."
 
-#: ../views/view-admin-download-page.php:88
+#: ../views/view-admin-download-page.php:86
 msgid "You are about to send this download into the cyber abyss! Are you sure?"
 msgstr "Vas a enviar esta descarga en el cyber abismo! ¿Está seguro?"
 
