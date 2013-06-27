@@ -36,7 +36,7 @@ if ( !class_exists ( 'DoifdAdminOptions' ) ) {
 
                     ?>
 
-                    <input class='button-primary' name="Submit" type="submit" value="Save Changes">
+                    <input class='button-primary' name="Submit" type="submit" value="<?php _e( 'Save Changes', 'double-opt-in-for-download' ); ?>">
 
                 </form>
 

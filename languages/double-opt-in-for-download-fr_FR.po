@@ -5,8 +5,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Double OPT-IN for Download\n"
-"POT-Creation-Date: 2013-06-24 19:07-0800\n"
-"PO-Revision-Date: 2013-06-24 19:10-0800\n"
+"POT-Creation-Date: 2013-06-26 20:19-0800\n"
+"PO-Revision-Date: 2013-06-26 20:26-0800\n"
 "Last-Translator: Andy <andy@labwebdesigns.com>\n"
 "Language-Team: <>\n"
 "MIME-Version: 1.0\n"
@@ -25,6 +25,34 @@ msgstr "Nombre total d'abonnés:"
 #: ../admin/class-admin-dashboard-widget.php:40
 msgid "Total Downloads:"
 msgstr "Total des téléchargements:"
+
+#: ../admin/class-admin-download-table.php:38
+#: ../admin/class-admin-subscriber-table.php:37
+msgid "Delete"
+msgstr "supprimer"
+
+#: ../admin/class-admin-download-table.php:39
+msgid "Edit"
+msgstr "Modifier"
+
+#: ../admin/class-admin-download-table.php:122
+#: ../admin/class-admin-subscriber-table.php:85
+msgid "Download Name"
+msgstr "Télécharger Nom"
+
+#: ../admin/class-admin-download-table.php:123
+msgid "File Type"
+msgstr "Type de fichier"
+
+#: ../admin/class-admin-download-table.php:124
+msgid "Shortcode"
+msgstr "shortCode"
+
+#: ../admin/class-admin-download-table.php:125 ../admin/doifd-admin.php:120
+#: ../views/view-admin-download-page.php:3
+#: ../views/view-admin-download-page.php:61
+msgid "Downloads"
+msgstr "Téléchargements"
 
 #: ../admin/class-admin-downloads.php:20
 #: ../admin/class-admin-downloads.php:185 ../includes/class-email.php:37
@@ -94,6 +122,10 @@ msgstr "Veuillez sélectionner un fichier à téléverser"
 #: ../admin/class-admin-downloads.php:288
 msgid "File Uploaded Successfully"
 msgstr "Fichier téléversé avec succès"
+
+#: ../admin/class-admin-options.php:39
+msgid "Save Changes"
+msgstr "Enregistrer les modifications"
 
 #: ../admin/class-admin-options.php:62
 msgid "Select Maximum Downloads"
@@ -181,6 +213,24 @@ msgstr "Lien de vérification"
 #: ../admin/class-admin-options.php:211
 msgid "The name of the download the subscriber has selected"
 msgstr "Le nom du téléchargement choisi par l'abonné"
+
+#: ../admin/class-admin-subscriber-table.php:36
+msgid "Resend Email"
+msgstr "renvoyer l'email"
+
+#: ../admin/class-admin-subscriber-table.php:83
+#: ../includes/class-registration-form.php:49 ../includes/doifd-widget.php:47
+msgid "Name"
+msgstr "Nom"
+
+#: ../admin/class-admin-subscriber-table.php:84
+#: ../includes/class-registration-form.php:53 ../includes/doifd-widget.php:50
+msgid "Email Address"
+msgstr "Adresse E-mail"
+
+#: ../admin/class-admin-subscriber-table.php:86
+msgid "Successful Downloads"
+msgstr "Téléchargements succès"
 
 #: ../admin/class-admin-widget-options.php:32
 msgid ""
@@ -292,7 +342,6 @@ msgid "Widget Margin Top"
 msgstr "Marge supérieure du Widget"
 
 #: ../admin/doifd-admin.php:96
-#, fuzzy
 msgid "Widget Margin Right"
 msgstr "Marge gauche du Widget"
 
@@ -327,11 +376,6 @@ msgstr "DOI - Downloads"
 #: ../admin/doifd-admin.php:117
 msgid "Settings"
 msgstr "Réglages"
-
-#: ../admin/doifd-admin.php:120 ../views/view-admin-download-page.php:3
-#: ../views/view-admin-download-page.php:61
-msgid "Downloads"
-msgstr "Téléchargements"
 
 #: ../admin/doifd-admin.php:123 ../views/view-admin-subscribers-page.php:3
 msgid "Subscribers"
@@ -412,14 +456,6 @@ msgstr ""
 #: ../includes/class-registration-form.php:40 ../includes/doifd-widget.php:40
 msgid "Get Your Free Download"
 msgstr "Obtenez votre téléchargement gratuit"
-
-#: ../includes/class-registration-form.php:49 ../includes/doifd-widget.php:47
-msgid "Name"
-msgstr "Nom"
-
-#: ../includes/class-registration-form.php:53 ../includes/doifd-widget.php:50
-msgid "Email Address"
-msgstr "Adresse E-mail"
 
 #: ../includes/class-registration-form.php:73
 msgid "Powered by Lab Web Designs & Hosting"
@@ -578,6 +614,52 @@ msgstr ""
 "Vous êtes sur le point d'envoyer ce téléchargement dans le cyber abîme! Êtes-"
 "vous sûr?"
 
+#: ../views/view-admin-edit-download-page.php:7
+msgid "Edit Download File"
+msgstr "Modifier Télécharger le fichier"
+
+#: ../views/view-admin-edit-download-page.php:8
+msgid ""
+"Here you can either rename your download file, replace it with a different "
+"file <i>(The old one will be deleted from the server)</i> or you can reset "
+"the download count."
+msgstr ""
+"Ici vous pouvez renommer votre fichier téléchargé, remplacez-le par un "
+"fichier <i> différent (L'ancien sera supprimé à partir du serveur) </i> ou "
+"vous pouvez réinitialiser le compteur de téléchargement."
+
+#: ../views/view-admin-edit-download-page.php:31
+msgid "Rename Your File"
+msgstr "Renommez votre fichier"
+
+#: ../views/view-admin-edit-download-page.php:39
+msgid "Select Your Replacement File"
+msgstr "Sélectionnez votre fichier de remplacement"
+
+#: ../views/view-admin-edit-download-page.php:41
+msgid ""
+"(Currently, the following file types are allowed; .jpg, .jpeg, .png, .bmp, ."
+"gif, .pdf, .zip, .doc, .docx )"
+msgstr ""
+"(Actuellement, les types de fichiers suivants sont autorisés;. Jpg, jpeg, "
+"png, bmp, gif, pdf, zip, doc, docx........)"
+
+#: ../views/view-admin-edit-download-page.php:47
+msgid "Reset Download Count to 0"
+msgstr "Réinitialiser téléchargements à 0"
+
+#: ../views/view-admin-edit-download-page.php:49
+msgid "Yes"
+msgstr "Oui"
+
+#: ../views/view-admin-edit-download-page.php:51
+msgid "No"
+msgstr "non"
+
+#: ../views/view-admin-edit-download-page.php:57
+msgid "Update"
+msgstr "mettre à jour"
+
 #: ../views/view-admin-header.php:3
 msgid "Double OPT-IN for Downloads"
 msgstr "Double OPT-IN pour les téléchargements"
@@ -652,6 +734,9 @@ msgid ""
 msgstr ""
 "Vous êtes sur le point d'envoyer cet abonné dans le cyber abîme! Etes-vous "
 "sûr?"
+
+#~ msgid "Download"
+#~ msgstr "Télécharger"
 
 #~ msgid "Marge droite du Widget"
 #~ msgstr "Marge droite du Widget"

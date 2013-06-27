@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Double OPT-IN for Download\n"
-"POT-Creation-Date: 2013-06-24 19:02-0800\n"
-"PO-Revision-Date: 2013-06-24 19:03-0800\n"
+"POT-Creation-Date: 2013-06-26 19:57-0800\n"
+"PO-Revision-Date: 2013-06-26 19:59-0800\n"
 "Last-Translator: Andy <andy@labwebdesigns.com>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -20,6 +20,34 @@ msgstr "Total de suscriptores:"
 #: ../admin/class-admin-dashboard-widget.php:40
 msgid "Total Downloads:"
 msgstr "Número total de descargas:"
+
+#: ../admin/class-admin-download-table.php:38
+#: ../admin/class-admin-subscriber-table.php:37
+msgid "Delete"
+msgstr "borrar"
+
+#: ../admin/class-admin-download-table.php:39
+msgid "Edit"
+msgstr "editar"
+
+#: ../admin/class-admin-download-table.php:122
+#: ../admin/class-admin-subscriber-table.php:85
+msgid "Download Name"
+msgstr "Descarga Nombre"
+
+#: ../admin/class-admin-download-table.php:123
+msgid "File Type"
+msgstr "Tipo de Archivo"
+
+#: ../admin/class-admin-download-table.php:124
+msgid "Shortcode"
+msgstr "código de acceso"
+
+#: ../admin/class-admin-download-table.php:125 ../admin/doifd-admin.php:120
+#: ../views/view-admin-download-page.php:3
+#: ../views/view-admin-download-page.php:61
+msgid "Downloads"
+msgstr "Descargas"
 
 #: ../admin/class-admin-downloads.php:20
 #: ../admin/class-admin-downloads.php:185 ../includes/class-email.php:37
@@ -88,6 +116,10 @@ msgstr "Selecciona un archivo para cargar"
 #: ../admin/class-admin-downloads.php:288
 msgid "File Uploaded Successfully"
 msgstr "Archivo subido con éxito"
+
+#: ../admin/class-admin-options.php:39
+msgid "Save Changes"
+msgstr "Guardar cambios"
 
 #: ../admin/class-admin-options.php:62
 msgid "Select Maximum Downloads"
@@ -176,6 +208,24 @@ msgstr "Verificación Enlace"
 #: ../admin/class-admin-options.php:211
 msgid "The name of the download the subscriber has selected"
 msgstr "El nombre de la descarga el abonado ha seleccionado"
+
+#: ../admin/class-admin-subscriber-table.php:36
+msgid "Resend Email"
+msgstr "Re-enviar Email"
+
+#: ../admin/class-admin-subscriber-table.php:83
+#: ../includes/class-registration-form.php:49 ../includes/doifd-widget.php:47
+msgid "Name"
+msgstr "nombre"
+
+#: ../admin/class-admin-subscriber-table.php:84
+#: ../includes/class-registration-form.php:53 ../includes/doifd-widget.php:50
+msgid "Email Address"
+msgstr "Correo electrónico"
+
+#: ../admin/class-admin-subscriber-table.php:86
+msgid "Successful Downloads"
+msgstr "Descargas éxito"
 
 #: ../admin/class-admin-widget-options.php:32
 msgid ""
@@ -323,11 +373,6 @@ msgstr "DOI - Descargas"
 msgid "Settings"
 msgstr "Configuración"
 
-#: ../admin/doifd-admin.php:120 ../views/view-admin-download-page.php:3
-#: ../views/view-admin-download-page.php:61
-msgid "Downloads"
-msgstr "Descargas"
-
 #: ../admin/doifd-admin.php:123 ../views/view-admin-subscribers-page.php:3
 msgid "Subscribers"
 msgstr "Suscriptores"
@@ -401,14 +446,6 @@ msgstr ""
 #: ../includes/class-registration-form.php:40 ../includes/doifd-widget.php:40
 msgid "Get Your Free Download"
 msgstr "Obtener su libre descarga"
-
-#: ../includes/class-registration-form.php:49 ../includes/doifd-widget.php:47
-msgid "Name"
-msgstr "nombre"
-
-#: ../includes/class-registration-form.php:53 ../includes/doifd-widget.php:50
-msgid "Email Address"
-msgstr "Correo electrónico"
 
 #: ../includes/class-registration-form.php:73
 msgid "Powered by Lab Web Designs & Hosting"
@@ -633,3 +670,6 @@ msgstr ""
 msgid ""
 "You are about to send this Subscriber into the cyber abyss! Are you sure?"
 msgstr "Vas a enviar esta suscriptor en el cyber abismo! ¿Está seguro?"
+
+#~ msgid "Download"
+#~ msgstr "Descargar"

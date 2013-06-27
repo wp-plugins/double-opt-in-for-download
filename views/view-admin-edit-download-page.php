@@ -4,8 +4,8 @@
 
     <div id="icon-edit-pages" class="icon32"></div>
     
-    <h2>Edit Download File <?php echo $_GET[ 'doifd_download_name' ] ; ?></h2>
-    <p>Here you can either rename your download file, replace it with a different file <i>(The old one will be deleted from the server)</i> or you can reset the download count.</p>
+    <h2><?php _e( 'Edit Download File', 'double-opt-in-for-download' ); echo $_GET[ 'doifd_download_name' ] ; ?></h2>
+    <p><?php _e( 'Here you can either rename your download file, replace it with a different file <i>(The old one will be deleted from the server)</i> or you can reset the download count.' , 'double-opt-in-for-download' ); ?></p>
 
 <form method="post" action="" enctype="multipart/form-data">
 
@@ -28,7 +28,7 @@
         <tr valign="top">
 
 
-            <th scope="row"><label for="name">Rename Your File<span> *</span>: </label></th>
+            <th scope="row"><label for="name"><?php _e( 'Rename Your File' , 'double-opt-in-for-download' ); ?><span> *</span>: </label></th>
 
             <td><input type="text" name="name" id="name" value="<?php if (isset($_POST['name'])) { echo $_POST['name']; }else { echo $_GET[ 'doifd_download_name' ]; } ?>"/></td>
 
@@ -36,25 +36,25 @@
 
         <tr valign="top">
 
-            <th scope="row"><label for="name">Select Your Replacement File<span> *</span>: </label></th>
+            <th scope="row"><label for="name"><?php _e( 'Select Your Replacement File' , 'double-opt-in-for-download' ); ?><span> *</span>: </label></th>
 
-            <td><input type="file" name="userfile" id="userfile"><p>( Currently, the following file types are allowed; .jpg, .jpeg, .png, .bmp, .gif, .pdf, .zip, .doc, .docx )</p></td>
+            <td><input type="file" name="userfile" id="userfile"><p><?php _e( '(Currently, the following file types are allowed; .jpg, .jpeg, .png, .bmp, .gif, .pdf, .zip, .doc, .docx )' , 'double-opt-in-for-download' ); ?></p></td>
 
         </tr>
 
         <tr valign="top">
 
-            <th scope="row"><label for="name">Reset Download Count to 0<span></span>: </label></th>
+            <th scope="row"><label for="name"><?php _e( 'Reset Download Count to 0' , 'double-opt-in-for-download' ); ?><span></span>: </label></th>
 
-            <td><input type="radio" id="doifd_reset_download_count" name="doifd_reset_download_count"  value="1" /> Yes
+            <td><input type="radio" id="doifd_reset_download_count" name="doifd_reset_download_count"  value="1" /><?php _e( 'Yes' , 'double-opt-in-for-download' ); ?>
 
-                <input type="radio" id="doifd_reset_download_count" name="doifd_reset_download_count"  value="0" checked="checked"/> No</td>
+                <input type="radio" id="doifd_reset_download_count" name="doifd_reset_download_count"  value="0" checked="checked"/><?php _e( 'No' , 'double-opt-in-for-download' ); ?></td>
 
         </tr>
 
         <tr valigh="top">
 
-            <td><input class='button-primary' name="update_download" type="submit" value=" Update "></td>
+            <td><input class='button-primary' name="update_download" type="submit" value="<?php _e( 'Update' , 'double-opt-in-for-download' ); ?>"></td>
 
         </tr>
 
