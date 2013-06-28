@@ -48,7 +48,7 @@
 
             <td><input type="radio" id="doifd_reset_download_count" name="doifd_reset_download_count"  value="1" /><?php _e( 'Yes' , 'double-opt-in-for-download' ); ?>
 
-                <input type="radio" id="doifd_reset_download_count" name="doifd_reset_download_count"  value="0" checked="checked"/><?php _e( 'No' , 'double-opt-in-for-download' ); ?></td>
+                  <input style="margin-left: 15px;" type="radio" id="doifd_reset_download_count" name="doifd_reset_download_count"  value="0" checked="checked"/><?php _e( 'No' , 'double-opt-in-for-download' ); ?></td>
 
         </tr>
 

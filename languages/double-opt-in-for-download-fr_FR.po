@@ -5,8 +5,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Double OPT-IN for Download\n"
-"POT-Creation-Date: 2013-06-26 20:19-0800\n"
-"PO-Revision-Date: 2013-06-26 20:26-0800\n"
+"POT-Creation-Date: 2013-06-27 21:38-0800\n"
+"PO-Revision-Date: 2013-06-27 21:38-0800\n"
 "Last-Translator: Andy <andy@labwebdesigns.com>\n"
 "Language-Team: <>\n"
 "MIME-Version: 1.0\n"
@@ -301,7 +301,7 @@ msgid "Select Landing page"
 msgstr "Sélectionnez la page d'atterrissage:"
 
 #: ../admin/doifd-admin.php:86
-msgid "Add Subcribers to the Wordpress User Table?"
+msgid "Add Subscribers to the Wordpress User Table?"
 msgstr "Ajouter les souscripteurs à la table des utilisateurs Wordpress?"
 
 #: ../admin/doifd-admin.php:87
@@ -402,7 +402,7 @@ msgid "Enter your reCaptcha Private Key"
 msgstr "Entrez votre clé reCaptcha privée"
 
 #: ../captcha/class-captcha.php:114
-msgid "Enter your reCaptcha Pulic Key"
+msgid "Enter your reCaptcha Public Key"
 msgstr "Entrez votre clé reCaptcha pulique"
 
 #: ../includes/class-download.php:66
@@ -547,7 +547,7 @@ msgid "Select Download:"
 msgstr "Sélectionnez le fichier à télécharger:"
 
 #: ../views/view-admin-download-page.php:17
-msgid "Upload Your Dowload File Here"
+msgid "Upload Your Download File Here"
 msgstr "Téléversez votre fichier ici"
 
 #: ../views/view-admin-download-page.php:18

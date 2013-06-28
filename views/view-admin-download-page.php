@@ -14,7 +14,7 @@
 
     <!--HTML for upload form begins here-->
     
-    <h2><?php _e( 'Upload Your Dowload File Here', 'double-opt-in-for-download' ); ?></h2>
+    <h2><?php _e( 'Upload Your Download File Here', 'double-opt-in-for-download' ); ?></h2>
     <p><?php _e( 'Here is where you upload your free download. You simply give your download a name, then click the browse button and select your download file from your computer. Once you have selected your download, press the upload button. When the page refreshes you will see your download in the download table below. You will also see that the shortcode is generated for you. If you choose to put the sign up form in a post or page just copy the shortcode and paste it into the page or post you want it to show up in. If you choose to use the widget, you will just need to select the download in the dropdown box when setting up your widget.' , 'double-opt-in-for-download' ); ?></p>
  
     <form method="post" action="" enctype="multipart/form-data">

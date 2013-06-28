@@ -111,7 +111,7 @@ if ( !class_exists ( 'DoifdCaptcha' ) ) {
 
             echo '<input type="text" name="doifd_lab_recaptcha_options[doifd_recaptcha_public]" id="public_key" size="50" value="' . $doifd_recaptcha_public . '">';
 
-            echo '<p>' . __( 'Enter your reCaptcha Pulic Key', 'double-opt-in-for-download' ) . '</p>';
+            echo '<p>' . __( 'Enter your reCaptcha Public Key', 'double-opt-in-for-download' ) . '</p>';
 
             echo '</div>';
 
