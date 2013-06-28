@@ -83,7 +83,7 @@ if ( !class_exists ( 'DoifdAdmin' ) ) {
             add_settings_section ( 'doifd_lab_main', __( 'General Settings', 'double-opt-in-for-download' ) , '', 'doifd_lab' );
             add_settings_field ( 'doifd_lab_downloads_allowed', __( 'Select Maximum Number of Downloads', 'double-opt-in-for-download' ) , array( &$this, 'doifd_lab_setting_input' ), 'doifd_lab', 'doifd_lab_main' );
             add_settings_field ( 'doifd_lab_landing_page', __( 'Select Landing page', 'double-opt-in-for-download' ), array( $this, 'doifd_lab_setting_option' ), 'doifd_lab', 'doifd_lab_main' );
-            add_settings_field ( 'doifd_lab_add_to_wpusers', __( 'Add Subcribers to the Wordpress User Table?', 'double-opt-in-for-download' ), array( $this, 'doifd_lab_add_to_wp_user_table' ), 'doifd_lab', 'doifd_lab_main' );
+            add_settings_field ( 'doifd_lab_add_to_wpusers', __( 'Add Subscribers to the Wordpress User Table?', 'double-opt-in-for-download' ), array( $this, 'doifd_lab_add_to_wp_user_table' ), 'doifd_lab', 'doifd_lab_main' );
             add_settings_field ( 'doifd_lab_promo_link', __( 'Help Us Out?<br />Add a promotional link', 'double-opt-in-for-download' ), array( $this, 'doifd_lab_add_promo_link' ), 'doifd_lab', 'doifd_lab_main' );
             add_settings_section ( 'doifd_lab_email_section', __( 'Email Settings' , 'double-opt-in-for-download' ), '', 'doifd_lab' );
             add_settings_field ( 'doifd_lab_from_email', __( 'Enter The Return Email Address' , 'double-opt-in-for-download' ), array( $this, 'doifd_lab_setting_from_email' ), 'doifd_lab', 'doifd_lab_email_section' );

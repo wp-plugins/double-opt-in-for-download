@@ -6,7 +6,7 @@ License URI: http://www.gnu.org/licenses/gpl.html
 Tags: email, download
 Requires at least: 3.5
 Tested up to: 3.5.2
-Stable tag: 1.0.0
+Stable tag: 1.0.1
 
 Improve your client outreach by offering FREE downloads to your visitors in exchange for their email address with our Double Opt-In Plugin
 
@@ -80,6 +80,8 @@ A: As of 1.0.0, yes
 The following is a list of languages the plugin supports:
 
 1. Spanish - es_ES
+2. French - fr_FR
+3. German - de_DE
 
 French is coming shortly. Post a comment on our Facebook page if you would like to see this plugin translated to your language.
 
@@ -96,6 +98,14 @@ French is coming shortly. Post a comment on our Facebook page if you would like 
 5. This is a screen shot of the subscribers admin screen.
 
 == Changelog ==
+
+= 1.0.1 =
+
+06/27/2013
+
+1. Added German Translation - de_DE
+2. Updated French Translation thanks to Laurent LEMOINE @ http://www.karma.mg.
+3. Corrected some misspellings
 
 = 1.0.0 =
 
@@ -173,4 +183,6 @@ Changed location of download directory to avoid deletion when upgrading.
 
 == Upgrade Notice ==
 
-The ability to style the widget has now been added in the setting section.
+= 1.0.1 =
+
+In this upgrade German Translation - de_DE has been added. French Translation has been updated thanks to Laurent LEMOINE @ http://www.karma.mg and some misspellings have been corrected.

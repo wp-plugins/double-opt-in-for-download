@@ -23,7 +23,7 @@ class Doifd_Download_Table extends WP_List_Table {
             case 'Download Name':
             case 'File Type':
             case 'Shortcode':
-            case 'Downloads':
+            case 'Download':
                 return $item[$column_name] ;
             default:
                 return print_r ( $item , true ) ; //Show the whole array for troubleshooting purposes
@@ -35,8 +35,8 @@ class Doifd_Download_Table extends WP_List_Table {
         $doifd_lab_nonce = wp_create_nonce ( 'doifd-delete-download-nonce' ) ;
         //Build row actions
         $actions = array (
-            'delete'=>sprintf ( '<a class="confirm" href="?page=%s&action=%s&_wpnonce=%s&id=%s&doifd_file_name=%s" id="' . $item["doifd_download_id"] .'" title="' . $item["doifd_download_name"] .'" >Delete</a>' , $_REQUEST['page'] , 'delete' , $doifd_lab_nonce , $item['doifd_download_id'] , $item['doifd_download_file_name'] ) ,
-            'edit'=>sprintf ( '<a href="?page=%s&doifd_download_id=%s&doifd_download_name=%s&doifd_download_file_name=%s">Edit</a>' , 'double-opt-in-for-download/admin/doifd-admin.php_edit_downloads' , $item['doifd_download_id'] , $item['doifd_download_name'] , $item['doifd_download_file_name'] ) ,
+            'delete'=>sprintf ( '<a class="confirm" href="?page=%s&action=%s&_wpnonce=%s&id=%s&doifd_file_name=%s" id="' . $item["doifd_download_id"] .'" title="' . $item["doifd_download_name"] .'" >' . __( 'Delete' , 'double-opt-in-for-download' ) . '</a>' , $_REQUEST['page'] , 'delete' , $doifd_lab_nonce , $item['doifd_download_id'] , $item['doifd_download_file_name'] ) ,
+            'edit'=>sprintf ( '<a href="?page=%s&doifd_download_id=%s&doifd_download_name=%s&doifd_download_file_name=%s">' . __( 'Edit' , 'double-opt-in-for-download' ) . '</a>' , 'double-opt-in-for-download/admin/doifd-admin.php_edit_downloads' , $item['doifd_download_id'] , $item['doifd_download_name'] , $item['doifd_download_file_name'] ) ,
                 ) ;
 
         //Return the title contents
@@ -119,10 +119,10 @@ class Doifd_Download_Table extends WP_List_Table {
     function get_columns() {
         $columns = array (
             'cb'=>'<input type="checkbox" />' , //Render a checkbox instead of text
-            'doifd_download_name'=>'Download Name' ,
-            'type'=>'File Type' ,
-            'shortcode'=>'Shortcode' ,
-            'doifd_number_of_downloads'=>'Downloads'
+            'doifd_download_name'=>__( 'Download Name', 'double-opt-in-for-download') ,
+            'type'=>__( 'File Type' , 'double-opt-in-for-download' ),
+            'shortcode'=> __( 'Shortcode' , 'double-opt-in-for-download' ) ,
+            'doifd_number_of_downloads'=>__( 'Downloads' , 'double-opt-in-for-download' )
                 ) ;
         return $columns ;
     }
