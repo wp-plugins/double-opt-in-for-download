@@ -24,6 +24,7 @@ class Doifd_Subscriber_Table extends WP_List_Table {
             case 'Email Address':
             case 'Download Name':
             case 'Successful Downloads':
+            case 'Date / Time':
                 return $item[ $column_name ];
         }
     }
@@ -60,7 +61,15 @@ class Doifd_Subscriber_Table extends WP_List_Table {
                         /* $1%s */ $item[ 'download_name' ]
         );
     }
+        
+    function column_time( $item ) {
 
+        //Return the title contents
+        return sprintf ( '%1$s',
+                        /* $1%s */ $item[ 'time' ]
+        );
+    }
+    
     function column_allowed( $item ) {
 
         //Return the title contents
@@ -83,7 +92,8 @@ class Doifd_Subscriber_Table extends WP_List_Table {
             'name' => __( 'Name', 'double-opt-in-for-download' ),
             'email' => __( 'Email Address', 'double-opt-in-for-download' ),
             'download_name' => __( 'Download Name', 'double-opt-in-for-download' ),
-            'allowed' => __( 'Successful Downloads' , 'double-opt-in-for-download' )
+            'allowed' => __( 'Successful Downloads' , 'double-opt-in-for-download' ),
+            'time' => __( 'Date / Time' , 'double-opt-in-for-download' )
         );
         return $columns;
     }
@@ -92,7 +102,8 @@ class Doifd_Subscriber_Table extends WP_List_Table {
         $sortable_columns = array (
             'name' => array ( 'name', false ), //true means it's already sorted
             'email' => array ( 'email', false ),
-            'download_name' => array ( 'download_name', false )
+            'download_name' => array ( 'download_name', false ),
+            'time' => array ( 'time', false )
         );
         return $sortable_columns;
     }
@@ -140,6 +151,7 @@ class Doifd_Subscriber_Table extends WP_List_Table {
         $this -> process_bulk_action ();
 
         $sql = "SELECT " . $wpdb -> prefix . "doifd_lab_subscribers.doifd_name AS name, "
+                . $wpdb -> prefix . "doifd_lab_subscribers.time, "
                 . $wpdb -> prefix . "doifd_lab_subscribers.doifd_email AS email, "
                 . $wpdb -> prefix . "doifd_lab_subscribers.doifd_subscriber_id AS subscriber_id, "
                 . $wpdb -> prefix . "doifd_lab_subscribers.doifd_verification_number AS ver, "

@@ -93,7 +93,7 @@ Below you will find the link to your download file. We hope you will enjoy it.
 
 {url}
 
-Thank You', $plugin_slug )
+Thank You', 'double-opt-in-for-download' )
                 );
 
                 add_option ( 'doifd_lab_options', $doifd_default_options );
