@@ -68,11 +68,13 @@ if ( !class_exists ( 'DoifdDownload' ) ) {
 
                     /* Query database and assign results to varialbe */
 
-                    $get_file_name = $wpdb->get_row ( "SELECT doifd_download_file_name FROM " . $wpdb->prefix . "doifd_lab_downloads  WHERE doifd_download_id = '$doifd_download_id' ", ARRAY_A );
+                    $get_file_name = $wpdb->get_row ( "SELECT doifd_download_file_name, doifd_download_name FROM " . $wpdb->prefix . "doifd_lab_downloads  WHERE doifd_download_id = '$doifd_download_id' ", ARRAY_A );
 
                     /* Assign file name to variable. */
 
                     $file_name = $get_file_name[ 'doifd_download_file_name' ];
+                    
+                    $given_name = $get_file_name[ 'doifd_download_name'];
 
                     /* Get the file extension */
 
@@ -80,7 +82,7 @@ if ( !class_exists ( 'DoifdDownload' ) ) {
 
                     /* Give the file a fake name to help hide the actual file */
 
-                    $fakeFileName = 'Your-Download.' . $extension;
+                    $fakeFileName = $given_name . '.' . $extension;
 
                     /* Assign the real file name to a variable */
 

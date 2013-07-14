@@ -28,7 +28,7 @@ A link to your download is never revealed.
 
 1. Upload the 'double-opt-in-for-download folder to the "/wp-content/plugins/" directory
 2. Activate the Double Opt-In for Download plugin through the 'Plugins' menu in WordPress
-3. Create a landing page for your subscribers and add this shortcode to it, [lab_landing_page].
+3. Create a landing page for your subscribers and add this shortcode to it, [lab_landing_page]. You can change the button text in the download button by adding button_text="My Special Text" to the short code. The whole short code would look like this: [lab_landing_page button_text="My Special Text"]
 4. Configure the plugin by going to the "Settings" sub-menu that appears under DOI-Download in your admin menu. 
 5. VERY IMPORTANT: Don't forget to select your landing page!! =)
 6. Upload your Free download by going to the "Downloads" sub-menu. Give your file a name, attach it, then upload it.
@@ -56,13 +56,17 @@ A: After you have uploaded a download item for your visitors you will see a "Sho
 
 Q: How do I change the text in the form?
 
-A: Add the following to the shortcode: text="Your Text Here" Example: [lab_subscriber_download_form download_id=1 text="Your Text Here"]
+A: Add the following to the registration form shortcode: text="Your Text Here" Example: [lab_subscriber_download_form download_id=1 text="Your Text Here"]
 
 Q: How do I change the submit button text in the form?
 
 A: Add the following to the shortcode: button_text="Your Submit Button Text Here" Example: [lab_subscriber_download_form download_id=1 button_text="Your Submit Button Text Here"]
 
-Q: Is there a way to get around the file size limit for uploads?
+Q: How do I change the landing page download button text?
+
+A: Add the following to the landing page shortcode: button_text="Your Submit Button Text Here" Example: [lab_landing_page button_text="Your Download Button Text Here"]
+
+Q: Is there a way to get around the PHP file size limit for uploads?
 
 A: Yes! 
 
@@ -83,7 +87,7 @@ The following is a list of languages the plugin supports:
 2. French - fr_FR
 3. German - de_DE
 
-French is coming shortly. Post a comment on our Facebook page if you would like to see this plugin translated to your language.
+Post a comment on our Facebook page if you would like to see this plugin translated to your language.
 
 == Screenshots ==
 
@@ -98,6 +102,16 @@ French is coming shortly. Post a comment on our Facebook page if you would like 
 5. This is a screen shot of the subscribers admin screen.
 
 == Changelog ==
+
+= 1.0.2 =
+
+07/14/2013
+
+1. Added option to export all email addresses or just verified email addresses.
+2. The name of the file that the user downloads is now the name you gave your download.
+3. Added the ability to change the text in the download button.
+4. Added date of download to subscriber table.
+
 
 = 1.0.1 =
 
@@ -182,6 +196,14 @@ Changed location of download directory to avoid deletion when upgrading.
 * Initial beta release.
 
 == Upgrade Notice ==
+
+= 1.0.2 =
+
+Added 3 User suggested improvements:
+1. Added option to export all email addresses or just verified email addresses.
+2. The name of the file that the user downloads is now the name you gave your download.
+3. Added the ability to change the text in the download button.
+4. Added date of download to subscriber table.
 
 = 1.0.1 =
 

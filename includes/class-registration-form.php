@@ -315,9 +315,20 @@ if ( !class_exists ( 'DOIFD' ) ) {
 
         }
 
-        public static function verify_email() {
+        public static function verify_email( $attr, $content ) {
 
             global $wpdb;
+
+            /* See if the admin wants to use special button text for the download button. */
+
+            if ( !empty ( $attr[ 'button_text' ] ) ) {
+
+                $button_text = $attr[ 'button_text' ];
+                
+            } else {
+
+                $button_text = __( ' Click Here For Your Free Download', 'double-opt-in-for-download' );
+            }
 
             /* Get options from options table and assign to variable */
 
@@ -370,7 +381,7 @@ if ( !class_exists ( 'DOIFD' ) ) {
                     return '<div id="doifd_user_reg_form" class="thankyou"><form method="post" action="" enctype="multipart/form-data">
                                                              <input type="hidden" name="download_id" value="' . $download_id_from_db . '">
                                                              <input type="hidden" name="ver" value="' . $ver . '">
-                                                             <input name="doifd_get_download" type="submit" value=" Click Here For Your Free Download ">
+                                                             <input name="doifd_get_download" type="submit" value="'. $button_text . '">
                                                              </form>
                                                              </div>';
 

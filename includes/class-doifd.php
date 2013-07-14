@@ -162,9 +162,9 @@ if ( !class_exists ( 'DOIFD' ) ) {
          * download limit.
          */
 
-        function doifd_lab_verify_email() {
+        function doifd_lab_verify_email( $attr, $content ) {
 
-            return DoifdRegistrationForm::verify_email ();
+            return DoifdRegistrationForm::verify_email ( $attr, $content );
 
         }
 
