@@ -515,7 +515,7 @@ if ( !class_exists ( 'DoifdAdmin' ) ) {
 
                 if ( empty ( $landing_page ) ) {
 
-                    $this->showMessage( "The landing page option in Double OPT-IN for downloads is NOT SET. Please select a landing page otherwise the plugin will not work properly" );
+                    $this->showMessage( __( "The landing page option in Double OPT-IN for Downloads is NOT SET. Please select a landing page otherwise the plugin will not work properly", 'double-opt-in-for-download' ) );
                 }
             }
 
