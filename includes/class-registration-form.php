@@ -378,7 +378,7 @@ if ( !class_exists ( 'DOIFD' ) ) {
 
                     $download_id_from_db = $query[ 'doifd_download_id' ];
 
-                    return '<div id="doifd_user_reg_form" class="thankyou"><form method="post" action="" enctype="multipart/form-data">
+                    return '<div id="doifd_user_reg_form" class="thankyou"><form method="get" action="" enctype="multipart/form-data">
                                                              <input type="hidden" name="download_id" value="' . $download_id_from_db . '">
                                                              <input type="hidden" name="ver" value="' . $ver . '">
                                                              <input name="doifd_get_download" type="submit" value="'. $button_text . '">
@@ -407,7 +407,7 @@ if ( !class_exists ( 'DOIFD' ) ) {
                     $query = $wpdb->get_row ( "SELECT doifd_download_id FROM " . $wpdb->prefix . "doifd_lab_subscribers  WHERE doifd_verification_number = '$ver' ", ARRAY_A );
                     $download_id_from_db = $query[ 'doifd_download_id' ];
 
-                    return '<div id="doifd_user_reg_form" class="thankyou"><form method="post" action="" enctype="multipart/form-data">
+                    return '<div id="doifd_user_reg_form" class="thankyou"><form method="get" action="" enctype="multipart/form-data">
                                                              <input type="hidden" name="download_id" value="' . $download_id_from_db . '">
                                                              <input type="hidden" name="ver" value="' . $ver . '">
                                                              <input name="doifd_get_download" type="submit" value="'. __( 'Click Here For Your Free Download', 'double-opt-in-for-download' ) . '">
