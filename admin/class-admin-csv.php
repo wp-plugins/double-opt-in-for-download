@@ -43,14 +43,14 @@ if ( !class_exists ( 'DoifdCSV' ) ) {
                 
                 /* Create name for file "Website Name-Subscribers-Date" */
 
-                $fileName = get_bloginfo ( 'name' ) . '-Subscribers-' . date ( 'Y-m-d' ) . '.csv';
+                $fileName = '"' . get_bloginfo ( 'name' ) . '-Subscribers-' . date ( 'Y-m-d' ) . '.csv"';
 
                 /* Header for download */
 
                 header ( "Cache-Control: must-revalidate, post-check=0, pre-check=0" );
                 header ( 'Content-Description: File Transfer' );
                 header ( "Content-type: text/csv" );
-                header ( "Content-Disposition: attachment; filename={$fileName}" );
+                header( "Content-Disposition: attachment; filename=" . $fileName . "");
                 header ( "Expires: 0" );
                 header ( "Pragma: public" );
 

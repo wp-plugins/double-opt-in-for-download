@@ -78,7 +78,7 @@ if ( !class_exists ( 'DoifdFormWidget' ) ) {
                 $ver = '';
             }
 
-// If the subscriber is submitting the form lets do this....
+            // If the subscriber is submitting the form lets do this....
             if ( isset ( $_POST[ 'widget_doifd-subscriber-registration' ] ) ) {
 
                 // assign table name to specific variable

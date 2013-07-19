@@ -20,7 +20,7 @@ if ( !class_exists ( 'DoifdDownload' ) ) {
 
             /* if they have clicked the download button let proceed */
 
-            if ( isset ( $_POST[ 'doifd_get_download' ] ) ) {
+            if ( isset ( $_GET[ 'doifd_get_download' ] ) ) {
 
                 /* Assigns the sql table names to a varaible */
 
@@ -30,11 +30,11 @@ if ( !class_exists ( 'DoifdDownload' ) ) {
 
                 /* Sanitize the download id, just in case */
 
-                $doifd_download_id = preg_replace ( '/[^0-9]/', '', $_POST[ 'download_id' ] );
+                $doifd_download_id = preg_replace ( '/[^0-9]/', '', $_GET[ 'download_id' ] );
 
                 /* Get the verification number so we can look up what there download is. */
 
-                $ver = $_POST[ 'ver' ];
+                $ver = $_GET[ 'ver' ];
 
                 /* If both are valid, lets continue */
 
@@ -82,7 +82,7 @@ if ( !class_exists ( 'DoifdDownload' ) ) {
 
                     /* Give the file a fake name to help hide the actual file */
 
-                    $fakeFileName = $given_name . '.' . $extension;
+                    $fakeFileName = '"' . $given_name . '.' . $extension . '"';
 
                     /* Assign the real file name to a variable */
 
@@ -117,11 +117,11 @@ if ( !class_exists ( 'DoifdDownload' ) ) {
                     } elseif ( $extension == 'pdf' ) {
                         header ( "Content-type: application/pdf" );
                     } elseif ( $extension == 'mp3' ) {
-                        header ( "Content-Type: audio/mpeg" );
+                        header ( "Content-Type: application/octet-stream" );
                     }
-                    header ( 'Content-Transfer-Encoding: binary' );
-                    header ( "Content-Disposition: attachment; filename=$fakeFileName" );
-                    header ( "Content-Length:" . filesize ( $file ) );
+                    header ( "Content-Transfer-Encoding: binary" );
+                    header( "Content-Disposition: attachment; filename=" . $fakeFileName . "");
+                    header ( "Content-Length: " .filesize($file). "" ); 
                     fpassthru ( $fp );
 
                     /* If the conection / download status was successful update subscriber
