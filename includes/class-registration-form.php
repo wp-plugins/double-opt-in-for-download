@@ -52,7 +52,7 @@ if ( !class_exists ( 'DOIFD' ) ) {
 
             $subscriber_email = __ ( 'Email Address', 'double-opt-in-for-download' );
 
-            /*             * *************************************
+            /* *************************************
              * Set promotional link if option is on
              * *************************************
              */
