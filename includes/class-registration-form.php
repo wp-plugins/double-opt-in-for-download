@@ -172,10 +172,10 @@ if ( !class_exists ( 'DOIFD' ) ) {
             <input type="hidden" name="download_id" id="download_id" value="' . $download_id . '"/>
             <input type="hidden" name="_wpnonce" id="_wpnonce" value="' . $doifd_lab_user_form_nonce . '"/>
             <ul>
-                <li><label for="name">' . $subscriber_name . '<span>*</span>: </label>
+                <li><label for="name">' . $subscriber_name . ': </label>
                     <input type="text" name="doifd_user_name" id="doifd_user_name" value=""/></li>
 
-                <li><label for="name">' . $subscriber_email . '<span>*</span>: </label>
+                <li><label for="name">' . $subscriber_email . ': </label>
                     <input type="text" name="doifd_user_email" id="doifd_user_email" value=""/></li>
             </ul>' .
                             $recaptchadiv . '
@@ -299,10 +299,10 @@ if ( !class_exists ( 'DOIFD' ) ) {
             <input type="hidden" name="download_id" id="download_id" value="' . $download_id . '"/>
             <input type="hidden" name="_wpnonce" id="_wpnonce" value="' . $doifd_lab_user_form_nonce . '"/>
             <ul>
-                <li><label for="name">' . $subscriber_name . '<span>*</span>: </label>
+                <li><label for="name">' . $subscriber_name . ': </label>
                     <input type="text" name="doifd_user_name" id="doifd_user_name" value=""/></li>
 
-                <li><label for="name">' . $subscriber_email . '<span>*</span>: </label>
+                <li><label for="name">' . $subscriber_email . ': </label>
                     <input type="text" name="doifd_user_email" id="doifd_user_email" value=""/></li>
             </ul>' .
                         $recaptchadiv . '
@@ -343,6 +343,10 @@ if ( !class_exists ( 'DOIFD' ) ) {
             if ( isset ( $_GET[ 'ver' ] ) ) {
 
                 $ver = $_GET[ 'ver' ];
+                
+                /* Create nounce for download button to prevent really smart people from hyperlinking. */
+                
+                $download_nonce = wp_create_nonce ( 'doifd-subscriber-download-nonce' );
 
                 /* Query the database to check the verification number and get the value
                  * for downloads_allowed and assign the results to a variable
@@ -380,6 +384,7 @@ if ( !class_exists ( 'DOIFD' ) ) {
 
                     return '<div id="doifd_user_reg_form" class="thankyou"><form method="get" action="" enctype="multipart/form-data">
                                                              <input type="hidden" name="download_id" value="' . $download_id_from_db . '">
+                                                             <input type="hidden" name="download_nonce" value="' . $download_nonce . '">
                                                              <input type="hidden" name="ver" value="' . $ver . '">
                                                              <input name="doifd_get_download" type="submit" value="'. $button_text . '">
                                                              </form>
@@ -409,6 +414,7 @@ if ( !class_exists ( 'DOIFD' ) ) {
 
                     return '<div id="doifd_user_reg_form" class="thankyou"><form method="get" action="" enctype="multipart/form-data">
                                                              <input type="hidden" name="download_id" value="' . $download_id_from_db . '">
+                                                             <input type="hidden" name="download_nonce" value="' . $download_nonce . '">
                                                              <input type="hidden" name="ver" value="' . $ver . '">
                                                              <input name="doifd_get_download" type="submit" value="'. __( 'Click Here For Your Free Download', 'double-opt-in-for-download' ) . '">
                                                              </form>

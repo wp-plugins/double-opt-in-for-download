@@ -32,7 +32,7 @@ if ( !class_exists ( 'DoifdInstall' ) ) {
 
             /* If version number is different create/update plugin tables */
 
-            $current_version = '1.0.3';
+            $current_version = '1.0.4';
 
             if ( $doifd_lab_installed_ver != $current_version ) {
 

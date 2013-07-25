@@ -1,5 +1,7 @@
 <?php
 
+require_once(ABSPATH .'wp-includes/pluggable.php');
+
 if ( !class_exists ( 'DoifdDownload' ) ) {
 
     class DoifdDownload {
@@ -17,7 +19,7 @@ if ( !class_exists ( 'DoifdDownload' ) ) {
         public static function link_to_download() {
 
             global $wpdb;
-
+            
             /* if they have clicked the download button let proceed */
 
             if ( isset ( $_GET[ 'doifd_get_download' ] ) ) {
@@ -35,11 +37,15 @@ if ( !class_exists ( 'DoifdDownload' ) ) {
                 /* Get the verification number so we can look up what there download is. */
 
                 $ver = $_GET[ 'ver' ];
+                
+                $download_nonce = $_GET['download_nonce'];
+                
+                if ( !wp_verify_nonce ( $download_nonce, 'doifd-subscriber-download-nonce' ) ) wp_die ( 'Security check' );
 
                 /* If both are valid, lets continue */
 
                 if ( isset ( $doifd_download_id ) && ( isset ( $ver ) ) ) {
-
+                    
                     /* Get options from options table */
 
                     $options = get_option ( 'doifd_lab_options' );
@@ -154,7 +160,6 @@ if ( !class_exists ( 'DoifdDownload' ) ) {
         }
 
     }
-
 }
 
 ?>
