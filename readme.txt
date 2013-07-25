@@ -6,7 +6,7 @@ License URI: http://www.gnu.org/licenses/gpl.html
 Tags: email, download
 Requires at least: 3.5
 Tested up to: 3.5.2
-Stable tag: 1.0.3
+Stable tag: 1.0.4
 
 Improve your client outreach by offering FREE downloads to your visitors in exchange for their email address with our Double Opt-In Plugin
 
@@ -44,6 +44,7 @@ After you have completed steps 1 thru 6 above:
 2. Add a title for your free download if you desire.
 3. Select the download you would like to use in the dropdown box.
 4. Save it.
+5. Style the widget accordingly in the options settings.
 
 == Frequently Asked Questions ==
 
@@ -102,6 +103,12 @@ Post a comment on our Facebook page if you would like to see this plugin transla
 5. This is a screen shot of the subscribers admin screen.
 
 == Changelog ==
+
+= 1.0.4 =
+
+7/25/2013
+
+1. Discovered and fixed a security issue with the download link
 
 = 1.0.3 =
 
@@ -204,6 +211,10 @@ Changed location of download directory to avoid deletion when upgrading.
 * Initial beta release.
 
 == Upgrade Notice ==
+
+= 1.0.4 =
+
+1. Discovered and fixed a security issue with the download link
 
 = 1.0.3 =
 

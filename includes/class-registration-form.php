@@ -172,10 +172,10 @@ if ( !class_exists ( 'DOIFD' ) ) {
             <input type="hidden" name="download_id" id="download_id" value="' . $download_id . '"/>
             <input type="hidden" name="_wpnonce" id="_wpnonce" value="' . $doifd_lab_user_form_nonce . '"/>
             <ul>
-                <li><label for="name">' . $subscriber_name . '<span>*</span>: </label>
+                <li><label for="name">' . $subscriber_name . ': </label>
                     <input type="text" name="doifd_user_name" id="doifd_user_name" value=""/></li>
 
-                <li><label for="name">' . $subscriber_email . '<span>*</span>: </label>
+                <li><label for="name">' . $subscriber_email . ': </label>
                     <input type="text" name="doifd_user_email" id="doifd_user_email" value=""/></li>
             </ul>' .
                             $recaptchadiv . '
@@ -299,10 +299,10 @@ if ( !class_exists ( 'DOIFD' ) ) {
             <input type="hidden" name="download_id" id="download_id" value="' . $download_id . '"/>
             <input type="hidden" name="_wpnonce" id="_wpnonce" value="' . $doifd_lab_user_form_nonce . '"/>
             <ul>
-                <li><label for="name">' . $subscriber_name . '<span>*</span>: </label>
+                <li><label for="name">' . $subscriber_name . ': </label>
                     <input type="text" name="doifd_user_name" id="doifd_user_name" value=""/></li>
 
-                <li><label for="name">' . $subscriber_email . '<span>*</span>: </label>
+                <li><label for="name">' . $subscriber_email . ': </label>
                     <input type="text" name="doifd_user_email" id="doifd_user_email" value=""/></li>
             </ul>' .
                         $recaptchadiv . '
