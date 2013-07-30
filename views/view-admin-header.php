@@ -6,7 +6,7 @@
     <p><?php _e( 'If you need assistance with this plugin, or you have some thoughts and suggestions<br />on how to improve this plugin please visit the' , 'double-opt-in-for-download' ); ?> <a href="http://wordpress.org/support/plugin/double-opt-in-for-download" target="new"><?php _e( 'support page' , 'double-opt-in-for-download' ); ?></a></p>
     <p><?php _e( 'You can also get assistance at our website', 'double-opt-in-for-download' ); ?> <a href="http://www.labwebdesigns.com" target="new" >Lab Web Designs & Hosting</a></p>
     <p><?php _e( 'If you like this plugin please review it', 'double-opt-in-for-download' ); ?> <a href="http://wordpress.org/support/view/plugin-reviews/double-opt-in-for-download" target="new"><?php _e( 'here', 'double-opt-in-for-download' ); ?></a></p>
-    <h4><?php _e( 'Your are using the <em>FREE</em> Version 1.0.4', 'double-opt-in-for-download' ); ?></h4> 
+    <h4><?php _e( 'Your are using the <em>FREE</em> Version 1.0.5', 'double-opt-in-for-download' ); ?></h4> 
     
     <div class="fb-like" data-href="https://www.facebook.com/pages/Double-Opt-In-For-Download/371589009609336" data-send="true" data-width="450" data-show-faces="true"></div>
     
