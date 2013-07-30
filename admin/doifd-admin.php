@@ -166,7 +166,7 @@ if ( !class_exists ( 'DoifdAdmin' ) ) {
 
         }
 
-        /*         * ****************************************
+        /* ****************************************
          * Start SUBSCRIBERS page & settings fields 
          * *****************************************
          */
@@ -407,7 +407,7 @@ if ( !class_exists ( 'DoifdAdmin' ) ) {
 
         }
 
-        /*         * ************************************
+        /* ************************************
          * Start reCAPTCHA page & options fields 
          * **************************************
          */
@@ -471,7 +471,7 @@ if ( !class_exists ( 'DoifdAdmin' ) ) {
 
         }
 
-        /*         * ************************
+        /* ************************
          * Resend verification Email 
          * **************************
          */
@@ -500,7 +500,8 @@ if ( !class_exists ( 'DoifdAdmin' ) ) {
         function showAdminMessages() {
 
             // Only show to admins
-            if ( !current_user_can ( 'manage_options' ) ) {
+            
+            if ( current_user_can ( 'manage_options' ) ) {
 
                 wp_die ( __ ( 'You do not have sufficient permissions to access this page.', 'double-opt-in-for-download' ) );
             } else {
@@ -509,16 +510,17 @@ if ( !class_exists ( 'DoifdAdmin' ) ) {
 
                 $options = get_option ( 'doifd_lab_options' );
 
-                /* Assign landing page option to variable */
+                /* Get the landing page options */
 
                 $landing_page = $options[ 'landing_page' ];
 
+                /* If there is no value for the landing page option show an error message. */
+                
                 if ( empty ( $landing_page ) ) {
 
                     $this->showMessage( __( "The landing page option in Double OPT-IN for Downloads is NOT SET. Please select a landing page otherwise the plugin will not work properly", 'double-opt-in-for-download' ) );
                 }
-            }
-
+            }   
         }
 
     }
