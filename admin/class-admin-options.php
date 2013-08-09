@@ -8,10 +8,9 @@ if ( !class_exists ( 'DoifdAdminOptions' ) ) {
             
         }
 
-        public static function options_page() {
+       public static function options_page() {
 
             global $wpdb;
-
             ?>
 
             <!--Begin HTML markup-->
@@ -24,28 +23,62 @@ if ( !class_exists ( 'DoifdAdminOptions' ) ) {
 
                 <?php include DOUBLE_OPT_IN_FOR_DOWNLOAD_DIR . 'views/view-admin-header.php'; ?>
 
-                <!--Save Options Button-->
+<form action="options.php" method="post">
+                <div id="tabs">
+                    <ul>
+                        <li><a href="#tabs-1">General Settings</a></li>
+                        <li><a href="#tabs-2">Email Settings</a></li>
+                        <li><a href="#tabs-3">Form Style Settings</a></li>
+                        <li><a href="#tabs-4">Widget Style Settings</a></li>
+                    </ul>
+                    <div id="tabs-1">
+                        
+                            <?php
+                            settings_fields('doifd_lab_options');
 
-                <form action="options.php" method="post">
+                            do_settings_sections('doifd_lab_general');
+                            ?>
+                            <input class='button-primary' name="Submit" type="submit" value="<?php _e('Save Changes', 'double-opt-in-for-download'); ?>">
 
-                    <?php
 
-                    settings_fields ( 'doifd_lab_options' );
+                    </div>
+                    <div id="tabs-2">
 
-                    do_settings_sections ( 'doifd_lab' );
+                            <?php
+                            settings_fields('doifd_lab_options');
 
-                    ?>
+                            do_settings_sections('doifd_lab_email');
+                            ?>
+                            <input class='button-primary' name="Submit" type="submit" value="<?php _e('Save Changes', 'double-opt-in-for-download'); ?>">
 
-                    <input class='button-primary' name="Submit" type="submit" value="<?php _e( 'Save Changes', 'double-opt-in-for-download' ); ?>">
 
-                </form>
+                    </div>
+                    <div id="tabs-3">
+                        <?php
+                            settings_fields('doifd_lab_options');
 
+                            do_settings_sections('doifd_lab_form_style');
+                            ?>
+                            <input class='button-primary' name="Submit" type="submit" value="<?php _e('Save Changes', 'double-opt-in-for-download'); ?>">
+                    </div>
+                    <div id="tabs-4">
+
+                            <?php
+                            settings_fields('doifd_lab_options');
+
+                            do_settings_sections('doifd_lab_widget_style');
+                            ?>
+                            <input class='button-primary' name="Submit" type="submit" value="<?php _e('Save Changes', 'double-opt-in-for-download'); ?>">
+
+                        
+                    </div>
+                </div>
+</form>
             </div> <!--Wrap End--> 
 
             <?php
-
         }
-
+        
         public static function allowed_downloads() {
             
             /* Get options from options table */

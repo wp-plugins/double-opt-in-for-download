@@ -189,6 +189,32 @@ if ( !class_exists ( 'DoifdAdminWidgetOptions' ) ) {
             echo '</div>';
 
         }
+        
+        public static function field_widget_background_color() {
+
+            /* get the options from wp options table */
+
+            $doifd_option = get_option ( 'doifd_lab_options' );
+
+            /* get widget stored field value and assign to variable.
+             * If set or not null use the stored option otherwise use the default */
+
+            if ( isset ( $doifd_option[ 'widget_background_color' ] ) && ($doifd_option[ 'widget_background_color' ] == !NULL ) ) {
+
+                $widget_background_color = $doifd_option[ 'widget_background_color' ];
+            } else {
+
+                $widget_background_color = 'transparent';
+            }
+
+            /* echo widget width form */
+
+            echo '<div id="doifd_lab_admin_options">';
+            echo '<input type="text" name="doifd_lab_options[widget_background_color]" id="widget_background_color" size="10" value="' . $widget_background_color . '">';
+            echo '<p>' . __( 'This sets the background color of the text input fields. <b>You can use transparent or hex values ( #000000 etc ).', 'double-opt-in-for-download' ) . '</b></p>';
+            echo '</div>';
+
+        }
 
     }
 

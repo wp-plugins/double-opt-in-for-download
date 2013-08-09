@@ -6,6 +6,7 @@ include_once( DOUBLE_OPT_IN_FOR_DOWNLOAD_DIR . '/includes/class-install.php' );
 include_once( DOUBLE_OPT_IN_FOR_DOWNLOAD_DIR . '/includes/doifd-widget.php' );
 include_once( DOUBLE_OPT_IN_FOR_DOWNLOAD_DIR . '/includes/class-email.php' );
 include_once( DOUBLE_OPT_IN_FOR_DOWNLOAD_DIR . '/includes/class-registration-form.php' );
+include_once( DOUBLE_OPT_IN_FOR_DOWNLOAD_DIR . '/includes/class-registration.php' );
 include_once( DOUBLE_OPT_IN_FOR_DOWNLOAD_DIR . '/includes/class-download.php' );
 
 if (file_exists( DOUBLE_OPT_IN_FOR_DOWNLOAD_CAPTCHA_DIR )) {
@@ -76,6 +77,10 @@ if ( !class_exists ( 'DOIFD' ) ) {
             /* Process the email */
 
             add_action ( 'init', array( &$this, 'doifd_lab_verification_email' ) );
+            
+            /* Register Subscribers */
+            
+            add_action ( 'init', array( &$this, 'doifd_lab_register_subscriber' ) );
 
             /* Registers the Widget */
 
@@ -132,11 +137,13 @@ if ( !class_exists ( 'DOIFD' ) ) {
 
             wp_register_style ( 'doifd-style', DOUBLE_OPT_IN_FOR_DOWNLOAD_URL . 'css/style.css', __FILE__ );
             wp_register_style ( 'doifd-widget-style', DOUBLE_OPT_IN_FOR_DOWNLOAD_URL . 'css/widget-style.php', __FILE__ );
+            wp_register_style ( 'doifd-form-style', DOUBLE_OPT_IN_FOR_DOWNLOAD_URL . 'css/form-style.php', __FILE__ );
 
             /* Enqueue Style Sheets */
 
             wp_enqueue_style ( 'doifd-style' );
             wp_enqueue_style ( 'doifd-widget-style' );
+            wp_enqueue_style( 'doifd-form-style' );
 
         }
         
@@ -182,6 +189,12 @@ if ( !class_exists ( 'DOIFD' ) ) {
 
             register_widget ( 'DoifdFormWidget' );
 
+        }
+        
+        function doifd_lab_register_subscriber() {
+            
+            DoifdRegistrationProcess::registration_process();
+            
         }
 
     }
