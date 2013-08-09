@@ -121,25 +121,13 @@ if ( !class_exists ( 'DoifdFormWidget' ) ) {
                 // If and error message is returned let show the form again with the error message
                 if ( isset ( $doifd_lab_msg ) ) {
 
-                    echo '<div id="widget_doifd_user_reg_form">' . $doifd_lab_msg . '
-            <h4>' . $header_text . '</h4> 
-            <form method="post" action="" enctype="multipart/form-data">
-            <input type="hidden" name="download_id" id="download_id" value="' . $download_id . '"/>
-            <input type="hidden" name="_wpnonce" id="_wpnonce" value="' . $doifd_lab_subscriber_form_nonce . '"/>
-            <ul>
-                <li><label for="name">' . $subscriber_name . '<span> *</span>: </label><br />
-                    <input type="text" name="doifd_subscriber_name" id="doifd_subscriber_name" value=""/></li>
-
-
-                <li><label for="name">' . $subscriber_email . '<span> *</span>: </label><br />
-                    <input type="text" name="doifd_subscriber_email" id="doifd_subscriber_email" value=""/></li>
-            </ul>
-            <div id="doifd_button_holder">
-            <input name="widget_doifd-subscriber-registration" type="submit" value=" ' . $lab_widget_form_button_text . ' "><br />'
-                    . $doifd_promo_link .
-                    '</div>
-        </form>
-        </div>';
+                ob_start();
+                $widget_form = include_once ( DOUBLE_OPT_IN_FOR_DOWNLOAD_DIR . '/views/forms/view-widget-form.php' );
+                $widget_form_output = ob_get_contents();
+                ob_end_clean();
+                echo $widget_form_output;
+                
+                
                 } else {
 
                     // If no error message was created lets go ahead and add the subscriber to the database and send them
@@ -217,23 +205,12 @@ if ( !class_exists ( 'DoifdFormWidget' ) ) {
                 // if they are not submitting the form then just show the form.    
             } else {
 
-                echo '<div id="widget_doifd_user_reg_form">
-                <h4>' . $header_text . '</h4> 
-                <form method="post" action="" enctype="multipart/form-data">
-                <input type="hidden" name="download_id" id="download_id" value="' . $download_id . '"/>
-                <input type="hidden" name="_wpnonce" id="_wpnonce" value="' . $doifd_lab_subscriber_form_nonce . '"/>
-                <ul>
-                <li><label for="name">' . $subscriber_name . '<span> *</span>: </label><br />
-                <input type="text" name="doifd_subscriber_name" id="doifd_subsriber_name" value=""/></li>
-                <li><label for="name">' . $subscriber_email . '<span> *</span>: </label><br />
-                <input type="text" name="doifd_subscriber_email" id="doifd_subscriber_email" value=""/></li>
-                </ul>
-                <div id="doifd_button_holder">
-                <input name="widget_doifd-subscriber-registration" type="submit" value=" ' . $lab_widget_form_button_text . ' "><br />'
-                . $doifd_promo_link .
-                '</div>
-                </form>
-        </div>';
+                 ob_start();
+                $widget_form = include_once ( DOUBLE_OPT_IN_FOR_DOWNLOAD_DIR . '/views/forms/view-widget-form.php' );
+                $widget_form_output = ob_get_contents();
+                ob_end_clean();
+                echo $widget_form_output;
+                
             }
 
             echo $after_widget;

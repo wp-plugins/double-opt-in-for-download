@@ -2,7 +2,7 @@
 
     <h4 id="h4"><?php echo $doifd_form_text; ?></h4>
     
-        <?php if (isset($msg)) echo $msg ; ?>
+        <?php if (isset($doifd_lab_msg)) echo $doifd_lab_msg ; ?>
 
     <form method="post" action="" enctype="multipart/form-data">
 

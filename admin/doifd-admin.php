@@ -99,8 +99,8 @@ if (!class_exists('DoifdAdmin')) {
             add_settings_field('doifd_lab_widget_style_margin_bottom', __('Widget Margin Bottom', 'double-opt-in-for-download'), array($this, 'doifd_lab_setting_widget_margin_bottom'), 'doifd_lab_widget_style', 'doifd_lab_widget_style_section');
             add_settings_field('doifd_lab_widget_style_margin_left', __('Widget Margin Left', 'double-opt-in-for-download'), array($this, 'doifd_lab_setting_widget_margin_left'), 'doifd_lab_widget_style', 'doifd_lab_widget_style_section');
             add_settings_field('doifd_lab_widget_style_input_width', __('Widget Input Width', 'double-opt-in-for-download'), array($this, 'doifd_lab_setting_widget_input_width'), 'doifd_lab_widget_style', 'doifd_lab_widget_style_section');
+            add_settings_field('doifd_lab_widget_input_field_background_color', __('Widget Input Field Background Color', 'double-opt-in-for-download'), array($this, 'doifd_lab_setting_widget_input_field_background_color'), 'doifd_lab_widget_style', 'doifd_lab_widget_style_section');
             add_settings_field('doifd_lab_widget_style_background_color', __('Widget Background Color', 'double-opt-in-for-download'), array($this, 'doifd_lab_setting_widget_background_color'), 'doifd_lab_widget_style', 'doifd_lab_widget_style_section');
-            add_settings_section('doifd_lab_recaptcha_section', __('Captcha Settings', 'double-opt-in-for-download'), '', 'doifd_lab_captcha');
             add_settings_section('doifd_lab_form_style_section', __('Form Style Settings', 'double-opt-in-for-download'), '', 'doifd_lab_form_style');
             add_settings_field('doifd_lab_form_style_class', __('Form CSS Class', 'double-opt-in-for-download'), array($this, 'doifd_lab_setting_form_class'), 'doifd_lab_form_style', 'doifd_lab_form_style_section');
             add_settings_field('doifd_lab_form_style_width', __('Form Width', 'double-opt-in-for-download'), array($this, 'doifd_lab_setting_form_width'), 'doifd_lab_form_style', 'doifd_lab_form_style_section');
@@ -387,6 +387,17 @@ if (!class_exists('DoifdAdmin')) {
             } else {
 
                 return DoifdAdminWidgetOptions::field_input_field_width();
+            }
+        }
+        
+        function doifd_lab_setting_widget_input_field_background_color() {
+
+            if (!current_user_can('manage_options')) {
+
+                wp_die(__('You do not have sufficient permissions to access this page.', 'double-opt-in-for-download'));
+            } else {
+
+                return DoifdAdminWidgetOptions::field_widget_input_field_background_color();
             }
         }
         
