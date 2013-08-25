@@ -37,6 +37,13 @@ if ( !class_exists ( 'DoifdLandingPage' ) ) {
 
                 $ver = $_GET[ 'ver' ];
                 
+                /* If ver is empty send a message to the user */
+                
+                if (empty($ver)) {
+                    
+                    return '<div id="doifd_user_reg_form" class="exceeded">' . __( 'Not a valid verification number.', 'double-opt-in-for-download' ) . '</div>';
+                }
+                
                 /* Create nounce for download button to prevent really smart people from hyperlinking. */
                 
                 $download_nonce = wp_create_nonce ( 'doifd-subscriber-download-nonce' );
@@ -47,6 +54,13 @@ if ( !class_exists ( 'DoifdLandingPage' ) ) {
 
                 $checkver = $wpdb->get_row ( "SELECT doifd_email_verified, doifd_downloads_allowed, doifd_download_id FROM " . $wpdb->prefix . "doifd_lab_subscribers  WHERE doifd_verification_number = '$ver' " );
 
+                /* If the verification number that is given is not a valid number send a message to the user */
+                
+                if (empty($checkver)) {
+                    
+                    return '<div id="doifd_user_reg_form" class="exceeded">' . __( 'Not a valid verification number.', 'double-opt-in-for-download' ) . '</div>';
+                }
+                
                 /* Query the database to get the download name
                  * **NEED TO UPDATE AND COMBINE BOTH QUERIES***
                  */
