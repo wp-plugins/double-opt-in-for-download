@@ -32,7 +32,7 @@ if ( !class_exists ( 'DoifdFormWidget' ) ) {
 
             if ( empty ( $header_text ) || (!isset ( $header_text )) ) {
                 // header text for widget form show to subscribers if not set by admin
-                $header_text = __ ( 'Please proivde your name and email address for your free download.', 'double-opt-in-for-download' );
+                $header_text = __ ( 'Please provide your name and email address for your free download.', 'double-opt-in-for-download' );
             }
 
             // text shown on submit button in the form

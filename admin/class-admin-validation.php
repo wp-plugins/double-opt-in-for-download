@@ -59,6 +59,8 @@ if ( !class_exists ( 'DoifdAdminValidation' ) ) {
             $valid[ 'form_input_field_background_color' ] = preg_replace ( '/[^#a-z0-9]/i', '', $input[ 'form_input_field_background_color' ] );
             
             $valid[ 'form_input_field_width' ] = preg_replace ( '/[^%a-z0-9]/i', '', $input[ 'form_input_field_width' ] );
+            
+            $valid[ 'notification_email' ] = preg_replace( '/[^0-9]/', '', $input[ 'notification_email' ] );
 
             return $valid;
 

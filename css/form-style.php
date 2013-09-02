@@ -12,7 +12,6 @@ $doifd_form_option = get_option ( 'doifd_lab_options' ) ;
     padding: <?php if (isset($doifd_form_option['form_padding'])) { echo $doifd_form_option['form_padding']; }else{ echo '15'; }?>px;
     background-color: <?php if (isset($doifd_form_option['form_background_color'])) { echo $doifd_form_option['form_background_color']; }else{ echo 'transparent'; }?>;
     color: <?php if (isset($doifd_form_option['form_color'])) { echo $doifd_form_option['form_color']; }else{ echo '#000000'; }?>;
-    border: 0px solid #e3e3e3;
     -webkit-border-radius: 4px;
     -moz-border-radius: 4px;
      border-radius: 8px;

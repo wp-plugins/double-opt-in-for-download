@@ -5,8 +5,8 @@ License: GPLv3
 License URI: http://www.gnu.org/licenses/gpl.html
 Tags: email, download
 Requires at least: 3.5
-Tested up to: 3.5.2
-Stable tag: 1.0.5
+Tested up to: 3.6
+Stable tag: 1.0.6
 
 Improve your client outreach by offering FREE downloads to your visitors in exchange for their email address with our Double Opt-In Plugin
 
@@ -103,6 +103,18 @@ Post a comment on our Facebook page if you would like to see this plugin transla
 5. This is a screen shot of the subscribers admin screen.
 
 == Changelog ==
+
+= 1.0.6 =
+
+9/2/2013
+
+1. Added ability to style the page and post form including adding your own css class.
+2. Added optional notification to admin of download.
+3. Fixed plugin activation error.
+4. Corrected misspelling in Widget.
+5. Added error messages for invalid or missing verification numbers.
+6. Added limited stylesheet for ie8 and below.
+
 = 1.0.5 =
 
 07/29/2013
@@ -216,6 +228,16 @@ Changed location of download directory to avoid deletion when upgrading.
 * Initial beta release.
 
 == Upgrade Notice ==
+
+
+= 1.0.6 =
+
+1. Added ability to style the page and post form including adding your own css class
+2. Added optional notification to admin of download.
+3. Fixed plugin activation error.
+4. Corrected misspelling in Widget.
+5. Added error messages for invalid or missing verification numbers.
+6. Added limited stylesheet for ie8 and below.
 
 = 1.0.5 =
 

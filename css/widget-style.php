@@ -13,7 +13,6 @@ $doifd_widget_option = get_option ( 'doifd_lab_options' ) ;
     margin-right: <?php if (isset($doifd_widget_option['widget_margin_right'])) { echo $doifd_widget_option['widget_margin_right']; }else{ echo '0'; }?>px;
     margin-bottom: <?php if (isset($doifd_widget_option['widget_margin_bottom'])) { echo $doifd_widget_option['widget_margin_bottom']; }else{ echo '25'; }?>px;
     margin-left: <?php if (isset($doifd_widget_option['widget_margin_left'])) { echo $doifd_widget_option['widget_margin_left']; }else{ echo '0'; }?>px;
-    border: 0px solid #e3e3e3;
     -webkit-border-radius: 4px;
     -moz-border-radius: 4px;
      border-radius: 4px;

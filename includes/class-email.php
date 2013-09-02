@@ -135,6 +135,35 @@ if ( !class_exists ( 'DoifdEmail' ) ) {
             }
 
         }
+        
+                public static function admin_notification( $subscriber, $download, $email ) {
+
+            global $wpdb;
+
+            $options = get_option( 'doifd_lab_options' );
+
+
+            if ( !empty( $options[ 'from_email' ] ) ) {
+
+                $doifd_lab_to = $options[ 'from_email' ];
+            } else {
+
+                $doifd_lab_to = get_bloginfo( 'admin_email' );
+            }
+
+            $doifd_lab_subject = '[New Download] @ ' . get_bloginfo( 'name' );
+
+            $doifd_lab_headers[ ] = 'From:' . get_bloginfo( 'name' ) . '   <' . $doifd_lab_to . '>';
+
+            $doifd_lab_message = 'Congratulations!
+
+'. $subscriber . ' just verified his/her email address ( '. $email . ' ) to download ' . $download . '
+                                          
+Double Opt In For Download';
+
+
+            wp_mail( $doifd_lab_to, $doifd_lab_subject, $doifd_lab_message, $doifd_lab_headers );
+        }
 
     }
 

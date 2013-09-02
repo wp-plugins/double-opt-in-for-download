@@ -104,7 +104,7 @@ if ( !class_exists ( 'DoifdLandingPage' ) ) {
 
                     /* Get the subscriber ID */
 
-                    $getsubid = $wpdb->get_row ( "SELECT doifd_subscriber_id FROM " . $wpdb->prefix . "doifd_lab_subscribers  WHERE doifd_verification_number = '$ver' " );
+                    $getsubid = $wpdb->get_row ( "SELECT doifd_subscriber_id, doifd_name, doifd_email FROM " . $wpdb->prefix . "doifd_lab_subscribers  WHERE doifd_verification_number = '$ver' " );
 
                     /* Update the table */
 
@@ -115,6 +115,16 @@ if ( !class_exists ( 'DoifdLandingPage' ) ) {
                         '%d' // value2
                             ), array( '%d' )
                     );
+                    
+                    $subscriber = $getsubid->doifd_name;
+                    $email = $getsubid->doifd_email;
+                    
+                     if ( $options[ 'notification_email' ] == '1' ) {
+                            
+                        $download = $wpdb->get_var( "SELECT doifd_download_name FROM " . $wpdb->prefix . "doifd_lab_downloads  WHERE doifd_download_id = '$checkver->doifd_download_id' " );
+
+                        DoifdEmail::admin_notification( $subscriber, $download, $email );
+                    }
 
                     $query = $wpdb->get_row ( "SELECT doifd_download_id FROM " . $wpdb->prefix . "doifd_lab_subscribers  WHERE doifd_verification_number = '$ver' ", ARRAY_A );
                     $download_id_from_db = $query[ 'doifd_download_id' ];

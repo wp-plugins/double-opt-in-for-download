@@ -88,6 +88,7 @@ if (!class_exists('DoifdAdmin')) {
             add_settings_field('doifd_lab_add_to_wpusers', __('Add Subscribers to the Wordpress User Table?', 'double-opt-in-for-download'), array($this, 'doifd_lab_add_to_wp_user_table'), 'doifd_lab_general', 'doifd_lab_main');
             add_settings_field('doifd_lab_promo_link', __('Help Us Out?<br />Add a promotional link', 'double-opt-in-for-download'), array($this, 'doifd_lab_add_promo_link'), 'doifd_lab_general', 'doifd_lab_main');
             add_settings_section('doifd_lab_email_section', __('Email Settings', 'double-opt-in-for-download'), '', 'doifd_lab_email');
+            add_settings_field( 'doifd_lab_notification_email', __( 'Get Notfied via Email of New User', 'double-opt-in-for-download' ), array ( $this, 'doifd_lab_setting_download_notificiation' ), 'doifd_lab_email', 'doifd_lab_email_section' );
             add_settings_field('doifd_lab_from_email', __('Enter The Return Email Address', 'double-opt-in-for-download'), array($this, 'doifd_lab_setting_from_email'), 'doifd_lab_email', 'doifd_lab_email_section');
             add_settings_field('doifd_lab_email_name', __('Enter who the email is from<br>(Default is the Website or Blog name)', 'double-opt-in-for-download'), array($this, 'doifd_lab_setting_email_name'), 'doifd_lab_email', 'doifd_lab_email_section');
             add_settings_field('doifd_lab_email_message', __('Email Message:', 'double-opt-in-for-download'), array($this, 'doifd_lab_setting_email_message'), 'doifd_lab_email', 'doifd_lab_email_section');
@@ -258,6 +259,19 @@ if (!class_exists('DoifdAdmin')) {
 
             $validate_options = new DoifdAdminValidation();
             return $validate_options->admin_options_validation($input);
+        }
+        
+        /* Create option for admin to be notified of download */
+
+        function doifd_lab_setting_download_notificiation() {
+
+            if ( !current_user_can( 'manage_options' ) ) {
+
+                wp_die( __( 'You do not have sufficient permissions to access this page.', 'double-opt-in-for-download' ) );
+            } else {
+
+                return DoifdAdminOptions::admin_download_notification();
+            }
         }
 
         /* Create the from email address field to the options page */
