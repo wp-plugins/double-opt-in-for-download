@@ -218,7 +218,7 @@ if (!class_exists('DOIFD')) {
                     }
                     /* Return thank you message to subscriber */
 
-                    return '<div id="doifd_user_reg_form" class="thankyou"><h4>' . __('Thank You for Registering!', 'double-opt-in-for-download') . '</h4>' . __('Please check your email for your link to your Free download.', 'double-opt-in-for-download') . '<br />'
+                    return '<div class="doifd_user_reg_form thankyou"><h4>' . __('Thank You for Registering!', 'double-opt-in-for-download') . '</h4>' . __('Please check your email for your link to your Free download.', 'double-opt-in-for-download') . '<br />'
                             . $doifd_promo_link .
                             '</div>';
 

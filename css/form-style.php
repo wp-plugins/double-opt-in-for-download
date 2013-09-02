@@ -18,6 +18,7 @@ $doifd_form_option = get_option ( 'doifd_lab_options' ) ;
     -webkit-box-shadow: inset 0 1px 15px rgba(68,68,68,0.6);
     -moz-box-shadow: inset 0 1px 15px rgba(68,68,68,0.6);
     box-shadow: inset 0 1px 15px rgba(68,68,68,0.6);
+    text-align: center;
 }
 
 .doifd_user_reg_form ul li{
