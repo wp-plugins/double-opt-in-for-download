@@ -8,10 +8,9 @@ if ( !class_exists ( 'DoifdAdminOptions' ) ) {
             
         }
 
-        public static function options_page() {
+       public static function options_page() {
 
             global $wpdb;
-
             ?>
 
             <!--Begin HTML markup-->
@@ -24,28 +23,70 @@ if ( !class_exists ( 'DoifdAdminOptions' ) ) {
 
                 <?php include DOUBLE_OPT_IN_FOR_DOWNLOAD_DIR . 'views/view-admin-header.php'; ?>
 
-                <!--Save Options Button-->
+<form action="options.php" method="post">
+                <div id="tabs">
+                    <ul>
+                        <li><a href="#tabs-1">General Settings</a></li>
+                        <li><a href="#tabs-2">Email Settings</a></li>
+                        <li><a href="#tabs-3">Captcha Settings</a></li>
+                        <li><a href="#tabs-4">Form Style Settings</a></li>
+                        <li><a href="#tabs-5">Widget Style Settings</a></li>
+                        <li><a href="#tabs-6">MailChimp Settings</a></li>
+                    </ul>
+                    <div id="tabs-1">
+                        
+                            <?php
+                            settings_fields('doifd_lab_options');
 
-                <form action="options.php" method="post">
+                            do_settings_sections('doifd_lab_general');
+                            ?>
+                            <input class='button-primary' name="Submit" type="submit" value="<?php _e('Save Changes', 'double-opt-in-for-download'); ?>">
 
-                    <?php
 
-                    settings_fields ( 'doifd_lab_options' );
+                    </div>
+                    <div id="tabs-2">
 
-                    do_settings_sections ( 'doifd_lab' );
+                            <?php
+                            settings_fields('doifd_lab_options');
 
-                    ?>
+                            do_settings_sections('doifd_lab_email');
+                            ?>
+                            <input class='button-primary' name="Submit" type="submit" value="<?php _e('Save Changes', 'double-opt-in-for-download'); ?>">
 
-                    <input class='button-primary' name="Submit" type="submit" value="<?php _e( 'Save Changes', 'double-opt-in-for-download' ); ?>">
 
-                </form>
+                    </div>
+                    <div id="tabs-3">
+                        <h1><a href="http://www.labwebdesigns.com/premium-double-opt-in-for-download.html" target="new" ><?php _e( 'Available in the Premium Edition', 'double-opt-in-for-download' ); ?></a></h1>
+                    </div>
+                    <div id="tabs-4">
+                        <?php
+                            settings_fields('doifd_lab_options');
 
+                            do_settings_sections('doifd_lab_form_style');
+                            ?>
+                            <input class='button-primary' name="Submit" type="submit" value="<?php _e('Save Changes', 'double-opt-in-for-download'); ?>">
+                    </div>
+                    <div id="tabs-5">
+
+                            <?php
+                            settings_fields('doifd_lab_options');
+
+                            do_settings_sections('doifd_lab_widget_style');
+                            ?>
+                            <input class='button-primary' name="Submit" type="submit" value="<?php _e('Save Changes', 'double-opt-in-for-download'); ?>">
+
+                        
+                    </div>
+                    <div id="tabs-6">
+                         <h1><a href="http://www.labwebdesigns.com/premium-double-opt-in-for-download.html" target="new" ><?php _e( 'Available in the Premium Edition', 'double-opt-in-for-download' ); ?></a></h1>
+                    </div>
+                </div>
+</form>
             </div> <!--Wrap End--> 
 
             <?php
-
         }
-
+        
         public static function allowed_downloads() {
             
             /* Get options from options table */
@@ -144,6 +185,29 @@ if ( !class_exists ( 'DoifdAdminOptions' ) ) {
             echo '<input type="radio" id="promo_link" name="doifd_lab_options[promo_link]" ' . (isset ( $add_promo_link ) && ( $add_promo_link == '0' ) ? 'checked="checked"' : "") . ' value="0" /> No ';
             echo '<p>' . __( 'If you check YES, this will add a small promotional link at the bottom of the registration forms.', 'double-opt-in-for-download' ) . '</p>';
 
+        }
+        
+        public static function admin_download_notification() {
+
+            /* Get options from options table */
+
+            $options = get_option( 'doifd_lab_options' );
+
+            /* Assign promo link option to variable */
+
+            if ( isset( $options[ 'notification_email' ] ) ) {
+
+                $notification_email = $options[ 'notification_email' ];
+            } else {
+                
+                $notification_email = '0';
+            }
+
+            /* Echo radio select button */
+
+            echo '<input type="radio" id="notification_email" name="doifd_lab_options[notification_email]" ' . ((isset( $notification_email ) && ( $notification_email ) == '1' ) ? 'checked="checked"' : "") . ' value="1" /> Yes ';
+            echo '<input type="radio" id="notification_email" name="doifd_lab_options[notification_email]" ' . (isset( $notification_email ) && ( $notification_email == '0' ) ? 'checked="checked"' : "") . ' value="0" /> No ';
+            echo '<p>' . __( 'If you check YES, an email will be sent to you notifying you of the download.', 'double-opt-in-for-download' ) . '</p>';
         }
 
         /* This function creates the email address field */

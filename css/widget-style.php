@@ -13,11 +13,12 @@ $doifd_widget_option = get_option ( 'doifd_lab_options' ) ;
     margin-right: <?php if (isset($doifd_widget_option['widget_margin_right'])) { echo $doifd_widget_option['widget_margin_right']; }else{ echo '0'; }?>px;
     margin-bottom: <?php if (isset($doifd_widget_option['widget_margin_bottom'])) { echo $doifd_widget_option['widget_margin_bottom']; }else{ echo '25'; }?>px;
     margin-left: <?php if (isset($doifd_widget_option['widget_margin_left'])) { echo $doifd_widget_option['widget_margin_left']; }else{ echo '0'; }?>px;
-    border: #333333 thin solid;
-    -moz-border-radius: 10px;
-    -webkit-border-radius: 10px;
-    -khtml-border-radius: 10px;
-    border-radius: 10px;
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+     border-radius: 4px;
+    -webkit-box-shadow: inset 0 1px 15px rgba(68,68,68,0.6);
+    -moz-box-shadow: inset 0 1px 15px rgba(68,68,68,0.6);
+    box-shadow: inset 0 1px 15px rgba(68,68,68,0.6);
     padding: <?php if (isset($doifd_widget_option['widget_inside_padding'])) { echo $doifd_widget_option['widget_inside_padding']; }else{ echo '5'; }?>px ;
 }
 
@@ -30,6 +31,7 @@ $doifd_widget_option = get_option ( 'doifd_lab_options' ) ;
 #widget_doifd_user_reg_form input[type=text] {
 
     width: <?php if (isset($doifd_widget_option['widget_input_width'])) { echo $doifd_widget_option['widget_input_width']; }else{ echo '180'; }?>px;
+    background: <?php if (isset($doifd_widget_option['widget_input_field_background_color'])) { echo $doifd_widget_option['widget_input_field_background_color']; }else{ echo 'transparent'; }?>;
 }    
 
 .doifd_widget_promo_link {

@@ -69,7 +69,7 @@ if ( !class_exists ( 'DoifdDownload' ) ) {
 
                     if ( $checkallowed->doifd_downloads_allowed >= $allowed ) {
 
-                        return '<div id="doifd_user_reg_form" class="exceeded">' . __( 'You have exceed your number of downloads for this item.' , $plugin->slug ) . '</div>';
+                        return '<div id="doifd_user_reg_form" class="exceeded">' . __( 'You have exceed your number of downloads for this item.' , 'double-opt-in-for-download') . '</div>';
                     }
 
                     /* Query database and assign results to varialbe */
@@ -154,6 +154,7 @@ if ( !class_exists ( 'DoifdDownload' ) ) {
                     "
                         );
                     }
+                    
                 }
             }
 

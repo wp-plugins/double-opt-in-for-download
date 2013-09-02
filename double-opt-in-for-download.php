@@ -1,10 +1,10 @@
 <?php
 /*
   Plugin Name: Double Opt In For Download
-  Plugin URI: http://www.labwebdesigns.com/wordpress-plugins.html
-  Description: Plugin for allowing download in exchange for email address
+  Plugin URI: http://www.labwebdesigns.com/wordpress-plugin-double-opt-in-for-download.html
+  Description: Plugin for allowing a user to download a free promotional item in exchange for the users email address
   Author: Labwebdesigns.com / Andy Bates
-  Version: 1.0.5
+  Version: 1.0.6
   Author URI: http://www.labwebdesigns.com
   License: GPLv3
 
