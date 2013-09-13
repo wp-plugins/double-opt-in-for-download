@@ -3,7 +3,7 @@ Contributors: Andy Bates / LAB Web Designs
 Donate link: http://www.labwebdesigns.com
 License: GPLv3
 License URI: http://www.gnu.org/licenses/gpl.html
-Tags: email, download
+Tags: email, download, optin, forms
 Requires at least: 3.5
 Tested up to: 3.6.1
 Stable tag: 1.0.6
