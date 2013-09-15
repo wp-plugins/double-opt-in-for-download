@@ -52,7 +52,7 @@ if (!class_exists('DoifdAdmin')) {
             add_action('admin_init', array(&$this, 'register_admin_styles'));
             add_action('admin_init', array(&$this, 'register_admin_js'));
         }
-
+        
         /* Register the admin style sheets for use */
 
         function register_admin_styles() {
@@ -116,8 +116,6 @@ if (!class_exists('DoifdAdmin')) {
         /* Add the custom menu pages */
 
         function register_doifd_custom_menu_page() {
-
-            global $plugin_slug;
 
             // create main menu page
             add_menu_page('doifd menu title', __('DOI - Downloads', 'double-opt-in-for-download'), 'manage_options', __FILE__, array($this, 'doifd_lab_options_page'));
