@@ -63,3 +63,8 @@ $doifd_form_option = get_option ( 'doifd_lab_options' ) ;
     text-align: center;
     padding: 15px 0;
 }
+
+.doifd_privacy_link {
+text-align: center;
+font-size: <?php if (isset($doifd_form_option['privacy_link_font_size'])) { echo $doifd_form_option['privacy_link_font_size']; }else{ echo '0.9em'; }?>;
+}

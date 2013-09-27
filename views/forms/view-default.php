@@ -26,7 +26,9 @@
 
        <input name="doifd-subscriber-registration" type="submit" value="<?php echo $doifd_form_button_text ; ?>"><br /></div><br />
 
-        <?php echo $doifd_promo_link; ?>
+           <?php echo $doifd_privacy_policy; ?>
+       
+           <?php echo $doifd_promo_link; ?>
 
     </form>
     

@@ -61,6 +61,14 @@ if ( !class_exists ( 'DoifdAdminValidation' ) ) {
             $valid[ 'form_input_field_width' ] = preg_replace ( '/[^%a-z0-9]/i', '', $input[ 'form_input_field_width' ] );
             
             $valid[ 'notification_email' ] = preg_replace( '/[^0-9]/', '', $input[ 'notification_email' ] );
+            
+            $valid[ 'use_privacy_policy' ] = preg_replace ( '/[^0-9]/', '', $input[ 'use_privacy_policy' ] );
+            
+            $valid[ 'privacy_link_font_size' ] = preg_replace ( '/[^a-z0-9.]/', '', $input[ 'privacy_link_font_size' ] );
+            
+            $valid[ 'privacy_link_text' ] = preg_replace ( '/ [^a-zA-Z0-9_-]/i', '', $input[ 'privacy_link_text' ] );
+            
+            $valid[ 'privacy_page' ] = preg_replace ( '/[^0-9]/', '', $input[ 'privacy_page' ] );
 
             return $valid;
 

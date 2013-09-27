@@ -111,6 +111,11 @@ if (!class_exists('DoifdAdmin')) {
             add_settings_field('doifd_lab_form_title_color', __('Title Font Color', 'double-opt-in-for-download'), array($this, 'doifd_lab_setting_form_title_color'), 'doifd_lab_form_style', 'doifd_lab_form_style_section');
             add_settings_field('doifd_lab_form_input_field_background_color', __('Form Input Field Background Color', 'double-opt-in-for-download'), array($this, 'doifd_lab_setting_form_input_field_background_color'), 'doifd_lab_form_style', 'doifd_lab_form_style_section');
             add_settings_field('doifd_lab_form_input_field_width', __('Form Input Field Width', 'double-opt-in-for-download'), array($this, 'doifd_lab_setting_form_input_field_width'), 'doifd_lab_form_style', 'doifd_lab_form_style_section');
+            add_settings_section('doifd_lab_form_privacy_section', __('Form Privacy Policy Settings', 'double-opt-in-for-download'), '', 'doifd_lab_form_privacy');
+            add_settings_field('doifd_lab_form_privacy_policy', __('Use Privacy Policy', 'double-opt-in-for-download'), array($this, 'doifd_lab_setting_privacy_policy'), 'doifd_lab_form_privacy', 'doifd_lab_form_privacy_section');
+            add_settings_field('doifd_lab_form_privacy_text', __('Privacy Page Link Text', 'double-opt-in-for-download'), array($this, 'doifd_lab_setting_privacy_text'), 'doifd_lab_form_privacy', 'doifd_lab_form_privacy_section');
+            add_settings_field('doifd_lab_form_privacy_font_size', __('Set Font Size of Link', 'double-opt-in-for-download'), array($this, 'doifd_lab_select_privacy_font_size'), 'doifd_lab_form_privacy', 'doifd_lab_form_privacy_section');
+            add_settings_field('doifd_lab_form_privacy_page', __('Select Privacy Page', 'double-opt-in-for-download'), array($this, 'doifd_lab_select_privacy_page'), 'doifd_lab_form_privacy', 'doifd_lab_form_privacy_section');
         }
 
         /* Add the custom menu pages */
@@ -561,6 +566,50 @@ if (!class_exists('DoifdAdmin')) {
             if (empty($landing_page)) {
 
                 $this->showMessage(__("The landing page option in Double OPT-IN for Downloads is NOT SET. Please select a landing page otherwise the plugin will not work properly", 'double-opt-in-for-download'));
+            }
+        }
+        
+         function doifd_lab_setting_privacy_policy() {
+
+            if (!current_user_can('manage_options')) {
+
+                wp_die(__('You do not have sufficient permissions to access this page.', 'double-opt-in-for-download'));
+            } else {
+
+                return DoifdAdminOptions::use_privacy_policy();
+            }
+        }
+        
+         function doifd_lab_setting_privacy_text() {
+
+            if (!current_user_can('manage_options')) {
+
+                wp_die(__('You do not have sufficient permissions to access this page.', 'double-opt-in-for-download'));
+            } else {
+
+                return DoifdAdminOptions::field_privacy_link_text();
+            }
+        }
+        
+        function doifd_lab_select_privacy_font_size() {
+
+            if (!current_user_can('manage_options')) {
+
+                wp_die(__('You do not have sufficient permissions to access this page.', 'double-opt-in-for-download'));
+            } else {
+
+                return DoifdAdminOptions::field_privacy_link_text_size();
+            }
+        }
+        
+                 function doifd_lab_select_privacy_page() {
+
+            if (!current_user_can('manage_options')) {
+
+                wp_die(__('You do not have sufficient permissions to access this page.', 'double-opt-in-for-download'));
+            } else {
+
+                return DoifdAdminOptions::field_select_privacy_page();
             }
         }
 
