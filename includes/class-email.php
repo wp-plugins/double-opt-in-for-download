@@ -93,7 +93,7 @@ if ( !class_exists ( 'DoifdEmail' ) ) {
 
                 /* The subject line of the email */
 
-                $doifd_lab_subject = 'Your Free Download from ' . get_bloginfo ( 'name' );
+                $doifd_lab_subject = sprintf(__('Your Free Download from %s', 'double-opt-in-for-download'), get_bloginfo ( 'name' ));
 
                 /* Get the download_id and assign to variable */
 

@@ -32,6 +32,7 @@ if ( !class_exists ( 'DoifdAdminOptions' ) ) {
                         <li><a href="#tabs-4">Form Style Settings</a></li>
                         <li><a href="#tabs-5">Widget Style Settings</a></li>
                         <li><a href="#tabs-6">MailChimp Settings</a></li>
+                        <li><a href="#tabs-7">Constant Contact Settings</a></li>
                     </ul>
                     <div id="tabs-1">
                         
@@ -81,6 +82,9 @@ if ( !class_exists ( 'DoifdAdminOptions' ) ) {
                         
                     </div>
                     <div id="tabs-6">
+                         <h1><a href="http://www.labwebdesigns.com/premium-double-opt-in-for-download.html" target="new" ><?php _e( 'Available in the Premium Edition', 'double-opt-in-for-download' ); ?></a></h1>
+                    </div>
+                    <div id="tabs-7">
                          <h1><a href="http://www.labwebdesigns.com/premium-double-opt-in-for-download.html" target="new" ><?php _e( 'Available in the Premium Edition', 'double-opt-in-for-download' ); ?></a></h1>
                     </div>
                 </div>

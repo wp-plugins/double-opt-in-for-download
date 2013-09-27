@@ -3,9 +3,9 @@ Contributors: Andy Bates / LAB Web Designs
 Donate link: http://www.labwebdesigns.com
 License: GPLv3
 License URI: http://www.gnu.org/licenses/gpl.html
-Tags: email, download
+Tags: email, download, optin, email marketing, marketing
 Requires at least: 3.5
-Tested up to: 3.6
+Tested up to: 3.6.1
 Stable tag: 1.0.6
 
 Improve your client outreach by offering FREE downloads to your visitors in exchange for their email address with our Double Opt-In Plugin
@@ -23,6 +23,33 @@ the plugin verifies the information and provides the subscriber with a button to
 
 A link to your download is never revealed.
 
+<h4>Features</h4>
+
+The free version of Double OPT-IN For Download comes with all the basic features you need to get your empire started.
+
+<ul>
+
+    <li>Unlimited number of products you can upload.</li>
+    <li>You can offer, .jpg, .jpeg, .png, .bmp, .gif, .pdf, .zip, .doc, .docx, ,mp3 files.</li>
+    <li>Subscribers email addresses are verified via a double opt in process.</li>
+    <li>Customize your verification email to your subscriber.</li>
+    <li>Subscriber can only subscribe once for each product item.</li>
+    <li>One click download of email address to a convenient csv file.</li>
+    <li>Links to your download are not revealed to your subscribers, keeping them secure.</li>
+    <li>Track how many times your products have been downloaded.</li>
+    <li>Customizable form text and form button text.</li>
+    <li>Customizable Widget Form.</li>
+    <li>Customizable Landing Page Button Text.</li>
+
+</ul>
+
+If your looking for something more, like AJAX forms and integrations with email list services like MailChimp be sure to check out our <a href="http://www.labwebdesigns.com/premium-double-opt-in-for-download.html" target="new">Premium Version of Double OPT-IN For Download</a>
+
+<h4>Support</h4>
+
+Double OPT-IN for Download is designed to "Set it & Forget it". But with so many different web site configurations out there hiccups are bound to occur.
+For fast response on your support needs please post all questions or suggestions to our <a href="http://www.labwebdesigns.com/forums/forum/double-opt-in-for-download-support-forum" target=new >Support Forum</a>. The Wordpress support forum is checked periodically but we will
+be notified every time a support question is posted on our support forum.
 
 == Installation ==
 
