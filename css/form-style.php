@@ -47,6 +47,11 @@ $doifd_form_option = get_option ( 'doifd_lab_options' ) ;
     margin: 15px auto!important;
     text-align: center;
     font-weight: bold;
+    font-size: <?php if ( isset( $doifd_form_option[ 'form_title_size' ] ) ) {
+    echo $doifd_form_option[ 'form_title_size' ];
+} else {
+    echo '1em';
+} ?>;
 
 }
 

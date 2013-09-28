@@ -241,6 +241,57 @@ if ( !class_exists ( 'DoifdAdminWidgetOptions' ) ) {
             echo '</div>';
 
         }
+        
+        public static function field_widget_title_color() {
+
+            /* get the options from wp options table */
+
+            $doifd_option = get_option( 'doifd_lab_options' );
+
+            /* get form stored field value and assign to variable.
+             * If set or not null use the stored option otherwise use the default */
+
+            if ( isset( $doifd_option[ 'widget_title_color' ] ) && ($doifd_option[ 'widget_title_color' ] == !NULL ) ) {
+
+                $widget_title_color = $doifd_option[ 'widget_title_color' ];
+            } else {
+
+                $widget_title_color = '#000000';
+            }
+
+            /* echo form width form */
+
+            echo '<div id="doifd_lab_admin_options">';
+            echo '<input type="text" name="doifd_lab_options[widget_title_color]" id="widget_title_color"  size="10" value="' . $widget_title_color . '">';
+            echo '<p>' . __( 'This sets the font color for the widget title. <b>Use hex values ( #000000 etc ).', 'double-opt-in-for-download' ) . '</b></p>';
+            echo '</div>';
+        }
+        
+        public static function field_widget_title_size() {
+
+            /* get the options from wp options table */
+
+            $doifd_option = get_option( 'doifd_lab_options' );
+
+            /* get form stored field value and assign to variable.
+             * If set or not null use the stored option otherwise use the default */
+
+            if ( isset( $doifd_option[ 'widget_title_size' ] ) && ($doifd_option[ 'widget_title_size' ] == !NULL ) ) {
+
+                $widget_title_size = $doifd_option[ 'widget_title_size' ];
+            } else {
+
+                $widget_title_size = '1em';
+            }
+
+            /* echo form width form */
+
+            echo '<div id="doifd_lab_admin_options">';
+            echo '<input type="text" name="doifd_lab_options[widget_title_size]" id="widget_title_size"  size="10" value="' . $widget_title_size . '">';
+            echo '<p>' . __( 'This sets the font size for the widget title. ( Example: 1em, 12px etc ).', 'double-opt-in-for-download' ) . '</p>';
+            echo '</div>';
+        }
+
 
     }
 

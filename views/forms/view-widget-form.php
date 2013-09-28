@@ -21,7 +21,11 @@
         
         <div id="doifd_button_holder">
              <input name="widget_doifd-subscriber-registration" type="submit" value="<?php echo $lab_widget_form_button_text ; ?>"><br />'
+            
+            <?php echo $doifd_privacy_policy; ?>
+            
             <?php echo $doifd_promo_link; ?>
+            
         </div>
     
     </form>

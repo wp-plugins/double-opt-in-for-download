@@ -45,3 +45,25 @@ $doifd_widget_option = get_option ( 'doifd_lab_options' ) ;
 .doifd_widget_promo_link a:active {
     color: #CCCCCC !important;
 }
+
+.widget_h4 {
+margin: 5px auto;
+text-align: center;
+width: 90%;
+color: <?php if ( isset( $doifd_widget_option[ 'widget_title_color' ] ) ) {
+    echo $doifd_widget_option[ 'widget_title_color' ];
+} else {
+    echo '#000000';
+} ?>;
+font-size: <?php if ( isset( $doifd_widget_option[ 'widget_title_size' ] ) ) {
+    echo $doifd_widget_option[ 'widget_title_size' ];
+} else {
+    echo '1em';
+} ?>;
+}
+
+.doifd_privacy_link {
+text-align: center;
+margin: 10px 0;
+font-size: <?php if (isset($doifd_widget_option['privacy_link_font_size'])) { echo $doifd_widget_option['privacy_link_font_size']; }else{ echo '0.9em'; }?>;
+}

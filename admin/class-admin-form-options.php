@@ -189,6 +189,31 @@ if ( !class_exists ( 'DoifdAdminFormOptions' ) ) {
             echo '</div>';
 
         }
+        
+        public static function field_form_title_size() {
+
+            /* get the options from wp options table */
+
+            $doifd_option = get_option( 'doifd_lab_options' );
+
+            /* get form stored field value and assign to variable.
+             * If set or not null use the stored option otherwise use the default */
+
+            if ( isset( $doifd_option[ 'form_title_size' ] ) && ($doifd_option[ 'form_title_size' ] == !NULL ) ) {
+
+                $form_title_size = $doifd_option[ 'form_title_size' ];
+            } else {
+
+                $form_title_size = '1em';
+            }
+
+            /* echo form width form */
+
+            echo '<div id="doifd_lab_admin_options">';
+            echo '<input type="text" name="doifd_lab_options[form_title_size]" id="form_title_size"  size="10" value="' . $form_title_size . '">';
+            echo '<p>' . __( 'This sets the font size for the form title. ( Example: 1em, 12px etc ).', 'double-opt-in-for-download' ) . '</p>';
+            echo '</div>';
+        }
 
         public static function field_form_input_field_width() {
 
