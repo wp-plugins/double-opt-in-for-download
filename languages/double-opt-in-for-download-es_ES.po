@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Double OPT-IN for Download\n"
-"POT-Creation-Date: 2013-09-27 09:14-0800\n"
-"PO-Revision-Date: 2013-09-27 09:15-0800\n"
+"POT-Creation-Date: 2013-09-28 09:53-0800\n"
+"PO-Revision-Date: 2013-09-28 09:54-0800\n"
 "Last-Translator: Andy <andy@labwebdesigns.com>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -53,7 +53,7 @@ msgstr "Tipo de Archivo"
 msgid "Shortcode"
 msgstr "código de acceso"
 
-#: ../admin/class-admin-download-table.php:125 ../admin/doifd-admin.php:132
+#: ../admin/class-admin-download-table.php:125 ../admin/doifd-admin.php:135
 #: ../views/view-admin-download-page.php:3
 #: ../views/view-admin-download-page.php:60
 msgid "Downloads"
@@ -178,6 +178,12 @@ msgstr ""
 "hexadecimales (# 000000 etc)."
 
 #: ../admin/class-admin-form-options.php:214
+msgid "This sets the font size for the form title. ( Example: 1em, 12px etc )."
+msgstr ""
+"Esto establece el tamaño de fuente para el título del formulario. (Ejemplo: "
+"1 em, 12px, etc.)"
+
+#: ../admin/class-admin-form-options.php:239
 #, php-format
 msgid ""
 "This sets the width of the input field on the form. <b>Use Percentage or PX "
@@ -406,6 +412,21 @@ msgstr ""
 "Esto establece el ancho del campo de entrada en el widget. <b> números de "
 "uso único, no añada el px al final."
 
+#: ../admin/class-admin-widget-options.php:266
+msgid ""
+"This sets the font color for the widget title. <b>Use hex values ( #000000 "
+"etc )."
+msgstr ""
+"Ajusta el color de fuente para el título del widget. <b> Usar valores "
+"hexadecimales (# 000000 etc)."
+
+#: ../admin/class-admin-widget-options.php:291
+msgid ""
+"This sets the font size for the widget title. ( Example: 1em, 12px etc )."
+msgstr ""
+"Esto establece el tamaño de fuente para el título del widget. (Ejemplo: 1 "
+"em, 12px, etc.)"
+
 #: ../admin/doifd-admin.php:85
 msgid "General Settings"
 msgstr "Configuración general"
@@ -485,98 +506,111 @@ msgid "Widget Input Field Background Color"
 msgstr "Widget de entrada del campo Color de fondo"
 
 #: ../admin/doifd-admin.php:104
+msgid "Widget Title Font Color"
+msgstr "Widget Título Color de fuente"
+
+#: ../admin/doifd-admin.php:105
+msgid "Widget Title Font Size"
+msgstr "Widget título Tamaño de Fuente"
+
+#: ../admin/doifd-admin.php:106
 msgid "Widget Background Color"
 msgstr "Widget Color de fondo"
 
-#: ../admin/doifd-admin.php:105
+#: ../admin/doifd-admin.php:107
 msgid "Form Style Settings"
 msgstr "Formulario de Ajustes"
 
-#: ../admin/doifd-admin.php:106
+#: ../admin/doifd-admin.php:108
 msgid "Form CSS Class"
 msgstr "Formulario CSS Class"
 
-#: ../admin/doifd-admin.php:107
+#: ../admin/doifd-admin.php:109
 msgid "Form Width"
 msgstr "Formulario Ancho"
 
-#: ../admin/doifd-admin.php:108
+#: ../admin/doifd-admin.php:110
 msgid "Form Padding"
 msgstr "Relleno de forma"
 
-#: ../admin/doifd-admin.php:109
+#: ../admin/doifd-admin.php:111
 msgid "Form Background Color"
 msgstr "Antecedentes Forma Color"
 
-#: ../admin/doifd-admin.php:110
+#: ../admin/doifd-admin.php:112
 msgid "Form Font Color"
 msgstr "Forma Color de fuente"
 
-#: ../admin/doifd-admin.php:111
+#: ../admin/doifd-admin.php:113
 msgid "Title Font Color"
 msgstr "Título Color de fuente"
 
-#: ../admin/doifd-admin.php:112
+#: ../admin/doifd-admin.php:114
+msgid "Title Font Size"
+msgstr "Título Tamaño de fuente"
+
+#: ../admin/doifd-admin.php:115
 msgid "Form Input Field Background Color"
 msgstr "Forma de entrada de campo Color de fondo"
 
-#: ../admin/doifd-admin.php:113
+#: ../admin/doifd-admin.php:116
 msgid "Form Input Field Width"
 msgstr "Forma de entrada Ancho de campo"
 
-#: ../admin/doifd-admin.php:114
+#: ../admin/doifd-admin.php:117
 msgid "Form Privacy Policy Settings"
 msgstr "Formulario Política de Privacidad Ajustes"
 
-#: ../admin/doifd-admin.php:115
+#: ../admin/doifd-admin.php:118
 msgid "Use Privacy Policy"
 msgstr "Política de Privacidad"
 
-#: ../admin/doifd-admin.php:116
+#: ../admin/doifd-admin.php:119
 msgid "Privacy Page Link Text"
 msgstr "Privacidad Página de Link Text"
 
-#: ../admin/doifd-admin.php:117
+#: ../admin/doifd-admin.php:120
 msgid "Set Font Size of Link"
 msgstr "Establecer Tamaño de la Fuente de Link"
 
-#: ../admin/doifd-admin.php:118
+#: ../admin/doifd-admin.php:121
 msgid "Select Privacy Page"
 msgstr "Seleccione Privacidad Página"
 
-#: ../admin/doifd-admin.php:126
+#: ../admin/doifd-admin.php:129
 msgid "DOI - Downloads"
 msgstr "DOI - Descargas"
 
-#: ../admin/doifd-admin.php:129
+#: ../admin/doifd-admin.php:132
 msgid "Settings"
 msgstr "Configuración"
 
-#: ../admin/doifd-admin.php:135 ../views/view-admin-subscribers-page.php:3
+#: ../admin/doifd-admin.php:138 ../views/view-admin-subscribers-page.php:3
 msgid "Subscribers"
 msgstr "Suscriptores"
 
-#: ../admin/doifd-admin.php:153 ../admin/doifd-admin.php:166
-#: ../admin/doifd-admin.php:184 ../admin/doifd-admin.php:201
-#: ../admin/doifd-admin.php:213 ../admin/doifd-admin.php:226
-#: ../admin/doifd-admin.php:239 ../admin/doifd-admin.php:252
-#: ../admin/doifd-admin.php:273 ../admin/doifd-admin.php:286
-#: ../admin/doifd-admin.php:299 ../admin/doifd-admin.php:312
-#: ../admin/doifd-admin.php:325 ../admin/doifd-admin.php:338
-#: ../admin/doifd-admin.php:351 ../admin/doifd-admin.php:364
-#: ../admin/doifd-admin.php:377 ../admin/doifd-admin.php:390
-#: ../admin/doifd-admin.php:403 ../admin/doifd-admin.php:414
-#: ../admin/doifd-admin.php:425 ../admin/doifd-admin.php:438
-#: ../admin/doifd-admin.php:452 ../admin/doifd-admin.php:465
-#: ../admin/doifd-admin.php:478 ../admin/doifd-admin.php:489
-#: ../admin/doifd-admin.php:500 ../admin/doifd-admin.php:511
-#: ../admin/doifd-admin.php:522 ../admin/doifd-admin.php:576
-#: ../admin/doifd-admin.php:587 ../admin/doifd-admin.php:598
-#: ../admin/doifd-admin.php:609
+#: ../admin/doifd-admin.php:156 ../admin/doifd-admin.php:169
+#: ../admin/doifd-admin.php:187 ../admin/doifd-admin.php:204
+#: ../admin/doifd-admin.php:216 ../admin/doifd-admin.php:229
+#: ../admin/doifd-admin.php:242 ../admin/doifd-admin.php:255
+#: ../admin/doifd-admin.php:276 ../admin/doifd-admin.php:289
+#: ../admin/doifd-admin.php:302 ../admin/doifd-admin.php:315
+#: ../admin/doifd-admin.php:328 ../admin/doifd-admin.php:341
+#: ../admin/doifd-admin.php:354 ../admin/doifd-admin.php:367
+#: ../admin/doifd-admin.php:380 ../admin/doifd-admin.php:393
+#: ../admin/doifd-admin.php:406 ../admin/doifd-admin.php:417
+#: ../admin/doifd-admin.php:428 ../admin/doifd-admin.php:439
+#: ../admin/doifd-admin.php:450 ../admin/doifd-admin.php:463
+#: ../admin/doifd-admin.php:477 ../admin/doifd-admin.php:490
+#: ../admin/doifd-admin.php:503 ../admin/doifd-admin.php:514
+#: ../admin/doifd-admin.php:525 ../admin/doifd-admin.php:536
+#: ../admin/doifd-admin.php:547 ../admin/doifd-admin.php:558
+#: ../admin/doifd-admin.php:612 ../admin/doifd-admin.php:623
+#: ../admin/doifd-admin.php:634 ../admin/doifd-admin.php:645
 msgid "You do not have sufficient permissions to access this page."
 msgstr "Usted no tiene permisos suficientes para acceder a esta página."
 
-#: ../admin/doifd-admin.php:568
+#: ../admin/doifd-admin.php:604
 msgid ""
 "The landing page option in Double OPT-IN for Downloads is NOT SET. Please "
 "select a landing page otherwise the plugin will not work properly"
@@ -664,7 +698,7 @@ msgid "Powered by Lab Web Designs & Hosting"
 msgstr "Desarrollado por Lab Web Designs & Hosting"
 
 #: ../includes/class-registration-form.php:133
-#: ../includes/doifd-widget.php:107
+#: ../includes/doifd-widget.php:125
 msgid "Please provide your name."
 msgstr "Proporcione por favor su nombre."
 
@@ -673,22 +707,22 @@ msgid "Not a valid email address."
 msgstr "No es una dirección de correo electrónico válida."
 
 #: ../includes/class-registration-form.php:147
-#: ../includes/doifd-widget.php:117
+#: ../includes/doifd-widget.php:135
 msgid "This email address has already been used."
 msgstr "Esta dirección de correo electrónico ya ha sido utilizada."
 
 #: ../includes/class-registration-form.php:240
-#: ../includes/doifd-widget.php:195
+#: ../includes/doifd-widget.php:213
 msgid "Thank You for Registering!"
 msgstr "¡Gracias por registrarte!"
 
 #: ../includes/class-registration-form.php:240
-#: ../includes/doifd-widget.php:195
+#: ../includes/doifd-widget.php:213
 msgid "Please check your email for your link to your Free download."
 msgstr "Por favor, comprueba tu email para su enlace a su descarga gratuita."
 
 #: ../includes/class-registration-form.php:246
-#: ../includes/doifd-widget.php:201
+#: ../includes/doifd-widget.php:219
 msgid "Database Error"
 msgstr "Error de base de datos"
 
@@ -704,23 +738,23 @@ msgstr "Double Opt In For Descargar Formulario"
 msgid "Powered by<br />Lab Web Designs & Hosting"
 msgstr "Desarrollado por<br />Lab Web Designs & Hosting"
 
-#: ../includes/doifd-widget.php:112
+#: ../includes/doifd-widget.php:130
 msgid "Email is not valid."
 msgstr "El correo electrónico no es válida."
 
-#: ../includes/doifd-widget.php:247
+#: ../includes/doifd-widget.php:265
 msgid "Title:"
 msgstr "Título:"
 
-#: ../includes/doifd-widget.php:250
+#: ../includes/doifd-widget.php:268
 msgid "Form Text:"
 msgstr "Formulario Texto:"
 
-#: ../includes/doifd-widget.php:253
+#: ../includes/doifd-widget.php:271
 msgid "Button Text:"
 msgstr "Texto del botón:"
 
-#: ../includes/doifd-widget.php:256
+#: ../includes/doifd-widget.php:274
 msgid "Select Download:"
 msgstr "Seleccione Descargar:"
 
@@ -868,8 +902,8 @@ msgid "here"
 msgstr "aquí"
 
 #: ../views/view-admin-header.php:9
-msgid "Your are using the <em>FREE</em> Version 1.0.6"
-msgstr "Su están utilizando el <em>GRATIS</em> Versión 1.0.6"
+msgid "Your are using the <em>FREE</em> Version 1.0.7"
+msgstr "Su están utilizando el <em>GRATIS</em> Versión 1.0.7"
 
 #: ../views/view-admin-header.php:10
 msgid "Get the Premium Version of Double OPT-IN for download"
