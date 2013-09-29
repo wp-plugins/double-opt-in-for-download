@@ -6,7 +6,7 @@ License URI: http://www.gnu.org/licenses/gpl.html
 Tags: email, download, optin, email marketing, marketing
 Requires at least: 3.5
 Tested up to: 3.6.1
-Stable tag: 1.0.6
+Stable tag: 1.0.7
 
 Improve your client outreach by offering FREE downloads to your visitors in exchange for their email address with our Double Opt-In Plugin
 
@@ -114,6 +114,7 @@ The following is a list of languages the plugin supports:
 1. Spanish - es_ES
 2. French - fr_FR
 3. German - de_DE
+4. Italian - Coming Soon
 
 Post a comment on our Facebook page if you would like to see this plugin translated to your language.
 
@@ -130,6 +131,14 @@ Post a comment on our Facebook page if you would like to see this plugin transla
 5. This is a screen shot of the subscribers admin screen.
 
 == Changelog ==
+
+= 1.0.7 =
+
+09/28/2013
+
+1. Added ability to add a link to your privacy policy page in the forms.
+2. Added ability to set the form font title color and size.
+3. Email Subject line has been translated.
 
 = 1.0.6 =
 
@@ -256,6 +265,11 @@ Changed location of download directory to avoid deletion when upgrading.
 
 == Upgrade Notice ==
 
+= 1.0.7 =
+
+1. Added ability to add a link to your privacy policy page in the forms.
+2. Added ability to set the form font title color and size.
+3. Email Subject line has been translated.
 
 = 1.0.6 =
 

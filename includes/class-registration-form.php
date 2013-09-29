@@ -72,7 +72,26 @@ if (!class_exists('DOIFD')) {
 
                 $doifd_promo_link = '';
             }
+            
+            /* See If Privacy Policy is Set */
 
+            if (isset($options['use_privacy_policy'])) {
+
+                $option = $options['use_privacy_policy'];
+                $text = $options['privacy_link_text'];
+                $link = $options['privacy_page'];
+                
+            }
+
+            if (( isset($option) ) && ($option == '1')) {
+
+                $doifd_privacy_policy = '<div class="doifd_privacy_link"><a href="'. get_page_link($link). '" target="new" >' . $text . '</a></div>';
+            } else {
+
+                $doifd_privacy_policy = '';
+            }
+             
+          
             /* If the subscriber is submitting the form lets do this.... */
 
 
