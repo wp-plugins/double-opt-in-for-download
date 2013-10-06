@@ -8,6 +8,7 @@ include_once( DOUBLE_OPT_IN_FOR_DOWNLOAD_DIR . '/includes/class-email.php' );
 include_once( DOUBLE_OPT_IN_FOR_DOWNLOAD_DIR . '/includes/class-registration-form.php' );
 include_once( DOUBLE_OPT_IN_FOR_DOWNLOAD_DIR . '/includes/class-landing-page.php' );
 include_once( DOUBLE_OPT_IN_FOR_DOWNLOAD_DIR . '/includes/class-download.php' );
+include_once( DOUBLE_OPT_IN_FOR_DOWNLOAD_DIR . '/includes/class-filters.php' );
 
 if ( file_exists( DOUBLE_OPT_IN_FOR_DOWNLOAD_CAPTCHA_DIR ) ) {
 
@@ -22,13 +23,6 @@ if ( !class_exists( 'DOIFD' ) ) {
         protected $plugin_screen_hook_suffix = null;
 
         function __construct() {
-
-            /* require the recaptcha library */
-
-            if ( file_exists( DOUBLE_OPT_IN_FOR_DOWNLOAD_CAPTCHA_DIR ) ) {
-
-                $this->require_library();
-            }
 
             /* register the hooks */
 
@@ -78,6 +72,7 @@ if ( !class_exists( 'DOIFD' ) ) {
             /* Registers the Widget */
 
             add_action( 'widgets_init', array ( &$this, 'doifd_lab_widget' ) );
+            
         }
 
         function register_shortcodes() {
@@ -139,13 +134,6 @@ if ( !class_exists( 'DOIFD' ) ) {
             wp_enqueue_style( 'doifd-style' );
             wp_enqueue_style( 'doifd-widget-style' );
             wp_enqueue_style( 'doifd-form-style' );
-        }
-
-        /* Include the reCAPTCHA library */
-
-        function require_library() {
-
-            require_once( DOUBLE_OPT_IN_FOR_DOWNLOAD_DIR . '/captcha/recaptchalib.php');
         }
 
         /* Create the registration form */

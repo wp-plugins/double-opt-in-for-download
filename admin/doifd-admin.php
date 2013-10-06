@@ -23,11 +23,6 @@ if (!class_exists('DoifdAdmin')) {
     class DoifdAdmin {
 
         function __construct() {
-            
-                        
-            /* Add Filters */
-            
-            $this->doifd_add_filters();
 
             /* Register actions */
 
@@ -660,14 +655,7 @@ if (!class_exists('DoifdAdmin')) {
 
                 return DoifdAdminOptions::field_select_privacy_page();
             }
-        }
-        
-        function doifd_settings_link($links) {
-            $links[] = '<a href="'. get_admin_url(null, 'options-general.php?page=gpaisr') .'">Settings</a>';
-            $links[] = '<a href="http://wp-buddy.com" target="_blank">More plugins by WP-Buddy</a>';
-            return $links;
-}
-        
+        }    
 
     }
 
