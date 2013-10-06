@@ -23,6 +23,11 @@ if (!class_exists('DoifdAdmin')) {
     class DoifdAdmin {
 
         function __construct() {
+            
+                        
+            /* Add Filters */
+            
+            $this->doifd_add_filters();
 
             /* Register actions */
 
@@ -39,6 +44,7 @@ if (!class_exists('DoifdAdmin')) {
             /* Call the CSV class */
 
             $csv = new DoifdCSV();
+
         }
 
         /* This function calls all the add_actions */
@@ -51,6 +57,7 @@ if (!class_exists('DoifdAdmin')) {
             add_action('admin_init', array(&$this, 'doifd_lab_resend_verification_email'));
             add_action('admin_init', array(&$this, 'register_admin_styles'));
             add_action('admin_init', array(&$this, 'register_admin_js'));
+        
         }
         
         /* Register the admin style sheets for use */
@@ -64,7 +71,13 @@ if (!class_exists('DoifdAdmin')) {
             wp_enqueue_style('doifd-jquery-ui');
             
         }
-
+ 
+        function doifd_add_filters(){
+            
+           add_filter('plugin_action_links_' . plugin_basename( __FILE__ ), array(&$this, 'doifd_settings_link'));
+            
+        }
+        
         function register_admin_js() {
 
             wp_enqueue_script('doifd-admin-js', DOUBLE_OPT_IN_FOR_DOWNLOAD_URL . 'js/admin.js', __FILE__);
@@ -648,6 +661,13 @@ if (!class_exists('DoifdAdmin')) {
                 return DoifdAdminOptions::field_select_privacy_page();
             }
         }
+        
+        function doifd_settings_link($links) {
+            $links[] = '<a href="'. get_admin_url(null, 'options-general.php?page=gpaisr') .'">Settings</a>';
+            $links[] = '<a href="http://wp-buddy.com" target="_blank">More plugins by WP-Buddy</a>';
+            return $links;
+}
+        
 
     }
 

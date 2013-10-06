@@ -44,6 +44,16 @@ include_once( DOUBLE_OPT_IN_FOR_DOWNLOAD_DIR . '/includes/class-doifd.php' );
 
 register_activation_hook ( __FILE__, array( 'DoifdInstall', 'activate_doifd_plugin' ) );
 
+        function doifd_settings_link($links) {
+            $links[] = '<a href="'. get_admin_url(null, 'admin.php?page=double-opt-in-for-download/admin/doifd-admin.php') .'">Settings</a>';
+            $links[] = '<a href="'. get_admin_url(null, 'admin.php?page=double-opt-in-for-download/admin/doifd-admin.php_downloads') .'">Downloads</a>';
+            $links[] = '<a href="'. get_admin_url(null, 'admin.php?page=double-opt-in-for-download/admin/doifd-admin.php_subscribers') .'">Subscribers</a>';
+            $links[] = '<a href="http://www.labwebdesigns.com/premium-double-opt-in-for-download.html" target="_blank">Get Premium Version</a>';
+            return $links;
+        }
+        
+        add_filter('plugin_action_links_' . plugin_basename( __FILE__ ),  'doifd_settings_link');
+
 DOIFD::get_instance ();
 
 ?>
