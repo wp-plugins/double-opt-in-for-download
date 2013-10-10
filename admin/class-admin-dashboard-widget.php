@@ -6,7 +6,11 @@ if ( !class_exists ( 'DoifdAdminWidget' ) ) {
 
         public function __construct() {
 
-            add_action ( 'wp_dashboard_setup', array( &$this, 'doifd_lab_add_dashboard_widgets' ) );
+            if (!is_admin()) {
+
+            add_action( 'wp_dashboard_setup', array ( &$this, 'doifd_lab_add_dashboard_widgets' ) );
+            
+            }
 
         }
 
