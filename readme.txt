@@ -1,6 +1,6 @@
 === Double Opt-In for Download ===
 Contributors: Andy Bates / LAB Web Designs
-Donate link: http://www.labwebdesigns.com
+Donate link: http://www.doubleoptinfordownload.com/
 License: GPLv3
 License URI: http://www.gnu.org/licenses/gpl.html
 Tags: email, download, optin, email marketing, marketing
@@ -43,12 +43,12 @@ The free version of Double OPT-IN For Download comes with all the basic features
 
 </ul>
 
-If your looking for something more, like AJAX forms and integrations with email list services like MailChimp be sure to check out our <a href="http://www.labwebdesigns.com/premium-double-opt-in-for-download.html" target="new">Premium Version of Double OPT-IN For Download</a>
+If your looking for something more, like AJAX forms and integrations with email list services like MailChimp be sure to check out our <a href="http://www.doubleoptinfordownload.com/premium-double-opt-in-for-download/" target="new">Premium Version of Double OPT-IN For Download</a>
 
 <h4>Support</h4>
 
 Double OPT-IN for Download is designed to "Set it & Forget it". But with so many different web site configurations out there hiccups are bound to occur.
-For fast response on your support needs please post all questions or suggestions to our <a href="http://www.labwebdesigns.com/forums/forum/double-opt-in-for-download-support-forum" target=new >Support Forum</a>. The Wordpress support forum is checked periodically but we will
+For fast response on your support needs please post all questions or suggestions to our <a href="http://www.doubleoptinfordownload.com/forums/forum/double-opt-in-for-download-support/" target=new >Support Forum</a>. The Wordpress support forum is checked periodically but we will
 be notified every time a support question is posted on our support forum.
 
 == Installation ==
