@@ -48,7 +48,9 @@ register_activation_hook ( __FILE__, array( 'DoifdInstall', 'activate_doifd_plug
 
 /* Add Additional links on the plugin admin screen */
 
-add_filter('plugin_action_links_' . plugin_basename( __FILE__ ), array('DoifdFilters', 'doifd_settings_link'));
+$filters = new DoifdFilters();
+
+add_filter('plugin_action_links_' . plugin_basename( __FILE__ ), array($filters, 'doifd_settings_link'));
 
 DOIFD::get_instance ();
 

@@ -300,8 +300,8 @@ if ( !class_exists ( 'DoifdAdminOptions' ) ) {
 
             /* Echo radio select button */
 
-            echo '<input type="radio" id="use_privacy_policy" name="doifd_lab_options[use_privacy_policy]" ' . ((isset ( $use_privacy_policy ) && ( $use_privacy_policy ) == '1' ) ? 'checked="checked"' : "") . ' value="1" /> Yes ';
-            echo '<input type="radio" id="use_privacy_policy" name="doifd_lab_options[use_privacy_policy]" ' . (isset ( $use_privacy_policy ) && ( $use_privacy_policy == '0' ) ? 'checked="checked"' : "") . ' value="0" /> No ';
+            echo '<input type="radio" id="use_privacy_policy_y" name="doifd_lab_options[use_privacy_policy]" ' . ((isset ( $use_privacy_policy ) && ( $use_privacy_policy ) == '1' ) ? 'checked="checked"' : "") . ' value="1" /> Yes ';
+            echo '<input type="radio" id="use_privacy_policy_n" name="doifd_lab_options[use_privacy_policy]" ' . (isset ( $use_privacy_policy ) && ( $use_privacy_policy == '0' ) ? 'checked="checked"' : "") . ' value="0" /> No ';
             echo '<p>' . __( 'If you check YES, this will add a link to your Privacy Policy Page at the bottom of the registration forms.', 'double-opt-in-for-download' ) . '</p>';
 
         }
@@ -324,11 +324,13 @@ if ( !class_exists ( 'DoifdAdminOptions' ) ) {
             }
 
             /* echo privacy text form field */
-
+            echo '<div id="priv_text">';
             echo '<div id="doifd_lab_admin_options">';
-            echo '<input type="text" name="doifd_lab_options[privacy_link_text]" id="form_privacy_link_text" size="15" value="' . $form_privacy_link_text . '">';
+            echo '<label><b>Privacy Page Link Text:</b> </label>';
+            echo '<input type="text" name="doifd_lab_options[privacy_link_text]" id="form_privacy_link_text" size="25" value="' . $form_privacy_link_text . '">';
             echo '<p>' . __( 'This sets the link text for your privacy statement ( Example: See Out Privacy Policy )',  'double-opt-in-for-download' ) . '</b></p>';
             echo '</div>';
+            
 
         }
         
@@ -349,11 +351,14 @@ if ( !class_exists ( 'DoifdAdminOptions' ) ) {
                 $form_privacy_link_font_size = '0.9em';
             }
 
-            /* echo form width form */
+            /* echo form privacy link text size */
 
+            echo '<div id="priv_font_size">';
             echo '<div id="doifd_lab_admin_options">';
+            echo '<label><b>Set Font Size of Link:</b> </label>';
             echo '<input type="text" name="doifd_lab_options[privacy_link_font_size]" id="form_padding" size="5" value="' . $form_privacy_link_font_size . '">';
             echo '<p>' . __( 'Set the font size of the privacy policy link (Example: 0.9em or 8px etc.)' , 'double-opt-in-for-download' ) . '</p>';
+            echo '</div>';
             echo '</div>';
 
         }
@@ -370,7 +375,9 @@ if ( !class_exists ( 'DoifdAdminOptions' ) ) {
 
             /* Echo drop down select menu */
 
+            echo '<div id="priv_sel_pag">';
             echo '<div id="doifd_lab_admin_options">';
+            echo '<label><b>Select Privacy Page:</b> </label>';
             echo '<select name="doifd_lab_options[privacy_page]" id="privacy_page">';
             echo "<option value='{$options[ 'privacy_page' ]}'>";
             echo esc_attr ( __ ( 'Select Privacy Policy Page', 'double-opt-in-for-download' ) );
@@ -384,6 +391,7 @@ if ( !class_exists ( 'DoifdAdminOptions' ) ) {
             }
             echo '</select>';
             echo '<p>' . __( 'Select your Privacy Policy Page.', 'double-opt-in-for-download' ) . '</p>';
+            echo '</div>';
             echo '</div>';
 
         }
