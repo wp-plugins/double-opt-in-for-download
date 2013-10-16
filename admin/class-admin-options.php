@@ -83,6 +83,15 @@ if ( !class_exists ( 'DoifdAdminOptions' ) ) {
                     </div>
                     <div id="tabs-6">
                          <h1><a href="http://www.labwebdesigns.com/premium-double-opt-in-for-download.html" target="new" ><?php _e( 'Available in the Premium Edition', 'double-opt-in-for-download' ); ?></a></h1>
+                         
+                                    <div class="mc_ad">
+                                        <div class="mc_ad_img">
+                                            <img src="<?php echo DOUBLE_OPT_IN_FOR_DOWNLOAD_IMG_URL; ?>/monkey.png" alt="Mailchimp" height="92px" width="100px">
+                                        </div>
+                                        <div class="mc_ad_text">
+                                            Don't Have a Mailchimp acount?</br><a href="http://eepurl.com/GNAFP" target="_new">Click Here to get your Free acccount!</a>
+                                        </div>
+
                     </div>
                     <div id="tabs-7">
                          <h1><a href="http://www.labwebdesigns.com/premium-double-opt-in-for-download.html" target="new" ><?php _e( 'Available in the Premium Edition', 'double-opt-in-for-download' ); ?></a></h1>
