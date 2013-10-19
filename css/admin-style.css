@@ -15,11 +15,12 @@
 }
 
 .doifd_admin_paypal {
-    width: 325px;
-    margin: -220px 25px 10px 0;
+    width: 355px;
+    margin: -260px 25px 10px 0;
     float: right;
     padding: 5px;
     text-align: center;
+    line-height: 3em;
     border: #333333 thin solid;
      -moz-border-radius: 10px;
     -webkit-border-radius: 10px;
@@ -79,6 +80,8 @@
     margin-bottom: 25px;
     border: 1px;
     padding: 25px;
+    line-height: 2.5em;
+    text-align: center;
     -webkit-border-radius: 4px;
     -moz-border-radius: 4px;
     border-radius: 8px;
