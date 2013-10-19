@@ -124,9 +124,9 @@ if (!class_exists('DoifdAdmin')) {
             add_settings_field('doifd_lab_form_input_field_width', __('Form Input Field Width', 'double-opt-in-for-download'), array($this, 'doifd_lab_setting_form_input_field_width'), 'doifd_lab_form_style', 'doifd_lab_form_style_section');
             add_settings_section('doifd_lab_form_privacy_section', __('Form Privacy Policy Settings', 'double-opt-in-for-download'), '', 'doifd_lab_form_privacy');
             add_settings_field('doifd_lab_form_privacy_policy', __('Use Privacy Policy', 'double-opt-in-for-download'), array($this, 'doifd_lab_setting_privacy_policy'), 'doifd_lab_form_privacy', 'doifd_lab_form_privacy_section');
-            add_settings_field('doifd_lab_form_privacy_text', __('', 'double-opt-in-for-download'), array($this, 'doifd_lab_setting_privacy_text'), 'doifd_lab_form_privacy', 'doifd_lab_form_privacy_section');
-            add_settings_field('doifd_lab_form_privacy_font_size', __('', 'double-opt-in-for-download'), array($this, 'doifd_lab_select_privacy_font_size'), 'doifd_lab_form_privacy', 'doifd_lab_form_privacy_section');
-            add_settings_field('doifd_lab_form_privacy_page', __('', 'double-opt-in-for-download'), array($this, 'doifd_lab_select_privacy_page'), 'doifd_lab_form_privacy', 'doifd_lab_form_privacy_section');
+            add_settings_field('doifd_lab_form_privacy_text', '', array($this, 'doifd_lab_setting_privacy_text'), 'doifd_lab_form_privacy', 'doifd_lab_form_privacy_section');
+            add_settings_field('doifd_lab_form_privacy_font_size', '', array($this, 'doifd_lab_select_privacy_font_size'), 'doifd_lab_form_privacy', 'doifd_lab_form_privacy_section');
+            add_settings_field('doifd_lab_form_privacy_page', '', array($this, 'doifd_lab_select_privacy_page'), 'doifd_lab_form_privacy', 'doifd_lab_form_privacy_section');
         }
 
         /* Add the custom menu pages */

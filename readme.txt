@@ -136,10 +136,9 @@ Post a comment on our Facebook page if you would like to see this plugin transla
 
 10/18/2013
 
-1. Changed the way the admin options saved. Simpler, cleaner.
-2. If Privacy Page option is not used the fields are hidden.
-3. Updated admin header.
-4. Admin widget will now only show if an admin is logged in.
+1. If Privacy Page option is not used the fields are hidden.
+2. Updated admin header.
+3. Admin widget will now only show if an admin is logged in.
 
 = 1.0.7 =
 
@@ -276,10 +275,9 @@ Changed location of download directory to avoid deletion when upgrading.
 
 10/18/2013
 
-1. Changed the way the admin options saved. Simpler, cleaner.
-2. If Privacy Page option is not used the fields are hidden.
-3. Updated admin header.
-4. Admin widget will now only show if an admin is logged in.
+1. If Privacy Page option is not used the fields are hidden.
+2. Updated admin header.
+3. Admin widget will now only show if an admin is logged in.
 
 = 1.0.7 =
 

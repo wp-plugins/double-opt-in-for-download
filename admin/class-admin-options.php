@@ -59,7 +59,10 @@ if (!class_exists('DoifdAdminOptions')) {
 
                         </div>
                         <div id="tabs-3">
-                            <h1><a href="http://www.labwebdesigns.com/premium-double-opt-in-for-download.html" target="new" ><?php _e('Available in the Premium Edition', 'double-opt-in-for-download'); ?></a></h1>
+                            <div class="mc_ad">
+                                <h1><?php _e('The Captcha feature is only available<br>in the Premium Version', 'double-opt-in-for-download'); ?></h1>
+                                <h1><a href="http://www.labwebdesigns.com/premium-double-opt-in-for-download.html" target="new" ><?php _e('Click Here To Purchase Premium DOIFD', 'double-opt-in-for-download'); ?></a></h1>
+                            </div>
                         </div>
                         <div id="tabs-4">
                             <?php
