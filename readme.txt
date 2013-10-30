@@ -5,8 +5,8 @@ License: GPLv3
 License URI: http://www.gnu.org/licenses/gpl.html
 Tags: email, download, optin, email marketing, marketing
 Requires at least: 3.5
-Tested up to: 3.6.1
-Stable tag: 1.0.7
+Tested up to: 3.7.1
+Stable tag: 1.0.8
 
 Improve your client outreach by offering FREE downloads to your visitors in exchange for their email address with our Double Opt-In Plugin
 
@@ -131,6 +131,14 @@ Post a comment on our Facebook page if you would like to see this plugin transla
 5. This is a screen shot of the subscribers admin screen.
 
 == Changelog ==
+
+= 1.0.8 =
+
+10/18/2013
+
+1. If Privacy Page option is not used the fields are hidden.
+2. Updated admin header.
+3. Admin widget will now only show if an admin is logged in.
 
 = 1.0.7 =
 
@@ -264,6 +272,12 @@ Changed location of download directory to avoid deletion when upgrading.
 * Initial beta release.
 
 == Upgrade Notice ==
+
+10/18/2013
+
+1. If Privacy Page option is not used the fields are hidden.
+2. Updated admin header.
+3. Admin widget will now only show if an admin is logged in.
 
 = 1.0.7 =
 

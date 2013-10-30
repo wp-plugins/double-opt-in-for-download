@@ -39,6 +39,7 @@ if (!class_exists('DoifdAdmin')) {
             /* Call the CSV class */
 
             $csv = new DoifdCSV();
+
         }
 
         /* This function calls all the add_actions */
@@ -51,6 +52,7 @@ if (!class_exists('DoifdAdmin')) {
             add_action('admin_init', array(&$this, 'doifd_lab_resend_verification_email'));
             add_action('admin_init', array(&$this, 'register_admin_styles'));
             add_action('admin_init', array(&$this, 'register_admin_js'));
+        
         }
         
         /* Register the admin style sheets for use */
@@ -64,7 +66,13 @@ if (!class_exists('DoifdAdmin')) {
             wp_enqueue_style('doifd-jquery-ui');
             
         }
-
+ 
+        function doifd_add_filters(){
+            
+           add_filter('plugin_action_links_' . plugin_basename( __FILE__ ), array(&$this, 'doifd_settings_link'));
+            
+        }
+        
         function register_admin_js() {
 
             wp_enqueue_script('doifd-admin-js', DOUBLE_OPT_IN_FOR_DOWNLOAD_URL . 'js/admin.js', __FILE__);
@@ -116,9 +124,9 @@ if (!class_exists('DoifdAdmin')) {
             add_settings_field('doifd_lab_form_input_field_width', __('Form Input Field Width', 'double-opt-in-for-download'), array($this, 'doifd_lab_setting_form_input_field_width'), 'doifd_lab_form_style', 'doifd_lab_form_style_section');
             add_settings_section('doifd_lab_form_privacy_section', __('Form Privacy Policy Settings', 'double-opt-in-for-download'), '', 'doifd_lab_form_privacy');
             add_settings_field('doifd_lab_form_privacy_policy', __('Use Privacy Policy', 'double-opt-in-for-download'), array($this, 'doifd_lab_setting_privacy_policy'), 'doifd_lab_form_privacy', 'doifd_lab_form_privacy_section');
-            add_settings_field('doifd_lab_form_privacy_text', __('Privacy Page Link Text', 'double-opt-in-for-download'), array($this, 'doifd_lab_setting_privacy_text'), 'doifd_lab_form_privacy', 'doifd_lab_form_privacy_section');
-            add_settings_field('doifd_lab_form_privacy_font_size', __('Set Font Size of Link', 'double-opt-in-for-download'), array($this, 'doifd_lab_select_privacy_font_size'), 'doifd_lab_form_privacy', 'doifd_lab_form_privacy_section');
-            add_settings_field('doifd_lab_form_privacy_page', __('Select Privacy Page', 'double-opt-in-for-download'), array($this, 'doifd_lab_select_privacy_page'), 'doifd_lab_form_privacy', 'doifd_lab_form_privacy_section');
+            add_settings_field('doifd_lab_form_privacy_text', '', array($this, 'doifd_lab_setting_privacy_text'), 'doifd_lab_form_privacy', 'doifd_lab_form_privacy_section');
+            add_settings_field('doifd_lab_form_privacy_font_size', '', array($this, 'doifd_lab_select_privacy_font_size'), 'doifd_lab_form_privacy', 'doifd_lab_form_privacy_section');
+            add_settings_field('doifd_lab_form_privacy_page', '', array($this, 'doifd_lab_select_privacy_page'), 'doifd_lab_form_privacy', 'doifd_lab_form_privacy_section');
         }
 
         /* Add the custom menu pages */
@@ -599,7 +607,7 @@ if (!class_exists('DoifdAdmin')) {
 
             /* If there is no value for the landing page option show an error message. */
 
-            if (empty($landing_page)) {
+            if (empty($landing_page) && ( is_admin() )) {
 
                 $this->showMessage(__("The landing page option in Double OPT-IN for Downloads is NOT SET. Please select a landing page otherwise the plugin will not work properly", 'double-opt-in-for-download'));
             }
@@ -647,7 +655,7 @@ if (!class_exists('DoifdAdmin')) {
 
                 return DoifdAdminOptions::field_select_privacy_page();
             }
-        }
+        }    
 
     }
 

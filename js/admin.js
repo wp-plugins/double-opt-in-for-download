@@ -51,4 +51,31 @@ jQuery(function() {
     });
 });
 
+/* Hide Privacy Options if not seclected */
+
+jQuery(document).ready(function($){
+    
+     $("#priv_text").hide();
+     $("#priv_font_size").hide();
+     $("#priv_sel_pag").hide();
+    if ($("#use_privacy_policy_y:checked").length > 0){
+        $("#priv_text").show();
+        $("#priv_font_size").show();
+        $("#priv_sel_pag").show();
+    
+    }
+
+	$('#use_privacy_policy_y').click(function(){
+		$('#priv_text').show();
+                $("#priv_font_size").show();
+                $("#priv_sel_pag").show();
+	});
+
+	$('#use_privacy_policy_n').click(function(){
+		$('#priv_text').hide();
+                $("#priv_font_size").hide();
+                $("#priv_sel_pag").hide();
+	});
+
+});
 

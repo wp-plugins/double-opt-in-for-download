@@ -4,7 +4,7 @@
   Plugin URI: http://www.labwebdesigns.com/wordpress-plugin-double-opt-in-for-download.html
   Description: Plugin for allowing a user to download a free promotional item in exchange for the users email address
   Author: Labwebdesigns.com / Andy Bates
-  Version: 1.0.7
+  Version: 1.0.8
   Author URI: http://www.labwebdesigns.com
   License: GPLv3
 
@@ -42,7 +42,15 @@ define ( 'DOUBLE_OPT_IN_FOR_DOWNLOAD_IMG_URL' , plugin_dir_url ( __FILE__ ) . 'i
 
 include_once( DOUBLE_OPT_IN_FOR_DOWNLOAD_DIR . '/includes/class-doifd.php' );
 
+/* Register the activation hook for installing the plugin */
+
 register_activation_hook ( __FILE__, array( 'DoifdInstall', 'activate_doifd_plugin' ) );
+
+/* Add Additional links on the plugin admin screen */
+
+$filters = new DoifdFilters();
+
+add_filter('plugin_action_links_' . plugin_basename( __FILE__ ), array($filters, 'doifd_settings_link'));
 
 DOIFD::get_instance ();
 
