@@ -1,14 +1,18 @@
 <?php
 
-if (!class_exists('DOIFD')) {
+if (!class_exists('DoifdRegistrationForm')) {
 
     class DoifdRegistrationForm {
 
+        private $options = array();
+        
         function __construct() {
+            
+            $this->options = get_option ( 'doifd_lab_options' );
             
         }
 
-        public static function registration_form($attr, $content) {
+        public function registration_form($attr, $content) {
 
             global $wpdb;
 
@@ -54,18 +58,10 @@ if (!class_exists('DOIFD')) {
 
             $subscriber_email = __('Email Address', 'double-opt-in-for-download');
 
-            /* Get options from options table and assign to variable a*/
-
-            $options = get_option('doifd_lab_options');
 
             /* See if the admin wants to add our promo link */
 
-            if (isset($options['promo_link'])) {
-
-                $option = $options['promo_link'];
-            }
-
-            if (( isset($option) ) && ($option == '1')) {
+            if (( isset($this->options['promo_link']) ) && ($this->options['promo_link'] == '1')) {
 
                 $doifd_promo_link = '<p class="doifd_promo_link"><a href="http://www.labwebdesigns.com" target="new" Title="' . __('Powered by Lab Web Designs & Hosting', 'double-opt-in-for-download') . '">' . __('Powered by Lab Web Designs & Hosting', 'double-opt-in-for-download') . '</a></p>';
             } else {
@@ -75,17 +71,9 @@ if (!class_exists('DOIFD')) {
             
             /* See If Privacy Policy is Set */
 
-            if (isset($options['use_privacy_policy'])) {
+            if (( isset($this->options['use_privacy_policy']) ) && ($this->options['use_privacy_policy'] == '1')) {
 
-                $option = $options['use_privacy_policy'];
-                $text = $options['privacy_link_text'];
-                $link = $options['privacy_page'];
-                
-            }
-
-            if (( isset($option) ) && ($option == '1')) {
-
-                $doifd_privacy_policy = '<div class="doifd_privacy_link"><a href="'. get_page_link($link). '" target="new" >' . $text . '</a></div>';
+                $doifd_privacy_policy = '<div class="doifd_privacy_link"><a href="'. get_page_link($this->options['privacy_page']). '" target="new" >' . $this->options['privacy_link_text'] . '</a></div>';
             } else {
 
                 $doifd_privacy_policy = '';
@@ -191,17 +179,9 @@ if (!class_exists('DOIFD')) {
                          * ***********************************************************
                          */
 
-                        /* Get options from options table and assign to variable */
-
-                        $options = get_option('doifd_lab_options');
-
-                        /* See if the admin wants to add the subscriber to the wp user table */
-
-                        $add_to_user_option_table = $options['add_to_wpusers'];
-
                         /* If yes, lets add the user if not, we will just go on our merry way. */
 
-                        if (( $add_to_user_option_table == '1' ) && ($doifd_lab_check_duplicate_email == NULL )) {
+                        if (( $this->options['add_to_wpusers'] == '1' ) && ($doifd_lab_check_duplicate_email == NULL )) {
 
                             /* Generate a random password for the new user */
 
