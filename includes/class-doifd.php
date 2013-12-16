@@ -165,7 +165,8 @@ if ( !class_exists( 'DOIFD' ) ) {
 
         function doifd_lab_verification_email( $value ) {
 
-            DoifdEmail::send_verification_email( $value );
+            $send_ver_email =  new DoifdEmail();
+            $send_ver_email->send_verification_email( $value );
         }
 
         /* Register the widget */

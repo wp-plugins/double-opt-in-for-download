@@ -23,7 +23,7 @@ if (!class_exists('DoifdRegistrationForm')) {
                 $download_id = $attr['download_id'];
             } else {
 
-                return '<div id="doifd_no_id_specified">' . __('Oooops! There is no download ID specified', 'double-opt-in-for-download') . '</div>';
+                return '<div class="doifd_user_reg_form exceeded">' . __('Oooops! There is no download ID specified', 'double-opt-in-for-download') . '</div>';
             }
             
              /* Get the title text if the admin wants to use something different, otherwise the default is shown. */
@@ -63,7 +63,7 @@ if (!class_exists('DoifdRegistrationForm')) {
 
             if (( isset($this->options['promo_link']) ) && ($this->options['promo_link'] == '1')) {
 
-                $doifd_promo_link = '<p class="doifd_promo_link"><a href="http://www.labwebdesigns.com" target="new" Title="' . __('Powered by Lab Web Designs & Hosting', 'double-opt-in-for-download') . '">' . __('Powered by Lab Web Designs & Hosting', 'double-opt-in-for-download') . '</a></p>';
+                $doifd_promo_link = '<p class="doifd_promo_link"><a href="http://www.labwebdesigns.com" target="new" Title="' . __('Powered by Lab Web Development', 'double-opt-in-for-download') . '">' . __('Powered by Lab Web Development', 'double-opt-in-for-download') . '</a></p>';
             } else {
 
                 $doifd_promo_link = '';
@@ -209,7 +209,8 @@ if (!class_exists('DoifdRegistrationForm')) {
 
                         /* Lets package the subscriber information and download id into an array and send it to the send email function */
 
-                        DoifdEmail::send_verification_email($value = array(
+                        $send_ver_email =  new DoifdEmail();
+                        $send_ver_email->send_verification_email($value = array(
                             "user_name" => $doifd_lab_subscriber_name,
                             "user_email" => $doifd_lab_subscriber_email,
                             "user_ver" => $doifd_lab_ver,

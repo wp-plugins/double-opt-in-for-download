@@ -122,11 +122,12 @@ if ( !class_exists( 'DoifdLandingPage' ) ) {
                     $subscriber = $getsubid->doifd_name;
                     $email = $getsubid->doifd_email;
 
-                    if ( $options[ 'notification_email' ] == '1' ) {
+                    if ( $this->options[ 'notification_email' ] == '1' ) {
 
                         $download = $wpdb->get_var( "SELECT doifd_download_name FROM " . $wpdb->prefix . "doifd_lab_downloads  WHERE doifd_download_id = '$checkver->doifd_download_id' " );
 
-                        DoifdEmail::admin_notification( $subscriber, $download, $email );
+                        $notify_admin = new DoifdEmail();
+                        $notify_admin->admin_notification( $subscriber, $download, $email );
                     }
 
                     $fileName = $wpdb->get_var( "SELECT doifd_download_file_name FROM " . $wpdb->prefix . "doifd_lab_downloads  WHERE doifd_download_id = '$checkver->doifd_download_id' " );
@@ -141,6 +142,7 @@ if ( !class_exists( 'DoifdLandingPage' ) ) {
 
 
                         $query = $wpdb->get_row( "SELECT doifd_download_id FROM " . $wpdb->prefix . "doifd_lab_subscribers  WHERE doifd_verification_number = '$ver' ", ARRAY_A );
+                        
                         $download_id_from_db = $query[ 'doifd_download_id' ];
 
                         return '<div class="doifd_user_reg_form thankyou"><br /><form method="get" action="" enctype="multipart/form-data">

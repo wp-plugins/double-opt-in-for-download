@@ -1,21 +1,22 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Double OPT-IN for Download\n"
-"POT-Creation-Date: 2013-10-19 15:34-0800\n"
-"PO-Revision-Date: 2013-10-19 15:39-0800\n"
+"POT-Creation-Date: 2013-12-15 18:15-0800\n"
+"PO-Revision-Date: 2013-12-15 18:18-0800\n"
 "Last-Translator: Andy <andy@labwebdesigns.com>\n"
 "Language-Team: \n"
+"Language: es_ES\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Poedit 1.5.7\n"
+"X-Generator: Poedit 1.6.2\n"
 "X-Poedit-KeywordsList: __;_e;esc_attr__\n"
 "X-Poedit-Basepath: .\n"
 "X-Poedit-SearchPath-0: ..\n"
 
 #: ../admin/class-admin-csv.php:17 ../admin/class-admin-downloads.php:20
-#: ../admin/class-admin-downloads.php:185 ../includes/class-email.php:37
-#: ../includes/class-email.php:40
+#: ../admin/class-admin-downloads.php:195 ../includes/class-email.php:41
+#: ../includes/class-email.php:44
 msgid "Return Back"
 msgstr "Retroceder"
 
@@ -31,45 +32,49 @@ msgstr "Total de suscriptores:"
 msgid "Total Downloads:"
 msgstr "Número total de descargas:"
 
-#: ../admin/class-admin-download-table.php:38
+#: ../admin/class-admin-download-table.php:39
 #: ../admin/class-admin-subscriber-table.php:38
 msgid "Delete"
 msgstr "borrar"
 
-#: ../admin/class-admin-download-table.php:39
+#: ../admin/class-admin-download-table.php:40
 msgid "Edit"
 msgstr "editar"
 
-#: ../admin/class-admin-download-table.php:122
+#: ../admin/class-admin-download-table.php:139
 #: ../admin/class-admin-subscriber-table.php:94
 msgid "Download Name"
 msgstr "Descarga Nombre"
 
-#: ../admin/class-admin-download-table.php:123
+#: ../admin/class-admin-download-table.php:140
 msgid "File Type"
 msgstr "Tipo de Archivo"
 
-#: ../admin/class-admin-download-table.php:124
+#: ../admin/class-admin-download-table.php:141
+msgid "Landing Page"
+msgstr "la página de destino"
+
+#: ../admin/class-admin-download-table.php:142
 msgid "Shortcode"
 msgstr "código de acceso"
 
-#: ../admin/class-admin-download-table.php:125 ../admin/doifd-admin.php:143
+#: ../admin/class-admin-download-table.php:143 ../admin/doifd-admin.php:143
 #: ../views/view-admin-download-page.php:3
-#: ../views/view-admin-download-page.php:60
+#: ../views/view-admin-download-page.php:82
 msgid "Downloads"
 msgstr "Descargas"
 
-#: ../admin/class-admin-downloads.php:54
-#: ../admin/class-admin-downloads.php:213
+#: ../admin/class-admin-downloads.php:58
+#: ../admin/class-admin-downloads.php:227
 msgid "Please name your file."
 msgstr "Por favor nombre a su archivo"
 
-#: ../admin/class-admin-downloads.php:71
+#: ../admin/class-admin-downloads.php:81
 msgid "You successfully changed your download file name."
 msgstr "Has cambiado con éxito la descarga de nombre de archivo."
 
-#: ../admin/class-admin-downloads.php:94
-#: ../admin/class-admin-downloads.php:231
+#: ../admin/class-admin-downloads.php:104
+#: ../admin/class-admin-downloads.php:255
 msgid ""
 "Unknown File Type (.jpg, .jpeg, .png, .bmp, .gif, .pdf, .zip, .doc, .docx, ."
 "mp3 only)."
@@ -77,13 +82,13 @@ msgstr ""
 "Desconocido Tipo de archivo (. Jpg,. Jpeg,. Png,. Bmp,. Gif,. Pdf,. Zip,. "
 "Doc,. Docx,. Solamente mp3)."
 
-#: ../admin/class-admin-downloads.php:109
-#: ../admin/class-admin-downloads.php:248
+#: ../admin/class-admin-downloads.php:119
+#: ../admin/class-admin-downloads.php:272
 msgid "There was an error uploading your new file"
 msgstr "Se ha producido un error al subir el nuevo archivo"
 
-#: ../admin/class-admin-downloads.php:116
-#: ../admin/class-admin-downloads.php:255
+#: ../admin/class-admin-downloads.php:126
+#: ../admin/class-admin-downloads.php:279
 msgid ""
 "The download directory does not exist. Check your permissions and try "
 "reactivating the plugin"
@@ -91,8 +96,8 @@ msgstr ""
 "El directorio de descarga no existe. Compruebe sus permisos y tratar de "
 "reactivar el plugin"
 
-#: ../admin/class-admin-downloads.php:123
-#: ../admin/class-admin-downloads.php:262
+#: ../admin/class-admin-downloads.php:133
+#: ../admin/class-admin-downloads.php:286
 msgid ""
 "The download directory exists but is not writable. Check your folder "
 "permissions and try reactivating the plugin"
@@ -100,24 +105,28 @@ msgstr ""
 "Existe el directorio de descarga, pero no se puede escribir. Compruebe sus "
 "permisos de carpeta y tratar de reactivar el plugin"
 
-#: ../admin/class-admin-downloads.php:142
+#: ../admin/class-admin-downloads.php:152
 msgid "You successfully changed your download file."
 msgstr "Ha cambiado correctamente el archivo de descarga."
 
-#: ../admin/class-admin-downloads.php:149
-#: ../admin/class-admin-downloads.php:295
+#: ../admin/class-admin-downloads.php:159
+#: ../admin/class-admin-downloads.php:321
 msgid "Error Uploading File"
 msgstr "Cargando archivo Error"
 
-#: ../admin/class-admin-downloads.php:168
+#: ../admin/class-admin-downloads.php:178
 msgid "You successfully reset your download count."
 msgstr "Se reinicia con éxito su número de descargas."
 
-#: ../admin/class-admin-downloads.php:222
+#: ../admin/class-admin-downloads.php:236
+msgid "Please select a Landing Page."
+msgstr "Por favor seleccione una página de destino."
+
+#: ../admin/class-admin-downloads.php:246
 msgid "Please select a file to upload"
 msgstr "Selecciona un archivo para cargar"
 
-#: ../admin/class-admin-downloads.php:288
+#: ../admin/class-admin-downloads.php:314
 msgid "File Uploaded Successfully"
 msgstr "Archivo subido con éxito"
 
@@ -231,10 +240,16 @@ msgstr ""
 "elemento. El valor predeterminado es <b> 1 </ b>."
 
 #: ../admin/class-admin-options.php:160
+#: ../views/view-admin-download-page.php:37
+#: ../views/view-admin-download-page.php:44
+#: ../views/view-admin-edit-download-page.php:52
+#: ../views/view-admin-edit-download-page.php:59
 msgid "Select Landing Page"
 msgstr "Seleccione la página de destino"
 
 #: ../admin/class-admin-options.php:170
+#: ../views/view-admin-download-page.php:54
+#: ../views/view-admin-edit-download-page.php:69
 msgid ""
 "Select the landing page for your subscribers. This will be the page your "
 "subscribers will come to after they have clicked the link in their "
@@ -303,9 +318,9 @@ msgid ""
 "complete list below."
 msgstr ""
 "Este es la correo electrónico de verificación que se envía a un nuevo "
-"suscriptor. Sólo recuerde, en el lo menos, usted tendrá que guardar la <b>"
-"{URL}</b> en tu email, ya que esto proporciona el suscriptor con el enlace "
-"de verificación. Vea la lista completa por debajo de."
+"suscriptor. Sólo recuerde, en el lo menos, usted tendrá que guardar la "
+"<b>{URL}</b> en tu email, ya que esto proporciona el suscriptor con el "
+"enlace de verificación. Vea la lista completa por debajo de."
 
 #: ../admin/class-admin-options.php:292
 msgid "Subscribers Name"
@@ -355,12 +370,12 @@ msgid "Resend Email"
 msgstr "Re-enviar Email"
 
 #: ../admin/class-admin-subscriber-table.php:92
-#: ../includes/class-registration-form.php:51 ../includes/doifd-widget.php:47
+#: ../includes/class-registration-form.php:55 ../includes/doifd-widget.php:47
 msgid "Name"
 msgstr "nombre"
 
 #: ../admin/class-admin-subscriber-table.php:93
-#: ../includes/class-registration-form.php:55 ../includes/doifd-widget.php:50
+#: ../includes/class-registration-form.php:59 ../includes/doifd-widget.php:50
 msgid "Email Address"
 msgstr "Correo electrónico"
 
@@ -627,20 +642,20 @@ msgstr ""
 msgid "You have exceed your number of downloads for this item."
 msgstr "Has exceder el número de descargas para este artículo."
 
-#: ../includes/class-email.php:37
+#: ../includes/class-email.php:41
 msgid "Email Sent To Subscriber"
 msgstr "Correo electrónico enviado al suscriptor"
 
-#: ../includes/class-email.php:40
+#: ../includes/class-email.php:44
 msgid "A Problem Prevented the Email From Being Sent"
 msgstr "Un problema ha impedido el correo sea enviado"
 
-#: ../includes/class-email.php:96
+#: ../includes/class-email.php:93
 #, php-format
 msgid "Your Free Download from %s"
 msgstr "Su Descarga gratuita de %s"
 
-#: ../includes/class-install.php:88
+#: ../includes/class-install.php:89
 msgid ""
 "Dear {subscriber},\n"
 "\n"
@@ -662,70 +677,81 @@ msgstr ""
 "\n"
 "¡gracias"
 
-#: ../includes/class-landing-page.php:22
+#: ../includes/class-landing-page.php:26
 msgid " Click Here For Your Free Download"
 msgstr "Haga clic aquí para su libre descarga"
 
-#: ../includes/class-landing-page.php:43 ../includes/class-landing-page.php:60
+#: ../includes/class-landing-page.php:39 ../includes/class-landing-page.php:56
 msgid "Not a valid verification number."
 msgstr "No es un número de verificación válido."
 
-#: ../includes/class-landing-page.php:69
+#: ../includes/class-landing-page.php:65
 msgid "You have exceeded your number of<br />downloads for this item."
 msgstr "Se ha superado el número de <br /> descargas para este artículo."
 
-#: ../includes/class-landing-page.php:102
-#: ../includes/class-landing-page.php:153
-msgid "There was an error"
-msgstr "Se ha producido un error"
+#: ../includes/class-landing-page.php:99
+msgid "There was an error."
+msgstr "Ha ocurrido un error."
 
-#: ../includes/class-landing-page.php:148
+#: ../includes/class-landing-page.php:101
+msgid "Please notify the website administrator"
+msgstr "Por favor notifique al administrador del sitio web"
+
+#: ../includes/class-landing-page.php:103
+msgid "Error 0001"
+msgstr "Error 0001"
+
+#: ../includes/class-landing-page.php:152
 msgid "Click Here For Your Free Download"
 msgstr "Haga clic aquí para su libre descarga"
 
-#: ../includes/class-registration-form.php:22
+#: ../includes/class-landing-page.php:157
+msgid "There was an error"
+msgstr "Se ha producido un error"
+
+#: ../includes/class-registration-form.php:26
 msgid "Oooops! There is no download ID specified"
 msgstr "¡Huy! No hay ID de descarga especificada"
 
-#: ../includes/class-registration-form.php:32 ../includes/doifd-widget.php:35
+#: ../includes/class-registration-form.php:36 ../includes/doifd-widget.php:35
 msgid "Please provide your name and email address for your free download."
 msgstr ""
 "Proporcione por favor su nombre y dirección de correo electrónico para su "
 "descarga gratuita."
 
-#: ../includes/class-registration-form.php:42 ../includes/doifd-widget.php:40
+#: ../includes/class-registration-form.php:46 ../includes/doifd-widget.php:40
 msgid "Get Your Free Download"
 msgstr "Obtener su libre descarga"
 
-#: ../includes/class-registration-form.php:70
-msgid "Powered by Lab Web Designs & Hosting"
-msgstr "Desarrollado por Lab Web Designs & Hosting"
+#: ../includes/class-registration-form.php:66
+msgid "Powered by Lab Web Development"
+msgstr "Desarrollado por Desarrollo Web Lab"
 
-#: ../includes/class-registration-form.php:133
+#: ../includes/class-registration-form.php:121
 #: ../includes/doifd-widget.php:125
 msgid "Please provide your name."
 msgstr "Proporcione por favor su nombre."
 
-#: ../includes/class-registration-form.php:140
+#: ../includes/class-registration-form.php:128
 msgid "Not a valid email address."
 msgstr "No es una dirección de correo electrónico válida."
 
-#: ../includes/class-registration-form.php:147
+#: ../includes/class-registration-form.php:135
 #: ../includes/doifd-widget.php:135
 msgid "This email address has already been used."
 msgstr "Esta dirección de correo electrónico ya ha sido utilizada."
 
-#: ../includes/class-registration-form.php:240
+#: ../includes/class-registration-form.php:221
 #: ../includes/doifd-widget.php:213
 msgid "Thank You for Registering!"
 msgstr "¡Gracias por registrarte!"
 
-#: ../includes/class-registration-form.php:240
+#: ../includes/class-registration-form.php:221
 #: ../includes/doifd-widget.php:213
 msgid "Please check your email for your link to your Free download."
 msgstr "Por favor, comprueba tu email para su enlace a su descarga gratuita."
 
-#: ../includes/class-registration-form.php:246
+#: ../includes/class-registration-form.php:227
 #: ../includes/doifd-widget.php:219
 msgid "Database Error"
 msgstr "Error de base de datos"
@@ -762,11 +788,11 @@ msgstr "Texto del botón:"
 msgid "Select Download:"
 msgstr "Seleccione Descargar:"
 
-#: ../views/view-admin-download-page.php:16
+#: ../views/view-admin-download-page.php:14
 msgid "Upload Your Download File Here"
 msgstr "Cargue su archivo Dowload aquí"
 
-#: ../views/view-admin-download-page.php:17
+#: ../views/view-admin-download-page.php:15
 msgid ""
 "Here is where you upload your free download. You simply give your download a "
 "name, then click the browse button and select your download file from your "
@@ -790,11 +816,11 @@ msgstr ""
 "sólo tiene que seleccionar\n"
 "         la descarga en el cuadro desplegable al configurar el widget."
 
-#: ../views/view-admin-download-page.php:32
+#: ../views/view-admin-download-page.php:28
 msgid "Name of Your Download"
 msgstr "Nombre de la descarga"
 
-#: ../views/view-admin-download-page.php:34
+#: ../views/view-admin-download-page.php:30
 msgid ""
 "The name you give your download file will also appear in the verification "
 "email."
@@ -802,11 +828,11 @@ msgstr ""
 "El nombre que le asigne el archivo de descarga también aparecerá en el "
 "correo electrónico de verificación."
 
-#: ../views/view-admin-download-page.php:41
+#: ../views/view-admin-download-page.php:63
 msgid "Select Your File"
 msgstr "Seleccione su archivo"
 
-#: ../views/view-admin-download-page.php:43
+#: ../views/view-admin-download-page.php:65
 msgid ""
 "( Currently, the following file types are allowed; .jpg, .jpeg, .png, .bmp, ."
 "gif, .pdf, .zip, .doc, .docx, ,mp3 )"
@@ -814,15 +840,15 @@ msgstr ""
 "(En la actualidad, se permiten los siguientes tipos de archivo,. Jpg, jpeg, "
 "png, bmp, gif, pdf, zip, doc, docx,, mp3. )"
 
-#: ../views/view-admin-download-page.php:49
+#: ../views/view-admin-download-page.php:71
 msgid "Upload"
 msgstr "subir"
 
-#: ../views/view-admin-download-page.php:61
+#: ../views/view-admin-download-page.php:83
 msgid "You can edit, delete or view your download count here."
 msgstr "Puede editar, eliminar o ver el tiempo de descarga aquí."
 
-#: ../views/view-admin-download-page.php:85
+#: ../views/view-admin-download-page.php:105
 msgid "You are about to send this download into the cyber abyss! Are you sure?"
 msgstr "Vas a enviar esta descarga en el cyber abismo! ¿Está seguro?"
 
@@ -841,15 +867,15 @@ msgstr ""
 "un <i> archivo diferente (El viejo se elimina del servidor) </ i> o puede "
 "restablecer el número de descargas."
 
-#: ../views/view-admin-edit-download-page.php:32
+#: ../views/view-admin-edit-download-page.php:34
 msgid "Rename Your File"
 msgstr "Cambiar el nombre de su archivo"
 
-#: ../views/view-admin-edit-download-page.php:44
+#: ../views/view-admin-edit-download-page.php:78
 msgid "Select Your Replacement File"
 msgstr "Seleccione su archivo de sustitución"
 
-#: ../views/view-admin-edit-download-page.php:46
+#: ../views/view-admin-edit-download-page.php:80
 msgid ""
 "(Currently, the following file types are allowed; .jpg, .jpeg, .png, .bmp, ."
 "gif, .pdf, .zip, .doc, .docx )"
@@ -857,19 +883,19 @@ msgstr ""
 "(En la actualidad, se permiten los siguientes tipos de archivo,. Jpg, jpeg, "
 "png, bmp, gif, pdf, zip, doc, docx........)"
 
-#: ../views/view-admin-edit-download-page.php:52
+#: ../views/view-admin-edit-download-page.php:86
 msgid "Reset Download Count to 0"
 msgstr "Restablecer Descarga Conde a 0"
 
-#: ../views/view-admin-edit-download-page.php:54
+#: ../views/view-admin-edit-download-page.php:88
 msgid "Yes"
 msgstr "sí"
 
-#: ../views/view-admin-edit-download-page.php:56
+#: ../views/view-admin-edit-download-page.php:90
 msgid "No"
 msgstr "no"
 
-#: ../views/view-admin-edit-download-page.php:62
+#: ../views/view-admin-edit-download-page.php:96
 msgid "Update"
 msgstr "actualizar"
 
@@ -902,8 +928,8 @@ msgid "here"
 msgstr "aquí"
 
 #: ../views/view-admin-header.php:8
-msgid "Your are using the <em>FREE</em> Version 1.0.8"
-msgstr "Su están utilizando el <em>GRATIS</em> Versión 1.0.8"
+msgid "Your are using the <em>FREE</em> Version 1.0.9"
+msgstr "Su están utilizando el programa <em>gratuito</em> Versión 1.0.9"
 
 #: ../views/view-admin-header.php:9
 msgid "Get the Premium Version of Double OPT-IN for download"
