@@ -142,35 +142,6 @@ if (!class_exists('DoifdAdminOptions')) {
             echo '</div>';
         }
 
-        public static function select_landing_page() {
-
-            /* Get options from options table */
-
-            $options = get_option('doifd_lab_options');
-
-            /* Assign landing page option to variable */
-
-            $landing_page = $options['landing_page'];
-
-            /* Echo drop down select menu */
-
-            echo '<div id="doifd_lab_admin_options">';
-            echo '<select name="doifd_lab_options[landing_page]" id="landing_page">';
-            echo "<option value='{$options['landing_page']}'>";
-            echo esc_attr(__('Select Landing Page', 'double-opt-in-for-download'));
-            echo '</option>';
-            $pages = get_pages();
-            foreach ($pages as $page) {
-                $option = '<option value="' . $page->ID . '" ' . (($landing_page == $page->ID ) ? 'selected="selected"' : "") . '>';
-                $option .= $page->post_title;
-                $option .= '</option>';
-                echo $option;
-            }
-            echo '</select>';
-            echo '<p>' . __('Select the landing page for your subscribers. This will be the page your subscribers will come to after they have clicked the link in their verification email. Once you have selected your landing page, place this shortcode <b>[lab_landing_page]</b> on that page. You can also change the button text by adding <b>button_text="My Special Text"</b> to the short code. The whole short code would look like this: <b>[lab_landing_page button_text="My Special Text"]</b>', 'double-opt-in-for-download') . '</p>';
-            echo '</div>';
-        }
-
         public static function add_to_user_table() {
 
             /* Get options from options table */
