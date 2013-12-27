@@ -20,6 +20,7 @@ $doifd_widget_option = get_option ( 'doifd_lab_options' ) ;
     -moz-box-shadow: inset 0 1px 15px rgba(68,68,68,0.6);
     box-shadow: inset 0 1px 15px rgba(68,68,68,0.6);
     padding: <?php if (isset($doifd_widget_option['widget_inside_padding'])) { echo $doifd_widget_option['widget_inside_padding']; }else{ echo '5'; }?>px ;
+    background-color: <?php if (isset($doifd_widget_option['widget_background_color'])) { echo $doifd_widget_option['widget_background_color']; }else{ echo 'transparent'; }?>;
 }
 
 #widget_doifd_user_reg_form ul li {
