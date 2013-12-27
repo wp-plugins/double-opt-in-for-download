@@ -46,7 +46,9 @@ if ( !class_exists ( 'DoifdAdminValidation' ) ) {
             
             $valid[ 'widget_title_size' ] = preg_replace( '/[^a-z0-9.]/', '', $input[ 'widget_title_size' ] );
             
-            $valid[ 'widget_input_field_background_color' ] = preg_replace ( '/[^#a-z0-9]/i', '', $input[ 'widget_input_field_background_color' ] );
+            $valid[ 'widget_input_field_background_color' ] = preg_replace ( '/[^#!a-z0-9]/i', '', $input[ 'widget_input_field_background_color' ] );
+            
+            $valid[ 'widget_background_color' ] = preg_replace ( '/[^#!a-z0-9]/i', '', $input[ 'widget_background_color' ] );
             
             $valid[ 'form_width' ] = preg_replace ( '/[^a-z0-9]/i', '', $input[ 'form_width' ] );
             

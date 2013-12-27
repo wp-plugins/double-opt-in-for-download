@@ -5,14 +5,15 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Double OPT-IN for Download\n"
-"POT-Creation-Date: 2013-10-19 15:43-0800\n"
-"PO-Revision-Date: 2013-10-19 15:43-0800\n"
+"POT-Creation-Date: 2013-12-26 18:14-0800\n"
+"PO-Revision-Date: 2013-12-26 18:15-0800\n"
 "Last-Translator: Andy <andy@labwebdesigns.com>\n"
 "Language-Team: <>\n"
+"Language: fr_FR\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Poedit 1.5.7\n"
+"X-Generator: Poedit 1.6.2\n"
 "X-Poedit-KeywordsList: __;_e\n"
 "X-Poedit-Basepath: .\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
@@ -166,7 +167,6 @@ msgstr ""
 "valeurs hexagonaux (# 000000, etc.)"
 
 #: ../admin/class-admin-form-options.php:162
-#: ../admin/class-admin-widget-options.php:214
 #: ../admin/class-admin-widget-options.php:240
 msgid ""
 "This sets the background color of the text input fields. <b>You can use "
@@ -256,8 +256,8 @@ msgstr ""
 "placer ce shortcode <b>[lab_landing_page]</b>sur cette page. Vous pouvez "
 "également modifier le texte du bouton en ajoutant <b>button_text = \"Mon "
 "texte spécial \"</b> au code court. L'ensemble du code court devrait "
-"ressembler à ceci: <b>[lab_landing_page button_text = \"Mon texte spécial \"]"
-"</b>"
+"ressembler à ceci: <b>[lab_landing_page button_text = \"Mon texte spécial "
+"\"]</b>"
 
 #: ../admin/class-admin-options.php:188
 msgid ""
@@ -434,6 +434,14 @@ msgid ""
 msgstr ""
 "Largeur de la zone de saisie dans le widget. <b>utilisez uniquement des "
 "nombres, NE PAS ajouter px à la fin.</b>"
+
+#: ../admin/class-admin-widget-options.php:214
+msgid ""
+"This sets the background color of the widget form. <b>You can use "
+"transparent or hex values ( #000000 etc )."
+msgstr ""
+"Ceci définit la couleur de la forme de widget fond. <b>Vous pouvez utiliser "
+"des valeurs transparentes ou hexagonaux (# 000000) etc."
 
 #: ../admin/class-admin-widget-options.php:266
 msgid ""
@@ -921,8 +929,8 @@ msgid "here"
 msgstr "ICI"
 
 #: ../views/view-admin-header.php:8
-msgid "Your are using the <em>FREE</em> Version 1.0.8"
-msgstr "Vous utilisez le <em>GRATUIT</em> Version 1.0.8"
+msgid "Your are using the <em>FREE</em> Version 1.0.9"
+msgstr "Vous utilisez le <em>GRATUIT</em> Version 1.0.9"
 
 #: ../views/view-admin-header.php:9
 msgid "Get the Premium Version of Double OPT-IN for download"
