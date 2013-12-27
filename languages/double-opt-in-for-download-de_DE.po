@@ -5,8 +5,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Double OPT-IN for Download\n"
-"POT-Creation-Date: 2013-12-15 18:10-0800\n"
-"PO-Revision-Date: 2013-12-15 18:15-0800\n"
+"POT-Creation-Date: 2013-12-26 18:55-0800\n"
+"PO-Revision-Date: 2013-12-26 18:58-0800\n"
 "Last-Translator: Andy <andy@labwebdesigns.com>\n"
 "Language-Team: <>\n"
 "Language: de_DE\n"
@@ -63,7 +63,7 @@ msgstr "Landing Page"
 msgid "Shortcode"
 msgstr "Kurzwahl"
 
-#: ../admin/class-admin-download-table.php:143 ../admin/doifd-admin.php:143
+#: ../admin/class-admin-download-table.php:143 ../admin/doifd-admin.php:141
 #: ../views/view-admin-download-page.php:3
 #: ../views/view-admin-download-page.php:82
 msgid "Downloads"
@@ -173,7 +173,6 @@ msgstr ""
 "Damit wurden die Formen Schriftfarbe. <b> Verwenden Hex-Werte (# 000000 etc)."
 
 #: ../admin/class-admin-form-options.php:162
-#: ../admin/class-admin-widget-options.php:214
 #: ../admin/class-admin-widget-options.php:240
 msgid ""
 "This sets the background color of the text input fields. <b>You can use "
@@ -241,35 +240,7 @@ msgstr ""
 "Wählen Sie die maximale Anzahl von Malen ein Teilnehmer ein Element "
 "herunterladen können. Der Standardwert ist <b>1</b>."
 
-#: ../admin/class-admin-options.php:160
-#: ../views/view-admin-download-page.php:37
-#: ../views/view-admin-download-page.php:44
-#: ../views/view-admin-edit-download-page.php:52
-#: ../views/view-admin-edit-download-page.php:59
-msgid "Select Landing Page"
-msgstr "Wählen Landing Page"
-
-#: ../admin/class-admin-options.php:170
-#: ../views/view-admin-download-page.php:54
-#: ../views/view-admin-edit-download-page.php:69
-msgid ""
-"Select the landing page for your subscribers. This will be the page your "
-"subscribers will come to after they have clicked the link in their "
-"verification email. Once you have selected your landing page, place this "
-"shortcode <b>[lab_landing_page]</b> on that page. You can also change the "
-"button text by adding <b>button_text=\"My Special Text\"</b> to the short "
-"code. The whole short code would look like this: <b>[lab_landing_page "
-"button_text=\"My Special Text\"]</b>"
-msgstr ""
-"Wählen Sie die Zielseite für Ihre Abonnenten. Dies wird die Seite Ihre "
-"Abonnenten zu kommen, nachdem sie den Link im Bestätigungsmail geklickt "
-"haben sein. Sobald Sie Ihre Zielseite ausgewählt, legen Sie diese "
-"Kurzwahlnummer <b> [lab_landing_page] </b> auf dieser Seite. Sie können auch "
-"die Schaltfläche Text, indem <b> button_text =\"My Special Text \"</b> an "
-"die Kurzwahl. <b>[Lab_landing_page button_text = \"My Special Text \"]</b>: "
-"Die ganze kurzen Code würde wie folgt aussehen"
-
-#: ../admin/class-admin-options.php:188
+#: ../admin/class-admin-options.php:159
 msgid ""
 "If you want to add the subscribers to the wordress user table, check yes. "
 "Otherwise they will only be added to the plugins subscriber table."
@@ -278,7 +249,7 @@ msgstr ""
 "aktivieren Sie ja. Sonst werden sie nur in das Plugin-Teilnehmer-Tabelle "
 "hinzugefügt werden."
 
-#: ../admin/class-admin-options.php:208
+#: ../admin/class-admin-options.php:179
 msgid ""
 "If you check YES, this will add a small promotional link at the bottom of "
 "the registration forms."
@@ -286,14 +257,14 @@ msgstr ""
 "Wenn Sie das Kontrollkästchen Ja, diese fügen Sie eine kleine Werbe-Link am "
 "unteren Rand der Anmeldeformulare."
 
-#: ../admin/class-admin-options.php:231
+#: ../admin/class-admin-options.php:202
 msgid ""
 "If you check YES, an email will be sent to you notifying you of the download."
 msgstr ""
 "Wenn Sie JA zu überprüfen, wird eine E-Mail an Sie Sie über den Download "
 "gesendet werden."
 
-#: ../admin/class-admin-options.php:250
+#: ../admin/class-admin-options.php:221
 msgid ""
 "This is the email address that shows in the <b>From</b> field in the "
 "verification email. If this is left blank it will default to the admin email "
@@ -302,7 +273,7 @@ msgstr ""
 "Dies ist die E-Mail-Adresse, die im <b>Von</b>-Feld in der Bestätigungs-E "
 "zeigt. Wenn diese leer ist wird es auf dem Admin-E-Mail-Adresse Default."
 
-#: ../admin/class-admin-options.php:270
+#: ../admin/class-admin-options.php:241
 msgid ""
 "This is the <b>Name</b> that will show in the <b>From</b> field in the "
 "verification email. If this is left blank it will default to your website or "
@@ -311,7 +282,7 @@ msgstr ""
 "Dies ist der <b>Name</b>, der im <b>Feld</b> zeigt in der Bestätigungs-E. "
 "Wenn diese leer ist es auf Ihrer Website oder Blog default"
 
-#: ../admin/class-admin-options.php:290
+#: ../admin/class-admin-options.php:261
 msgid ""
 "This is the verification email that is sent to a new subscriber. Just "
 "remember, at the very least, you need to keep the <b>{URL}</b> in your "
@@ -323,19 +294,19 @@ msgstr ""
 "dies die Teilnehmer mit der Bestätigungs-Link. Halten Siehe die vollständige "
 "Liste."
 
-#: ../admin/class-admin-options.php:292
+#: ../admin/class-admin-options.php:263
 msgid "Subscribers Name"
 msgstr "Abonnenten Namen"
 
-#: ../admin/class-admin-options.php:293
+#: ../admin/class-admin-options.php:264
 msgid "Verification Link"
 msgstr "Bestätigungs-Link"
 
-#: ../admin/class-admin-options.php:294
+#: ../admin/class-admin-options.php:265
 msgid "The name of the download the subscriber has selected"
 msgstr "Die Namen der Download der Teilnehmer ausgewählt"
 
-#: ../admin/class-admin-options.php:316
+#: ../admin/class-admin-options.php:287
 msgid ""
 "If you check YES, this will add a link to your Privacy Policy Page at the "
 "bottom of the registration forms."
@@ -343,7 +314,7 @@ msgstr ""
 "Wenn Sie das Kontrollkästchen Ja, diese einen Link zu Ihrem Datenschutz "
 "Seite am unteren Rand der Anmeldeformulare."
 
-#: ../admin/class-admin-options.php:341
+#: ../admin/class-admin-options.php:312
 msgid ""
 "This sets the link text for your privacy statement ( Example: See Out "
 "Privacy Policy )"
@@ -351,18 +322,18 @@ msgstr ""
 "Dies setzt den Link-Text für die Datenschutzerklärung (Beispiel: Siehe Out "
 "Privacy Policy)"
 
-#: ../admin/class-admin-options.php:368
+#: ../admin/class-admin-options.php:339
 msgid ""
 "Set the font size of the privacy policy link (Example: 0.9em or 8px etc.)"
 msgstr ""
 "Stellen Sie die Schriftgröße an die Privacy Policy Link (Beispiel: 0.9em "
 "oder 8px usw.)"
 
-#: ../admin/class-admin-options.php:390
+#: ../admin/class-admin-options.php:361
 msgid "Select Privacy Policy Page"
 msgstr "Wählen Sie Datenschutz Seite"
 
-#: ../admin/class-admin-options.php:400
+#: ../admin/class-admin-options.php:371
 msgid "Select your Privacy Policy Page."
 msgstr "Wählen Sie Ihre Seite Datenschutz."
 
@@ -444,6 +415,14 @@ msgstr ""
 "Dies setzt die Breite des Eingabefeldes auf dem Widget. <b>Verwenden Sie nur "
 "Zahlen, fügen Sie nicht die Pixel am Ende</b>."
 
+#: ../admin/class-admin-widget-options.php:214
+msgid ""
+"This sets the background color of the widget form. <b>You can use "
+"transparent or hex values ( #000000 etc )."
+msgstr ""
+"Hier wird die Hintergrundfarbe des Widgets Form. <b> Sie können transparent "
+"oder Hex-Werte (# 000000 etc) zu verwenden."
+
 #: ../admin/class-admin-widget-options.php:266
 msgid ""
 "This sets the font color for the widget title. <b>Use hex values ( #000000 "
@@ -458,186 +437,174 @@ msgid ""
 msgstr ""
 "Hier wird die Schriftgröße für die Widget-Titel. (Beispiel: 1EM 12px etc)."
 
-#: ../admin/doifd-admin.php:93
+#: ../admin/doifd-admin.php:92
 msgid "General Settings"
 msgstr "Allgemeine Einstellungen"
 
-#: ../admin/doifd-admin.php:94
+#: ../admin/doifd-admin.php:93
 msgid "Select Maximum Number of Downloads"
 msgstr "Wählen Sie Maximale Anzahl der Downloads"
 
-#: ../admin/doifd-admin.php:95
-msgid "Select Landing page"
-msgstr "Wählen Landing page"
-
-#: ../admin/doifd-admin.php:96
+#: ../admin/doifd-admin.php:94
 msgid "Add Subscribers to the Wordpress User Table?"
 msgstr "Add-Abonnenten, die Wordpress User Table?"
 
-#: ../admin/doifd-admin.php:97
+#: ../admin/doifd-admin.php:95
 msgid "Help Us Out?<br />Add a promotional link"
 msgstr "Helfen Sie uns, Out?<br />Fügen Sie einen Werbe-Link"
 
-#: ../admin/doifd-admin.php:98
+#: ../admin/doifd-admin.php:96
 msgid "Email Settings"
 msgstr "E-Mail-Einstellungen"
 
-#: ../admin/doifd-admin.php:99
+#: ../admin/doifd-admin.php:97
 msgid "Get Notfied via Email of New User"
 msgstr "Via E-Mail von New User Bezeichnete Lass"
 
-#: ../admin/doifd-admin.php:100
+#: ../admin/doifd-admin.php:98
 msgid "Enter The Return Email Address"
 msgstr "Zurück Email-Adresse"
 
-#: ../admin/doifd-admin.php:101
+#: ../admin/doifd-admin.php:99
 msgid "Enter who the email is from<br>(Default is the Website or Blog name)"
 msgstr ""
 "Geben Sie die E-Mail von der <br>ist (Standard ist die Website oder Blog "
 "name)"
 
-#: ../admin/doifd-admin.php:102
+#: ../admin/doifd-admin.php:100
 msgid "Email Message:"
 msgstr "E-Mail-Adresse:"
 
-#: ../admin/doifd-admin.php:103
+#: ../admin/doifd-admin.php:101
 msgid "Widget Style Settings"
 msgstr "Widget Style Einstellungen"
 
-#: ../admin/doifd-admin.php:104
+#: ../admin/doifd-admin.php:102
 msgid "Width of Widget"
 msgstr "Breite des Widget"
 
-#: ../admin/doifd-admin.php:105
+#: ../admin/doifd-admin.php:103
 msgid "Widget Inside Padding"
 msgstr "Widget Innenpolsterung"
 
-#: ../admin/doifd-admin.php:106
+#: ../admin/doifd-admin.php:104
 msgid "Widget Margin Top"
 msgstr "Widget Margin Top"
 
-#: ../admin/doifd-admin.php:107
+#: ../admin/doifd-admin.php:105
 msgid "Widget Margin Right"
 msgstr "Widget Margin Rechts"
 
-#: ../admin/doifd-admin.php:108
+#: ../admin/doifd-admin.php:106
 msgid "Widget Margin Bottom"
 msgstr "Widget Margin Bottom"
 
-#: ../admin/doifd-admin.php:109
+#: ../admin/doifd-admin.php:107
 msgid "Widget Margin Left"
 msgstr "Widget Margin Left"
 
-#: ../admin/doifd-admin.php:110
+#: ../admin/doifd-admin.php:108
 msgid "Widget Input Width"
 msgstr "Widget Eingang Breite"
 
-#: ../admin/doifd-admin.php:111
+#: ../admin/doifd-admin.php:109
 msgid "Widget Input Field Background Color"
 msgstr "Widget Eingabefeld Hintergrundfarbe"
 
-#: ../admin/doifd-admin.php:112
+#: ../admin/doifd-admin.php:110
 msgid "Widget Title Font Color"
 msgstr "Widget Titel Schriftfarbe"
 
-#: ../admin/doifd-admin.php:113
+#: ../admin/doifd-admin.php:111
 msgid "Widget Title Font Size"
 msgstr "Widget Titel Schriftgröße"
 
-#: ../admin/doifd-admin.php:114
+#: ../admin/doifd-admin.php:112
 msgid "Widget Background Color"
 msgstr "Widget Hintergrundfarbe"
 
-#: ../admin/doifd-admin.php:115
+#: ../admin/doifd-admin.php:113
 msgid "Form Style Settings"
 msgstr "Formular Style Einstellungen"
 
-#: ../admin/doifd-admin.php:116
+#: ../admin/doifd-admin.php:114
 msgid "Form CSS Class"
 msgstr "Formular CSS Klasse"
 
-#: ../admin/doifd-admin.php:117
+#: ../admin/doifd-admin.php:115
 msgid "Form Width"
 msgstr "Formular Breite"
 
-#: ../admin/doifd-admin.php:118
+#: ../admin/doifd-admin.php:116
 msgid "Form Padding"
 msgstr "Form Padding"
 
-#: ../admin/doifd-admin.php:119
+#: ../admin/doifd-admin.php:117
 msgid "Form Background Color"
 msgstr "Formular Hintergrundfarbe"
 
-#: ../admin/doifd-admin.php:120
+#: ../admin/doifd-admin.php:118
 msgid "Form Font Color"
 msgstr "Formular Schriftfarbe"
 
-#: ../admin/doifd-admin.php:121
+#: ../admin/doifd-admin.php:119
 msgid "Title Font Color"
 msgstr "Titel Schriftfarbe"
 
-#: ../admin/doifd-admin.php:122
+#: ../admin/doifd-admin.php:120
 msgid "Title Font Size"
 msgstr "Titel Schriftgröße"
 
-#: ../admin/doifd-admin.php:123
+#: ../admin/doifd-admin.php:121
 msgid "Form Input Field Background Color"
 msgstr "Formular Eingabefeld Hintergrundfarbe"
 
-#: ../admin/doifd-admin.php:124
+#: ../admin/doifd-admin.php:122
 msgid "Form Input Field Width"
 msgstr "Formular Eingabefeld Breite"
 
-#: ../admin/doifd-admin.php:125
+#: ../admin/doifd-admin.php:123
 msgid "Form Privacy Policy Settings"
 msgstr "Formular Datenschutz-Einstellungen"
 
-#: ../admin/doifd-admin.php:126
+#: ../admin/doifd-admin.php:124
 msgid "Use Privacy Policy"
 msgstr "Datenschutzrichtlinie"
 
-#: ../admin/doifd-admin.php:137
+#: ../admin/doifd-admin.php:135
 msgid "DOI - Downloads"
 msgstr "DOI - Downloads"
 
-#: ../admin/doifd-admin.php:140
+#: ../admin/doifd-admin.php:138
 msgid "Settings"
 msgstr "Einstellungen"
 
-#: ../admin/doifd-admin.php:146 ../views/view-admin-subscribers-page.php:3
+#: ../admin/doifd-admin.php:144 ../views/view-admin-subscribers-page.php:3
 msgid "Subscribers"
 msgstr "Abonnenten"
 
-#: ../admin/doifd-admin.php:164 ../admin/doifd-admin.php:177
-#: ../admin/doifd-admin.php:195 ../admin/doifd-admin.php:212
-#: ../admin/doifd-admin.php:224 ../admin/doifd-admin.php:237
-#: ../admin/doifd-admin.php:250 ../admin/doifd-admin.php:263
-#: ../admin/doifd-admin.php:284 ../admin/doifd-admin.php:297
-#: ../admin/doifd-admin.php:310 ../admin/doifd-admin.php:323
-#: ../admin/doifd-admin.php:336 ../admin/doifd-admin.php:349
-#: ../admin/doifd-admin.php:362 ../admin/doifd-admin.php:375
-#: ../admin/doifd-admin.php:388 ../admin/doifd-admin.php:401
-#: ../admin/doifd-admin.php:414 ../admin/doifd-admin.php:425
-#: ../admin/doifd-admin.php:436 ../admin/doifd-admin.php:447
-#: ../admin/doifd-admin.php:458 ../admin/doifd-admin.php:471
-#: ../admin/doifd-admin.php:485 ../admin/doifd-admin.php:498
-#: ../admin/doifd-admin.php:511 ../admin/doifd-admin.php:522
-#: ../admin/doifd-admin.php:533 ../admin/doifd-admin.php:544
-#: ../admin/doifd-admin.php:555 ../admin/doifd-admin.php:566
-#: ../admin/doifd-admin.php:620 ../admin/doifd-admin.php:631
-#: ../admin/doifd-admin.php:642 ../admin/doifd-admin.php:653
+#: ../admin/doifd-admin.php:162 ../admin/doifd-admin.php:175
+#: ../admin/doifd-admin.php:193 ../admin/doifd-admin.php:210
+#: ../admin/doifd-admin.php:222 ../admin/doifd-admin.php:236
+#: ../admin/doifd-admin.php:249 ../admin/doifd-admin.php:270
+#: ../admin/doifd-admin.php:283 ../admin/doifd-admin.php:296
+#: ../admin/doifd-admin.php:309 ../admin/doifd-admin.php:322
+#: ../admin/doifd-admin.php:335 ../admin/doifd-admin.php:348
+#: ../admin/doifd-admin.php:361 ../admin/doifd-admin.php:374
+#: ../admin/doifd-admin.php:387 ../admin/doifd-admin.php:400
+#: ../admin/doifd-admin.php:411 ../admin/doifd-admin.php:422
+#: ../admin/doifd-admin.php:433 ../admin/doifd-admin.php:444
+#: ../admin/doifd-admin.php:457 ../admin/doifd-admin.php:471
+#: ../admin/doifd-admin.php:484 ../admin/doifd-admin.php:497
+#: ../admin/doifd-admin.php:508 ../admin/doifd-admin.php:519
+#: ../admin/doifd-admin.php:530 ../admin/doifd-admin.php:541
+#: ../admin/doifd-admin.php:552 ../admin/doifd-admin.php:587
+#: ../admin/doifd-admin.php:598 ../admin/doifd-admin.php:609
+#: ../admin/doifd-admin.php:620
 msgid "You do not have sufficient permissions to access this page."
 msgstr ""
 "Sie verfügen nicht über ausreichende Berechtigungen, um auf diese Seite "
 "zuzugreifen."
-
-#: ../admin/doifd-admin.php:612
-msgid ""
-"The landing page option in Double OPT-IN for Downloads is NOT SET. Please "
-"select a landing page otherwise the plugin will not work properly"
-msgstr ""
-"Die Zielseite Option in Double Opt-In für Downloads ist nicht gesetzt. Bitte "
-"wählen Sie eine Zielseite sonst das Plugin wird nicht richtig funktionieren"
 
 #: ../includes/class-download.php:72
 msgid "You have exceed your number of downloads for this item."
@@ -833,6 +800,32 @@ msgstr ""
 "Der Name, den Sie Ihren Download-Datei wird auch in der Bestätigungs-E "
 "erscheinen."
 
+#: ../views/view-admin-download-page.php:37
+#: ../views/view-admin-download-page.php:44
+#: ../views/view-admin-edit-download-page.php:52
+#: ../views/view-admin-edit-download-page.php:59
+msgid "Select Landing Page"
+msgstr "Wählen Landing Page"
+
+#: ../views/view-admin-download-page.php:54
+#: ../views/view-admin-edit-download-page.php:69
+msgid ""
+"Select the landing page for your subscribers. This will be the page your "
+"subscribers will come to after they have clicked the link in their "
+"verification email. Once you have selected your landing page, place this "
+"shortcode <b>[lab_landing_page]</b> on that page. You can also change the "
+"button text by adding <b>button_text=\"My Special Text\"</b> to the short "
+"code. The whole short code would look like this: <b>[lab_landing_page "
+"button_text=\"My Special Text\"]</b>"
+msgstr ""
+"Wählen Sie die Zielseite für Ihre Abonnenten. Dies wird die Seite Ihre "
+"Abonnenten zu kommen, nachdem sie den Link im Bestätigungsmail geklickt "
+"haben sein. Sobald Sie Ihre Zielseite ausgewählt, legen Sie diese "
+"Kurzwahlnummer <b> [lab_landing_page] </b> auf dieser Seite. Sie können auch "
+"die Schaltfläche Text, indem <b> button_text =\"My Special Text \"</b> an "
+"die Kurzwahl. <b>[Lab_landing_page button_text = \"My Special Text \"]</b>: "
+"Die ganze kurzen Code würde wie folgt aussehen"
+
 #: ../views/view-admin-download-page.php:63
 msgid "Select Your File"
 msgstr "Wählen Sie Ihre Datei"
@@ -936,8 +929,8 @@ msgid "here"
 msgstr "hierher"
 
 #: ../views/view-admin-header.php:8
-msgid "Your are using the <em>FREE</em> Version 1.0.9"
-msgstr "Ihr werden unter Verwendung der <em>GRATIS</em> Version 1.0.9"
+msgid "Your are using the <em>FREE</em> Version 1.1.0"
+msgstr "Ihr werden unter Verwendung der <em> GRATIS </ em> Version 1.1.0"
 
 #: ../views/view-admin-header.php:9
 msgid "Get the Premium Version of Double OPT-IN for download"
@@ -1003,6 +996,17 @@ msgid ""
 msgstr ""
 "Sie sind im Begriff, diese Abonnenten in der Cyber-Abgrund zu schicken! Sind "
 "Sie sicher?"
+
+#~ msgid "Select Landing page"
+#~ msgstr "Wählen Landing page"
+
+#~ msgid ""
+#~ "The landing page option in Double OPT-IN for Downloads is NOT SET. Please "
+#~ "select a landing page otherwise the plugin will not work properly"
+#~ msgstr ""
+#~ "Die Zielseite Option in Double Opt-In für Downloads ist nicht gesetzt. "
+#~ "Bitte wählen Sie eine Zielseite sonst das Plugin wird nicht richtig "
+#~ "funktionieren"
 
 #~ msgid "Available in the Premium Edition"
 #~ msgstr "Erhältlich in der Premium Edition"

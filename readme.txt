@@ -132,6 +132,15 @@ Post a comment on our Facebook page if you would like to see this plugin transla
 
 == Changelog ==
 
+= 1.1.0 =
+
+
+= 1.0.9 =
+
+12/26/2013
+
+1. Fixed widget background and added the ability to add ! to use with important to the widget background form color and form input fields background css fields
+
 = 1.0.8 =
 
 10/18/2013
