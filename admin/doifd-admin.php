@@ -132,7 +132,7 @@ if (!class_exists('DoifdAdmin')) {
         function register_doifd_custom_menu_page() {
 
             // create main menu page
-            add_menu_page('doifd menu title', __('DOI - Downloads', 'double-opt-in-for-download'), 'manage_options', __FILE__, array($this, 'doifd_lab_options_page'));
+            add_menu_page('doifd menu title', __('DOIFD', 'double-opt-in-for-download'), 'manage_options', __FILE__, array($this, 'doifd_lab_options_page'));
 
             //create sub menu page for downloads
             add_submenu_page(__FILE__, 'Settings', __('Settings', 'double-opt-in-for-download'), 'manage_options', __FILE__, array($this, 'doifd_lab_options_page'));
