@@ -23,6 +23,10 @@ $doifd_widget_option = get_option ( 'doifd_lab_options' ) ;
     background-color: <?php if (isset($doifd_widget_option['widget_background_color'])) { echo $doifd_widget_option['widget_background_color']; }else{ echo 'transparent'; }?>;
 }
 
+#widget_doifd_user_reg_form label {
+    color: <?php if (isset($doifd_widget_option['widget_color'])) { echo $doifd_widget_option['widget_color']; }else{ echo '#000000'; }?>;
+}
+
 #widget_doifd_user_reg_form ul li {
     list-style-type: none;
     padding: 0px;

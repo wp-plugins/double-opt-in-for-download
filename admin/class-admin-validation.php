@@ -42,31 +42,33 @@ if ( !class_exists ( 'DoifdAdminValidation' ) ) {
 
             $valid[ 'widget_input_width' ] = preg_replace ( '/[^0-9]/', '', $input[ 'widget_input_width' ] );
             
-            $valid[ 'widget_title_color' ] = preg_replace( '/[^#a-z0-9]/i', '', $input[ 'widget_title_color' ] );
+            $valid[ 'widget_title_color' ] = preg_replace( '/[^#!a-z0-9]/i', '', $input[ 'widget_title_color' ] );
             
-            $valid[ 'widget_title_size' ] = preg_replace( '/[^a-z0-9.]/', '', $input[ 'widget_title_size' ] );
+            $valid[ 'widget_title_size' ] = preg_replace( '/[^!a-z0-9.]/', '', $input[ 'widget_title_size' ] );
             
             $valid[ 'widget_input_field_background_color' ] = preg_replace ( '/[^#!a-z0-9]/i', '', $input[ 'widget_input_field_background_color' ] );
             
             $valid[ 'widget_background_color' ] = preg_replace ( '/[^#!a-z0-9]/i', '', $input[ 'widget_background_color' ] );
             
-            $valid[ 'form_width' ] = preg_replace ( '/[^a-z0-9]/i', '', $input[ 'form_width' ] );
+            $valid[ 'widget_color' ] = preg_replace ( '/[^#!a-z0-9]/i', '', $input[ 'widget_color' ] );
             
-            $valid[ 'form_padding' ] = preg_replace ( '/[^a-z0-9]/i', '', $input[ 'form_padding' ] );
+            $valid[ 'form_width' ] = preg_replace ( '/[^!a-z0-9]/i', '', $input[ 'form_width' ] );
             
-            $valid[ 'form_background_color' ] = preg_replace ( '/[^#a-z0-9]/i', '', $input[ 'form_background_color' ] );
+            $valid[ 'form_padding' ] = preg_replace ( '/[^!a-z0-9]/i', '', $input[ 'form_padding' ] );
             
-            $valid[ 'form_color' ] = preg_replace ( '/[^#a-z0-9]/i', '', $input[ 'form_color' ] );
+            $valid[ 'form_background_color' ] = preg_replace ( '/[^#!a-z0-9]/i', '', $input[ 'form_background_color' ] );
             
-            $valid[ 'form_title_color' ] = preg_replace ( '/[^#a-z0-9]/i', '', $input[ 'form_title_color' ] );
+            $valid[ 'form_color' ] = preg_replace ( '/[^#!a-z0-9]/i', '', $input[ 'form_color' ] );
             
-            $valid[ 'form_title_size' ] = preg_replace( '/[^a-z0-9.]/', '', $input[ 'form_title_size' ] );
+            $valid[ 'form_title_color' ] = preg_replace ( '/[^#!a-z0-9]/i', '', $input[ 'form_title_color' ] );
+            
+            $valid[ 'form_title_size' ] = preg_replace( '/[^!a-z0-9.]/', '', $input[ 'form_title_size' ] );
             
             $valid[ 'form_class' ] = preg_replace ( '/[^a-z0-9_-]/i', '', $input[ 'form_class' ] );
             
-            $valid[ 'form_input_field_background_color' ] = preg_replace ( '/[^#a-z0-9]/i', '', $input[ 'form_input_field_background_color' ] );
+            $valid[ 'form_input_field_background_color' ] = preg_replace ( '/[^#!a-z0-9]/i', '', $input[ 'form_input_field_background_color' ] );
             
-            $valid[ 'form_input_field_width' ] = preg_replace ( '/[^%a-z0-9]/i', '', $input[ 'form_input_field_width' ] );
+            $valid[ 'form_input_field_width' ] = preg_replace ( '/[^%!a-z0-9]/i', '', $input[ 'form_input_field_width' ] );
             
             $valid[ 'notification_email' ] = preg_replace( '/[^0-9]/', '', $input[ 'notification_email' ] );
             
