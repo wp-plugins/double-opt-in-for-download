@@ -110,6 +110,7 @@ if (!class_exists('DoifdAdmin')) {
             add_settings_field( 'doifd_lab_widget_title_color', __( 'Widget Title Font Color', 'double-opt-in-for-download' ), array ( $this, 'doifd_lab_setting_widget_title_color' ), 'doifd_lab_widget_style', 'doifd_lab_widget_style_section' );
             add_settings_field( 'doifd_lab_widget_title_size', __( 'Widget Title Font Size', 'double-opt-in-for-download' ), array ( $this, 'doifd_lab_setting_widget_title_size' ), 'doifd_lab_widget_style', 'doifd_lab_widget_style_section' );
             add_settings_field('doifd_lab_widget_style_background_color', __('Widget Background Color', 'double-opt-in-for-download'), array($this, 'doifd_lab_setting_widget_background_color'), 'doifd_lab_widget_style', 'doifd_lab_widget_style_section');
+            add_settings_field('doifd_lab_widget_font_color', __('Widget Font Color', 'double-opt-in-for-download'), array($this, 'doifd_lab_setting_widget_font_color'), 'doifd_lab_widget_style', 'doifd_lab_widget_style_section');
             add_settings_section('doifd_lab_form_style_section', __('Form Style Settings', 'double-opt-in-for-download'), '', 'doifd_lab_form_style');
             add_settings_field('doifd_lab_form_style_class', __('Form CSS Class', 'double-opt-in-for-download'), array($this, 'doifd_lab_setting_form_class'), 'doifd_lab_form_style', 'doifd_lab_form_style_section');
             add_settings_field('doifd_lab_form_style_width', __('Form Width', 'double-opt-in-for-download'), array($this, 'doifd_lab_setting_form_width'), 'doifd_lab_form_style', 'doifd_lab_form_style_section');
@@ -132,7 +133,7 @@ if (!class_exists('DoifdAdmin')) {
         function register_doifd_custom_menu_page() {
 
             // create main menu page
-            add_menu_page('doifd menu title', __('DOI - Downloads', 'double-opt-in-for-download'), 'manage_options', __FILE__, array($this, 'doifd_lab_options_page'));
+            add_menu_page('doifd menu title', __('DOIFD', 'double-opt-in-for-download'), 'manage_options', __FILE__, array($this, 'doifd_lab_options_page'));
 
             //create sub menu page for downloads
             add_submenu_page(__FILE__, 'Settings', __('Settings', 'double-opt-in-for-download'), 'manage_options', __FILE__, array($this, 'doifd_lab_options_page'));
@@ -423,6 +424,17 @@ if (!class_exists('DoifdAdmin')) {
             } else {
 
                 return DoifdAdminWidgetOptions::field_widget_background_color();
+            }
+        }
+        
+        function doifd_lab_setting_widget_font_color() {
+
+            if (!current_user_can('manage_options')) {
+
+                wp_die(__('You do not have sufficient permissions to access this page.', 'double-opt-in-for-download'));
+            } else {
+
+                return DoifdAdminWidgetOptions::field_widget_color();
             }
         }
         

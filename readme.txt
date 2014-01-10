@@ -5,8 +5,8 @@ License: GPLv3
 License URI: http://www.gnu.org/licenses/gpl.html
 Tags: email, download, optin, email marketing, marketing
 Requires at least: 3.5
-Tested up to: 3.7.1
-Stable tag: 1.0.8
+Tested up to: 3.8
+Stable tag: 1.1.0
 
 Improve your client outreach by offering FREE downloads to your visitors in exchange for their email address with our Double Opt-In Plugin
 
@@ -56,9 +56,8 @@ be notified every time a support question is posted on our support forum.
 1. Upload the 'double-opt-in-for-download folder to the "/wp-content/plugins/" directory
 2. Activate the Double Opt-In for Download plugin through the 'Plugins' menu in WordPress
 3. Create a landing page for your subscribers and add this shortcode to it, [lab_landing_page]. You can change the button text in the download button by adding button_text="My Special Text" to the short code. The whole short code would look like this: [lab_landing_page button_text="My Special Text"]
-4. Configure the plugin by going to the "Settings" sub-menu that appears under DOI-Download in your admin menu. 
-5. VERY IMPORTANT: Don't forget to select your landing page!! =)
-6. Upload your Free download by going to the "Downloads" sub-menu. Give your file a name, attach it, then upload it.
+4. Configure the plugin by going to the "Settings" sub-menu that appears under DOI-Download in your admin menu.
+6. Upload your Free download by going to the "Downloads" sub-menu. Give your file a name, select your landing page, attach your free download, then upload it.
 7. Once your file is uploaded, copy the generated shortcode and paste it into the pages and posts of your choosing or use the sidebar widget.
 
 = Widget =
@@ -134,6 +133,7 @@ Post a comment on our Facebook page if you would like to see this plugin transla
 
 = 1.1.0 =
 
+1. Moved the landing page selection option to the download upload form. You can now select/create a landing page for each individual download.
 
 = 1.0.9 =
 
@@ -281,6 +281,12 @@ Changed location of download directory to avoid deletion when upgrading.
 * Initial beta release.
 
 == Upgrade Notice ==
+
+= 1.1.0 =
+
+PLEASE READ, OTHERWISE YOU MAY FREAK OUT!! The landing page option has been moved from the general options page to the "Upload Download Form". You DO NOT need to do anything right away. The plugin
+will continue to use your old landing page until you update your download on the downloads page in the plugin options. To assign a landing page to your download, go to your download and click "Edit" under the name.
+When the page loads, select your landing page and save. That's all there is to it.
 
 10/18/2013
 

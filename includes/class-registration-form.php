@@ -26,6 +26,25 @@ if (!class_exists('DoifdRegistrationForm')) {
                 return '<div class="doifd_user_reg_form exceeded">' . __('Oooops! There is no download ID specified', 'double-opt-in-for-download') . '</div>';
             }
             
+                        /* Does the download really exist? Well See if the ID is in the database and if it is we will see if the actual file is really there */
+            
+            $isitreal = $wpdb->get_row ( $wpdb->prepare ( "SELECT doifd_download_name, doifd_download_file_name FROM $wpdb->doifd_downloads WHERE doifd_download_id = %s", $download_id ), ARRAY_A );
+            
+            $isthefilethere = DOUBLE_OPT_IN_FOR_DOWNLOAD_DOWNLOAD_DIR . '/' . $isitreal['doifd_download_file_name'];
+            
+            if ( $isitreal['doifd_download_name'] == NULL ) {
+                
+                return '<div class="doifd_user_reg_form exceeded">' . __( 'The download ID specified does not exist', 'double-opt-in-for-download' ) . '</div>';
+                
+            }
+
+            /* If we find there is no file on the server, show the user a generic error message with code */
+
+           if ( !file_exists( $isthefilethere ) ) {
+
+                    return '<div class="doifd_user_reg_form exceeded">' . __( 'There was an error. Code: DOI001', 'double-opt-in-for-download' ) . '<br />Please notify the website administrator.</div>';
+                }
+            
              /* Get the title text if the admin wants to use something different, otherwise the default is shown. */
 
             if (isset($attr['text'])) {
