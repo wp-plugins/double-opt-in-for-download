@@ -14,7 +14,7 @@
             <li><label for="name"><?php echo $subscriber_name; ?>: </label>
                 <input type="text" name="doifd_subscriber_name" id="doifd_subscriber_name" value=""/></li>
             
-            <li><label for="name"><?php echo $subscriber_email ; ?>': </label>
+            <li><label for="name"><?php echo $subscriber_email ; ?>: </label>
                 <input type="text" name="doifd_subscriber_email" id="doifd_subscriber_email" value=""/></li>
         
         </ul>

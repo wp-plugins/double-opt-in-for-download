@@ -1,4 +1,4 @@
-<div class="<?php if (!empty($options['form_class'])) { echo $options['form_class']; }else{ echo 'doifd_user_reg_form'; }?>">
+<div class="<?php if (!empty($this->options['form_class'])) { echo $this->options['form_class']; }else{ echo 'doifd_user_reg_form'; }?>">
 
     <h4 id="h4"><?php echo $doifd_form_text; ?></h4>
     
