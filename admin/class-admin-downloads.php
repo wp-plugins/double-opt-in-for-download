@@ -42,6 +42,10 @@ if ( !class_exists ( 'DoifdDownloads' ) ) {
                 /* clean and sanitize download id */
 
                 $doifd_clean_download_id = preg_replace ( '/[^0-9]/', '', $_POST[ 'doifd_download_id' ] );
+                
+                /* clean and sanitize landing page id */
+
+                $doifd_clean_landing_page = preg_replace ( '/[^0-9]/', '', $_POST[ 'doifd_download_landing_page' ] );
 
                 /* assign file name to variable */
 
@@ -59,13 +63,19 @@ if ( !class_exists ( 'DoifdDownloads' ) ) {
                 /* Update the file name */
 
                 if ( !empty ( $clean_doifd_lab_name ) ) {
-
-                    $wpdb->update (
-                            $wpdb->prefix . 'doifd_lab_downloads', array(
-                        'doifd_download_name' => $clean_doifd_lab_name
-                            ), array( 'doifd_download_id' => $doifd_clean_download_id ), array(
-                        '%s',
-                            ), array( '%d' )
+                    
+                    $wpdb->update( 
+                            $wpdb->prefix . 'doifd_lab_downloads', 
+                            array( 
+                                    'doifd_download_name' => $clean_doifd_lab_name,	// string
+                                    'doifd_download_landing_page' => $doifd_clean_landing_page	// integer (number) 
+                            ), 
+                            array( 'doifd_download_id' => $doifd_clean_download_id ), 
+                            array( 
+                                    '%s',	// value1
+                                    '%d'	// value2
+                            ), 
+                            array( '%d' ) 
                     );
 
                     $text = __ ( 'You successfully changed your download file name.', 'double-opt-in-for-download' );
@@ -197,6 +207,10 @@ if ( !class_exists ( 'DoifdDownloads' ) ) {
                 /* Clean and sanitize Download name field */
 
                 $clean_doifd_lab_name = sanitize_text_field ( $_POST[ 'name' ] );
+                
+                /* clean and sanitize download landing page id */
+
+                $doifd_clean_download_landing_page = preg_replace( '/[^0-9]/', '', $_POST[ 'doifd_download_landing_page' ] );
 
                 /* Assign file name to variable */
 
@@ -213,6 +227,16 @@ if ( !class_exists ( 'DoifdDownloads' ) ) {
                     $text = __ ( 'Please name your file.', 'double-opt-in-for-download' );
 
                     echo '<div id="message" class="error"><p><strong>' . $text . '  <a href="' . str_replace ( '%7E', '~', $_SERVER[ 'REQUEST_URI' ] ) . '">' . $rb . '</a></p></strong></div>';
+                }
+                
+               /* If there is no Landing Page Id selected show message */
+                
+                if ( empty( $doifd_clean_download_landing_page ) ) {
+
+                    $text = __( 'Please select a Landing Page.', 'double-opt-in-for-download' );
+
+                    echo '<div id="message" class="error"><p><strong>' . $text . '</strong></p></div>';
+
                 }
 
                 /* If the file name is empty show error message */ 
@@ -271,10 +295,12 @@ if ( !class_exists ( 'DoifdDownloads' ) ) {
                         $values = array(
                             'doifd_download_name' => $clean_doifd_lab_name,
                             'doifd_download_file_name' => $doifd_lab_file_name,
+                            'doifd_download_landing_page' => $doifd_clean_download_landing_page,
                             'time' => current_time ( 'mysql', 0 )
                         );
 
                         $values_formats = array(
+                            '%s',
                             '%s',
                             '%s'
                         );

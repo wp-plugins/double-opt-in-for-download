@@ -22,6 +22,7 @@ class Doifd_Download_Table extends WP_List_Table {
         switch ( $column_name ) {
             case 'Download Name':
             case 'File Type':
+            case 'Landing Page':
             case 'Shortcode':
             case 'Download':
                 return $item[$column_name] ;
@@ -36,7 +37,7 @@ class Doifd_Download_Table extends WP_List_Table {
         //Build row actions
         $actions = array (
             'delete'=>sprintf ( '<a class="confirm" href="?page=%s&action=%s&_wpnonce=%s&id=%s&doifd_file_name=%s" id="' . $item["doifd_download_id"] .'" title="' . $item["doifd_download_name"] .'" >' . __( 'Delete' , 'double-opt-in-for-download' ) . '</a>' , $_REQUEST['page'] , 'delete' , $doifd_lab_nonce , $item['doifd_download_id'] , $item['doifd_download_file_name'] ) ,
-            'edit'=>sprintf ( '<a href="?page=%s&doifd_download_id=%s&doifd_download_name=%s&doifd_download_file_name=%s">' . __( 'Edit' , 'double-opt-in-for-download' ) . '</a>' , 'double-opt-in-for-download/admin/doifd-admin.php_edit_downloads' , $item['doifd_download_id'] , $item['doifd_download_name'] , $item['doifd_download_file_name'] ) ,
+            'edit'=>sprintf ( '<a href="?page=%s&doifd_download_id=%s&doifd_download_name=%s&doifd_download_file_name=%s&doifd_download_landing_page=%s">' . __( 'Edit' , 'double-opt-in-for-download' ) . '</a>' , 'double-opt-in-for-download/admin/doifd-admin.php_edit_downloads' , $item['doifd_download_id'] , $item['doifd_download_name'] , $item['doifd_download_file_name'] , $item['doifd_download_landing_page'] ) ,
                 ) ;
 
         //Return the title contents
@@ -105,6 +106,22 @@ class Doifd_Download_Table extends WP_List_Table {
                         /* $1%s */ $item['doifd_number_of_downloads']
                 ) ;
     }
+    
+    function column_doifd_landing_page( $item ) {
+
+        if ($item['doifd_download_landing_page'] != '0') {
+        //Return the landing page assigned
+        return sprintf ( '%1$s' ,
+                        /* $1%s */ get_the_title ( $item['doifd_download_landing_page'] )
+                ) ;
+        }  else {
+            
+            return sprintf ( '%1$s' ,
+                        /* $1%s */ '<div class="no_landing">No Landing Page Selected.<br />Edit Download To Select Landing Page.</div>'
+                ) ;
+            
+        }
+    }
 
     function column_cb( $item ) {
         $doifd_lab_nonce = wp_create_nonce ( 'doifd-delete-download-nonce' ) ;
@@ -121,6 +138,7 @@ class Doifd_Download_Table extends WP_List_Table {
             'cb'=>'<input type="checkbox" />' , //Render a checkbox instead of text
             'doifd_download_name'=>__( 'Download Name', 'double-opt-in-for-download') ,
             'type'=>__( 'File Type' , 'double-opt-in-for-download' ),
+            'doifd_landing_page'=>__( 'Landing Page' , 'double-opt-in-for-download' ),
             'shortcode'=> __( 'Shortcode' , 'double-opt-in-for-download' ) ,
             'doifd_number_of_downloads'=>__( 'Downloads' , 'double-opt-in-for-download' )
                 ) ;

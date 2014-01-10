@@ -140,7 +140,10 @@ if ( !class_exists( 'DOIFD' ) ) {
 
         function doifd_lab_subscriber_registration_form( $attr, $content ) {
 
-            return DoifdRegistrationForm::registration_form( $attr, $content );
+            $process = new DoifdRegistrationForm();
+            $form = $process->registration_form( $attr, $content );
+            
+            return $form;
         }
 
         /* This function does the bulk of the work. When the user clicks the
@@ -150,15 +153,20 @@ if ( !class_exists( 'DOIFD' ) ) {
          */
 
         function doifd_lab_verify_email( $attr, $content ) {
+            
+            $process = new DoifdLandingPage();
+            $landing = $process->verify_email($attr, $content);
+            
+            return $landing;
 
-            return DoifdLandingPage::verify_email( $attr, $content );
         }
 
         /* This is the function that sends the email to the subscriber */
 
         function doifd_lab_verification_email( $value ) {
 
-            DoifdEmail::send_verification_email( $value );
+            $send_ver_email =  new DoifdEmail();
+            $send_ver_email->send_verification_email( $value );
         }
 
         /* Register the widget */

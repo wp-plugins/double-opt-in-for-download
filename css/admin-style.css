@@ -101,3 +101,14 @@
     text-align: center;
 }
 
+.no_landing {
+    text-align: center;
+    background: #00ffff;
+    color: #ffffff;
+    -moz-border-radius: 10px;
+    -webkit-border-radius: 10px;
+    -khtml-border-radius: 10px;
+    border-radius: 10px;   
+    
+}
+

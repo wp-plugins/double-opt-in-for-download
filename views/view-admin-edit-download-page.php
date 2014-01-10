@@ -25,6 +25,8 @@
             <input type="hidden" name="doifd_download_file_name" value="<?php echo $_GET[ 'doifd_download_file_name' ]; ?>" />
 
             <input type="hidden" name="doifd_download_name" value="<?php echo $_GET[ 'doifd_download_name' ]; ?>" />
+            
+            <input type="hidden" name="doifd_download_landing_page" value="<?php echo $_GET[ 'doifd_download_landing_page' ]; ?>" />
 
             <tr valign="top">
 
@@ -36,6 +38,38 @@
             } else {
                 echo $_GET[ 'doifd_download_name' ];
             } ?>"/></td>
+
+            </tr>
+            
+            <?php if ( isset ( $_POST[ 'doifd_download_landing_page' ] ) ) {
+                $landing = $_POST[ 'doifd_download_landing_page' ];
+            } else {
+                $landing =$_GET[ 'doifd_download_landing_page' ];
+            } ?>
+            
+            <tr valign="top">
+
+                <th scope="row"><label for="file"><?php _e( 'Select Landing Page', 'double-opt-in-for-download' ); ?><span> *</span>: </label></th>
+
+                <td>
+                    <?php
+                    echo '<div id="doifd_lab_admin_options">';
+                    echo '<select name="doifd_download_landing_page" id="doifd_download_landing_page">';
+                    echo "<option value='{$landing}'>";
+                    echo esc_attr( __( 'Select Landing Page', 'double-opt-in-for-download' ) );
+                    echo '</option>';
+                    $pages = get_pages();
+                    foreach ( $pages as $page ) {
+                       $option = '<option value="' . $page->ID . '" ' . (($landing == $page->ID ) ? 'selected="selected"' : "") . '>';
+                        $option .= $page->post_title;
+                        $option .= '</option>';
+                        echo $option;
+                    }
+                    echo '</select>';
+                    echo '<p>' . __( 'Select the landing page for your subscribers. This will be the page your subscribers will come to after they have clicked the link in their verification email. Once you have selected your landing page, place this shortcode <b>[lab_landing_page]</b> on that page. You can also change the button text by adding <b>button_text="My Special Text"</b> to the short code. The whole short code would look like this: <b>[lab_landing_page button_text="My Special Text"]</b>', 'double-opt-in-for-download' ) . '</p>';
+                    echo '</div>';
+                    ?>
+                </td>
 
             </tr>
 

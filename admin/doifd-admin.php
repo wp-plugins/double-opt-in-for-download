@@ -47,7 +47,6 @@ if (!class_exists('DoifdAdmin')) {
         function register_admin_actions() {
 
             add_action('admin_init', array(&$this, 'doifd_lab_admin_init'));
-            add_action('admin_notices', array(&$this, 'showAdminMessages'));
             add_action('admin_menu', array(&$this, 'register_doifd_custom_menu_page'));
             add_action('admin_init', array(&$this, 'doifd_lab_resend_verification_email'));
             add_action('admin_init', array(&$this, 'register_admin_styles'));
@@ -92,7 +91,6 @@ if (!class_exists('DoifdAdmin')) {
             register_setting('doifd_lab_options', 'doifd_lab_options', array(&$this, 'doifd_lab_validate_options'));
             add_settings_section('doifd_lab_main', __('General Settings', 'double-opt-in-for-download'), '', 'doifd_lab_general');
             add_settings_field('doifd_lab_downloads_allowed', __('Select Maximum Number of Downloads', 'double-opt-in-for-download'), array(&$this, 'doifd_lab_setting_input'), 'doifd_lab_general', 'doifd_lab_main');
-            add_settings_field('doifd_lab_landing_page', __('Select Landing page', 'double-opt-in-for-download'), array($this, 'doifd_lab_setting_option'), 'doifd_lab_general', 'doifd_lab_main');
             add_settings_field('doifd_lab_add_to_wpusers', __('Add Subscribers to the Wordpress User Table?', 'double-opt-in-for-download'), array($this, 'doifd_lab_add_to_wp_user_table'), 'doifd_lab_general', 'doifd_lab_main');
             add_settings_field('doifd_lab_promo_link', __('Help Us Out?<br />Add a promotional link', 'double-opt-in-for-download'), array($this, 'doifd_lab_add_promo_link'), 'doifd_lab_general', 'doifd_lab_main');
             add_settings_section('doifd_lab_email_section', __('Email Settings', 'double-opt-in-for-download'), '', 'doifd_lab_email');
@@ -228,18 +226,6 @@ if (!class_exists('DoifdAdmin')) {
             }
         }
 
-        /* Create the Landing page dropdown select field */
-
-        function doifd_lab_setting_option() {
-
-            if (!current_user_can('manage_options')) {
-
-                wp_die(__('You do not have sufficient permissions to access this page.', 'double-opt-in-for-download'));
-            } else {
-
-                return DoifdAdminOptions::select_landing_page();
-            }
-        }
 
         /* Create the add user to wordpress user table radio select option */
 
@@ -592,25 +578,6 @@ if (!class_exists('DoifdAdmin')) {
             }
 
             echo "<p><strong>$message</strong></p></div>";
-        }
-
-        function showAdminMessages() {
-
-
-            /* Get options from options table */
-
-            $options = get_option('doifd_lab_options');
-
-            /* Get the landing page options */
-
-            $landing_page = $options['landing_page'];
-
-            /* If there is no value for the landing page option show an error message. */
-
-            if (empty($landing_page) && ( is_admin() )) {
-
-                $this->showMessage(__("The landing page option in Double OPT-IN for Downloads is NOT SET. Please select a landing page otherwise the plugin will not work properly", 'double-opt-in-for-download'));
-            }
         }
         
          function doifd_lab_setting_privacy_policy() {

@@ -4,11 +4,15 @@ if ( !class_exists( 'DoifdLandingPage' ) ) {
 
     class DoifdLandingPage {
 
+        private $options = array();
+        
         function __construct() {
+            
+            $this->options = get_option ( 'doifd_lab_options' );
             
         }
 
-        public static function verify_email( $attr, $content ) {
+        public function verify_email( $attr, $content ) {
 
             global $wpdb;
 
@@ -21,14 +25,6 @@ if ( !class_exists( 'DoifdLandingPage' ) ) {
 
                 $button_text = __( ' Click Here For Your Free Download', 'double-opt-in-for-download' );
             }
-
-            /* Get options from options table and assign to variable */
-
-            $options = get_option( 'doifd_lab_options' );
-
-            /* Get the downloads allowed option and assign to variable */
-
-            $allowed = $options[ 'downloads_allowed' ];
 
             /* Get the verification number and assign to a value */
 
@@ -64,17 +60,17 @@ if ( !class_exists( 'DoifdLandingPage' ) ) {
                  * **NEED TO UPDATE AND COMBINE BOTH QUERIES***
                  */
 
-                /* If the email is already verified and they have already exceed the number of downloads, lets show a message */ elseif ( ( $checkver->doifd_email_verified == '1' ) && ( $checkver->doifd_downloads_allowed >= $allowed ) ) {
+                /* If the email is already verified and they have already exceed the number of downloads, lets show a message */ elseif ( ( $checkver->doifd_email_verified == '1' ) && ( $checkver->doifd_downloads_allowed >= $this->options[ 'downloads_allowed' ] ) ) {
 
                     return '<div class="doifd_user_reg_form exceeded">' . __( 'You have exceeded your number of<br />downloads for this item.', 'double-opt-in-for-download' ) . '</div>';
 
                     /* If the email is already verified and they have NOT exceed the number of downloads, lets show the download button */
-                } elseif ( ( $checkver->doifd_email_verified == '1' ) && ( $checkver->doifd_downloads_allowed <= $allowed ) ) {
+                } elseif ( ( $checkver->doifd_email_verified == '1' ) && ( $checkver->doifd_downloads_allowed <= $this->options[ 'downloads_allowed' ] ) ) {
 
 
                     $fileName = $wpdb->get_var( "SELECT doifd_download_file_name FROM " . $wpdb->prefix . "doifd_lab_downloads  WHERE doifd_download_id = '$checkver->doifd_download_id' " );
 
-                    /* Use PHP to see if the file is really there */
+                    /* Lets Make sure see if the file is really there */
 
                     $file = DOUBLE_OPT_IN_FOR_DOWNLOAD_DOWNLOAD_DIR . '/' . $fileName;
 
@@ -99,7 +95,13 @@ if ( !class_exists( 'DoifdLandingPage' ) ) {
                          */
                     } else {
 
-                        return '<div class="doifd_user_reg_form exceeded">' . __( 'There was an error', 'double-opt-in-for-download' ) . '<br />Please notify the website administrator.</div>';
+                        return '<div class="doifd_user_reg_form exceeded">'
+                               . __( 'There was an error.', 'double-opt-in-for-download' ) . 
+                               '<br />'
+                               . __( 'Please notify the website administrator' ) .
+                               '<br />'
+                               . __( 'Error 0001' ) .
+                               '</div>';
                     }
                 } else {
 
@@ -120,11 +122,12 @@ if ( !class_exists( 'DoifdLandingPage' ) ) {
                     $subscriber = $getsubid->doifd_name;
                     $email = $getsubid->doifd_email;
 
-                    if ( $options[ 'notification_email' ] == '1' ) {
+                    if ( $this->options[ 'notification_email' ] == '1' ) {
 
                         $download = $wpdb->get_var( "SELECT doifd_download_name FROM " . $wpdb->prefix . "doifd_lab_downloads  WHERE doifd_download_id = '$checkver->doifd_download_id' " );
 
-                        DoifdEmail::admin_notification( $subscriber, $download, $email );
+                        $notify_admin = new DoifdEmail();
+                        $notify_admin->admin_notification( $subscriber, $download, $email );
                     }
 
                     $fileName = $wpdb->get_var( "SELECT doifd_download_file_name FROM " . $wpdb->prefix . "doifd_lab_downloads  WHERE doifd_download_id = '$checkver->doifd_download_id' " );
@@ -139,6 +142,7 @@ if ( !class_exists( 'DoifdLandingPage' ) ) {
 
 
                         $query = $wpdb->get_row( "SELECT doifd_download_id FROM " . $wpdb->prefix . "doifd_lab_subscribers  WHERE doifd_verification_number = '$ver' ", ARRAY_A );
+                        
                         $download_id_from_db = $query[ 'doifd_download_id' ];
 
                         return '<div class="doifd_user_reg_form thankyou"><br /><form method="get" action="" enctype="multipart/form-data">

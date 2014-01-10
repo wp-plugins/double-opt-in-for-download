@@ -32,7 +32,7 @@ if ( !class_exists ( 'DoifdInstall' ) ) {
 
             /* If version number is different create/update plugin tables */
 
-            $current_version = '1.0.9';
+            $current_version = '1.1.0';
 
             if ( $doifd_lab_installed_ver != $current_version ) {
 
@@ -66,6 +66,7 @@ if ( !class_exists ( 'DoifdInstall' ) ) {
                         doifd_download_id INT(11) NOT NULL AUTO_INCREMENT ,
                         doifd_download_name VARCHAR(75) NOT NULL ,
                         doifd_download_file_name VARCHAR(75) NOT NULL ,
+                        doifd_download_landing_page INT(20) NOT NULL ,
                         doifd_number_of_downloads TINYINT(1) DEFAULT '0' NOT NULL ,
                         time datetime DEFAULT '0000-00-00 00:00:00' NOT NULL ,
                         UNIQUE KEY id (doifd_download_id)
