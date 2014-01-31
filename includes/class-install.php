@@ -16,7 +16,7 @@ if ( !class_exists ( 'DoifdInstall' ) ) {
 
             /* Install function that creates the tables needed by the plugin and adds our options to wordpres */
 
-            require( ABSPATH . 'wp-admin/includes/upgrade.php' );
+            require_once( ABSPATH . 'wp-admin/includes/upgrade.php' );
 
             global $wpdb;
 

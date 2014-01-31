@@ -1,22 +1,22 @@
 <?php
 
-require( DOUBLE_OPT_IN_FOR_DOWNLOAD_DIR . '/includes/class-doifd.php' );
+require_once( DOUBLE_OPT_IN_FOR_DOWNLOAD_DIR . '/includes/class-doifd.php' );
 
-require( DOUBLE_OPT_IN_FOR_DOWNLOAD_DIR . '/admin/class-admin-validation.php');
+require_once( DOUBLE_OPT_IN_FOR_DOWNLOAD_DIR . '/admin/class-admin-validation.php');
 
-require( DOUBLE_OPT_IN_FOR_DOWNLOAD_DIR . '/admin/class-admin-options.php');
+require_once( DOUBLE_OPT_IN_FOR_DOWNLOAD_DIR . '/admin/class-admin-options.php');
 
-require( DOUBLE_OPT_IN_FOR_DOWNLOAD_DIR . '/admin/class-admin-downloads.php');
+require_once( DOUBLE_OPT_IN_FOR_DOWNLOAD_DIR . '/admin/class-admin-downloads.php');
 
-require( DOUBLE_OPT_IN_FOR_DOWNLOAD_DIR . '/admin/class-admin-subscribers.php');
+require_once( DOUBLE_OPT_IN_FOR_DOWNLOAD_DIR . '/admin/class-admin-subscribers.php');
 
-require( DOUBLE_OPT_IN_FOR_DOWNLOAD_DIR . '/admin/class-admin-widget-options.php');
+require_once( DOUBLE_OPT_IN_FOR_DOWNLOAD_DIR . '/admin/class-admin-widget-options.php');
 
-require( DOUBLE_OPT_IN_FOR_DOWNLOAD_DIR . '/admin/class-admin-form-options.php');
+require_once( DOUBLE_OPT_IN_FOR_DOWNLOAD_DIR . '/admin/class-admin-form-options.php');
 
-require( DOUBLE_OPT_IN_FOR_DOWNLOAD_DIR . '/admin/class-admin-dashboard-widget.php');
+require_once( DOUBLE_OPT_IN_FOR_DOWNLOAD_DIR . '/admin/class-admin-dashboard-widget.php');
 
-require( DOUBLE_OPT_IN_FOR_DOWNLOAD_DIR . '/admin/class-admin-csv.php');
+require_once( DOUBLE_OPT_IN_FOR_DOWNLOAD_DIR . '/admin/class-admin-csv.php');
 
 if (!class_exists('DoifdAdmin')) {
 
