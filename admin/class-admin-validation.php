@@ -25,6 +25,8 @@ if ( !class_exists ( 'DoifdAdminValidation' ) ) {
             $valid[ 'email_message' ] = $input[ 'email_message' ];
 
             $valid[ 'add_to_wpusers' ] = preg_replace ( '/[^0-9]/', '', $input[ 'add_to_wpusers' ] );
+            
+            $valid[ 'form_security' ] = preg_replace ( '/[^0-9]/', '', $input[ 'form_security' ] );
 
             $valid[ 'promo_link' ] = preg_replace ( '/[^0-9]/', '', $input[ 'promo_link' ] );
 

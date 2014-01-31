@@ -112,10 +112,14 @@ if (!class_exists('DoifdRegistrationForm')) {
 
                 $doifd_lab_nonce = $_POST['_wpnonce'];
 
-                /* Check to make sure data is coming from our form, if not, lets just die right here. */
+                /*  See if the admin wants to use nonce, if so, check to make sure data is coming from our form, if not, lets just die right here. */
 
+                if ( $this->options['form_security'] == '0' ) {
+                
                 if (!wp_verify_nonce($doifd_lab_nonce, 'doifd-subscriber-registration-nonce'))
                     wp_die('Security check');
+                
+                }
 
                 /* Sanitize name field and assign to varialbe. */
 

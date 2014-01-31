@@ -92,6 +92,7 @@ if (!class_exists('DoifdAdmin')) {
             add_settings_section('doifd_lab_main', __('General Settings', 'double-opt-in-for-download'), '', 'doifd_lab_general');
             add_settings_field('doifd_lab_downloads_allowed', __('Select Maximum Number of Downloads', 'double-opt-in-for-download'), array(&$this, 'doifd_lab_setting_input'), 'doifd_lab_general', 'doifd_lab_main');
             add_settings_field('doifd_lab_add_to_wpusers', __('Add Subscribers to the Wordpress User Table?', 'double-opt-in-for-download'), array($this, 'doifd_lab_add_to_wp_user_table'), 'doifd_lab_general', 'doifd_lab_main');
+            add_settings_field('doifd_lab_form_security', __('Disable Form Security?', 'double-opt-in-for-download'), array($this, 'doifd_lab_form_security'), 'doifd_lab_general', 'doifd_lab_main');
             add_settings_field('doifd_lab_promo_link', __('Help Us Out?<br />Add a promotional link', 'double-opt-in-for-download'), array($this, 'doifd_lab_add_promo_link'), 'doifd_lab_general', 'doifd_lab_main');
             add_settings_section('doifd_lab_email_section', __('Email Settings', 'double-opt-in-for-download'), '', 'doifd_lab_email');
             add_settings_field( 'doifd_lab_notification_email', __( 'Get Notfied via Email of New User', 'double-opt-in-for-download' ), array ( $this, 'doifd_lab_setting_download_notificiation' ), 'doifd_lab_email', 'doifd_lab_email_section' );
@@ -238,6 +239,19 @@ if (!class_exists('DoifdAdmin')) {
             } else {
 
                 return DoifdAdminOptions::add_to_user_table();
+            }
+        }
+        
+        /* Create the add user to wordpress user table radio select option */
+
+        function doifd_lab_form_security() {
+
+            if (!current_user_can('manage_options')) {
+
+                wp_die(__('You do not have sufficient permissions to access this page.', 'double-opt-in-for-download'));
+            } else {
+
+                return DoifdAdminOptions::form_security();
             }
         }
 
