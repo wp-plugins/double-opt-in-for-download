@@ -1,12 +1,12 @@
 === Double Opt-In for Download ===
-Contributors: Andy Bates / LAB Web Designs
+Contributors: Andy Bates / LAB Web Development
 Donate link: http://www.doubleoptinfordownload.com/
 License: GPLv3
 License URI: http://www.gnu.org/licenses/gpl.html
 Tags: email, download, optin, email marketing, marketing
 Requires at least: 3.5
-Tested up to: 3.8
-Stable tag: 1.1.0
+Tested up to: 3.8.1
+Stable tag: 1.1.1
 
 Improve your client outreach by offering FREE downloads to your visitors in exchange for their email address with our Double Opt-In Plugin
 
@@ -130,6 +130,10 @@ Post a comment on our Facebook page if you would like to see this plugin transla
 5. This is a screen shot of the subscribers admin screen.
 
 == Changelog ==
+
+= 1.1.1 =
+
+1. Fixed bug that caused the widget verification email to be blank.
 
 = 1.1.0 =
 
@@ -281,6 +285,10 @@ Changed location of download directory to avoid deletion when upgrading.
 * Initial beta release.
 
 == Upgrade Notice ==
+
+= 1.1.1 =
+
+1. Fixed bug that caused the widget verification email to be blank.
 
 = 1.1.0 =
 

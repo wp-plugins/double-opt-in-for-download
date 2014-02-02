@@ -203,7 +203,8 @@ if ( !class_exists ( 'DoifdFormWidget' ) ) {
 
 
                         //lets package the subscriber information and download id into an array and send it to the send email function
-                        DoifdEmail::send_verification_email ( $value = array(
+                        $send_ver_email =  new DoifdEmail();
+                        $send_ver_email->send_verification_email($value = array(
                             "user_name" => $doifd_lab_subscriber_name,
                             "user_email" => $doifd_lab_subscriber_email,
                             "user_ver" => $doifd_lab_ver,
