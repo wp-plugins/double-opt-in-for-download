@@ -242,7 +242,7 @@ if (!class_exists('DoifdAdmin')) {
             }
         }
         
-        /* Create the add user to wordpress user table radio select option */
+        /* Create form security radio select option */
 
         function doifd_lab_form_security() {
 
