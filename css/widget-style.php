@@ -1,11 +1,19 @@
-<?php
+<?php if (version_compare(phpversion(), '5.4.19', '>')) : ?>
+<?php header( 'Content-type: text/css' ); ?>
 
+<?php require_once( '../../../../wp-blog-header.php' );
+$doifd_form_option = get_option( 'doifd_lab_options' );
+?>
+<?php else : ?>
+
+<?php 
 require( '../../../../wp-blog-header.php' );
 
 header( 'Content-type: text/css' );
 
 $doifd_widget_option = get_option ( 'doifd_lab_options' ) ;
 ?>
+<?php endif; ?>
 
 #widget_doifd_user_reg_form {
     width: <?php if (isset($doifd_widget_option['widget_width'])) { echo $doifd_widget_option['widget_width']; }else{ echo '190'; }?>px;

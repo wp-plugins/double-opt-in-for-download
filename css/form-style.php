@@ -1,10 +1,19 @@
-<?php
+<?php if (version_compare(phpversion(), '5.4.19', '>')) : ?>
+<?php header( 'Content-type: text/css' ); ?>
+
+<?php require_once( '../../../../wp-blog-header.php' );
+$doifd_form_option = get_option( 'doifd_lab_options' );
+?>
+<?php else : ?>
+
+<?php 
 require( '../../../../wp-blog-header.php' );
 
 header( 'Content-type: text/css' );
 
-$doifd_form_option = get_option ( 'doifd_lab_options' ) ;
+$doifd_widget_option = get_option ( 'doifd_lab_options' ) ;
 ?>
+<?php endif; ?>
 
 .doifd_user_reg_form {
     margin: 15px auto;
