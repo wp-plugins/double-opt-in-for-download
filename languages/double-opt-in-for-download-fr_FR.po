@@ -5,8 +5,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Double OPT-IN for Download\n"
-"POT-Creation-Date: 2014-02-26 19:43-0800\n"
-"PO-Revision-Date: 2014-02-26 19:45-0800\n"
+"POT-Creation-Date: 2014-03-02 17:37-0800\n"
+"PO-Revision-Date: 2014-03-02 17:38-0800\n"
 "Last-Translator: Andy <andy@labwebdesigns.com>\n"
 "Language-Team: <>\n"
 "Language: fr_FR\n"
@@ -65,7 +65,7 @@ msgstr "shortCode"
 
 #: ../admin/class-admin-download-table.php:143 ../admin/doifd-admin.php:143
 #: ../views/view-admin-download-page.php:3
-#: ../views/view-admin-download-page.php:82
+#: ../views/view-admin-download-page.php:86
 msgid "Downloads"
 msgstr "Téléchargements"
 
@@ -828,11 +828,11 @@ msgstr ""
 "choisissez d'utiliser le widget, vous aurez juste besoin de sélectionner le "
 "téléchargement dans le menu déroulant lorsque vous configurez votre widget."
 
-#: ../views/view-admin-download-page.php:28
+#: ../views/view-admin-download-page.php:31
 msgid "Name of Your Download"
 msgstr "Nom de votre téléchargement"
 
-#: ../views/view-admin-download-page.php:30
+#: ../views/view-admin-download-page.php:33
 msgid ""
 "The name you give your download file will also appear in the verification "
 "email."
@@ -840,14 +840,14 @@ msgstr ""
 "Le nom que vous donnez à votre fichier téléchargé apparaîtra également dans "
 "le courriel de vérification."
 
-#: ../views/view-admin-download-page.php:37
-#: ../views/view-admin-download-page.php:44
+#: ../views/view-admin-download-page.php:40
+#: ../views/view-admin-download-page.php:47
 #: ../views/view-admin-edit-download-page.php:52
 #: ../views/view-admin-edit-download-page.php:59
 msgid "Select Landing Page"
 msgstr "Sélectionnez la page de destination"
 
-#: ../views/view-admin-download-page.php:54
+#: ../views/view-admin-download-page.php:57
 #: ../views/view-admin-edit-download-page.php:69
 msgid ""
 "Select the landing page for your subscribers. This will be the page your "
@@ -867,11 +867,11 @@ msgstr ""
 "ressembler à ceci: <b>[lab_landing_page button_text = \"Mon texte spécial "
 "\"]</b>"
 
-#: ../views/view-admin-download-page.php:63
+#: ../views/view-admin-download-page.php:66
 msgid "Select Your File"
 msgstr "Sélectionnez votre fichier"
 
-#: ../views/view-admin-download-page.php:65
+#: ../views/view-admin-download-page.php:69
 msgid ""
 "( Currently, the following file types are allowed; .jpg, .jpeg, .png, .bmp, ."
 "gif, .pdf, .zip, .doc, .docx, ,mp3 )"
@@ -879,21 +879,34 @@ msgstr ""
 "(Seul les types de fichiers suivants sont autorisés: jpg, jpeg, png, bmp, "
 "gif, pdf, zip, doc, docx, mp3)"
 
-#: ../views/view-admin-download-page.php:71
+#: ../views/view-admin-download-page.php:75
 msgid "Upload"
 msgstr "Téléversez"
 
-#: ../views/view-admin-download-page.php:83
+#: ../views/view-admin-download-page.php:87
 msgid "You can edit, delete or view your download count here."
 msgstr ""
 "Vous pouvez modifier, supprimer ou afficher votre compteur de téléchargement "
 "ici."
 
-#: ../views/view-admin-download-page.php:105
+#: ../views/view-admin-download-page.php:109
 msgid "You are about to send this download into the cyber abyss! Are you sure?"
 msgstr ""
 "Vous êtes sur le point d'envoyer ce téléchargement dans le cyber abîme! Êtes-"
 "vous sûr?"
+
+#: ../views/view-admin-download-page.php:110
+msgid ""
+"Your selected file exceeds your servers PHP file upload size limit. To learn "
+"how to get around your PHP file upload size limit,"
+msgstr ""
+"Votre fichier sélectionné dépasse votre serveurs fichier PHP limite de "
+"taille de téléchargement. Pour savoir comment obtenir autour de votre "
+"fichier PHP limite de taille de téléchargement,"
+
+#: ../views/view-admin-download-page.php:110 ../views/view-admin-header.php:14
+msgid "Click Here"
+msgstr "Cliquez ici"
 
 #: ../views/view-admin-edit-download-page.php:3
 #: ../views/view-admin-edit-download-page.php:7
@@ -986,10 +999,6 @@ msgid ""
 msgstr ""
 "\"Si vous aimez la version gratuite de double opt-in pour le téléchargement, "
 "alors vous allez adorer la version Premium\"<br/> Check it out,"
-
-#: ../views/view-admin-header.php:14
-msgid "Click Here"
-msgstr "Cliquez ici"
 
 #: ../views/view-admin-subscribers-page.php:14
 msgid "Subscriber List"

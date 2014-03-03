@@ -112,3 +112,24 @@
     
 }
 
+.filesizelimit {
+    background: #ffff00;
+    padding: 5px;
+    text-align: center;
+    border: #000 thin solid;
+    -moz-border-radius: 10px;
+    -webkit-border-radius: 10px;
+    -khtml-border-radius: 10px;
+    border-radius: 10px;
+    margin-bottom: 15px;
+}
+
+#toolargedialog {
+    display: none;
+}
+
+.ui-dialog-titlebar-close span {
+display: block;
+margin: -1px!important;
+}
+

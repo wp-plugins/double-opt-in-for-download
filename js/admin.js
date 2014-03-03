@@ -79,3 +79,27 @@ jQuery(document).ready(function($){
 
 });
 
+jQuery(document).ready(function() {
+jQuery('#userfile').bind('change', function() {
+
+    var fsize = jQuery('#userfile')[0].files[0].size;
+    
+    // Get the PHP maximum file upload size
+    var fmax = jQuery('#max_upload_size').val();
+    
+    // If file exceeds PHP max, show error message
+    if(fsize>fmax)
+        {
+            jQuery( "#toolargedialog" ).dialog({
+            modal: true,
+            buttons: {
+            Ok: function() {
+            jQuery( this ).dialog( "close" );
+        }
+      }
+      });
+
+        }
+
+});
+});

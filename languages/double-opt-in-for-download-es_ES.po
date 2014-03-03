@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Double OPT-IN for Download\n"
-"POT-Creation-Date: 2014-02-26 19:41-0800\n"
-"PO-Revision-Date: 2014-02-26 19:43-0800\n"
+"POT-Creation-Date: 2014-03-02 17:36-0800\n"
+"PO-Revision-Date: 2014-03-02 17:37-0800\n"
 "Last-Translator: Andy <andy@labwebdesigns.com>\n"
 "Language-Team: \n"
 "Language: es_ES\n"
@@ -60,7 +60,7 @@ msgstr "código de acceso"
 
 #: ../admin/class-admin-download-table.php:143 ../admin/doifd-admin.php:143
 #: ../views/view-admin-download-page.php:3
-#: ../views/view-admin-download-page.php:82
+#: ../views/view-admin-download-page.php:86
 msgid "Downloads"
 msgstr "Descargas"
 
@@ -815,11 +815,11 @@ msgstr ""
 "sólo tiene que seleccionar\n"
 "         la descarga en el cuadro desplegable al configurar el widget."
 
-#: ../views/view-admin-download-page.php:28
+#: ../views/view-admin-download-page.php:31
 msgid "Name of Your Download"
 msgstr "Nombre de la descarga"
 
-#: ../views/view-admin-download-page.php:30
+#: ../views/view-admin-download-page.php:33
 msgid ""
 "The name you give your download file will also appear in the verification "
 "email."
@@ -827,14 +827,14 @@ msgstr ""
 "El nombre que le asigne el archivo de descarga también aparecerá en el "
 "correo electrónico de verificación."
 
-#: ../views/view-admin-download-page.php:37
-#: ../views/view-admin-download-page.php:44
+#: ../views/view-admin-download-page.php:40
+#: ../views/view-admin-download-page.php:47
 #: ../views/view-admin-edit-download-page.php:52
 #: ../views/view-admin-edit-download-page.php:59
 msgid "Select Landing Page"
 msgstr "Seleccione la página de destino"
 
-#: ../views/view-admin-download-page.php:54
+#: ../views/view-admin-download-page.php:57
 #: ../views/view-admin-edit-download-page.php:69
 msgid ""
 "Select the landing page for your subscribers. This will be the page your "
@@ -853,11 +853,11 @@ msgstr ""
 "texto especial \"</b> para el código de acceso. Todo el código de acceso se "
 "vería así: <b>[lab_landing_page button_text = \"Mi texto especial \"]</b>"
 
-#: ../views/view-admin-download-page.php:63
+#: ../views/view-admin-download-page.php:66
 msgid "Select Your File"
 msgstr "Seleccione su archivo"
 
-#: ../views/view-admin-download-page.php:65
+#: ../views/view-admin-download-page.php:69
 msgid ""
 "( Currently, the following file types are allowed; .jpg, .jpeg, .png, .bmp, ."
 "gif, .pdf, .zip, .doc, .docx, ,mp3 )"
@@ -865,17 +865,30 @@ msgstr ""
 "(En la actualidad, se permiten los siguientes tipos de archivo,. Jpg, jpeg, "
 "png, bmp, gif, pdf, zip, doc, docx,, mp3. )"
 
-#: ../views/view-admin-download-page.php:71
+#: ../views/view-admin-download-page.php:75
 msgid "Upload"
 msgstr "subir"
 
-#: ../views/view-admin-download-page.php:83
+#: ../views/view-admin-download-page.php:87
 msgid "You can edit, delete or view your download count here."
 msgstr "Puede editar, eliminar o ver el tiempo de descarga aquí."
 
-#: ../views/view-admin-download-page.php:105
+#: ../views/view-admin-download-page.php:109
 msgid "You are about to send this download into the cyber abyss! Are you sure?"
 msgstr "Vas a enviar esta descarga en el cyber abismo! ¿Está seguro?"
+
+#: ../views/view-admin-download-page.php:110
+msgid ""
+"Your selected file exceeds your servers PHP file upload size limit. To learn "
+"how to get around your PHP file upload size limit,"
+msgstr ""
+"El archivo seleccionado supera el límite de tamaño de carga de archivos PHP "
+"servidores. Para saber cómo llegar a su límite de tamaño de carga de "
+"archivos PHP,"
+
+#: ../views/view-admin-download-page.php:110 ../views/view-admin-header.php:14
+msgid "Click Here"
+msgstr "Haga clic aquí"
 
 #: ../views/view-admin-edit-download-page.php:3
 #: ../views/view-admin-edit-download-page.php:7
@@ -967,10 +980,6 @@ msgid ""
 msgstr ""
 "\"Si te gusta la versión gratuita de doble opt-in para su descarga, entonces "
 "te encantará la versión Premium\"<br>Compruébelo usted mismo,"
-
-#: ../views/view-admin-header.php:14
-msgid "Click Here"
-msgstr "Haga clic aquí"
 
 #: ../views/view-admin-subscribers-page.php:14
 msgid "Subscriber List"

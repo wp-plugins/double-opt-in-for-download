@@ -17,7 +17,10 @@
     <form method="post" action="" enctype="multipart/form-data">
 
         <table class="form-table">
-
+            <input type="hidden" name="max_upload_size" id="max_upload_size" value="<?php
+                            $max_size = wp_convert_hr_to_bytes( ini_get('upload_max_filesize') );
+                            echo $max_size;
+                            ?>"/>
             <input type="hidden" name="_wpnonce" id="_wpnonce" value="<?php
     $doifd_lab_nonce = wp_create_nonce( 'doifd-add-download-nonce' );
     echo $doifd_lab_nonce;
@@ -62,7 +65,8 @@
 
                 <th scope="row"><label for="name"><?php _e( 'Select Your File', 'double-opt-in-for-download' ); ?><span> *</span>: </label></th>
 
-                <td><input type="file" name="userfile" size="50" id="userfile"><p><?php _e( '( Currently, the following file types are allowed; .jpg, .jpeg, .png, .bmp, .gif, .pdf, .zip, .doc, .docx, ,mp3 )', 'double-opt-in-for-download' ); ?></p></td>
+                <td><div class="filesizelimit">Your PHP file size limit is: <?php echo ini_get('upload_max_filesize'); ?></div>
+                    <input type="file" name="userfile" size="50" id="userfile"><p><?php _e( '( Currently, the following file types are allowed; .jpg, .jpeg, .png, .bmp, .gif, .pdf, .zip, .doc, .docx, ,mp3 )', 'double-opt-in-for-download' ); ?></p></td>
 
             </tr>
 
@@ -103,5 +107,6 @@ echo '</form>';
 
 
     <div id="dialog" title="Delete Confirmation Required"><?php _e( 'You are about to send this download into the cyber abyss! Are you sure?', 'double-opt-in-for-download' ); ?></div>
+    <div id="toolargedialog" title="Your file is too large"><?php _e( 'Your selected file exceeds your servers PHP file upload size limit. To learn how to get around your PHP file upload size limit,', 'double-opt-in-for-download' ); ?><a href="http://www.doubleoptinfordownload.com/forums/topic/large-file-how-to-get-around-phps-file-upload-size-limit/" target="new" /><?php _e( 'Click Here', 'double-opt-in-for-download' ); ?></a></div>
 
 </div>
