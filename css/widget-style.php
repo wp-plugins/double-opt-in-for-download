@@ -2,7 +2,7 @@
 <?php header( 'Content-type: text/css' ); ?>
 
 <?php require_once( '../../../../wp-blog-header.php' );
-$doifd_form_option = get_option( 'doifd_lab_options' );
+$doifd_widget_option = get_option( 'doifd_lab_options' );
 ?>
 <?php else : ?>
 
