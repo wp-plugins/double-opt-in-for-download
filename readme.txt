@@ -134,9 +134,9 @@ Post a comment on our Facebook page if you would like to see this plugin transla
 = 1.1.2 =
 
 <ul>
-<li>1. Added Indicator on the upload form showing your PHP maximum file upload size limit</li>
-<li>2. If your file exceeds your upload limit, the plugin will warn you and not let the upload proceed.</li>
-<li>3. You will now have the ability to turn off the use of WordPress’s form nonce. The nonce is a built in security measure to protect your forms from being hijacked. It is not recommended that you disable this, but some users using caching plugins have reported issues and requested this ability.</li>
+<li>Added Indicator on the upload form showing your PHP maximum file upload size limit</li>
+<li>If your file exceeds your upload limit, the plugin will warn you and not let the upload proceed.</li>
+<li>You will now have the ability to turn off the use of WordPress’s form nonce. The nonce is a built in security measure to protect your forms from being hijacked. It is not recommended that you disable this, but some users using caching plugins have reported issues and requested this ability.</li>
 </ul>
 
 = 1.1.1 =
@@ -297,9 +297,9 @@ Changed location of download directory to avoid deletion when upgrading.
 = 1.1.2 =
 
 <ul>
-<li>1. Added Indicator on the upload form showing your PHP maximum file upload size limit</li>
-<li>2. If your file exceeds your upload limit, the plugin will warn you and not let the upload proceed.</li>
-<li>3. You will now have the ability to turn off the use of WordPress’s form nonce. The nonce is a built in security measure to protect your forms from being hijacked. It is not recommended that you disable this, but some users using caching plugins have reported issues and requested this ability.</li>
+<li>Added Indicator on the upload form showing your PHP maximum file upload size limit</li>
+<li>If your file exceeds your upload limit, the plugin will warn you and not let the upload proceed.</li>
+<li>You will now have the ability to turn off the use of WordPress’s form nonce. The nonce is a built in security measure to protect your forms from being hijacked. It is not recommended that you disable this, but some users using caching plugins have reported issues and requested this ability.</li>
 </ul>
 
 = 1.1.1 =
