@@ -99,14 +99,21 @@ if ( !class_exists ( 'DoifdFormWidget' ) ) {
             // If the subscriber is submitting the form lets do this....
             if ( isset ( $_POST[ 'widget_doifd-subscriber-registration' ] ) ) {
 
+                $get_options = get_option ( 'doifd_lab_options' );
+                
                 // assign table name to specific variable
                 $wpdb->doifd_subscribers = $wpdb->prefix . 'doifd_lab_subscribers';
 
                 // used to create the _wpnounce in the form
                 $doifd_lab_nonce = $_POST[ '_wpnonce' ];
 
-                // check to make sure data is coming from our form, if not, die.
-                if ( !wp_verify_nonce ( $doifd_lab_nonce, 'doifd-subscriber-registration-nonce' ) ) wp_die ( 'Security check' );
+                // See if the admin wants to use nonce, if so, check to make sure data is coming from our form, if not, die.
+                if ( $get_options['form_security'] == '0' ) {
+                
+                if (!wp_verify_nonce($doifd_lab_nonce, 'doifd-subscriber-registration-nonce'))
+                    wp_die('Security check');
+                
+                }
 
                 // sanitize Name Field and assign to varialbe.
                 $doifd_lab_subscriber_name = sanitize_text_field ( $_POST[ 'doifd_subscriber_name' ] );
@@ -203,8 +210,7 @@ if ( !class_exists ( 'DoifdFormWidget' ) ) {
 
 
                         //lets package the subscriber information and download id into an array and send it to the send email function
-                        $send_ver_email =  new DoifdEmail();
-                        $send_ver_email->send_verification_email($value = array(
+                        DoifdEmail::send_verification_email ( $value = array(
                             "user_name" => $doifd_lab_subscriber_name,
                             "user_email" => $doifd_lab_subscriber_email,
                             "user_ver" => $doifd_lab_ver,

@@ -16,7 +16,7 @@ if ( !class_exists ( 'DoifdInstall' ) ) {
 
             /* Install function that creates the tables needed by the plugin and adds our options to wordpres */
 
-            require( ABSPATH . 'wp-admin/includes/upgrade.php' );
+            require_once( ABSPATH . 'wp-admin/includes/upgrade.php' );
 
             global $wpdb;
 
@@ -32,7 +32,7 @@ if ( !class_exists ( 'DoifdInstall' ) ) {
 
             /* If version number is different create/update plugin tables */
 
-            $current_version = '1.1.1';
+            $current_version = '1.1.2';
 
             if ( $doifd_lab_installed_ver != $current_version ) {
 

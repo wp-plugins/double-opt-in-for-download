@@ -158,6 +158,31 @@ if (!class_exists('DoifdAdminOptions')) {
             echo '<input type="radio" id="add_to_wpusers" name="doifd_lab_options[add_to_wpusers]" ' . (isset($add_to_wp_user) && ($add_to_wp_user == '0' ) ? 'checked="checked"' : "") . ' value="0" /> No ';
             echo '<p>' . __('If you want to add the subscribers to the wordress user table, check yes. Otherwise they will only be added to the plugins subscriber table.', 'double-opt-in-for-download') . '</p>';
         }
+        
+        public static function form_security() {
+
+            /* Get options from options table */
+
+            $options = get_option('doifd_lab_options');
+
+            /* Assign add_to_wpusers option to variable */
+            
+            if (isset($options['form_security'])) {
+
+            $security = $options['form_security'];
+                
+            } else {
+
+            $security = '0';
+            
+            }
+
+            /* Echo radio select button */
+
+            echo '<input type="radio" id="form_security" name="doifd_lab_options[form_security]" ' . ((isset($security) && ($security) == '1' ) ? 'checked="checked"' : "") . ' value="1" /> Yes ';
+            echo '<input type="radio" id="form_security" name="doifd_lab_options[form_security]" ' . (isset($security) && ($security == '0' ) ? 'checked="checked"' : "") . ' value="0" /> No ';
+            echo '<p>' . __('DOIFD uses wordpress nonce security to protect your from from malicious attacks. Click YES to disable. (Not Recommended)', 'double-opt-in-for-download') . '</p>';
+        }
 
         public static function add_promo_link() {
 

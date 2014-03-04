@@ -1,12 +1,12 @@
 === Double Opt-In for Download ===
-Contributors: Andy Bates / LAB Web Development
+Contributors: Andy Bates / LAB Web Designs
 Donate link: http://www.doubleoptinfordownload.com/
 License: GPLv3
 License URI: http://www.gnu.org/licenses/gpl.html
 Tags: email, download, optin, email marketing, marketing
 Requires at least: 3.5
-Tested up to: 3.8.1
-Stable tag: 1.1.1
+Tested up to: 3.8
+Stable tag: 1.1.2
 
 Improve your client outreach by offering FREE downloads to your visitors in exchange for their email address with our Double Opt-In Plugin
 
@@ -131,10 +131,18 @@ Post a comment on our Facebook page if you would like to see this plugin transla
 
 == Changelog ==
 
+= 1.1.2 =
+
+<ul>
+<li>1. Added Indicator on the upload form showing your PHP maximum file upload size limit</li>
+<li>2. If your file exceeds your upload limit, the plugin will warn you and not let the upload proceed.</li>
+<li>3. You will now have the ability to turn off the use of WordPress’s form nonce. The nonce is a built in security measure to protect your forms from being hijacked. It is not recommended that you disable this, but some users using caching plugins have reported issues and requested this ability.</li>
+</ul>
+
 = 1.1.1 =
-
-1. Fixed bug that caused the widget verification email to be blank.
-
+<ul>
+    <li>Fixed bug that caused the widget verification email to be blank</li>
+</ul>
 = 1.1.0 =
 
 1. Moved the landing page selection option to the download upload form. You can now select/create a landing page for each individual download.
@@ -286,9 +294,17 @@ Changed location of download directory to avoid deletion when upgrading.
 
 == Upgrade Notice ==
 
+= 1.1.2 =
+
+<ul>
+<li>1. Added Indicator on the upload form showing your PHP maximum file upload size limit</li>
+<li>2. If your file exceeds your upload limit, the plugin will warn you and not let the upload proceed.</li>
+<li>3. You will now have the ability to turn off the use of WordPress’s form nonce. The nonce is a built in security measure to protect your forms from being hijacked. It is not recommended that you disable this, but some users using caching plugins have reported issues and requested this ability.</li>
+</ul>
+
 = 1.1.1 =
 
-1. Fixed bug that caused the widget verification email to be blank.
+Fixed bug that caused the widget verification email to be blank.
 
 = 1.1.0 =
 
