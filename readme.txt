@@ -3,16 +3,16 @@ Contributors: Andy Bates / LAB Web Designs
 Donate link: http://www.doubleoptinfordownload.com/
 License: GPLv3
 License URI: http://www.gnu.org/licenses/gpl.html
-Tags: email, download, optin, email marketing, marketing
+Tags: email, download, mailchimp, aweber, constant contact, ajax, double opt in, email marketing, marketing
 Requires at least: 3.5
-Tested up to: 3.8
+Tested up to: 3.8.1
 Stable tag: 1.1.2
 
 Improve your client outreach by offering FREE downloads to your visitors in exchange for their email address with our Double Opt-In Plugin
 
 == Description ==
 
-The Double Opt-In for download plugin is ideal for improving your customer outreach.
+The Double Opt-In for download plugin is ideal for building your email list and improving your customer outreach.
 
 You simply upload your free download using the plugin admin interface. Once your file is uploaded, just add the generated shortcode to the pages or posts where you would like to show the sign up form.
  
@@ -43,7 +43,7 @@ The free version of Double OPT-IN For Download comes with all the basic features
 
 </ul>
 
-If your looking for something more, like AJAX forms and integrations with email list services like MailChimp be sure to check out our <a href="http://www.doubleoptinfordownload.com/premium-double-opt-in-for-download/" target="new">Premium Version of Double OPT-IN For Download</a>
+If your looking for something more, like AJAX forms and integrations with email list services like MailChimp, Constant Contact and AWeber, be sure to check out our <a href="http://www.doubleoptinfordownload.com/premium-double-opt-in-for-download/" target="new">Premium Version of Double OPT-IN For Download</a>
 
 <h4>Support</h4>
 
@@ -134,9 +134,9 @@ Post a comment on our Facebook page if you would like to see this plugin transla
 = 1.1.2 =
 
 <ul>
-<li>1. Added Indicator on the upload form showing your PHP maximum file upload size limit</li>
-<li>2. If your file exceeds your upload limit, the plugin will warn you and not let the upload proceed.</li>
-<li>3. You will now have the ability to turn off the use of WordPress’s form nonce. The nonce is a built in security measure to protect your forms from being hijacked. It is not recommended that you disable this, but some users using caching plugins have reported issues and requested this ability.</li>
+<li>Added Indicator on the upload form showing your PHP maximum file upload size limit</li>
+<li>If your file exceeds your upload limit, the plugin will warn you and not let the upload proceed.</li>
+<li>You will now have the ability to turn off the use of WordPress’s form nonce. The nonce is a built in security measure to protect your forms from being hijacked. It is not recommended that you disable this, but some users using caching plugins have reported issues and requested this ability.</li>
 </ul>
 
 = 1.1.1 =
@@ -297,9 +297,9 @@ Changed location of download directory to avoid deletion when upgrading.
 = 1.1.2 =
 
 <ul>
-<li>1. Added Indicator on the upload form showing your PHP maximum file upload size limit</li>
-<li>2. If your file exceeds your upload limit, the plugin will warn you and not let the upload proceed.</li>
-<li>3. You will now have the ability to turn off the use of WordPress’s form nonce. The nonce is a built in security measure to protect your forms from being hijacked. It is not recommended that you disable this, but some users using caching plugins have reported issues and requested this ability.</li>
+<li>Added Indicator on the upload form showing your PHP maximum file upload size limit</li>
+<li>If your file exceeds your upload limit, the plugin will warn you and not let the upload proceed.</li>
+<li>You will now have the ability to turn off the use of WordPress’s form nonce. The nonce is a built in security measure to protect your forms from being hijacked. It is not recommended that you disable this, but some users using caching plugins have reported issues and requested this ability.</li>
 </ul>
 
 = 1.1.1 =
