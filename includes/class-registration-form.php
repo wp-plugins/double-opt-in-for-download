@@ -15,6 +15,9 @@ if (!class_exists('DoifdRegistrationForm')) {
         public function registration_form($attr, $content) {
 
             global $wpdb;
+            
+            $wpdb->doifd_subscribers = $wpdb->prefix . 'doifd_lab_subscribers';
+            $wpdb->doifd_downloads = $wpdb->prefix . 'doifd_lab_downloads';
 
             /* Get the download id from the short code, if not send an error to the potential subscriber. */
 
@@ -232,8 +235,14 @@ if (!class_exists('DoifdRegistrationForm')) {
 
                         /* Lets package the subscriber information and download id into an array and send it to the send email function */
                         
-                        $send_ver_email =  new DoifdEmail();
-                        $send = $send_ver_email->send_verification_email($value = array(
+//                        $send_ver_email =  new DoifdEmail();
+//                        $send = $send_ver_email->send_verification_email($value = array(
+//                            "user_name" => $doifd_lab_subscriber_name,
+//                            "user_email" => $doifd_lab_subscriber_email,
+//                            "user_ver" => $doifd_lab_ver,
+//                            "download_id" => $download_id));
+                        
+                        DoifdEmail::send_verification_email($value = array(
                             "user_name" => $doifd_lab_subscriber_name,
                             "user_email" => $doifd_lab_subscriber_email,
                             "user_ver" => $doifd_lab_ver,

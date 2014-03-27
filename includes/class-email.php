@@ -4,15 +4,11 @@ if ( !class_exists ( 'DoifdEmail' ) ) {
 
     class DoifdEmail {
 
-        private $options = array();
-        
         function __construct() {
-            
-            $this->options = get_option ( 'doifd_lab_options' );
             
         }
 
-        public function admin_resend_verification_email() {
+        public static function admin_resend_verification_email() {
 
             /* Check if it's coming from the resend verification email button and the user has privileges */
 
@@ -47,7 +43,7 @@ if ( !class_exists ( 'DoifdEmail' ) ) {
 
         }
 
-        public function send_verification_email( $value ) {
+        public static function send_verification_email( $value ) {
 
             global $wpdb;
             
@@ -58,11 +54,15 @@ if ( !class_exists ( 'DoifdEmail' ) ) {
 
             if ( !empty ( $value ) ) {
 
+                /* Get the options from the options table */
+
+                $options = get_option ( 'doifd_lab_options' );
+
                 /* If the admin set a different "from email" use that otherwise use the default admin email address. */
 
-                if ( !empty ( $this->options[ 'from_email' ] ) ) {
+                if ( !empty ( $options[ 'from_email' ] ) ) {
 
-                    $msg_from_email = $this->options[ 'from_email' ];
+                    $msg_from_email = $options[ 'from_email' ];
                 } else {
 
                     $msg_from_email = get_bloginfo ( 'admin_email' );
@@ -70,15 +70,13 @@ if ( !class_exists ( 'DoifdEmail' ) ) {
 
                 /* If the admin set a different "Website Name" use that, otherwise use the default admin blog name. */
 
-                if ( !empty ( $this->options[ 'email_name' ] ) ) {
+                if ( !empty ( $options[ 'email_name' ] ) ) {
 
-                    $msg_from_name = $this->options[ 'email_name' ];
+                    $msg_from_name = $options[ 'email_name' ];
                 } else {
 
                     $msg_from_name = get_bloginfo ( 'name' );
                 }
-
-                
 
                 /* Get the email address of subscriber and assign to variable */
 
@@ -96,6 +94,8 @@ if ( !class_exists ( 'DoifdEmail' ) ) {
 
                 $doifd_download_id = $value[ 'download_id' ];
 
+                /* Query the database to get the name of download and assign to a variable. */
+
                 /* Query the database to get the name of download and the landing page and assign to a variables. */
 
                 $sql = $wpdb->get_row ( $wpdb->prepare ( "SELECT doifd_download_name, doifd_download_landing_page FROM $wpdb->doifd_downloads WHERE doifd_download_id = %s", $doifd_download_id ), ARRAY_A );
@@ -108,7 +108,7 @@ if ( !class_exists ( 'DoifdEmail' ) ) {
                     
                 } else {
                     
-                    $landing_page = $this->options['landing_page'];
+                    $landing_page = $options[ 'landing_page' ];
                 }
 
                 $download_name = $sql[ 'doifd_download_name' ];
@@ -119,7 +119,7 @@ if ( !class_exists ( 'DoifdEmail' ) ) {
 
                 /* Get the email message from the options table */
 
-                $doifd_lab_message_template = $this->options[ 'email_message' ];
+                $doifd_lab_message_template = $options[ 'email_message' ];
 
                 /* Replace the {user_name}, {download} and {url} in the email message body with the actual name and URL. */
 
@@ -148,13 +148,16 @@ if ( !class_exists ( 'DoifdEmail' ) ) {
 
         }
         
-                public function admin_notification( $subscriber, $download, $email ) {
+                public static function admin_notification( $subscriber, $download, $email ) {
 
             global $wpdb;
 
-            if ( !empty( $this->options[ 'from_email' ] ) ) {
+            $options = get_option( 'doifd_lab_options' );
 
-                $doifd_lab_to = $this->options[ 'from_email' ];
+
+            if ( !empty( $options[ 'from_email' ] ) ) {
+
+                $doifd_lab_to = $options[ 'from_email' ];
             } else {
 
                 $doifd_lab_to = get_bloginfo( 'admin_email' );
