@@ -6,7 +6,7 @@ License URI: http://www.gnu.org/licenses/gpl.html
 Tags: email, download, mailchimp, aweber, constant contact, ajax, double opt in, email marketing, marketing
 Requires at least: 3.5
 Tested up to: 3.8.1
-Stable tag: 1.1.2
+Stable tag: 1.1.3
 
 Improve your client outreach by offering FREE downloads to your visitors in exchange for their email address with our Double Opt-In Plugin
 
@@ -130,6 +130,11 @@ Post a comment on our Facebook page if you would like to see this plugin transla
 5. This is a screen shot of the subscribers admin screen.
 
 == Changelog ==
+= 1.1.3 =
+
+<ul>
+<li>Bug Fix - Fixed bug that caused the initial verification email to not send for some users with certain versions of PHP</li>
+</ul>
 
 = 1.1.2 =
 
@@ -293,6 +298,11 @@ Changed location of download directory to avoid deletion when upgrading.
 * Initial beta release.
 
 == Upgrade Notice ==
+= 1.1.3 =
+
+<ul>
+<li>Bug Fix - Fixed bug that caused the initial verification email to not send for some users with certain versions of PHP</li>
+</ul>
 
 = 1.1.2 =
 

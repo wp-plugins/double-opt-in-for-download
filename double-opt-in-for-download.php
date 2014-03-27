@@ -4,7 +4,7 @@
   Plugin URI: http://www.labwebdesigns.com/wordpress-plugin-double-opt-in-for-download.html
   Description: Plugin for allowing a user to download a free promotional download in exchange for the users name and email address
   Author: Labwebdesigns.com / Andy Bates
-  Version: 1.1.2
+  Version: 1.1.3
   Author URI: http://www.labwebdesigns.com
   License: GPLv3
 
