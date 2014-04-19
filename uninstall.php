@@ -2,35 +2,71 @@
 
 //If uninstall not called from Wordpress exit
 
-if ( ! defined ( 'WP_UNINSTALL_PLUGIN' ) )
-    exit ;
+if ( ! defined( 'WP_UNINSTALL_PLUGIN' ) ) {
+	exit;
+}
 
-/* * ************************************
- * Delete Options from WP_Options table
- * ************************************
- */
 
-delete_option ( 'doifd_lab_version' ) ;
-delete_option ( 'doifd_lab_options' ) ;
-delete_option ( 'doifd_lab_recaptcha_options' );
 
-/* * **********************************
- * Remove tables created by plugin
- * ************************************
- */
+if (is_multisite()) {
+	global $wpdb;
+	$blogs = $wpdb->get_results("SELECT blog_id FROM {$wpdb->blogs}", ARRAY_A); 
+		
+		delete_option ( 'doifd_lab_version' ) ;
+                delete_option ( 'doifd_lab_options' ) ;
+                delete_option ( 'doifd_lab_recaptcha_options' );
+		//info: remove custom file directory for main site 
+		$upload_dir = wp_upload_dir();
+		$directory = $upload_dir['basedir'] . DIRECTORY_SEPARATOR . "doifd_downloads" . DIRECTORY_SEPARATOR;
+		if (is_dir($directory)) {
+			foreach(glob($directory.'*.*') as $v){
+				unlink($v);
+			}
+			rmdir($directory);
+		}
 
-global $wpdb ;
+	if ($blogs) {
+		foreach($blogs as $blog) {
+			switch_to_blog($blog['blog_id']);
 
-$table_name = $wpdb -> prefix . doifd_lab_subscribers ;
+			delete_option ( 'doifd_lab_version' ) ;
+                        delete_option ( 'doifd_lab_options' ) ;
+                        delete_option ( 'doifd_lab_recaptcha_options' );
+			//info: remove custom file directory for main site 
+			$upload_dir = wp_upload_dir();
+			$directory = $upload_dir['basedir'] . DIRECTORY_SEPARATOR . "doifd_downloads" . DIRECTORY_SEPARATOR;
+			if (is_dir($directory)) {
+				foreach(glob($directory.'*.*') as $v){
+					unlink($v);
+				}
+				rmdir($directory);
+			}
+			//info: remove tables
+			$GLOBALS['wpdb']->query("DROP TABLE `".$GLOBALS['wpdb']->prefix."doifd_lab_subscribers`");
+			$GLOBALS['wpdb']->query("DROP TABLE `".$GLOBALS['wpdb']->prefix."doifd_lab_downloads`");
 
-$sql1 = "DROP TABLE IF EXISTS " . $table_name ;
+			restore_current_blog();
+		}
+	}
+}
+else
+{
 
-$wpdb -> query ( $sql1 ) ;
+	delete_option ( 'doifd_lab_version' ) ;
+        delete_option ( 'doifd_lab_options' ) ;
+        delete_option ( 'doifd_lab_recaptcha_options' );
+	//info: remove custom file directory for main site 
+	$upload_dir = wp_upload_dir();
+	$directory = $upload_dir['basedir'] . DIRECTORY_SEPARATOR . "doifd_downloads" . DIRECTORY_SEPARATOR;
+	if (is_dir($directory)) {
+		foreach(glob($directory.'*.*') as $v){
+			unlink($v);
+		}
+		rmdir($directory);
+	}
+	//info: remove and optimize tables
+	$GLOBALS['wpdb']->query("DROP TABLE `".$GLOBALS['wpdb']->prefix."doifd_lab_subscribers`");
+        $GLOBALS['wpdb']->query("DROP TABLE `".$GLOBALS['wpdb']->prefix."doifd_lab_downloads`");
 
-$table_name = $wpdb -> prefix . doifd_lab_downloads ;
-
-$sql2 = "DROP TABLE IF EXISTS " . $table_name ;
-
-$wpdb -> query ( $sql2 ) ;
-
+}
 ?>

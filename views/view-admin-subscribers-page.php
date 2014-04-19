@@ -18,7 +18,6 @@
     echo $count->get_subscriber_count ();
 
     ?> )</h2>
-    <?php _e ( 'Here you can resend a verification email, delete a subscriber or download/export the subscriber list into a convenient csv file.', 'double-opt-in-for-download' ); ?>
 
     <?php
 
@@ -40,8 +39,8 @@
 
 <br />
 <hr />
-<h2><?php _e ( 'Export emails to a csv file.', 'double-opt-in-for-download' ) ; ?></h2>
-<p><?php _e ( 'Choose to download all emails or just verfied emails.', 'double-opt-in-for-download' ); ?></p>
+<h2><?php _e ( 'Export Emails', 'double-opt-in-for-download' ) ; ?></h2>
+<p><?php _e( 'Download all emails or just verfied emails.', 'double-opt-in-for-download' ); ?></p>
 <form method="post" action="" enctype="multipart/form-data">
         <select name="csv_option">
             <option value="0"><?php _e ( 'All Emails', 'double-opt-in-for-download' ) ?></option>
@@ -53,7 +52,7 @@
         <input class='button-primary' name="doifd_lab_export_csv" type="submit" value="<?php _e ( 'Download Subscribers (csv)', 'double-opt-in-for-download' ); ?> ">
 
     </form>
-<p><?php _e ( '** Since users can download different downloads with the same email address the csv download/export automatically weeds out duplicate emails so you do not have too.', 'double-opt-in-for-download' ); ?></p>
+<p><?php _e( 'Export automatically weeds out duplicate emails for you.', 'double-opt-in-for-download' ); ?></p>
 
 </div>
 

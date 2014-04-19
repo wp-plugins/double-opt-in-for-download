@@ -191,6 +191,12 @@ if ( !class_exists ( 'DoifdDownloads' ) ) {
             global $wpdb;
 
             /* Assign the return back link to a variable */
+            
+            if(has_action('doifd_free_download_bypass')) {
+                    
+                do_action('doifd_free_download_bypass');
+                    
+             } else {
 
             $rb = __ ( 'Return Back', 'double-opt-in-for-download' );
 
@@ -324,6 +330,8 @@ if ( !class_exists ( 'DoifdDownloads' ) ) {
                     }
                 }
             }
+            
+             }
 
         }
 

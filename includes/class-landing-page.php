@@ -23,7 +23,7 @@ if ( !class_exists( 'DoifdLandingPage' ) ) {
                 $button_text = $attr[ 'button_text' ];
             } else {
 
-                $button_text = __( ' Click Here For Your Free Download', 'double-opt-in-for-download' );
+                $button_text = __( 'Click Here For Your Free Download', 'double-opt-in-for-download' );
             }
 
             /* Get the verification number and assign to a value */
@@ -62,7 +62,7 @@ if ( !class_exists( 'DoifdLandingPage' ) ) {
 
                 /* If the email is already verified and they have already exceed the number of downloads, lets show a message */ elseif ( ( $checkver->doifd_email_verified == '1' ) && ( $checkver->doifd_downloads_allowed >= $this->options[ 'downloads_allowed' ] ) ) {
 
-                    return '<div class="doifd_user_reg_form exceeded">' . __( 'You have exceeded your number of<br />downloads for this item.', 'double-opt-in-for-download' ) . '</div>';
+                    return '<div class="doifd_user_reg_form exceeded">' . __( 'You have exceeded the maximum number of', 'double-opt-in-for-download' ) . '<br />' . __( 'downloads for this item.', 'double-opt-in-for-download' ) . '</div>';
 
                     /* If the email is already verified and they have NOT exceed the number of downloads, lets show the download button */
                 } elseif ( ( $checkver->doifd_email_verified == '1' ) && ( $checkver->doifd_downloads_allowed <= $this->options[ 'downloads_allowed' ] ) ) {

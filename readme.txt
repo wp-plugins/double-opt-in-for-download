@@ -1,4 +1,4 @@
-﻿=== Double Opt-In for Download ===
+=== Double Opt-In for Download ===
 Contributors: Andy Bates / LAB Web Designs
 Donate link: http://www.doubleoptinfordownload.com/
 License: GPLv3
@@ -6,7 +6,7 @@ License URI: http://www.gnu.org/licenses/gpl.html
 Tags: email, download, mailchimp, aweber, constant contact, ajax, double opt in, email marketing, marketing
 Requires at least: 3.5
 Tested up to: 3.9
-Stable tag: 1.1.3
+Stable tag: 1.1.4
 
 Improve your client outreach by offering FREE downloads to your visitors in exchange for their email address with our Double Opt-In Plugin
 
@@ -40,10 +40,25 @@ The free version of Double OPT-IN For Download comes with all the basic features
     <li>Customizable form text and form button text.</li>
     <li>Customizable Widget Form.</li>
     <li>Customizable Landing Page Button Text.</li>
+    <li>Works with Multi-Sites</li>
 
 </ul>
 
 If your looking for something more, like AJAX forms and integrations with email list services like MailChimp, Constant Contact and AWeber, be sure to check out our <a href="http://www.doubleoptinfordownload.com/premium-double-opt-in-for-download/" target="new">Premium Version of Double OPT-IN For Download</a>
+
+<h4>Language Support</h4>
+
+DOIFD has been translated into the following languages:
+
+<ul>
+    <li>Dutch - nl_NL</li> 
+    <li>French - fr_FR</li>
+    <li>German - de_DE</li>
+    <li>Italian - it_IT</li>
+    <li>Portuguese (Brazil) - pt_BR</li>
+    <li>Spanish - es_ES</li>
+    
+</ul>
 
 <h4>Support</h4>
 
@@ -113,7 +128,9 @@ The following is a list of languages the plugin supports:
 1. Spanish - es_ES
 2. French - fr_FR
 3. German - de_DE
-4. Italian - Coming Soon
+4. Italian - it_IT
+5. Portuguese (Brazil) - pt_BR
+6. Dutch - nl_NL
 
 Post a comment on our Facebook page if you would like to see this plugin translated to your language.
 
@@ -130,6 +147,18 @@ Post a comment on our Facebook page if you would like to see this plugin transla
 5. This is a screen shot of the subscribers admin screen.
 
 == Changelog ==
+
+= 1.1.4 =
+
+<ul>
+    <li>Now works with Multi-Sites</li>
+    <li>Added Download File Name in CSV Download</li>
+    <li>Added Verified column in subscribers to show if the user verified their email address</li>
+    <li>Added Dutch Language translation - nl_NL</li>
+    <li>Added Portuguese (Brazil) language translation - pt_BR</li>
+    <li>Added Italian language translation - it_IT</li>
+</ul>
+
 = 1.1.3 =
 
 <ul>
@@ -145,9 +174,11 @@ Post a comment on our Facebook page if you would like to see this plugin transla
 </ul>
 
 = 1.1.1 =
+
 <ul>
     <li>Fixed bug that caused the widget verification email to be blank</li>
 </ul>
+
 = 1.1.0 =
 
 1. Moved the landing page selection option to the download upload form. You can now select/create a landing page for each individual download.
@@ -298,6 +329,19 @@ Changed location of download directory to avoid deletion when upgrading.
 * Initial beta release.
 
 == Upgrade Notice ==
+= 1.1.4 =
+
+<ul>
+    <li>Now works with Multi-Sites</li>
+    <li>Added Download File Name in CSV Download</li>
+    <li>Added Verified column in subscribers to show if the user verified their email address</li>
+    <li>Added Dutch Language translation - nl_NL</li>
+    <li>Added Portuguese (Brazil) language translation - pt_BR</li>
+    <li>Added Italian language translation - it_IT</li>
+    <li>Improved Translations for Spanish (es_ES), French (fr_FR) & German (de_DE)
+</ul>
+
+
 = 1.1.3 =
 
 <ul>

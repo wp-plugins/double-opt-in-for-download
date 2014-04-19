@@ -1,12 +1,11 @@
 <div class = "wrap">  
 
-    <div id="icon-edit-pages" class="icon32"><br></div><h2><?php _e ( 'Edit Download File', 'double-opt-in-for-download' ); ?></h2>
 
     <?php include( DOUBLE_OPT_IN_FOR_DOWNLOAD_DIR . 'views/view-admin-header.php' ); ?>
-
-    <h2><?php _e ( 'Edit Download File', 'double-opt-in-for-download' );
-    echo $_GET[ 'doifd_download_name' ]; ?></h2>
-    <p><?php _e ( 'Here you can either rename your download file, replace it with a different file <i>(The old one will be deleted from the server)</i> or you can reset the download count.', 'double-opt-in-for-download' ); ?></p>
+    
+    <div id="icon-edit-pages" class="icon32"><br></div><h2><?php _e( 'Edit Download File', 'double-opt-in-for-download' );
+    echo $_GET[ 'doifd_download_name' ];
+    ?></h2>
 
     <form method="post" action="" enctype="multipart/form-data">
 
@@ -66,7 +65,6 @@
                         echo $option;
                     }
                     echo '</select>';
-                    echo '<p>' . __( 'Select the landing page for your subscribers. This will be the page your subscribers will come to after they have clicked the link in their verification email. Once you have selected your landing page, place this shortcode <b>[lab_landing_page]</b> on that page. You can also change the button text by adding <b>button_text="My Special Text"</b> to the short code. The whole short code would look like this: <b>[lab_landing_page button_text="My Special Text"]</b>', 'double-opt-in-for-download' ) . '</p>';
                     echo '</div>';
                     ?>
                 </td>
@@ -75,7 +73,7 @@
 
             <tr valign="top">
 
-                <th scope="row"><label for="name"><?php _e ( 'Select Your Replacement File', 'double-opt-in-for-download' ); ?><span> *</span>: </label></th>
+                <th scope="row"><label for="name"><?php _e ( 'Select Replacement File', 'double-opt-in-for-download' ); ?><span> *</span>: </label></th>
 
                 <td><input type="file" name="userfile" id="userfile"><p><?php _e ( '(Currently, the following file types are allowed; .jpg, .jpeg, .png, .bmp, .gif, .pdf, .zip, .doc, .docx )', 'double-opt-in-for-download' ); ?></p></td>
 
@@ -83,7 +81,7 @@
 
             <tr valign="top">
 
-                <th scope="row"><label for="name"><?php _e ( 'Reset Download Count to 0', 'double-opt-in-for-download' ); ?><span></span>: </label></th>
+                <th scope="row"><label for="name"><?php _e ( 'Reset Download Count', 'double-opt-in-for-download' ); ?><span></span>: </label></th>
 
                 <td><input type="radio" id="doifd_reset_download_count" name="doifd_reset_download_count"  value="1" /><?php _e ( 'Yes', 'double-opt-in-for-download' ); ?>
 

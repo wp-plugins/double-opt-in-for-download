@@ -70,6 +70,18 @@ class Doifd_Subscriber_Table extends WP_List_Table {
         );
     }
     
+    function column_verified( $item ) {
+        
+        if ($item['verified'] == '0') {
+            return __('No', 'double-opt-in-for-download');
+        } elseif ($item['verified'] == '1') {
+            return __('Yes', 'double-opt-in-for-download');
+        } else {
+            return '';
+        }
+
+    }
+    
     function column_allowed( $item ) {
 
         //Return the title contents
@@ -91,11 +103,12 @@ class Doifd_Subscriber_Table extends WP_List_Table {
             'cb' => '<input type="checkbox" />', //Render a checkbox instead of text
             'name' => __( 'Name', 'double-opt-in-for-download' ),
             'email' => __( 'Email Address', 'double-opt-in-for-download' ),
+            'verified' => __( 'Verified', 'double-opt-in-for-download' ),
             'download_name' => __( 'Download Name', 'double-opt-in-for-download' ),
             'allowed' => __( 'Successful Downloads' , 'double-opt-in-for-download' ),
             'time' => __( 'Date / Time' , 'double-opt-in-for-download' )
         );
-        return $columns;
+        return apply_filters('doifd_subscriber_table_headers',  $columns );
     }
 
     function get_sortable_columns() {
@@ -153,6 +166,7 @@ class Doifd_Subscriber_Table extends WP_List_Table {
         $sql = "SELECT " . $wpdb -> prefix . "doifd_lab_subscribers.doifd_name AS name, "
                 . $wpdb -> prefix . "doifd_lab_subscribers.time, "
                 . $wpdb -> prefix . "doifd_lab_subscribers.doifd_email AS email, "
+                . $wpdb->prefix . "doifd_lab_subscribers.doifd_email_verified AS verified, "
                 . $wpdb -> prefix . "doifd_lab_subscribers.doifd_subscriber_id AS subscriber_id, "
                 . $wpdb -> prefix . "doifd_lab_subscribers.doifd_verification_number AS ver, "
                 . $wpdb -> prefix . "doifd_lab_subscribers.doifd_download_id, "

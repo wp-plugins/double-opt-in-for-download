@@ -29,7 +29,7 @@ if ( !class_exists ( 'DoifdAdminWidgetOptions' ) ) {
 
             echo '<div id="doifd_lab_admin_options">';
             echo '<input type="text" name="doifd_lab_options[widget_width]" id="widget_width"  size="4" value="' . $widget_width . '">';
-            echo '<p>' . __( 'This is the width of the widget in the sidebar. <b>Use numbers only, DO NOT ADD the px at the end.' , 'double-opt-in-for-download' ) . '</b></p>';
+            echo '<p>' . __( '( Example: 250 )', 'double-opt-in-for-download' ) . '</b></p>';
             echo '</div>';
 
         }
@@ -55,7 +55,7 @@ if ( !class_exists ( 'DoifdAdminWidgetOptions' ) ) {
 
             echo '<div id="doifd_lab_admin_options">';
             echo '<input type="text" name="doifd_lab_options[widget_inside_padding]" id="widget_inside_padding" size="4" value="' . $widget_inside_padding . '">';
-            echo '<p>' . __( 'This is the amount of padding used inside of the widget form. <b>Use numbers only, DO NOT ADD the px at the end.' , 'double-opt-in-for-download' ) . '</b></p>';
+            echo '<p>' . __( '( Example: 25 )', 'double-opt-in-for-download' ) . '</b></p>';
             echo '</div>';
 
         }
@@ -81,7 +81,7 @@ if ( !class_exists ( 'DoifdAdminWidgetOptions' ) ) {
 
             echo '<div id="doifd_lab_admin_options">';
             echo '<input type="text" name="doifd_lab_options[widget_margin_top]" id="widget_margin_top" size="4" value="' . $widget_margin_top . '">';
-            echo '<p>' . __( 'This is the top margin of the widget. <b>Use numbers only, DO NOT add the px at the end.',  'double-opt-in-for-download' ) . '</b></p>';
+            echo '<p>' . __( '( Example: 25 )', 'double-opt-in-for-download' ) . '</b></p>';
             echo '</div>';
 
         }
@@ -107,7 +107,7 @@ if ( !class_exists ( 'DoifdAdminWidgetOptions' ) ) {
 
             echo '<div id="doifd_lab_admin_options">';
             echo '<input type="text" name="doifd_lab_options[widget_margin_right]" id="widget_margin_right" size="4" value="' . $widget_margin_right . '">';
-            echo '<p>' . __( 'This is the right margin of the widget. <b>Use numbers only, DO NOT add the px at the end.', 'double-opt-in-for-download' ) . '</b></p>';
+            echo '<p>' . __( '( Example: 25 )', 'double-opt-in-for-download' ) . '</b></p>';
             echo '</div>';
 
         }
@@ -133,7 +133,7 @@ if ( !class_exists ( 'DoifdAdminWidgetOptions' ) ) {
 
             echo '<div id="doifd_lab_admin_options">';
             echo '<input type="text" name="doifd_lab_options[widget_margin_bottom]" id="widget_margin_bottom" size="4" value="' . $widget_margin_bottom . '">';
-            echo '<p>' . __( 'This is the bottom margin of the widget. <b>Use numbers only, DO NOT add the px at the end.', 'double-opt-in-for-download' ) . '</b></p>';
+            echo '<p>' . __( '( Example: 25 )', 'double-opt-in-for-download' ) . '</b></p>';
             echo '</div>';
 
         }
@@ -159,7 +159,7 @@ if ( !class_exists ( 'DoifdAdminWidgetOptions' ) ) {
 
             echo '<div id="doifd_lab_admin_options">';
             echo '<input type="text" name="doifd_lab_options[widget_margin_left]" id="widget_margine_left"  size="4" value="' . $widget_margin_left . '">';
-            echo '<p>' . __( 'This is the left margin of the widget. <b>Use numbers only, DO NOT add the px at the end.', 'double-opt-in-for-download' ) . '</b></p>';
+            echo '<p>' . __( '( Example: 25 )', 'double-opt-in-for-download' ) . '</b></p>';
             echo '</div>';
 
         }
@@ -185,7 +185,7 @@ if ( !class_exists ( 'DoifdAdminWidgetOptions' ) ) {
 
             echo '<div id="doifd_lab_admin_options">';
             echo '<input type="text" name="doifd_lab_options[widget_input_width]" id="widget_input_width" size="4" value="' . $widget_input_width . '">';
-            echo '<p>' . __( 'This sets the width of the input field on the widget. <b>Use numbers only, DO NOT add the px at the end.', 'double-opt-in-for-download' ) . '</b></p>';
+            echo '<p>' . __( '( Example: 70% or 200px etc )', 'double-opt-in-for-download' ) . '</b></p>';
             echo '</div>';
 
         }
@@ -211,7 +211,7 @@ if ( !class_exists ( 'DoifdAdminWidgetOptions' ) ) {
 
             echo '<div id="doifd_lab_admin_options">';
             echo '<input type="text" name="doifd_lab_options[widget_background_color]" id="widget_background_color" size="10" value="' . $widget_background_color . '">';
-            echo '<p>' . __( 'This sets the background color of the widget form. <b>You can use transparent or hex values ( #000000 etc ).', 'double-opt-in-for-download' ) . '</b></p>';
+            echo '<p>' . __( '( Example: #000000, transparent, etc )', 'double-opt-in-for-download' ) . '</b></p>';
             echo '</div>';
 
         }
@@ -237,7 +237,7 @@ if ( !class_exists ( 'DoifdAdminWidgetOptions' ) ) {
 
             echo '<div id="doifd_lab_admin_options">';
             echo '<input type="text" name="doifd_lab_options[widget_input_field_background_color]" id="widget_input_field_background_color" size="10" value="' . $widget_input_field_background_color . '">';
-            echo '<p>' . __( 'This sets the background color of the text input fields. <b>You can use transparent or hex values ( #000000 etc ).', 'double-opt-in-for-download' ) . '</b></p>';
+            echo '<p>' . __( '( Example: #000000, transparent, etc )', 'double-opt-in-for-download' ) . '</b></p>';
             echo '</div>';
 
         }
@@ -263,7 +263,7 @@ if ( !class_exists ( 'DoifdAdminWidgetOptions' ) ) {
 
             echo '<div id="doifd_lab_admin_options">';
             echo '<input type="text" name="doifd_lab_options[widget_title_color]" id="widget_title_color"  size="10" value="' . $widget_title_color . '">';
-            echo '<p>' . __( 'This sets the font color for the widget title. <b>Use hex values ( #000000 etc ).', 'double-opt-in-for-download' ) . '</b></p>';
+            echo '<p>' . __( '( Example: #000000, transparent, etc )', 'double-opt-in-for-download' ) . '</b></p>';
             echo '</div>';
         }
         
@@ -288,7 +288,7 @@ if ( !class_exists ( 'DoifdAdminWidgetOptions' ) ) {
 
             echo '<div id="doifd_lab_admin_options">';
             echo '<input type="text" name="doifd_lab_options[widget_title_size]" id="widget_title_size"  size="10" value="' . $widget_title_size . '">';
-            echo '<p>' . __( 'This sets the font size for the widget title. ( Example: 1em, 12px etc ).', 'double-opt-in-for-download' ) . '</p>';
+            echo '<p>' . __( '( Example: 1em, 12px etc )', 'double-opt-in-for-download' ) . '</p>';
             echo '</div>';
         }
         
@@ -313,7 +313,7 @@ if ( !class_exists ( 'DoifdAdminWidgetOptions' ) ) {
 
             echo '<div id="doifd_lab_admin_options">';
             echo '<input type="text" name="doifd_lab_options[widget_color]" id="widget_color"  size="10" value="' . $widget_color . '">';
-            echo '<p>' . __( 'This sets the font color for the widget. ( Example: #000000, transparent etc ).', 'double-opt-in-for-download' ) . '</p>';
+            echo '<p>' . __( '( Example: #000000, transparent etc ).', 'double-opt-in-for-download' ) . '</p>';
             echo '</div>';
         }
 

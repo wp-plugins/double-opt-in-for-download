@@ -103,3 +103,11 @@ jQuery('#userfile').bind('change', function() {
 
 });
 });
+/* Opens Support submenu link in new window */
+ jQuery(document).ready( function($) {   
+            $('#doifd-support').parent().attr('target','_blank');  
+        });
+
+jQuery(document).ready( function($) {   
+            $('#doifd-premium').parent().attr('target','_blank');  
+        });

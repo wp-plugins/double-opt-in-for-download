@@ -4,12 +4,12 @@
   Plugin URI: http://www.doubleoptinfordownload.com/
   Description: Plugin for allowing a user to download a free promotional download in exchange for the users name and email address
   Author: Labwebdesigns.com / Andy Bates
-  Version: 1.1.3
+  Version: 1.1.4
   Author URI: http://www.doubleoptinfordownload.com/
   License: GPLv3
 
   Double OPT-IN for download
-  Copyright (C) 2013, Lab Web Designs / Andy Bates - andy@labwebdesigns.com
+  Copyright (C) 2013-2014, Lab Web Development / Andy Bates - andy@labwebdesigns.com
 
   This program is free software: you can redistribute it and/or modify
   it under the terms of the GNU General Public License as published by

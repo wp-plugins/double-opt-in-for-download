@@ -25,26 +25,44 @@ if ( !class_exists ( 'DoifdEmail' ) ) {
                 $d = preg_replace ( "/[^0-9]/", "", $_REQUEST[ 'download_id' ] );
 
                 /* Package clean variable into an array and send them to the send email function */
+                
+                if ( has_filter( 'doifd_alt_verification_email' ) ) {
+
+                $send = apply_filters( 'doifd_alt_verification_email', $value = array(
+                            "user_name" => $a,
+                            "user_email" => $b,
+                            "user_ver" => $c,
+                            "download_id" => $d ) );
+            }
+            
+                else {
 
                 $send = DoifdEmail::send_verification_email ( $value = array(
                             "user_name" => $a,
                             "user_email" => $b,
                             "user_ver" => $c,
                             "download_id" => $d ) );
-
+                }
                 if ( $send === TRUE ) {
 
-                    echo '<div class="updated"><p><strong>' . __( 'Email Sent To Subscriber', 'double-opt-in-for-download' ) . ' <a href="' . str_replace ( '%7E', '~', $_SERVER[ 'REQUEST_URI' ] ) . '">' . __( 'Return Back' , 'double-opt-in-for-download' ) . '</a></strong></p></div>';
+                    echo '<div class="updated"><p><strong>' . __( 'Email Sent', 'double-opt-in-for-download' ) . ' <a href="' . str_replace ( '%7E', '~', $_SERVER[ 'REQUEST_URI' ] ) . '">' . __( 'Return Back' , 'double-opt-in-for-download' ) . '</a></strong></p></div>';
                 } else {
 
-                    echo '<div class="error"><p><strong>' .__( 'A Problem Prevented the Email From Being Sent', 'double-opt-in-for-download' ) . ' <a href="' . str_replace ( '%7E', '~', $_SERVER[ 'REQUEST_URI' ] ) . '">' . __( 'Return Back' , 'double-opt-in-for-download' ) . '</a></strong></p></div>';
+                    echo '<div class="error"><p><strong>' .__( 'The Email was NOT Sent', 'double-opt-in-for-download' ) . ' <a href="' . str_replace ( '%7E', '~', $_SERVER[ 'REQUEST_URI' ] ) . '">' . __( 'Return Back' , 'double-opt-in-for-download' ) . '</a>'. $send .'</strong></p></div>';
                 }
             }
 
         }
 
         public static function send_verification_email( $value ) {
-
+            
+//            if ( has_action( 'doifd_alt_verification_email' ) ) {
+//
+//                do_action( 'doifd_alt_verification_email', $value );
+//            }
+//            
+//            else {
+      
             global $wpdb;
             
             $wpdb->doifd_subscribers = $wpdb->prefix . 'doifd_lab_subscribers';
@@ -140,15 +158,17 @@ if ( !class_exists ( 'DoifdEmail' ) ) {
 
                 wp_mail ( $doifd_lab_to, $doifd_lab_subject, $doifd_lab_message, $doifd_lab_headers );
 
-                return TRUE;
+                 return TRUE;
             } else {
 
                 return FALSE;
             }
+            
+//            }
 
         }
         
-                public static function admin_notification( $subscriber, $download, $email ) {
+ public static function admin_notification( $subscriber, $download, $email ) {
 
             global $wpdb;
 

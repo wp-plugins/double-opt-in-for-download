@@ -11,7 +11,7 @@ require( '../../../../wp-blog-header.php' );
 
 header( 'Content-type: text/css' );
 
-$doifd_widget_option = get_option ( 'doifd_lab_options' ) ;
+$doifd_form_option = get_option ( 'doifd_lab_options' ) ;
 ?>
 <?php endif; ?>
 

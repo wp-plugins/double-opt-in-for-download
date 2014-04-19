@@ -18,6 +18,8 @@ require_once( DOUBLE_OPT_IN_FOR_DOWNLOAD_DIR . '/admin/class-admin-dashboard-wid
 
 require_once( DOUBLE_OPT_IN_FOR_DOWNLOAD_DIR . '/admin/class-admin-csv.php');
 
+require_once( DOUBLE_OPT_IN_FOR_DOWNLOAD_DIR . '/admin/class-admin-filters.php');
+
 if (!class_exists('DoifdAdmin')) {
 
     class DoifdAdmin {
@@ -46,11 +48,13 @@ if (!class_exists('DoifdAdmin')) {
 
         function register_admin_actions() {
 
-            add_action('admin_init', array(&$this, 'doifd_lab_admin_init'));
-            add_action('admin_menu', array(&$this, 'register_doifd_custom_menu_page'));
-            add_action('admin_init', array(&$this, 'doifd_lab_resend_verification_email'));
-            add_action('admin_init', array(&$this, 'register_admin_styles'));
-            add_action('admin_init', array(&$this, 'register_admin_js'));
+            add_action('admin_init', array($this, 'doifd_lab_admin_init'));
+            add_action('admin_menu', array($this, 'register_doifd_custom_menu_page'));
+            add_action('admin_menu', array($this, 'doifd_support_sub_menu'));
+            add_action('admin_menu', array($this, 'doifd_get_premium_sub_menu'));
+            add_action('admin_init', array($this, 'doifd_lab_resend_verification_email'));
+            add_action('admin_init', array($this, 'register_admin_styles'));
+            add_action('admin_init', array($this, 'register_admin_js'));
         
         }
         
@@ -68,7 +72,7 @@ if (!class_exists('DoifdAdmin')) {
  
         function doifd_add_filters(){
             
-           add_filter('plugin_action_links_' . plugin_basename( __FILE__ ), array(&$this, 'doifd_settings_link'));
+           add_filter('plugin_action_links_' . plugin_basename( __FILE__ ), array($this, 'doifd_settings_link'));
             
         }
         
@@ -88,17 +92,17 @@ if (!class_exists('DoifdAdmin')) {
 
             global $plugin_slug;
 
-            register_setting('doifd_lab_options', 'doifd_lab_options', array(&$this, 'doifd_lab_validate_options'));
+            register_setting('doifd_lab_options', 'doifd_lab_options', array($this, 'doifd_lab_validate_options'));
             add_settings_section('doifd_lab_main', __('General Settings', 'double-opt-in-for-download'), '', 'doifd_lab_general');
-            add_settings_field('doifd_lab_downloads_allowed', __('Select Maximum Number of Downloads', 'double-opt-in-for-download'), array(&$this, 'doifd_lab_setting_input'), 'doifd_lab_general', 'doifd_lab_main');
+            add_settings_field('doifd_lab_downloads_allowed', __('Set Download Limit', 'double-opt-in-for-download'), array($this, 'doifd_lab_setting_input'), 'doifd_lab_general', 'doifd_lab_main');
             add_settings_field('doifd_lab_add_to_wpusers', __('Add Subscribers to the Wordpress User Table?', 'double-opt-in-for-download'), array($this, 'doifd_lab_add_to_wp_user_table'), 'doifd_lab_general', 'doifd_lab_main');
             add_settings_field('doifd_lab_form_security', __('Disable Form Security?', 'double-opt-in-for-download'), array($this, 'doifd_lab_form_security'), 'doifd_lab_general', 'doifd_lab_main');
-            add_settings_field('doifd_lab_promo_link', __('Help Us Out?<br />Add a promotional link', 'double-opt-in-for-download'), array($this, 'doifd_lab_add_promo_link'), 'doifd_lab_general', 'doifd_lab_main');
+            add_settings_field('doifd_lab_promo_link', __('Help Us Out?', 'double-opt-in-for-download'), array($this, 'doifd_lab_add_promo_link'), 'doifd_lab_general', 'doifd_lab_main');
             add_settings_section('doifd_lab_email_section', __('Email Settings', 'double-opt-in-for-download'), '', 'doifd_lab_email');
-            add_settings_field( 'doifd_lab_notification_email', __( 'Get Notfied via Email of New User', 'double-opt-in-for-download' ), array ( $this, 'doifd_lab_setting_download_notificiation' ), 'doifd_lab_email', 'doifd_lab_email_section' );
-            add_settings_field('doifd_lab_from_email', __('Enter The Return Email Address', 'double-opt-in-for-download'), array($this, 'doifd_lab_setting_from_email'), 'doifd_lab_email', 'doifd_lab_email_section');
-            add_settings_field('doifd_lab_email_name', __('Enter who the email is from<br>(Default is the Website or Blog name)', 'double-opt-in-for-download'), array($this, 'doifd_lab_setting_email_name'), 'doifd_lab_email', 'doifd_lab_email_section');
-            add_settings_field('doifd_lab_email_message', __('Email Message:', 'double-opt-in-for-download'), array($this, 'doifd_lab_setting_email_message'), 'doifd_lab_email', 'doifd_lab_email_section');
+            add_settings_field( 'doifd_lab_notification_email', __( 'Notify Admin', 'double-opt-in-for-download' ), array ( $this, 'doifd_lab_setting_download_notificiation' ), 'doifd_lab_email', 'doifd_lab_email_section' );
+            add_settings_field('doifd_lab_from_email', __('Return Email Address', 'double-opt-in-for-download'), array($this, 'doifd_lab_setting_from_email'), 'doifd_lab_email', 'doifd_lab_email_section');
+            add_settings_field('doifd_lab_email_name', __('Email From', 'double-opt-in-for-download'), array($this, 'doifd_lab_setting_email_name'), 'doifd_lab_email', 'doifd_lab_email_section');
+            add_settings_field('doifd_lab_email_message', __('Verification Email:', 'double-opt-in-for-download'), array($this, 'doifd_lab_setting_email_message'), 'doifd_lab_email', 'doifd_lab_email_section');
             add_settings_section('doifd_lab_widget_style_section', __('Widget Style Settings', 'double-opt-in-for-download'), '', 'doifd_lab_widget_style');
             add_settings_field('doifd_lab_widget_style_width', __('Width of Widget', 'double-opt-in-for-download'), array($this, 'doifd_lab_setting_widget_width'), 'doifd_lab_widget_style', 'doifd_lab_widget_style_section');
             add_settings_field('doifd_lab_widget_style_inside_padding', __('Widget Inside Padding', 'double-opt-in-for-download'), array($this, 'doifd_lab_setting_widget_inside_padding'), 'doifd_lab_widget_style', 'doifd_lab_widget_style_section');
@@ -122,7 +126,7 @@ if (!class_exists('DoifdAdmin')) {
             add_settings_field( 'doifd_lab_form_title_size', __( 'Title Font Size', 'double-opt-in-for-download' ), array ( $this, 'doifd_lab_setting_form_title_size' ), 'doifd_lab_form_style', 'doifd_lab_form_style_section' );
             add_settings_field('doifd_lab_form_input_field_background_color', __('Form Input Field Background Color', 'double-opt-in-for-download'), array($this, 'doifd_lab_setting_form_input_field_background_color'), 'doifd_lab_form_style', 'doifd_lab_form_style_section');
             add_settings_field('doifd_lab_form_input_field_width', __('Form Input Field Width', 'double-opt-in-for-download'), array($this, 'doifd_lab_setting_form_input_field_width'), 'doifd_lab_form_style', 'doifd_lab_form_style_section');
-            add_settings_section('doifd_lab_form_privacy_section', __('Form Privacy Policy Settings', 'double-opt-in-for-download'), '', 'doifd_lab_form_privacy');
+            add_settings_section('doifd_lab_form_privacy_section', __('Privacy Policy Settings', 'double-opt-in-for-download'), '', 'doifd_lab_form_privacy');
             add_settings_field('doifd_lab_form_privacy_policy', __('Use Privacy Policy', 'double-opt-in-for-download'), array($this, 'doifd_lab_setting_privacy_policy'), 'doifd_lab_form_privacy', 'doifd_lab_form_privacy_section');
             add_settings_field('doifd_lab_form_privacy_text', '', array($this, 'doifd_lab_setting_privacy_text'), 'doifd_lab_form_privacy', 'doifd_lab_form_privacy_section');
             add_settings_field('doifd_lab_form_privacy_font_size', '', array($this, 'doifd_lab_select_privacy_font_size'), 'doifd_lab_form_privacy', 'doifd_lab_form_privacy_section');
@@ -133,21 +137,45 @@ if (!class_exists('DoifdAdmin')) {
 
         function register_doifd_custom_menu_page() {
 
+            global $plugin_slug;
+
             // create main menu page
-            add_menu_page('doifd menu title', __('DOIFD', 'double-opt-in-for-download'), 'manage_options', __FILE__, array($this, 'doifd_lab_options_page'));
+            add_menu_page('doifd menu title', __('DOIFD', 'double-opt-in-for-download'), 'manage_options', 'doifd-admin-menu', array($this, 'doifd_lab_options_page'));
 
             //create sub menu page for downloads
-            add_submenu_page(__FILE__, 'Settings', __('Settings', 'double-opt-in-for-download'), 'manage_options', __FILE__, array($this, 'doifd_lab_options_page'));
+            add_submenu_page( 'doifd-admin-menu', 'doifd downloads', apply_filters ( 'doifd_download_menu_title', __('Downloads', 'double-opt-in-for-download')), 'manage_options', 'doifd-admin-menu_downloads', array($this, 'doifd_download_page'));
 
+            //create sub menu page for expansion plugins
+            add_submenu_page( 'doifd-admin-menu', 'Expansions', __('Expansion Plugins', 'double-opt-in-for-download'), 'manage_options', 'doifd-admin-menu_expansions', array($this, 'doifd_expansions_page'));
+            
             //create sub menu page for downloads
-            add_submenu_page(__FILE__, 'doifd downloads', __('Downloads', 'double-opt-in-for-download'), 'manage_options', __FILE__ . '_downloads', array($this, 'doifd_download_page'));
+            add_submenu_page( 'doifd-admin-menu', 'Settings', apply_filters ( 'doifd_download_settings_title', __('Settings', 'double-opt-in-for-download')), 'manage_options', 'doifd-admin-menu_settings', array($this, 'doifd_lab_options_page'));
 
             //create sub menu page for subscribers
-            add_submenu_page(__FILE__, 'doifd subscribers', __('Subscribers', 'double-opt-in-for-download'), 'manage_options', __FILE__ . '_subscribers', array($this, 'doifd_lab_subscribers_page'));
+            add_submenu_page( 'doifd-admin-menu', 'doifd subscribers', __('Subscribers', 'double-opt-in-for-download'), 'manage_options', 'doifd-admin-menu_subscribers', array($this, 'doifd_lab_subscribers_page'));
 
             //create sub menu page for editing downloads
-            add_submenu_page(__FILE__, 'doifd edit downloads', '', 'manage_options', __FILE__ . '_edit_downloads', array($this, 'doifd_lab_edit_downloads_page'));
-
+            add_submenu_page( '', 'doifd edit downloads', '', 'manage_options', 'doifd-admin-menu_edit_downloads', array($this, 'doifd_lab_edit_downloads_page'));
+        }
+        
+        /* Adds Support to DOIFD sub menu with link that goes to DOIFD Website */
+        function doifd_support_sub_menu() {
+            
+        global $submenu;
+        
+        $url = 'http://www.doubleoptinfordownload.com/';
+        
+        $submenu['doifd-admin-menu'][] = array('<div id="doifd-support">' . __('Support', 'double-opt-in-for-download' ) . '</div>', 'manage_options', $url);
+        }
+        
+        /* Adds Support to DOIFD sub menu with link that goes to DOIFD Website */
+        function doifd_get_premium_sub_menu() {
+            
+        global $submenu;
+        
+        $url = 'http://www.doubleoptinfordownload.com/premium-double-opt-in-for-download/';
+        
+        $submenu['doifd-admin-menu'][] = array('<div id="doifd-premium">' . __('Get Premium Version', 'double-opt-in-for-download' ) . '</div>', 'manage_options', $url);
         }
 
         /* *************************************
@@ -213,6 +241,24 @@ if (!class_exists('DoifdAdmin')) {
             }
 
             return DoifdAdminOptions::options_page();
+        }
+        
+        function doifd_expansions_page() {
+            
+            echo '<h2>DOIFD Expansion Plugins</h2>';
+            echo '<table width="100%">';
+            echo '<tr>';
+            echo '<a href="http://www.doubleoptinfordownload.com/downloads/doifd-lists/" target="_blank" /><img src="' . DOUBLE_OPT_IN_FOR_DOWNLOAD_IMG_URL . 'extension-list-icon.png" border="0" /></a>';
+            echo '<td>';
+            echo '</td>';
+            echo '<td>';
+            echo '</td>';
+            echo '<td>';
+            echo '</td>';
+            echo '<td>';
+            echo '</td>';
+            echo '</tr>';
+            echo '</table>';
         }
 
         /* Create the maximum number of downloads field */

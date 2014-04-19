@@ -25,14 +25,14 @@ if (!class_exists('DoifdAdminOptions')) {
                 <form action="options.php" method="post">
                     <div id="tabs">
                         <ul>
-                            <li><a href="#tabs-1">General Settings</a></li>
-                            <li><a href="#tabs-2">Email Settings</a></li>
-                            <li><a href="#tabs-3">Captcha Settings</a></li>
-                            <li><a href="#tabs-4">Form Style Settings</a></li>
-                            <li><a href="#tabs-5">Widget Style Settings</a></li>
-                            <li><a href="#tabs-6">MailChimp Settings</a></li>
-                            <li><a href="#tabs-7">Constant Contact Settings</a></li>
-                        </ul>
+                        <li><h3><a href="#tabs-1"><?php _e( 'General Settings', 'double-opt-in-for-download' ); ?></a></h3></li>
+                        <li><h3><a href="#tabs-2"><?php _e( 'Email Settings', 'double-opt-in-for-download' ); ?></a></h3></li>
+                        <li><h3><a href="#tabs-3"><?php _e( 'Captcha Settings', 'double-opt-in-for-download' ); ?></a></h3></li>
+                        <li><h3><a href="#tabs-4"><?php _e( 'Form Settings', 'double-opt-in-for-download' ); ?></a></h3></li>
+                        <li><h3><a href="#tabs-5"><?php _e( 'Widget Settings', 'double-opt-in-for-download' ); ?></a></h3></li>
+                        <li><h3><a href="#tabs-6"><?php _e( 'MailChimp Settings', 'double-opt-in-for-download' ); ?></a></h3></li>
+                        <li><h3><a href="#tabs-7"><?php _e( 'Constant Contact Settings', 'double-opt-in-for-download' ); ?></a></h3></li>
+                    </ul>
                         <div id="tabs-1">
 
                             <?php
@@ -61,7 +61,7 @@ if (!class_exists('DoifdAdminOptions')) {
                         <div id="tabs-3">
                             <div class="mc_ad">
                                 <h1><?php _e('The Captcha feature is only available<br>in the Premium Version', 'double-opt-in-for-download'); ?></h1>
-                                <h1><a href="http://www.labwebdesigns.com/premium-double-opt-in-for-download.html" target="new" ><?php _e('Click Here To Purchase Premium DOIFD', 'double-opt-in-for-download'); ?></a></h1>
+                                <h1><a href="http://www.doubleoptinfordownload.com/premium-double-opt-in-for-download/" target="new" ><?php _e('Click Here To Purchase Premium DOIFD', 'double-opt-in-for-download'); ?></a></h1>
                             </div>
                         </div>
                         <div id="tabs-4">
@@ -87,21 +87,14 @@ if (!class_exists('DoifdAdminOptions')) {
 
                             <div class="mc_ad">
                                 <h1><?php _e('The Mailchimp feature is only available<br>in the Premium Version', 'double-opt-in-for-download'); ?></h1>
-                                <h1><a href="http://www.labwebdesigns.com/premium-double-opt-in-for-download.html" target="new" ><?php _e('Click Here To Purchase Premium DOIFD', 'double-opt-in-for-download'); ?></a></h1>
-                                <div class="mc_ad_img">
-                                    <img src="<?php echo DOUBLE_OPT_IN_FOR_DOWNLOAD_IMG_URL; ?>/monkey.png" alt="Mailchimp" height="92px" width="100px">
-                                </div>
-
-                                <div class="mc_ad_text">
-                                    Don't Have a Mailchimp acount?</br><a href="http://eepurl.com/GNAFP" target="_new">Click Here to get your Free acccount!</a>
-                                </div>
+                                <h1><a href="http://www.doubleoptinfordownload.com/premium-double-opt-in-for-download/" target="new" ><?php _e('Click Here To Purchase Premium DOIFD', 'double-opt-in-for-download'); ?></a></h1>
                             </div>
 
                         </div>
                         <div id="tabs-7">
                             <div class="mc_ad">
                                 <h1><?php _e('The Constant Contact feature is only available<br>in the Premium Version', 'double-opt-in-for-download'); ?></h1>
-                                <h1><a href="http://www.labwebdesigns.com/premium-double-opt-in-for-download.html" target="new" ><?php _e('Click Here To Purchase Premium DOIFD', 'double-opt-in-for-download'); ?></a></h1>
+                                <h1><a href="http://www.doubleoptinfordownload.com/premium-double-opt-in-for-download/" target="new" ><?php _e('Click Here To Purchase Premium DOIFD', 'double-opt-in-for-download'); ?></a></h1>
                             </div>
 
                         </div>
@@ -156,7 +149,7 @@ if (!class_exists('DoifdAdminOptions')) {
 
             echo '<input type="radio" id="add_to_wpusers" name="doifd_lab_options[add_to_wpusers]" ' . ((isset($add_to_wp_user) && ($add_to_wp_user) == '1' ) ? 'checked="checked"' : "") . ' value="1" /> Yes ';
             echo '<input type="radio" id="add_to_wpusers" name="doifd_lab_options[add_to_wpusers]" ' . (isset($add_to_wp_user) && ($add_to_wp_user == '0' ) ? 'checked="checked"' : "") . ' value="0" /> No ';
-            echo '<p>' . __('If you want to add the subscribers to the wordress user table, check yes. Otherwise they will only be added to the plugins subscriber table.', 'double-opt-in-for-download') . '</p>';
+            echo '<p>' . __( 'Select YES to automatically add subscriber as a Subscriber to your Website/Blog', 'double-opt-in-for-download' ) . '</p>';
         }
         
         public static function form_security() {
@@ -201,7 +194,7 @@ if (!class_exists('DoifdAdminOptions')) {
 
             echo '<input type="radio" id="promo_link" name="doifd_lab_options[promo_link]" ' . ((isset($add_promo_link) && ( $add_promo_link ) == '1' ) ? 'checked="checked"' : "") . ' value="1" /> Yes ';
             echo '<input type="radio" id="promo_link" name="doifd_lab_options[promo_link]" ' . (isset($add_promo_link) && ( $add_promo_link == '0' ) ? 'checked="checked"' : "") . ' value="0" /> No ';
-            echo '<p>' . __('If you check YES, this will add a small promotional link at the bottom of the registration forms.', 'double-opt-in-for-download') . '</p>';
+            echo '<p>' . __( 'Click YES to add a small promotional link at the bottom of the forms.', 'double-opt-in-for-download' ) . '</p>';
         }
 
         public static function admin_download_notification() {
@@ -224,7 +217,7 @@ if (!class_exists('DoifdAdminOptions')) {
 
             echo '<input type="radio" id="notification_email" name="doifd_lab_options[notification_email]" ' . ((isset($notification_email) && ( $notification_email ) == '1' ) ? 'checked="checked"' : "") . ' value="1" /> Yes ';
             echo '<input type="radio" id="notification_email" name="doifd_lab_options[notification_email]" ' . (isset($notification_email) && ( $notification_email == '0' ) ? 'checked="checked"' : "") . ' value="0" /> No ';
-            echo '<p>' . __('If you check YES, an email will be sent to you notifying you of the download.', 'double-opt-in-for-download') . '</p>';
+            echo '<p>' . __( 'Click YES for an email to be sent to the blog admin for each new download.', 'double-opt-in-for-download' ) . '</p>';
         }
 
         /* This function creates the email address field */
@@ -243,7 +236,7 @@ if (!class_exists('DoifdAdminOptions')) {
 
             echo '<div id="doifd_lab_admin_options">';
             echo '<input type="text" name="doifd_lab_options[from_email]" id="from_email" value="' . $from_email . '">';
-            echo '<p>' . __('This is the email address that shows in the <b>From</b> field in the verification email. If this is left blank it will default to the admin email address.', 'double-opt-in-for-download') . '</p>';
+            echo '<p>' . __( 'Default is Blog/Website admin email. ( Example: do-not-reply@mywebsite.com )', 'double-opt-in-for-download' ) . '</p>';
             echo '</div>';
         }
 
@@ -263,7 +256,7 @@ if (!class_exists('DoifdAdminOptions')) {
 
             echo '<div id="doifd_lab_admin_options">';
             echo '<input type="text" name="doifd_lab_options[email_name]" id="email_name" value="' . $email_name . '">';
-            echo '<p>' . __('This is the <b>Name</b> that will show in the <b>From</b> field in the verification email. If this is left blank it will default to your website or blog name.', 'double-opt-in-for-download') . '</p>';
+            echo '<p>' . __( 'Default is Blog/Website name. ( Example: Your Product Name )', 'double-opt-in-for-download' ) . '</p>';
             echo '</div>';
         }
 
@@ -283,7 +276,7 @@ if (!class_exists('DoifdAdminOptions')) {
 
             echo '<div id="doifd_lab_admin_options">';
             echo '<textarea rows="10" cols="60" name="doifd_lab_options[email_message]" id="email_message">' . $email_message . '</textarea>';
-            echo '<p>' . __('This is the verification email that is sent to a new subscriber. Just remember, at the very least, you need to keep the <b>{URL}</b> in your email, as this provides the subscriber with the verification link. See the complete list below.', 'double-opt-in-for-download') . '<br />
+            echo '<p>' . __('You must use all three of the below fields in your email.', 'double-opt-in-for-download') . '<br />
         
             <b>{subscriber} = ' . __('Subscribers Name', 'double-opt-in-for-download') . '<br />
             {url} = ' . __('Verification Link', 'double-opt-in-for-download') . '<br />
@@ -309,7 +302,7 @@ if (!class_exists('DoifdAdminOptions')) {
 
             echo '<input type="radio" id="use_privacy_policy_y" name="doifd_lab_options[use_privacy_policy]" ' . ((isset($use_privacy_policy) && ( $use_privacy_policy ) == '1' ) ? 'checked="checked"' : "") . ' value="1" /> Yes ';
             echo '<input type="radio" id="use_privacy_policy_n" name="doifd_lab_options[use_privacy_policy]" ' . (isset($use_privacy_policy) && ( $use_privacy_policy == '0' ) ? 'checked="checked"' : "") . ' value="0" /> No ';
-            echo '<p>' . __('If you check YES, this will add a link to your Privacy Policy Page at the bottom of the registration forms.', 'double-opt-in-for-download') . '</p>';
+            echo '<p>' . __( 'Click YES to show a link to your Privacy Policy Page on the bottom of the forms.', 'double-opt-in-for-download' ) . '</p>';
         }
 
         public static function field_privacy_link_text() {
@@ -332,9 +325,9 @@ if (!class_exists('DoifdAdminOptions')) {
             /* echo privacy text form field */
             echo '<div id="priv_text">';
             echo '<div id="doifd_lab_admin_options">';
-            echo '<label><b>Privacy Page Link Text:</b> </label>';
+            echo '<label><b>' . __( 'Privacy Page Link Text:', 'double-opt-in-for-download') . '</b> </label>';
             echo '<input type="text" name="doifd_lab_options[privacy_link_text]" id="form_privacy_link_text" size="25" value="' . $form_privacy_link_text . '">';
-            echo '<p>' . __('This sets the link text for your privacy statement ( Example: See Out Privacy Policy )', 'double-opt-in-for-download') . '</b></p>';
+            echo '<p>' . __( '( Example: See Our Privacy Policy )', 'double-opt-in-for-download' ) . '</b></p>';
             echo '</div>';
         }
 
@@ -359,9 +352,9 @@ if (!class_exists('DoifdAdminOptions')) {
 
             echo '<div id="priv_font_size">';
             echo '<div id="doifd_lab_admin_options">';
-            echo '<label><b>Set Font Size of Link:</b> </label>';
+            echo '<label><b>' . __( 'Link font size:', 'double-opt-in-for-download') . '</b> </label>';
             echo '<input type="text" name="doifd_lab_options[privacy_link_font_size]" id="form_padding" size="5" value="' . $form_privacy_link_font_size . '">';
-            echo '<p>' . __('Set the font size of the privacy policy link (Example: 0.9em or 8px etc.)', 'double-opt-in-for-download') . '</p>';
+            echo '<p>' . __( '(Example: 0.9em or 8px etc.)', 'double-opt-in-for-download' ) . '</p>';
             echo '</div>';
             echo '</div>';
         }
@@ -380,7 +373,7 @@ if (!class_exists('DoifdAdminOptions')) {
 
             echo '<div id="priv_sel_pag">';
             echo '<div id="doifd_lab_admin_options">';
-            echo '<label><b>Select Privacy Page:</b> </label>';
+            echo '<label><b>' . __('Select Privacy Page:', 'double-opt-in-for-download') . '</b> </label>';
             echo '<select name="doifd_lab_options[privacy_page]" id="privacy_page">';
             echo "<option value='{$options['privacy_page']}'>";
             echo esc_attr(__('Select Privacy Policy Page', 'double-opt-in-for-download'));
@@ -393,7 +386,6 @@ if (!class_exists('DoifdAdminOptions')) {
                 echo $option;
             }
             echo '</select>';
-            echo '<p>' . __('Select your Privacy Policy Page.', 'double-opt-in-for-download') . '</p>';
             echo '</div>';
             echo '</div>';
         }

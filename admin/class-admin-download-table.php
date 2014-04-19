@@ -37,7 +37,7 @@ class Doifd_Download_Table extends WP_List_Table {
         //Build row actions
         $actions = array (
             'delete'=>sprintf ( '<a class="confirm" href="?page=%s&action=%s&_wpnonce=%s&id=%s&doifd_file_name=%s" id="' . $item["doifd_download_id"] .'" title="' . $item["doifd_download_name"] .'" >' . __( 'Delete' , 'double-opt-in-for-download' ) . '</a>' , $_REQUEST['page'] , 'delete' , $doifd_lab_nonce , $item['doifd_download_id'] , $item['doifd_download_file_name'] ) ,
-            'edit'=>sprintf ( '<a href="?page=%s&doifd_download_id=%s&doifd_download_name=%s&doifd_download_file_name=%s&doifd_download_landing_page=%s">' . __( 'Edit' , 'double-opt-in-for-download' ) . '</a>' , 'double-opt-in-for-download/admin/doifd-admin.php_edit_downloads' , $item['doifd_download_id'] , $item['doifd_download_name'] , $item['doifd_download_file_name'] , $item['doifd_download_landing_page'] ) ,
+            'edit'=>sprintf ( '<a href="?page=%s&doifd_download_id=%s&doifd_download_name=%s&doifd_download_file_name=%s&doifd_download_landing_page=%s">' . __( 'Edit' , 'double-opt-in-for-download' ) . '</a>' , 'doifd-admin-menu_edit_downloads' , $item['doifd_download_id'] , $item['doifd_download_name'] , $item['doifd_download_file_name'] , $item['doifd_download_landing_page'] ) ,
                 ) ;
 
         //Return the title contents
@@ -52,6 +52,8 @@ class Doifd_Download_Table extends WP_List_Table {
 
         // assign file names to variable
         $filename = $item['doifd_download_file_name'] ;
+        
+        $type = $item['doifd_download_type'];
 
         // get the file extension
         $ext = pathinfo ( DOUBLE_OPT_IN_FOR_DOWNLOAD_DOWNLOAD_DIR . $filename , PATHINFO_EXTENSION ) ;
@@ -84,11 +86,11 @@ class Doifd_Download_Table extends WP_List_Table {
         if ( $ext == 'mp3' ) {
             $img = '<img src="' . DOUBLE_OPT_IN_FOR_DOWNLOAD_IMG_URL . 'mp3.png" alt="MP3 File Icon" class="document_icon" />' ;
         }
+        if ( $ext == '' ) {
+            $img = '' ;
+        }
 
-        //Return the file type image contents
-        return sprintf ( '%1$s' ,
-                        /* $1%s */ $img
-                ) ;
+            return apply_filters( 'doifd_download_table_type' , $img, $type, $ext ) ;
     }
 
     function column_shortcode( $item ) {
@@ -117,7 +119,7 @@ class Doifd_Download_Table extends WP_List_Table {
         }  else {
             
             return sprintf ( '%1$s' ,
-                        /* $1%s */ '<div class="no_landing">No Landing Page Selected.<br />Edit Download To Select Landing Page.</div>'
+                        /* $1%s */ '<div class="no_landing">' . __( 'No Landing Page Selected.', 'double-opt-in-for-download') . '<br />' . __( 'Edit Download To Select Landing Page.', 'double-opt-in-for-download') . '</div>'
                 ) ;
             
         }
@@ -142,7 +144,7 @@ class Doifd_Download_Table extends WP_List_Table {
             'shortcode'=> __( 'Shortcode' , 'double-opt-in-for-download' ) ,
             'doifd_number_of_downloads'=>__( 'Downloads' , 'double-opt-in-for-download' )
                 ) ;
-        return $columns ;
+        return apply_filters( 'doifd_download_table_headers', $columns ) ;
     }
 
     function get_sortable_columns() {

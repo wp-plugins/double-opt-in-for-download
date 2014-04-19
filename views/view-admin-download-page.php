@@ -1,8 +1,14 @@
 <div class = "wrap">  
 
-    <div id="icon-edit-pages" class="icon32"><br></div><h2><?php _e( 'Downloads', 'double-opt-in-for-download' ); ?></h2>
+    <?php $title1 = apply_filters('doifd_download_table_title', __('Downloads', 'double-opt-in-for-download'));
+        $title2 = apply_filters('doifd_download_upload_title', __( 'Upload Your Download File Here', 'double-opt-in-for-download' ));
 
+     ?>
+
+    <div id="icon-edit-pages" class="icon32"><br></div><h2><?php $title1; ?></h2>
+    
     <?php
+    
     include( DOUBLE_OPT_IN_FOR_DOWNLOAD_DIR . 'views/view-admin-header.php' );
 
     include( DOUBLE_OPT_IN_FOR_DOWNLOAD_DIR . 'admin/class-admin-download-table.php' );
@@ -11,10 +17,9 @@
     <!--HTML for upload form begins here-->
 
 
-    <h2><?php _e( 'Upload Your Download File Here', 'double-opt-in-for-download' ); ?></h2>
-    <p><?php _e( 'Here is where you upload your free download. You simply give your download a name, then click the browse button and select your download file from your computer. Once you have selected your download, press the upload button. When the page refreshes you will see your download in the download table below. You will also see that the shortcode is generated for you. If you choose to put the sign up form in a post or page just copy the shortcode and paste it into the page or post you want it to show up in. If you choose to use the widget, you will just need to select the download in the dropdown box when setting up your widget.', 'double-opt-in-for-download' ); ?></p>
+    <h2><?php echo $title2; ?></h2>
 
-    <form method="post" action="" enctype="multipart/form-data">
+    <form method="post" action="" enctype="multipart/form-data" style="width: 40%;">
 
         <table class="form-table">
             <input type="hidden" name="max_upload_size" id="max_upload_size" value="<?php
@@ -25,12 +30,20 @@
     $doifd_lab_nonce = wp_create_nonce( 'doifd-add-download-nonce' );
     echo $doifd_lab_nonce;
     ?>"/>
-
+            <tr valign="top">
+                            <?php
+                                
+                            $call = new DoifdAdminFilters();
+                            $output = $call->doifd_additional_admin_fields();
+                            echo $output;
+                                
+                                ?>
+                            </tr>
             <tr valign="top">
 
-                <th scope="row"><label for="name"><?php _e( 'Name of Your Download', 'double-opt-in-for-download' ); ?><span> *</span>: </label></th>
+                <th scope="row"><label id="doifd_labelName" for="name"><?php _e( 'Download Name', 'double-opt-in-for-download' ); ?><span> *</span>: </label></th>
 
-                <td><input type="text" name="name" id="name" size="50" value=""/><p><?php _e( 'The name you give your download file will also appear in the verification email.', 'double-opt-in-for-download' ); ?></p></td>
+                <td><input type="text" name="name" id="name" size="50" value=""/><p><?php _e( '( Example: My Free eBook )', 'double-opt-in-for-download' ); ?></p></td>
 
 
             </tr>
@@ -54,25 +67,25 @@
                         echo $option;
                     }
                     echo '</select>';
-                    echo '<p>' . __( 'Select the landing page for your subscribers. This will be the page your subscribers will come to after they have clicked the link in their verification email. Once you have selected your landing page, place this shortcode <b>[lab_landing_page]</b> on that page. You can also change the button text by adding <b>button_text="My Special Text"</b> to the short code. The whole short code would look like this: <b>[lab_landing_page button_text="My Special Text"]</b>', 'double-opt-in-for-download' ) . '</p>';
+                    echo '<p><a href="http://www.doubleoptinfordownload.com/what-is-a-landing-page/" target="_blank" />' . __( 'What is a Landing Page?', 'double-opt-in-for-download' ) . '</a></p>';
                     echo '</div>';
                     ?>
                 </td>
 
             </tr>
 
-            <tr valign="top">
+            <tr id="download_file" valign="top">
 
                 <th scope="row"><label for="name"><?php _e( 'Select Your File', 'double-opt-in-for-download' ); ?><span> *</span>: </label></th>
 
-                <td><div class="filesizelimit">Your PHP file size limit is: <?php echo ini_get('upload_max_filesize'); ?></div>
-                    <input type="file" name="userfile" size="50" id="userfile"><p><?php _e( '( Currently, the following file types are allowed; .jpg, .jpeg, .png, .bmp, .gif, .pdf, .zip, .doc, .docx, ,mp3 )', 'double-opt-in-for-download' ); ?></p></td>
+                <td><div class="filesizelimit"><?php _e ('Your PHP file size limit is:', 'double-opt-in-for-download' ); ?> <?php echo ini_get('upload_max_filesize'); ?></div>
+                    <input type="file" name="userfile" size="50" id="userfile"><p><?php _e( '( Allowed File Types: .jpg, .jpeg, .png, .bmp, .gif, .pdf, .zip, .doc, .docx, ,mp3 )', 'double-opt-in-for-download' ); ?></p></td>
 
             </tr>
 
             <tr valigh="top">
 
-                <td><input class='button-primary' name="upload" type="submit" value="<?php _e( 'Upload', 'double-opt-in-for-download' ); ?>"></td>
+                <td><input class='button-primary' name="upload" id="doifd_upload_submit" type="submit" value="<?php _e( 'Upload', 'double-opt-in-for-download' ); ?>"></td>
 
             </tr>
 
@@ -83,8 +96,7 @@
     <br />
 
     <hr />
-    <h2><?php _e( 'Downloads', 'double-opt-in-for-download' ); ?></h2>
-    <p><?php _e( 'You can edit, delete or view your download count here.', 'double-opt-in-for-download' ); ?></p>
+    <h2><?php echo $title1; ?></h2>
     <br />
 
 <?php

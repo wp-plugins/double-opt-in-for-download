@@ -62,8 +62,12 @@ if ( !class_exists ( 'DoifdCSV' ) ) {
                  * and don't include duplicates.
                  */
 
-                $sql = "SELECT doifd_name AS Name, doifd_email AS Email
+                $sql = "SELECT {$wpdb->prefix}doifd_lab_subscribers.doifd_name AS Name,
+                    {$wpdb->prefix}doifd_lab_subscribers.doifd_email AS Email,
+                    {$wpdb->prefix}doifd_lab_downloads.doifd_download_name AS Download_Name
                 FROM {$wpdb->prefix}doifd_lab_subscribers
+                INNER JOIN {$wpdb->prefix}doifd_lab_downloads
+                ON {$wpdb->prefix}doifd_lab_downloads.doifd_download_id = {$wpdb->prefix}doifd_lab_subscribers.doifd_download_id
                 WHERE doifd_email_verified = $value
                 GROUP BY doifd_email";
 

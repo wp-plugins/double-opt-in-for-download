@@ -42,7 +42,7 @@ if ( !class_exists ( 'DoifdAdminValidation' ) ) {
 
             $valid[ 'widget_margin_left' ] = preg_replace ( '/[^0-9]/', '', $input[ 'widget_margin_left' ] );
 
-            $valid[ 'widget_input_width' ] = preg_replace ( '/[^0-9]/', '', $input[ 'widget_input_width' ] );
+            $valid[ 'widget_input_width' ] = preg_replace ( '/[^#%!a-z0-9]/i', '', $input[ 'widget_input_width' ] );
             
             $valid[ 'widget_title_color' ] = preg_replace( '/[^#!a-z0-9]/i', '', $input[ 'widget_title_color' ] );
             
@@ -82,9 +82,25 @@ if ( !class_exists ( 'DoifdAdminValidation' ) ) {
             
             $valid[ 'privacy_page' ] = preg_replace ( '/[^0-9]/', '', $input[ 'privacy_page' ] );
 
-            return $valid;
+            return apply_filters('doifd_validate_admin_options_values', $valid );
 
         }
+        
+        
+        public static function admin_form_upload_validation( $input ) {
+            
+            $valid = array ( );
+            
+            $valid[ 'name' ] = sanitize_text_field( $input[ 'name' ] );
+            
+            /* clean and sanitize download landing page id */
+
+            $valid[ 'doifd_download_landing_page' ] = preg_replace( '/[^0-9]/', '', $input[ 'doifd_download_landing_page' ] );
+            
+            return apply_filters('doifd_validate_admin_values', $valid );
+            
+        }
+
 
     }
 

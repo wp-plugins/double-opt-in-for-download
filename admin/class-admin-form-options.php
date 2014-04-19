@@ -29,7 +29,7 @@ if ( !class_exists ( 'DoifdAdminFormOptions' ) ) {
 
             echo '<div id="doifd_lab_admin_options">';
             echo '<input type="text" name="doifd_lab_options[form_class]" id="form_width"  size="15" value="' . $form_class . '">';
-            echo '<p>' . __( 'If you want to create your own CSS class for the form, enter the name of your CSS class' , 'double-opt-in-for-download' ) . '</b></p>';
+            echo '<p>' . __( 'Create your own CSS class for the form. ( Example: myFormClass )', 'double-opt-in-for-download' ) . '</b></p>';
             echo '</div>';
 
         }
@@ -55,7 +55,7 @@ if ( !class_exists ( 'DoifdAdminFormOptions' ) ) {
 
             echo '<div id="doifd_lab_admin_options">';
             echo '<input type="text" name="doifd_lab_options[form_width]" id="form_width"  size="4" value="' . $form_width . '">';
-            echo '<p>' . __( 'This is the width of the main form. <b>Use numbers only, DO NOT ADD the px at the end.' , 'double-opt-in-for-download' ) . '</b></p>';
+            echo '<p>' . __( '( Example: 250 )', 'double-opt-in-for-download' ) . '</b></p>';
             echo '</div>';
 
         }
@@ -81,7 +81,7 @@ if ( !class_exists ( 'DoifdAdminFormOptions' ) ) {
 
             echo '<div id="doifd_lab_admin_options">';
             echo '<input type="text" name="doifd_lab_options[form_padding]" id="form_padding" size="4" value="' . $form_padding . '">';
-            echo '<p>' . __( 'This is the amount of padding used inside of the form. <b>Use numbers only, DO NOT ADD the px at the end.' , 'double-opt-in-for-download' ) . '</b></p>';
+             echo '<p>' . __( '( Example: 25 )', 'double-opt-in-for-download' ) . '</b></p>';
             echo '</div>';
 
         }
@@ -107,7 +107,7 @@ if ( !class_exists ( 'DoifdAdminFormOptions' ) ) {
 
             echo '<div id="doifd_lab_admin_options">';
             echo '<input type="text" name="doifd_lab_options[form_background_color]" id="form_background_color" size="15" value="' . $form_background_color . '">';
-            echo '<p>' . __( 'This sets the background color of the form. <b>You can use tranparent or hex values ( #000000 etc ).',  'double-opt-in-for-download' ) . '</b></p>';
+            echo '<p>' . __( '( Example: #000000, transparent, etc )', 'double-opt-in-for-download' ) . '</b></p>';
             echo '</div>';
 
         }
@@ -133,7 +133,7 @@ if ( !class_exists ( 'DoifdAdminFormOptions' ) ) {
 
             echo '<div id="doifd_lab_admin_options">';
             echo '<input type="text" name="doifd_lab_options[form_color]" id="form_margin_right" size="10" value="' . $form_color . '">';
-            echo '<p>' . __( 'This set the forms font color. <b>Use hex values ( #000000 etc ).', 'double-opt-in-for-download' ) . '</b></p>';
+            echo '<p>' . __( '( Example: #000000, transparent, etc )', 'double-opt-in-for-download' ) . '</b></p>';
             echo '</div>';
 
         }
@@ -159,7 +159,7 @@ if ( !class_exists ( 'DoifdAdminFormOptions' ) ) {
 
             echo '<div id="doifd_lab_admin_options">';
             echo '<input type="text" name="doifd_lab_options[form_input_field_background_color]" id="form_margin_bottom" size="10" value="' . $form_input_field_background_color . '">';
-            echo '<p>' . __( 'This sets the background color of the text input fields. <b>You can use transparent or hex values ( #000000 etc ).', 'double-opt-in-for-download' ) . '</b></p>';
+            echo '<p>' . __( '( Example: #000000, transparent, etc )', 'double-opt-in-for-download' ) . '</b></p>';
             echo '</div>';
 
         }
@@ -185,7 +185,7 @@ if ( !class_exists ( 'DoifdAdminFormOptions' ) ) {
 
             echo '<div id="doifd_lab_admin_options">';
             echo '<input type="text" name="doifd_lab_options[form_title_color]" id="form_margine_left"  size="10" value="' . $form_title_color . '">';
-            echo '<p>' . __( 'This sets the font color for the form title. <b>Use hex values ( #000000 etc ).', 'double-opt-in-for-download' ) . '</b></p>';
+            echo '<p>' . __( '( Example: #000000, transparent, etc )', 'double-opt-in-for-download' ) . '</b></p>';
             echo '</div>';
 
         }
@@ -211,7 +211,7 @@ if ( !class_exists ( 'DoifdAdminFormOptions' ) ) {
 
             echo '<div id="doifd_lab_admin_options">';
             echo '<input type="text" name="doifd_lab_options[form_title_size]" id="form_title_size"  size="10" value="' . $form_title_size . '">';
-            echo '<p>' . __( 'This sets the font size for the form title. ( Example: 1em, 12px etc ).', 'double-opt-in-for-download' ) . '</p>';
+            echo '<p>' . __( '( Example: 1em, 12px etc )', 'double-opt-in-for-download' ) . '</p>';
             echo '</div>';
         }
 
@@ -236,7 +236,7 @@ if ( !class_exists ( 'DoifdAdminFormOptions' ) ) {
 
             echo '<div id="doifd_lab_admin_options">';
             echo '<input type="text" name="doifd_lab_options[form_input_field_width]" id="form_input_width" size="4" value="' . $form_input_width . '">';
-            echo '<p>' . __( 'This sets the width of the input field on the form. <b>Use Percentage or PX ( 70% or 200px etc ).', 'double-opt-in-for-download' ) . '</b></p>';
+            echo '<p>' . __( '( Example: 70% or 200px etc )', 'double-opt-in-for-download' ) . '</b></p>';
             echo '</div>';
 
         }
