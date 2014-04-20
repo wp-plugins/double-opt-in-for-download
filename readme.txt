@@ -1,5 +1,5 @@
-=== Double Opt-In for Download ===
-Contributors: Andy Bates / LAB Web Designs
+﻿=== Double Opt-In for Download ===
+Contributors: andyba45
 Donate link: http://www.doubleoptinfordownload.com/
 License: GPLv3
 License URI: http://www.gnu.org/licenses/gpl.html
