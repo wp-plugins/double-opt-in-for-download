@@ -101,6 +101,14 @@ if ( !class_exists( 'DOIFD' ) ) {
 
             return $wpdb->get_col( $sql );
         }
+        
+        private static function single_activate() {
+		// @TODO: Define activation functionality here
+	}
+
+	private static function single_deactivate() {
+		// @TODO: Define deactivation functionality here
+	}
 
 
         function register_actions() {

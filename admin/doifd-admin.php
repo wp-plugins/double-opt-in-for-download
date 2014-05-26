@@ -246,12 +246,13 @@ if (!class_exists('DoifdAdmin')) {
         function doifd_expansions_page() {
             
             echo '<h2>DOIFD Expansion Plugins</h2>';
-            echo '<table width="100%">';
+            echo '<table>';
             echo '<tr>';
-            echo '<a href="http://www.doubleoptinfordownload.com/downloads/doifd-lists/" target="_blank" /><img src="' . DOUBLE_OPT_IN_FOR_DOWNLOAD_IMG_URL . 'extension-list-icon.png" border="0" /></a>';
             echo '<td>';
+            echo '<a href="http://www.doubleoptinfordownload.com/downloads/doifd-lists/" target="_blank" /><img src="' . DOUBLE_OPT_IN_FOR_DOWNLOAD_IMG_URL . 'extension-list-icon.png" border="0" /></a>';
             echo '</td>';
             echo '<td>';
+            echo '<a href="http://www.doubleoptinfordownload.com/downloads/download-via-facebook/" target="_blank" /><img src="' . DOUBLE_OPT_IN_FOR_DOWNLOAD_IMG_URL . 'download-via-fb-icon.png" border="0" /></a>';
             echo '</td>';
             echo '<td>';
             echo '</td>';

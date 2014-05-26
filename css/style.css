@@ -17,16 +17,3 @@
     padding: 15px;
     font-weight: bold;
 }
-
-.doifd_promo_link {
-    font-size: 0.6em !important;
-    padding-top: 15px !important;
-    text-align: center;
-}
-
-.doifd_promo_link a:link,
-.doifd_promo_link a:visited,
-.doifd_promo_link a:hover,
-.doifd_promo_link a:active {
-    color: #CCCCCC;
-}

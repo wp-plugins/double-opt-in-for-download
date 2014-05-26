@@ -18,13 +18,14 @@ if ( !class_exists( 'DoifdFormWidget' ) ) {
         function widget( $args, $instance ) {
 
             global $wpdb;
+            global $widget_download_id;
 
             // extract widget arguments.
             extract( $args );
 
             // get $instance variables and assign to variables
             $title = apply_filters( 'widget_title', $instance[ 'title' ] );
-            $download_id = apply_filters( 'widget_doifd_download_name', $instance[ 'doifd_download_name' ] );
+            $widget_download_id = apply_filters( 'widget_doifd_download_name', $instance[ 'doifd_download_name' ] );
             $header_text = apply_filters( 'widget_doifd_form_text', $instance[ 'doifd_form_text' ] );
             $lab_widget_form_button_text = apply_filters( 'widget_doifd_form_button_text', $instance[ 'doifd_form_button_text' ] );
 
@@ -121,10 +122,10 @@ if ( !class_exists( 'DoifdFormWidget' ) ) {
                 $doifd_lab_subscriber_email = sanitize_email( $_POST[ 'doifd_subscriber_email' ] );
 
                 // sanitize download id field and assign to varialbe.
-                $download_id = preg_replace( "/[^0-9]/", "", $_POST[ 'download_id' ] );
+                $widget_download_id = preg_replace( "/[^0-9]/", "", $_POST[ 'download_id' ] );
 
                 // check for duplicate email address. 
-                $doifd_lab_check_duplicate_email = $wpdb->get_row( $wpdb->prepare( "SELECT * FROM $wpdb->doifd_subscribers WHERE doifd_email = %s AND doifd_download_id = %d", $doifd_lab_subscriber_email, $download_id ), ARRAY_A );
+                $doifd_lab_check_duplicate_email = $wpdb->get_row( $wpdb->prepare( "SELECT * FROM $wpdb->doifd_subscribers WHERE doifd_email = %s AND doifd_download_id = %d", $doifd_lab_subscriber_email, $widget_download_id ), ARRAY_A );
 
                 // check if subscriber name field is populated after sanitization.
                 if ( empty( $doifd_lab_subscriber_name ) ) {
@@ -144,12 +145,24 @@ if ( !class_exists( 'DoifdFormWidget' ) ) {
 
                 // If and error message is returned let show the form again with the error message
                 if ( isset( $doifd_lab_msg ) ) {
+                    
+                    $widget_values = apply_filters( 'doifd_widget_setup_values', array (
+                    "widget_form_text" => $header_text,
+                    "widget_id" => $widget_download_id,
+                    "widget_nonce" => $doifd_lab_subscriber_form_nonce,
+                    "widget_error" => $doifd_lab_msg,
+                    "widget_name" => $subscriber_name,
+                    "widget_email" => $subscriber_email,
+                    "widget_button_text" => $lab_widget_form_button_text,
+                    "widget_privacy" => $doifd_privacy_policy,
+                    "widget_promo" => $doifd_promo_link
+                ) );
 
                     ob_start();
                     $widget_form = include_once ( DOUBLE_OPT_IN_FOR_DOWNLOAD_DIR . '/views/forms/view-widget-form.php' );
                     $widget_form_output = ob_get_contents();
                     ob_end_clean();
-                    echo $widget_form_output;
+                    echo apply_filters( 'doifd_widget_output', $widget_form_output, $widget_values );
                 }
                 else {
 
@@ -164,7 +177,7 @@ if ( !class_exists( 'DoifdFormWidget' ) ) {
                                 'doifd_name' => $doifd_lab_subscriber_name,
                                 'doifd_email' => $doifd_lab_subscriber_email,
                                 'doifd_verification_number' => $doifd_lab_ver,
-                                'doifd_download_id' => $download_id,
+                                'doifd_download_id' => $widget_download_id,
                                 'time' => current_time( 'mysql', 0 )
                                     ), array (
                                 '%s',
@@ -214,7 +227,7 @@ if ( !class_exists( 'DoifdFormWidget' ) ) {
                                 "user_name" => $doifd_lab_subscriber_name,
                                 "user_email" => $doifd_lab_subscriber_email,
                                 "user_ver" => $doifd_lab_ver,
-                                "download_id" => $download_id ) );
+                                "download_id" => $widget_download_id ) );
                         }
                         else {
 
@@ -222,7 +235,7 @@ if ( !class_exists( 'DoifdFormWidget' ) ) {
                                         "user_name" => $doifd_lab_subscriber_name,
                                         "user_email" => $doifd_lab_subscriber_email,
                                         "user_ver" => $doifd_lab_ver,
-                                        "download_id" => $download_id ) );
+                                        "download_id" => $widget_download_id ) );
                         }
 
                         // return the "Thank You For Registering"
@@ -240,12 +253,23 @@ if ( !class_exists( 'DoifdFormWidget' ) ) {
                 // if they are not submitting the form then just show the form.    
             }
             else {
+                
+                $widget_values = apply_filters( 'doifd_widget_setup_values', array (
+                    "widget_form_text" => $header_text,
+                    "widget_id" => $widget_download_id,
+                    "widget_nonce" => $doifd_lab_subscriber_form_nonce,
+                    "widget_name" => $subscriber_name,
+                    "widget_email" => $subscriber_email,
+                    "widget_button_text" => $lab_widget_form_button_text,
+                    "widget_privacy" => $doifd_privacy_policy,
+                    "widget_promo" => $doifd_promo_link
+                ) );
 
                 ob_start();
                 $widget_form = include_once ( DOUBLE_OPT_IN_FOR_DOWNLOAD_DIR . '/views/forms/view-widget-form.php' );
                 $widget_form_output = ob_get_contents();
                 ob_end_clean();
-                echo $widget_form_output;
+                echo apply_filters( 'doifd_widget_output', $widget_form_output, $widget_values );
             }
 
             echo $after_widget;

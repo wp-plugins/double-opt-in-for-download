@@ -14,6 +14,7 @@ if ( !class_exists( 'DoifdRegistrationForm' ) ) {
         public function registration_form( $attr, $content ) {
 
             global $wpdb;
+            global $download_id;
 
             $wpdb->doifd_subscribers = $wpdb->prefix . 'doifd_lab_subscribers';
             $wpdb->doifd_downloads = $wpdb->prefix . 'doifd_lab_downloads';
@@ -166,7 +167,20 @@ if ( !class_exists( 'DoifdRegistrationForm' ) ) {
 
                     $doifd_lab_msg = '<div class="doifd_error_msg">' . $text . '</div>';
                 }
-
+                
+                /* Let put all the values in an array for the form filter */
+                
+                $form_values = apply_filters( 'doifd_form_setup_values', array (
+                    "form_text" => $doifd_form_text,
+                    "id" => $download_id,
+                    "error" => $doifd_lab_msg,
+                    "nonce" => $doifd_lab_user_form_nonce,
+                    "name" => $subscriber_name,
+                    "email" => $subscriber_email,
+                    "button_text" => $doifd_form_button_text,
+                    "privacy" => $doifd_privacy_policy,
+                    "promo" => $doifd_promo_link
+                ) );
 
                 /* If and error message is returned lets show the form again with the error message */
 
@@ -176,7 +190,7 @@ if ( !class_exists( 'DoifdRegistrationForm' ) ) {
                     $form = include_once ( DOUBLE_OPT_IN_FOR_DOWNLOAD_DIR . '/views/forms/view-default.php' );
                     $form_output = ob_get_contents();
                     ob_end_clean();
-                    return $form_output;
+                    return apply_filters( 'doifd_form_output', $form_output, $form_values );
                 }
                 else {
 
@@ -284,14 +298,24 @@ if ( !class_exists( 'DoifdRegistrationForm' ) ) {
                 }
             }
             else {
-
+                
+                    $form_values = apply_filters( 'doifd_form_setup_values', array(
+                    "form_text" => $doifd_form_text,
+                    "id" => $download_id,
+                    "nonce" => $doifd_lab_user_form_nonce,
+                    "name" => $subscriber_name,
+                    "email" => $subscriber_email,
+                    "button_text" => $doifd_form_button_text,
+                    "privacy" => $doifd_privacy_policy,
+                    "promo" => $doifd_promo_link
+                ) );
                 /* Else, lets show the form for the first time */
 
                 ob_start();
                 $form = include_once ( DOUBLE_OPT_IN_FOR_DOWNLOAD_DIR . '/views/forms/view-default.php' );
                 $form_output = ob_get_contents();
                 ob_end_clean();
-                return $form_output;
+                return apply_filters( 'doifd_form_output', $form_output, $form_values );
             }
         }
 
