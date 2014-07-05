@@ -41,6 +41,15 @@ if ( !class_exists ( 'DoifdCSV' ) ) {
                     return '<div id="message" class="error"><p><strong>' . $text . '  <a href="' . str_replace ( '%7E', '~', $_SERVER[ 'REQUEST_URI' ] ) . '">' . $rb . '</a></p></strong></div>';
                 }
                 
+                if( isset( $_POST['dupe'] ) && $_POST['dupe'] == '1') {
+                    
+                    $dupe = 'GROUP BY doifd_email';
+                    
+                } else {
+                    
+                    $dupe = '';
+                }
+                
                 /* Create name for file "Website Name-Subscribers-Date" */
 
                 $fileName = '"' . get_bloginfo ( 'name' ) . '-Subscribers-' . date ( 'Y-m-d' ) . '.csv"';
@@ -69,7 +78,7 @@ if ( !class_exists ( 'DoifdCSV' ) ) {
                 INNER JOIN {$wpdb->prefix}doifd_lab_downloads
                 ON {$wpdb->prefix}doifd_lab_downloads.doifd_download_id = {$wpdb->prefix}doifd_lab_subscribers.doifd_download_id
                 WHERE doifd_email_verified = $value
-                GROUP BY doifd_email";
+                $dupe";
 
                 $results = $wpdb->get_results ( $sql, ARRAY_A );
 

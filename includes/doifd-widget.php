@@ -237,13 +237,14 @@ if ( !class_exists( 'DoifdFormWidget' ) ) {
                                         "user_ver" => $doifd_lab_ver,
                                         "download_id" => $widget_download_id ) );
                         }
-
-                        // return the "Thank You For Registering"
-                        echo '<div id="widget_doifd_user_reg_form" class="thankyou"><h4>' . __( 'Thank You for Registering!', 'double-opt-in-for-download' ) . '</h4>' . __( 'Please check your email for your link to your Free download.', 'double-opt-in-for-download' ) . '<br><br><i>' . __( 'Don\'t forget to check your junk or spam folder.', 'double-opt-in-for-download' ) . '</i></div>'
-                        . $doifd_promo_link .
-                        '</div>';
-                    }
-                    else {
+                        
+                        $msg = '<div id="widget_doifd_user_reg_form" class="thankyou"><h4 id="widget_h4" class="widget_h4">' . __( 'Thank You for Registering!', 'double-opt-in-for-download' ) . '<br />' . __( 'Please check your email for your link to your Free download.', 'double-opt-in-for-download' ) . '</h4><br /><i>' . __( 'Don\'t forget to check your junk or spam folder.', 'double-opt-in-for-download' ) . '</i><br />'
+                            . $doifd_promo_link .
+                            '</div>';
+                    
+                    echo apply_filters('doifd_widget_success_msg', $msg, $widget_download_id);
+                    
+                    } else {
 
                         //If the insert was NOT successfull or TRUE lets show a database error.
                         $text = __( 'Database Error', 'double-opt-in-for-download' );

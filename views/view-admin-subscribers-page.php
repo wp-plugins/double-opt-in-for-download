@@ -48,6 +48,9 @@
         </select>
         <br />
         <br />
+        <input type="checkbox" name="dupe" value="1"><?php _e( 'Remove duplicate emails.', 'double-opt-in-for-download' ) ?>
+        <br />
+        <br />
 
         <input class='button-primary' name="doifd_lab_export_csv" type="submit" value="<?php _e ( 'Download Subscribers (csv)', 'double-opt-in-for-download' ); ?> ">
 

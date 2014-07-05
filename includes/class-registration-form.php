@@ -166,14 +166,20 @@ if ( !class_exists( 'DoifdRegistrationForm' ) ) {
                     $text = __( 'This email address has already been used.', 'double-opt-in-for-download' );
 
                     $doifd_lab_msg = '<div class="doifd_error_msg">' . $text . '</div>';
+                
                 }
                 
+                if (!isset($doifd_lab_msg)) {
+                    $error = '';
+                } else {
+                    $error = $doifd_lab_msg;
+                }
                 /* Let put all the values in an array for the form filter */
                 
                 $form_values = apply_filters( 'doifd_form_setup_values', array (
                     "form_text" => $doifd_form_text,
                     "id" => $download_id,
-                    "error" => $doifd_lab_msg,
+                    "error" => $error,
                     "nonce" => $doifd_lab_user_form_nonce,
                     "name" => $subscriber_name,
                     "email" => $subscriber_email,
@@ -286,9 +292,11 @@ if ( !class_exists( 'DoifdRegistrationForm' ) ) {
                     }
                     /* Return thank you message to subscriber */
 
-                    return '<div class="doifd_user_reg_form thankyou"><h4>' . __( 'Thank You for Registering!', 'double-opt-in-for-download' ) . '<br />' . __( 'Please check your email for your link to your Free download.', 'double-opt-in-for-download' ) . '</h4><br /><i>' . __( 'Don\'t forget to check your junk or spam folder.', 'double-opt-in-for-download' ) . '</i><br />'
+                    $msg = '<div class="doifd_user_reg_form thankyou"><h4>' . __( 'Thank You for Registering!', 'double-opt-in-for-download' ) . '<br />' . __( 'Please check your email for your link to your Free download.', 'double-opt-in-for-download' ) . '</h4><br /><i>' . __( 'Don\'t forget to check your junk or spam folder.', 'double-opt-in-for-download' ) . '</i><br />'
                             . $doifd_promo_link .
                             '</div>';
+                    
+                    return apply_filters('doifd_success_msg', $msg, $download_id);
 
                     /* If the insert was NOT successfull or TRUE lets show a database error. */
 

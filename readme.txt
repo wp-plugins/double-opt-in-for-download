@@ -148,6 +148,12 @@ Post a comment on our Facebook page if you would like to see this plugin transla
 
 == Changelog ==
 
+= 1.1.6 =
+
+<ul>
+    <li>Added check box to subscriber download to remove duplicate email addresses.</li>
+</ul>
+
 = 1.1.5 =
 
 <ul>
