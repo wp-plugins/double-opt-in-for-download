@@ -1,11 +1,11 @@
-=== Double Opt-In for Download ===
+﻿=== Double Opt-In for Download ===
 Contributors: Andy Bates / LAB Web Designs
 Donate link: http://www.doubleoptinfordownload.com/
 License: GPLv3
 License URI: http://www.gnu.org/licenses/gpl.html
 Tags: email, download, mailchimp, aweber, constant contact, ajax, double opt in, email marketing, marketing
 Requires at least: 3.5
-Tested up to: 3.9
+Tested up to: 4.0
 Stable tag: 1.1.6
 
 Improve your client outreach by offering FREE downloads to your visitors in exchange for their email address with our Double Opt-In Plugin
