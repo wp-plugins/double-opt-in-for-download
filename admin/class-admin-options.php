@@ -293,9 +293,13 @@ if (!class_exists('DoifdAdminOptions')) {
 
             /* Assign promo link option to variable */
 
-            if (isset($options['use_privacy_policy'])) {
+             if ( isset( $options[ 'use_privacy_policy' ] ) ) {
 
-                $use_privacy_policy = $options['use_privacy_policy'];
+                $use_privacy_policy = $options[ 'use_privacy_policy' ];
+                
+            } else {
+               
+                $use_privacy_policy = '0';
             }
 
             /* Echo radio select button */
@@ -367,7 +371,14 @@ if (!class_exists('DoifdAdminOptions')) {
 
             /* Assign landing page option to variable */
 
-            $privacy_page = $options['privacy_page'];
+            if (isset($options[ 'privacy_page' ])) {
+
+            $privacy_page = $options[ 'privacy_page' ];
+            
+            } else {
+                
+                $privacy_page = '';
+            }
 
             /* Echo drop down select menu */
 

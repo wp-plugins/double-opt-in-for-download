@@ -1,13 +1,20 @@
+<?php ob_start(); ?>
 <?php if (version_compare(phpversion(), '5.4.19', '>')) : ?>
-<?php header( 'Content-type: text/css' ); ?>
+<?php
+$absolute_path = explode('wp-content', $_SERVER['SCRIPT_FILENAME']);
+$wp_load = $absolute_path[0] . 'wp-load.php';
 
-<?php require_once( '../../../../wp-blog-header.php' );
+header( 'Content-type: text/css' ); ?>
+
+<?php require_once($wp_load);
 $doifd_widget_option = get_option( 'doifd_lab_options' );
 ?>
 <?php else : ?>
 
 <?php 
-require( '../../../../wp-blog-header.php' );
+$absolute_path = explode('wp-content', $_SERVER['SCRIPT_FILENAME']);
+$wp_load = $absolute_path[0] . 'wp-load.php';
+require_once($wp_load);
 
 header( 'Content-type: text/css' );
 

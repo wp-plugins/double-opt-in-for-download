@@ -14,8 +14,6 @@ if ( !class_exists ( 'DoifdAdminValidation' ) ) {
 
             $valid = array( );
 
-            $valid[ 'landing_page' ] = preg_replace ( '/[^0-9]/', '', $input[ 'landing_page' ] );
-
             $valid[ 'downloads_allowed' ] = preg_replace ( '/[^0-9]/', '', $input[ 'downloads_allowed' ] );
 
             $valid[ 'email_name' ] = preg_replace ( '/[^ \w]+/', '', $input[ 'email_name' ] );

@@ -1,12 +1,12 @@
-﻿=== Double Opt-In for Download ===
-Contributors: Andy Bates / LAB Web Designs
+=== Double Opt-In for Download ===
+Contributors: andyba45
 Donate link: http://www.doubleoptinfordownload.com/
 License: GPLv3
 License URI: http://www.gnu.org/licenses/gpl.html
 Tags: email, download, mailchimp, aweber, constant contact, ajax, double opt in, email marketing, marketing
 Requires at least: 3.5
 Tested up to: 4.0
-Stable tag: 1.1.6
+Stable tag: 1.1.7
 
 Improve your client outreach by offering FREE downloads to your visitors in exchange for their email address with our Double Opt-In Plugin
 
@@ -57,6 +57,7 @@ DOIFD has been translated into the following languages:
     <li>Italian - it_IT</li>
     <li>Portuguese (Brazil) - pt_BR</li>
     <li>Spanish - es_ES</li>
+    <li>Serbian - sr_RS ( Courtesy of Ogi Djuraskovic at <a href="http://firstsiteguide.com/" target=new >FirstGuide.Com</a> )</li>
     
 </ul>
 
@@ -131,6 +132,7 @@ The following is a list of languages the plugin supports:
 4. Italian - it_IT
 5. Portuguese (Brazil) - pt_BR
 6. Dutch - nl_NL
+7. Serbian - sr_RS ( Courtesy of Ogi Djuraskovic at <a href="http://firstsiteguide.com/" target=new >FirstGuide.Com</a> )
 
 Post a comment on our Facebook page if you would like to see this plugin translated to your language.
 
@@ -147,6 +149,13 @@ Post a comment on our Facebook page if you would like to see this plugin transla
 5. This is a screen shot of the subscribers admin screen.
 
 == Changelog ==
+
+= 1.1.7 =
+
+<ul>
+    <li>Added Serbian (sr_RS) language files ( Courtesy of Ogi Djuraskovic at <a href="http://firstsiteguide.com/" target=new >FirstGuide.Com</a> ).</li>
+    <li>Bug Fix - CSV download was not downloading subscribers if the download was deleted.
+</ul>
 
 = 1.1.6 =
 
@@ -342,6 +351,19 @@ Changed location of download directory to avoid deletion when upgrading.
 * Initial beta release.
 
 == Upgrade Notice ==
+
+= 1.1.7 =
+
+<ul>
+    <li>Added Serbian (sr_RS) language files ( Courtesy of Ogi Djuraskovic at <a href="http://firstsiteguide.com/" target=new >FirstGuide.Com</a> )</li>
+    <li>Bug Fix - CSV download was not downloading subscribers if the download was deleted.
+</ul>
+
+= 1.1.6 =
+
+<ul>
+    <li>Added check box to subscriber download to remove duplicate email addresses.</li>
+</ul>
 
 = 1.1.5 =
 

@@ -3,8 +3,8 @@
   Plugin Name: Double Opt In For Download
   Plugin URI: http://www.doubleoptinfordownload.com/
   Description: Plugin for allowing a user to download a free promotional download in exchange for the users name and email address
-  Author: Lab Web Developement
-  Version: 1.1.6
+  Author: andyba45
+  Version: 1.1.7
   Author URI: http://www.doubleoptinfordownload.com/
   License: GPLv3
 

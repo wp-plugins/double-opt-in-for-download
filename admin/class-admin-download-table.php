@@ -53,7 +53,14 @@ class Doifd_Download_Table extends WP_List_Table {
         // assign file names to variable
         $filename = $item['doifd_download_file_name'] ;
         
+       if (isset($item['doifd_download_type'])) {
+        
         $type = $item['doifd_download_type'];
+        
+        } else {
+            
+            $type = '0';
+        }
 
         // get the file extension
         $ext = pathinfo ( DOUBLE_OPT_IN_FOR_DOWNLOAD_DOWNLOAD_DIR . $filename , PATHINFO_EXTENSION ) ;

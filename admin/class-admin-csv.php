@@ -59,7 +59,7 @@ if ( !class_exists ( 'DoifdCSV' ) ) {
                 header ( "Cache-Control: must-revalidate, post-check=0, pre-check=0" );
                 header ( 'Content-Description: File Transfer' );
                 header ( "Content-type: text/csv" );
-                header( "Content-Disposition: attachment; filename=" . $fileName . "");
+                header ( "Content-Disposition: attachment; filename=" . $fileName . "");
                 header ( "Expires: 0" );
                 header ( "Pragma: public" );
 
@@ -75,7 +75,7 @@ if ( !class_exists ( 'DoifdCSV' ) ) {
                     {$wpdb->prefix}doifd_lab_subscribers.doifd_email AS Email,
                     {$wpdb->prefix}doifd_lab_downloads.doifd_download_name AS Download_Name
                 FROM {$wpdb->prefix}doifd_lab_subscribers
-                INNER JOIN {$wpdb->prefix}doifd_lab_downloads
+                LEFT JOIN {$wpdb->prefix}doifd_lab_downloads
                 ON {$wpdb->prefix}doifd_lab_downloads.doifd_download_id = {$wpdb->prefix}doifd_lab_subscribers.doifd_download_id
                 WHERE doifd_email_verified = $value
                 $dupe";
