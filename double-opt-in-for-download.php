@@ -1,57 +1,68 @@
 <?php
-/*
-  Plugin Name: Double Opt In For Download
-  Plugin URI: http://www.doubleoptinfordownload.com/
-  Description: Plugin for allowing a user to download a free promotional download in exchange for the users name and email address
-  Author: andyba45
-  Version: 1.1.7
-  Author URI: http://www.doubleoptinfordownload.com/
-  License: GPLv3
+include_once( dirname(__FILE__) . '/doifd-config.php' );
 
-  Double OPT-IN for download
-  Copyright (C) 2013-2014, Lab Web Development / Andy Bates - andy@labwebdesigns.com
-
-  This program is free software: you can redistribute it and/or modify
-  it under the terms of the GNU General Public License as published by
-  the Free Software Foundation, either version 3 of the License, or
-  (at your option) any later version.
-
-  This program is distributed in the hope that it will be useful,
-  but WITHOUT ANY WARRANTY; without even the implied warranty of
-  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-  GNU General Public License for more details.
-
-  You should have received a copy of the GNU General Public License
-  along with this program.  If not, see <http://www.gnu.org/licenses/>.
+/**
+ * @package   DOUBLE OPT IN FOR DOWNLOAD
+ * @author    Andy Bates <andy@doubleoptinfordownload.com>
+ * @license   GPL-2.0+
+ * @link      http://example.com
+ * @copyright 2014 LAB Web Development
+ *
+ * @wordpress-plugin
+ * Plugin Name:       Double OPT-IN For Download
+ * Plugin URI:        http://www.doubleoptinfordownload.com
+ * Description:       Double OPT-IN For Download ( aka DOIFD ) is a Wordpress plugin that helps you capture your website visitors names and email addresses by offering them a free download in exhange for thier name and email address. Premium versions work with MailChimp, Constant Contact & AWeber.
+ * Version:           2.0.0
+ * Author:            LAB Web Development
+ * Author URI:        http://www.doubleoptinfordownload.com
+ * Text Domain:       doifd-locale
+ * License:           GPL-2.0+
+ * License URI:       http://www.gnu.org/licenses/gpl-2.0.txt
+ * Domain Path:       /languages
  */
 
-/* Define URL & DIR path to plugin folder and DIR path to download folder */
+if( !defined( 'WPINC' ) ) {
+    die;
+}
 
-$uploads = wp_upload_dir () ;
+if ( DOIFD_SERVICE != '' ) {
 
-define('ALLOW_INCLUDE', true);
+    require_once( DOIFD_DIR . 'public/class-doifd.php' );
+    require_once( DOIFD_DIR . 'premium/class-doifd-premium.php' );
 
-define ( 'DOUBLE_OPT_IN_FOR_DOWNLOAD_URL' , plugin_dir_url ( __FILE__ ) ) ;
-define ( 'DOUBLE_OPT_IN_FOR_DOWNLOAD_DIR' , plugin_dir_path ( __FILE__ ) ) ;
-define ( 'DOUBLE_OPT_IN_FOR_DOWNLOAD_DOWNLOAD_DIR' , $uploads['basedir'] . '/doifd_downloads/' ) ;
-define ( 'DOUBLE_OPT_IN_FOR_DOWNLOAD_DOWNLOAD_URL' , $uploads['baseurl'] . '/doifd_downloads/' ) ;
-define ( 'DOUBLE_OPT_IN_FOR_DOWNLOAD_LANGUAGES_DIR' , dirname( plugin_basename( __FILE__ ) ) . '/languages/'  ) ;
-define ( 'DOUBLE_OPT_IN_FOR_DOWNLOAD_CAPTCHA_URL' , plugin_dir_url ( __FILE__ ) . 'captcha/' ) ;
-define ( 'DOUBLE_OPT_IN_FOR_DOWNLOAD_CAPTCHA_DIR' , plugin_dir_path ( __FILE__ ) . 'captcha/' ) ;
-define ( 'DOUBLE_OPT_IN_FOR_DOWNLOAD_IMG_URL' , plugin_dir_url ( __FILE__ ) . 'img/' ) ;
+    register_activation_hook( __FILE__, array( 'DOIFDPremium', 'activate' ) );
+    register_deactivation_hook( __FILE__, array( 'DOIFDPremium', 'deactivate' ) );
 
-include_once( DOUBLE_OPT_IN_FOR_DOWNLOAD_DIR . '/includes/class-doifd.php' );
+    add_action( 'plugins_loaded', array( 'DOIFDPremium', 'get_instance' ) );
+    
+} else {
 
-/* Register the activation hook for installing the plugin */
+    require_once( DOIFD_DIR . 'public/class-doifd.php' );
 
-register_activation_hook ( __FILE__, array( 'DoifdInstall', 'activate_doifd_plugin' ) );
+    register_activation_hook( __FILE__, array( 'DOIFD', 'activate' ) );
+    register_deactivation_hook( __FILE__, array( 'DOIFD', 'deactivate' ) );
 
-/* Add Additional links on the plugin admin screen */
+    add_action( 'plugins_loaded', array( 'DOIFD', 'get_instance' ) );
+    
+}
 
-$filters = new DoifdFilters();
+/* ----------------------------------------------------------------------------*
+ * Dashboard and Administrative Functionality
+ * ---------------------------------------------------------------------------- */
 
-add_filter('plugin_action_links_' . plugin_basename( __FILE__ ), array($filters, 'doifd_settings_link'));
+if( is_admin() && (!defined( 'DOING_AJAX' ) || !DOING_AJAX ) ) {
 
-DOIFD::get_instance ();
+    if ( DOIFD_SERVICE != '' ) {
 
-?>
+        require_once( DOIFD_DIR . 'admin/class-doifd-admin.php' );
+        require_once( DOIFD_DIR . 'premium/admin/class-doifd-premium-admin.php' );
+        
+        add_action( 'plugins_loaded', array( 'DOIFDPremiumAdmin', 'get_instance' ) );
+        
+    } else {
+        
+        require_once( DOIFD_DIR . 'admin/class-doifd-admin.php' );
+        add_action( 'plugins_loaded', array( 'DOIFDAdmin', 'get_instance' ) );
+        
+    }
+}

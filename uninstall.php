@@ -12,9 +12,14 @@ if (is_multisite()) {
 	global $wpdb;
 	$blogs = $wpdb->get_results("SELECT blog_id FROM {$wpdb->blogs}", ARRAY_A); 
 		
-		delete_option ( 'doifd_lab_version' ) ;
-                delete_option ( 'doifd_lab_options' ) ;
-                delete_option ( 'doifd_lab_recaptcha_options' );
+		delete_option( 'doifd_lab_version' );
+                delete_option( 'doifd_lab_options' );
+                delete_option( 'doifd_lab_recaptcha_options' );
+                delete_option( 'doifd_constantcontact_options' );
+                delete_option( 'doifd_mailchimp_options' );
+                delete_option( 'doifd_aweber_options' );
+                delete_option( 'doifd_license_status' );
+                delete_option( 'doifd_license_key' );
 		//info: remove custom file directory for main site 
 		$upload_dir = wp_upload_dir();
 		$directory = $upload_dir['basedir'] . DIRECTORY_SEPARATOR . "doifd_downloads" . DIRECTORY_SEPARATOR;
@@ -29,9 +34,14 @@ if (is_multisite()) {
 		foreach($blogs as $blog) {
 			switch_to_blog($blog['blog_id']);
 
-			delete_option ( 'doifd_lab_version' ) ;
-                        delete_option ( 'doifd_lab_options' ) ;
-                        delete_option ( 'doifd_lab_recaptcha_options' );
+			delete_option( 'doifd_lab_version' );
+                        delete_option( 'doifd_lab_options' );
+                        delete_option( 'doifd_lab_recaptcha_options' );
+                        delete_option( 'doifd_constantcontact_options' );
+                        delete_option( 'doifd_mailchimp_options' );
+                        delete_option( 'doifd_aweber_options' );
+                        delete_option( 'doifd_license_status' );
+                        delete_option( 'doifd_license_key' );
 			//info: remove custom file directory for main site 
 			$upload_dir = wp_upload_dir();
 			$directory = $upload_dir['basedir'] . DIRECTORY_SEPARATOR . "doifd_downloads" . DIRECTORY_SEPARATOR;
@@ -52,9 +62,14 @@ if (is_multisite()) {
 else
 {
 
-	delete_option ( 'doifd_lab_version' ) ;
-        delete_option ( 'doifd_lab_options' ) ;
-        delete_option ( 'doifd_lab_recaptcha_options' );
+	delete_option( 'doifd_lab_version' );
+        delete_option( 'doifd_lab_options' );
+        delete_option( 'doifd_lab_recaptcha_options' );
+        delete_option( 'doifd_constantcontact_options' );
+        delete_option( 'doifd_mailchimp_options' );
+        delete_option( 'doifd_aweber_options' );
+        delete_option( 'doifd_license_status' );
+        delete_option( 'doifd_license_key' );
 	//info: remove custom file directory for main site 
 	$upload_dir = wp_upload_dir();
 	$directory = $upload_dir['basedir'] . DIRECTORY_SEPARATOR . "doifd_downloads" . DIRECTORY_SEPARATOR;

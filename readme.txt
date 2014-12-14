@@ -3,12 +3,12 @@ Contributors: andyba45
 Donate link: http://www.doubleoptinfordownload.com/
 License: GPLv3
 License URI: http://www.gnu.org/licenses/gpl.html
-Tags: email, download, mailchimp, aweber, constant contact, ajax, double opt in, email marketing, marketing
+Tags: email, download, mailchimp, aweber, constant contact, ajax, double opt in, email marketing, marketing, email capture
 Requires at least: 3.5
 Tested up to: 4.0
-Stable tag: 1.1.7
+Stable tag: 2.0.0
 
-Improve your client outreach by offering FREE downloads to your visitors in exchange for their email address with our Double Opt-In Plugin
+Capture visitors names and email addresses by offering FREE downloads to your visitors in exchange for their email address with our Double Opt-In Plugin
 
 == Description ==
 
@@ -32,6 +32,7 @@ The free version of Double OPT-IN For Download comes with all the basic features
     <li>Unlimited number of products you can upload.</li>
     <li>You can offer, .jpg, .jpeg, .png, .bmp, .gif, .pdf, .zip, .doc, .docx, ,mp3 files.</li>
     <li>Subscribers email addresses are verified via a double opt in process.</li>
+    <li>Create simple mailing lists.</li>
     <li>Customize your verification email to your subscriber.</li>
     <li>Subscriber can only subscribe once for each product item.</li>
     <li>One click download of email address to a convenient csv file.</li>
@@ -149,6 +150,16 @@ Post a comment on our Facebook page if you would like to see this plugin transla
 5. This is a screen shot of the subscribers admin screen.
 
 == Changelog ==
+
+= 2.0.0 =
+
+<ul>
+    <li>Major Update - A lot of backend and interface tweaks.</li>
+    <li>Added - Simple mailing list can now be created without a download.</li>
+    <li>Added - Custom CSS can be added to the forms in the options panel</li>
+</ul>
+
+
 
 = 1.1.7 =
 
