@@ -14,10 +14,10 @@ class DOIFDAdminSubscriberTable extends DOIFDAdmin {
         if (!isset($current_screen))
             return null;
         
-        $this->pagenum = $this->get_pagenum ();
+        $this->pagenum = $this->get_pagenum();
         
-        if($current_screen->id == 'doifd_page_doifd-admin-menu_subscribers') {
-        $this->data = $this->get_data ();
+        if($current_screen->id === 'doifd_page_doifd-admin-menu_subscribers') {
+        $this->data = $this->get_data();
         }
   
     }
@@ -39,7 +39,7 @@ class DOIFDAdminSubscriberTable extends DOIFDAdmin {
                 . $wpdb->prefix . "doifd_lab_downloads.doifd_download_name AS download_name, "
                 . $wpdb->prefix . "doifd_lab_downloads.doifd_download_id AS download_id
             FROM " . $wpdb->prefix . "doifd_lab_subscribers
-            LEFT JOIN " . $wpdb->prefix . "doifd_lab_downloads ON " . $wpdb->prefix . "doifd_lab_subscribers.doifd_download_id =" . $wpdb->prefix . "doifd_lab_downloads.doifd_download_id ";
+            LEFT JOIN " . $wpdb->prefix . "doifd_lab_downloads ON " . $wpdb->prefix . "doifd_lab_subscribers.doifd_download_id =" . $wpdb->prefix . "doifd_lab_downloads.doifd_download_id LIMIT $offset, $this->display_limit";
         $data = $wpdb->get_results ( $sql, ARRAY_A );
 
         return $data;
@@ -161,11 +161,11 @@ class DOIFDAdminSubscriberTable extends DOIFDAdmin {
 
         global $wpdb;
 
-//        $offset = ( $pagenum - 1 ) * $limit;
-        $total = $wpdb->get_var ( "SELECT COUNT('doifd_download_id') FROM {$wpdb->prefix}doifd_lab_downloads" );
+        $offset = ( $this->pagenum - 1 ) * $this->display_limit;
+        $total = $wpdb->get_var ( "SELECT COUNT('doifd_subscriber_id') FROM {$wpdb->prefix}doifd_lab_subscribers" );
         $num_of_pages = ceil ( $total / $this->display_limit );
 
-//        $entries = $wpdb->get_results( "SELECT * FROM {$wpdb->prefix}doifd_lab_downloads LIMIT $offset, $limit" );
+        $entries = $wpdb->get_results( "SELECT * FROM {$wpdb->prefix}doifd_lab_subscribers LIMIT $offset, $this->display_limit" );
 
         echo '<table class="wp-list-table widefat">';
         echo '<thead>';

@@ -2,17 +2,17 @@
 include_once( dirname(__FILE__) . '/doifd-config.php' );
 
 /**
- * @package   DOUBLE OPT IN FOR DOWNLOAD
- * @author    Andy Bates <andy@doubleoptinfordownload.com>
+ * @package   Double Opt In For Download
+ * @author    Andy Bates <support@doubleoptinfordownload.com>
  * @license   GPL-2.0+
- * @link      http://example.com
+ * @link      http://www.doubleoptinfordownload.com
  * @copyright 2014 LAB Web Development
  *
  * @wordpress-plugin
- * Plugin Name:       Double OPT-IN For Download
+ * Plugin Name:       Double Opt In For Download
  * Plugin URI:        http://www.doubleoptinfordownload.com
  * Description:       Double OPT-IN For Download ( aka DOIFD ) is a Wordpress plugin that helps you capture your website visitors names and email addresses by offering them a free download in exhange for thier name and email address. Premium versions work with MailChimp, Constant Contact & AWeber.
- * Version:           2.0.0
+ * Version:           2.0.1
  * Author:            LAB Web Development
  * Author URI:        http://www.doubleoptinfordownload.com
  * Text Domain:       doifd-locale
