@@ -363,6 +363,14 @@ Changed location of download directory to avoid deletion when upgrading.
 
 == Upgrade Notice ==
 
+= 2.0.0 =
+
+<ul>
+    <li>Major Update - A lot of backend and interface tweaks.</li>
+    <li>Added - Simple mailing list can now be created without a download.</li>
+    <li>Added - Custom CSS can be added to the forms in the options panel</li>
+</ul>
+
 = 1.1.7 =
 
 <ul>
