@@ -1,0 +1,959 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: Double Opt In For Download - Premium\n"
+"POT-Creation-Date: 2014-04-11 11:21-0800\n"
+"PO-Revision-Date: 2014-04-11 11:23-0800\n"
+"Last-Translator: Andy <andy@labwebdesigns.com>\n"
+"Language-Team: Andy <andy@labwebdesigns.com>\n"
+"Language: de\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 1.6.4\n"
+"X-Poedit-Basepath: ..\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"X-Poedit-KeywordsList: __;_e;_n:1,2;_x:1,2c;_ex:1,2c;_nx:4c,1,2;esc_attr__;"
+"esc_attr_e;esc_attr_x:1,2c;esc_html__;esc_html_e;esc_html_x:1,2c;_n_noop:1,2;"
+"_nx_noop:3c,1,2;__ngettext_noop:1,2\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Poedit-SearchPath-0: .\n"
+
+#: admin/class-admin-constantcontact.php:35
+msgid "Enter your Constant Contact User Name here."
+msgstr ""
+
+#: admin/class-admin-constantcontact.php:41
+msgid "Enter your Constant Contact Password here."
+msgstr ""
+
+#: admin/class-admin-constantcontact.php:79
+#: admin/class-admin-constantcontact.php:201
+#: admin/class-admin-constantcontact.php:207
+#: admin/class-admin-constantcontact.php:280
+msgid "Select Constant Contact List"
+msgstr ""
+
+#: admin/class-admin-constantcontact.php:91
+#: admin/class-admin-constantcontact.php:220
+msgid ""
+"Select the Constant Contact list you would like to add your subscribers too."
+msgstr ""
+
+#: admin/class-admin-constantcontact.php:95
+msgid ""
+"Save your Username and Password First. Then reload page to see your Constant "
+"Contact Lists"
+msgstr ""
+
+#: admin/class-admin-csv.php:16 admin/class-admin-downloads.php:22
+#: includes/class-email.php:41 includes/class-email.php:44
+msgid "Return Back"
+msgstr ""
+
+#: admin/class-admin-csv.php:36
+msgid "Nothing selected."
+msgstr ""
+
+#: admin/class-admin-dashboard-widget.php:42
+msgid "Total Subscribers:"
+msgstr ""
+
+#: admin/class-admin-dashboard-widget.php:43
+msgid "Total Downloads:"
+msgstr ""
+
+#: admin/class-admin-download-table.php:41
+#: admin/class-admin-subscriber-table.php:49
+msgid "Delete"
+msgstr ""
+
+#: admin/class-admin-download-table.php:42
+msgid "Edit"
+msgstr ""
+
+#: admin/class-admin-download-table.php:125
+msgid "No Mailchimp List Selected."
+msgstr ""
+
+#: admin/class-admin-download-table.php:125
+#: admin/class-admin-download-table.php:140
+msgid "Edit download to select list."
+msgstr ""
+
+#: admin/class-admin-download-table.php:140
+msgid "No Constant Contact List Selected."
+msgstr ""
+
+#: admin/class-admin-download-table.php:155
+msgid "No Landing Page Selected."
+msgstr ""
+
+#: admin/class-admin-download-table.php:155
+msgid "Edit Download To Select Landing Page."
+msgstr ""
+
+#: admin/class-admin-download-table.php:174
+#: admin/class-admin-subscriber-table.php:199
+#: admin/class-admin-subscriber-table.php:213
+#: admin/class-admin-subscriber-table.php:226
+#: admin/class-admin-subscriber-table.php:238
+#: views/view-admin-download-page.php:67
+msgid "Download Name"
+msgstr ""
+
+#: admin/class-admin-download-table.php:175
+msgid "File Type"
+msgstr ""
+
+#: admin/class-admin-download-table.php:176
+msgid "Mailchimp List"
+msgstr ""
+
+#: admin/class-admin-download-table.php:177
+msgid "Constant Contact List"
+msgstr ""
+
+#: admin/class-admin-download-table.php:178
+msgid "Landing Page"
+msgstr ""
+
+#: admin/class-admin-download-table.php:179
+msgid "Shortcode"
+msgstr ""
+
+#: admin/class-admin-download-table.php:180 admin/doifd-admin.php:189
+#: includes/class-filters.php:14 views/view-admin-download-page.php:3
+msgid "Downloads"
+msgstr ""
+
+#: admin/class-admin-downloads.php:106 admin/class-admin-downloads.php:269
+msgid "Please name your file."
+msgstr ""
+
+#: admin/class-admin-downloads.php:134
+msgid "Download file name changed."
+msgstr ""
+
+#: admin/class-admin-downloads.php:154 admin/class-admin-downloads.php:297
+msgid ""
+"Unknown File Type (.jpg, .jpeg, .png, .bmp, .gif, .pdf, .zip, .doc, .docx, ."
+"mp3 only)."
+msgstr ""
+
+#: admin/class-admin-downloads.php:170 admin/class-admin-downloads.php:332
+msgid "There was an error uploading your new file"
+msgstr ""
+
+#: admin/class-admin-downloads.php:178
+msgid ""
+"The download directory does not exist. Check your permissions and try "
+"reactivating the plugin"
+msgstr ""
+
+#: admin/class-admin-downloads.php:186 admin/class-admin-downloads.php:350
+msgid ""
+"The download directory exists but is not writable. Check your folder "
+"permissions and try reactivating the plugin"
+msgstr ""
+
+#: admin/class-admin-downloads.php:206
+msgid "Download file changed."
+msgstr ""
+
+#: admin/class-admin-downloads.php:214 admin/class-admin-downloads.php:406
+msgid "Error Uploading File"
+msgstr ""
+
+#: admin/class-admin-downloads.php:233
+msgid "Download count reset."
+msgstr ""
+
+#: admin/class-admin-downloads.php:279
+msgid "Please select a Landing Page."
+msgstr ""
+
+#: admin/class-admin-downloads.php:287
+msgid "Please select a file to upload."
+msgstr ""
+
+#: admin/class-admin-downloads.php:341
+msgid "The download directory does not exist."
+msgstr ""
+
+#: admin/class-admin-downloads.php:341
+msgid "Check your folder permissions and try reactivating the plugin."
+msgstr ""
+
+#: admin/class-admin-downloads.php:397
+msgid "File Uploaded Successfully"
+msgstr ""
+
+#: admin/class-admin-form-options.php:55
+msgid "Create your own CSS class for the form. ( Example: myFormClass )"
+msgstr ""
+
+#: admin/class-admin-form-options.php:80
+#: admin/class-admin-widget-options.php:55
+msgid "( Example: 250 )"
+msgstr ""
+
+#: admin/class-admin-form-options.php:105
+#: admin/class-admin-widget-options.php:80
+#: admin/class-admin-widget-options.php:105
+#: admin/class-admin-widget-options.php:130
+#: admin/class-admin-widget-options.php:155
+#: admin/class-admin-widget-options.php:180
+msgid "( Example: 25 )"
+msgstr ""
+
+#: admin/class-admin-form-options.php:130
+#: admin/class-admin-form-options.php:155
+#: admin/class-admin-form-options.php:180
+#: admin/class-admin-form-options.php:205
+#: admin/class-admin-widget-options.php:230
+#: admin/class-admin-widget-options.php:255
+#: admin/class-admin-widget-options.php:280
+msgid "( Example: #000000, transparent, etc )"
+msgstr ""
+
+#: admin/class-admin-form-options.php:230
+#: admin/class-admin-widget-options.php:305
+msgid "( Example: 1em, 12px etc )"
+msgstr ""
+
+#: admin/class-admin-form-options.php:255
+#: admin/class-admin-widget-options.php:205
+#, php-format
+msgid "( Example: 70% or 200px etc )"
+msgstr ""
+
+#: admin/class-admin-form-options.php:289
+#: admin/class-admin-form-options.php:324
+#: admin/class-admin-form-options.php:359
+msgid "( Example: Oraganization )"
+msgstr ""
+
+#: admin/class-admin-form-options.php:290
+#: admin/class-admin-form-options.php:325
+#: admin/class-admin-form-options.php:360
+msgid "Required."
+msgstr ""
+
+#: admin/class-admin-mailchimp.php:32
+msgid "Enter your MailChimp API key here."
+msgstr ""
+
+#: admin/class-admin-mailchimp.php:117 admin/class-admin-mailchimp.php:124
+#: admin/class-admin-mailchimp.php:190
+msgid "Select Mailchimp List"
+msgstr ""
+
+#: admin/class-admin-options.php:23 admin/doifd-admin.php:111
+msgid "General Settings"
+msgstr ""
+
+#: admin/class-admin-options.php:24 admin/doifd-admin.php:116
+msgid "Email Settings"
+msgstr ""
+
+#: admin/class-admin-options.php:25 admin/doifd-admin.php:136
+msgid "Captcha Settings"
+msgstr ""
+
+#: admin/class-admin-options.php:26
+msgid "Form Settings"
+msgstr ""
+
+#: admin/class-admin-options.php:27
+msgid "Widget Settings"
+msgstr ""
+
+#: admin/class-admin-options.php:28
+msgid "MailChimp Settings"
+msgstr ""
+
+#: admin/class-admin-options.php:29 admin/doifd-admin.php:166
+msgid "Constant Contact Settings"
+msgstr ""
+
+#: admin/class-admin-options.php:43 admin/class-admin-options.php:63
+#: admin/class-admin-options.php:76 admin/class-admin-options.php:102
+#: admin/class-admin-options.php:115 admin/class-admin-options.php:153
+#: admin/class-admin-options.php:174
+msgid "Save Changes"
+msgstr ""
+
+#: admin/class-admin-options.php:84
+msgid "Optional Form Fields"
+msgstr ""
+
+#: admin/class-admin-options.php:91
+msgid "Default Form CSS Settings"
+msgstr ""
+
+#: admin/class-admin-options.php:201
+msgid "Select Maximum Downloads"
+msgstr ""
+
+#: admin/class-admin-options.php:214
+msgid ""
+"Select the maximum number of times a subscriber can download an item. The "
+"default is <b>1</b>."
+msgstr ""
+
+#: admin/class-admin-options.php:238
+msgid ""
+"Select YES to automatically add subscriber as a Subscriber to your Website/"
+"Blog"
+msgstr ""
+
+#: admin/class-admin-options.php:263
+msgid ""
+"DOIFD uses wordpress nonce security to protect your from from malicious "
+"attacks. Click YES to disable. (Not Recommended)"
+msgstr ""
+
+#: admin/class-admin-options.php:286
+msgid "Click YES to add a small promotional link at the bottom of the forms."
+msgstr ""
+
+#: admin/class-admin-options.php:309
+msgid ""
+"Click YES for an email to be sent to the blog admin for each new download."
+msgstr ""
+
+#: admin/class-admin-options.php:328
+msgid ""
+"Default is Blog/Website admin email. ( Example: do-not-reply@mywebsite.com )"
+msgstr ""
+
+#: admin/class-admin-options.php:348
+msgid "Default is Blog/Website name. ( Example: Your Product Name )"
+msgstr ""
+
+#: admin/class-admin-options.php:374
+msgid ""
+"You can use <b>{download}</b> to insert the download name and <b>{site_name}"
+"</b> to insert your website/blog name."
+msgstr ""
+
+#: admin/class-admin-options.php:398
+msgid "Click YES to send verification email in HTML"
+msgstr ""
+
+#: admin/class-admin-options.php:420
+msgid "You must use all three of the below fields in your email."
+msgstr ""
+
+#: admin/class-admin-options.php:422
+msgid "Subscribers Name"
+msgstr ""
+
+#: admin/class-admin-options.php:423
+msgid "Verification Link"
+msgstr ""
+
+#: admin/class-admin-options.php:424
+msgid "The name of the download the subscriber has selected"
+msgstr ""
+
+#: admin/class-admin-options.php:428
+msgid "Need Help with the HTML Email?"
+msgstr ""
+
+#: admin/class-admin-options.php:428 views/view-admin-download-page.php:141
+msgid "Click Here"
+msgstr ""
+
+#: admin/class-admin-options.php:448
+msgid ""
+"Click YES to show a link to your Privacy Policy Page on the bottom of the "
+"forms."
+msgstr ""
+
+#: admin/class-admin-options.php:473
+msgid "( Example: See Out Privacy Policy )"
+msgstr ""
+
+#: admin/class-admin-options.php:498
+msgid "Link font size:"
+msgstr ""
+
+#: admin/class-admin-options.php:500
+msgid "(Example: 0.9em or 8px etc.)"
+msgstr ""
+
+#: admin/class-admin-options.php:522
+msgid "Select Privacy Policy Page"
+msgstr ""
+
+#: admin/class-admin-subscriber-table.php:48
+msgid "Resend Email"
+msgstr ""
+
+#: admin/class-admin-subscriber-table.php:132
+#: views/view-admin-edit-download-page.php:103
+msgid "No"
+msgstr ""
+
+#: admin/class-admin-subscriber-table.php:134
+#: views/view-admin-edit-download-page.php:101
+msgid "Yes"
+msgstr ""
+
+#: admin/class-admin-subscriber-table.php:193
+#: admin/class-admin-subscriber-table.php:208
+#: admin/class-admin-subscriber-table.php:222
+#: admin/class-admin-subscriber-table.php:235
+#: includes/class-registration-form.php:76 includes/doifd-widget.php:54
+msgid "Name"
+msgstr ""
+
+#: admin/class-admin-subscriber-table.php:197
+#: admin/class-admin-subscriber-table.php:211
+#: admin/class-admin-subscriber-table.php:224
+#: admin/class-admin-subscriber-table.php:236
+#: includes/class-registration-form.php:80 includes/doifd-widget.php:57
+msgid "Email Address"
+msgstr ""
+
+#: admin/class-admin-subscriber-table.php:198
+#: admin/class-admin-subscriber-table.php:212
+#: admin/class-admin-subscriber-table.php:225
+#: admin/class-admin-subscriber-table.php:237
+msgid "Verified"
+msgstr ""
+
+#: admin/class-admin-subscriber-table.php:200
+#: admin/class-admin-subscriber-table.php:214
+#: admin/class-admin-subscriber-table.php:227
+#: admin/class-admin-subscriber-table.php:239
+msgid "Successful Downloads"
+msgstr ""
+
+#: admin/class-admin-subscriber-table.php:201
+#: admin/class-admin-subscriber-table.php:215
+#: admin/class-admin-subscriber-table.php:228
+#: admin/class-admin-subscriber-table.php:240
+msgid "Date / Time"
+msgstr ""
+
+#: admin/class-captcha.php:31
+msgid "Click YES, to enable Captcha in the widget forms."
+msgstr ""
+
+#: admin/class-captcha.php:55
+msgid "Click YES, to enable Captcha in the posts/pages forms."
+msgstr ""
+
+#: admin/doifd-admin.php:112
+msgid "Set Download Limit"
+msgstr ""
+
+#: admin/doifd-admin.php:113
+msgid "Add Subscribers to the Wordpress User Table?"
+msgstr ""
+
+#: admin/doifd-admin.php:114
+msgid "Disable Form Security?"
+msgstr ""
+
+#: admin/doifd-admin.php:115
+msgid "Help Us Out?"
+msgstr ""
+
+#: admin/doifd-admin.php:117
+msgid "Notify Admin"
+msgstr ""
+
+#: admin/doifd-admin.php:118
+msgid "Return Email Address"
+msgstr ""
+
+#: admin/doifd-admin.php:119
+msgid "Email From"
+msgstr ""
+
+#: admin/doifd-admin.php:120
+msgid "Email Subject Line"
+msgstr ""
+
+#: admin/doifd-admin.php:121
+msgid "Send HTML Verfication Email"
+msgstr ""
+
+#: admin/doifd-admin.php:122
+msgid "Verification Email:"
+msgstr ""
+
+#: admin/doifd-admin.php:123
+msgid "Widget Style Settings"
+msgstr ""
+
+#: admin/doifd-admin.php:124 admin/doifd-admin.php:144
+msgid "Show Form Labels"
+msgstr ""
+
+#: admin/doifd-admin.php:125
+msgid "Width of Widget"
+msgstr ""
+
+#: admin/doifd-admin.php:126
+msgid "Widget Inside Padding"
+msgstr ""
+
+#: admin/doifd-admin.php:127
+msgid "Widget Margin Top"
+msgstr ""
+
+#: admin/doifd-admin.php:128
+msgid "Widget Margin Right"
+msgstr ""
+
+#: admin/doifd-admin.php:129
+msgid "Widget Margin Bottom"
+msgstr ""
+
+#: admin/doifd-admin.php:130
+msgid "Widget Margin Left"
+msgstr ""
+
+#: admin/doifd-admin.php:131
+msgid "Widget Input Width"
+msgstr ""
+
+#: admin/doifd-admin.php:132
+msgid "Widget Title Font Color"
+msgstr ""
+
+#: admin/doifd-admin.php:133
+msgid "Widget Title Font Size"
+msgstr ""
+
+#: admin/doifd-admin.php:134
+msgid "Widget Input Field Background Color"
+msgstr ""
+
+#: admin/doifd-admin.php:135
+msgid "Widget Background Color"
+msgstr ""
+
+#: admin/doifd-admin.php:137
+msgid "Enable Captcha (Form)"
+msgstr ""
+
+#: admin/doifd-admin.php:138
+msgid "Enable Captcha (Widget)"
+msgstr ""
+
+#: admin/doifd-admin.php:139
+msgid "Optional Additional Form Fields"
+msgstr ""
+
+#: admin/doifd-admin.php:140
+msgid "Optional Field 1"
+msgstr ""
+
+#: admin/doifd-admin.php:141
+msgid "Optional Field 2"
+msgstr ""
+
+#: admin/doifd-admin.php:142
+msgid "Optional Field 3"
+msgstr ""
+
+#: admin/doifd-admin.php:143
+msgid "Form Style Settings"
+msgstr ""
+
+#: admin/doifd-admin.php:145
+msgid "Form CSS Class"
+msgstr ""
+
+#: admin/doifd-admin.php:146
+msgid "Form Width"
+msgstr ""
+
+#: admin/doifd-admin.php:147
+msgid "Form Padding"
+msgstr ""
+
+#: admin/doifd-admin.php:148
+msgid "Form Background Color"
+msgstr ""
+
+#: admin/doifd-admin.php:149
+msgid "Form Font Color"
+msgstr ""
+
+#: admin/doifd-admin.php:150
+msgid "Title Font Color"
+msgstr ""
+
+#: admin/doifd-admin.php:151
+msgid "Title Font Size"
+msgstr ""
+
+#: admin/doifd-admin.php:152
+msgid "Form Input Field Background Color"
+msgstr ""
+
+#: admin/doifd-admin.php:153
+msgid "Form Input Field Width"
+msgstr ""
+
+#: admin/doifd-admin.php:154
+msgid "Privacy Policy Settings"
+msgstr ""
+
+#: admin/doifd-admin.php:155
+msgid "Use Privacy Policy"
+msgstr ""
+
+#: admin/doifd-admin.php:167
+msgid "Constant Contact Account Info"
+msgstr ""
+
+#: admin/doifd-admin.php:175
+msgid "Mailchimp Settings"
+msgstr ""
+
+#: admin/doifd-admin.php:176
+msgid "MailChimp API Key"
+msgstr ""
+
+#: admin/doifd-admin.php:186
+msgid "DOIFD"
+msgstr ""
+
+#: admin/doifd-admin.php:192
+msgid "Expansion Plugins"
+msgstr ""
+
+#: admin/doifd-admin.php:195 includes/class-filters.php:13
+msgid "Settings"
+msgstr ""
+
+#: admin/doifd-admin.php:198 includes/class-filters.php:15
+msgid "Subscribers"
+msgstr ""
+
+#: admin/doifd-admin.php:201
+msgid "License"
+msgstr ""
+
+#: admin/doifd-admin.php:215
+msgid "Support"
+msgstr ""
+
+#: admin/doifd-admin.php:230 admin/doifd-admin.php:243
+#: admin/doifd-admin.php:267 admin/doifd-admin.php:284
+#: admin/doifd-admin.php:349 admin/doifd-admin.php:362
+#: admin/doifd-admin.php:375 admin/doifd-admin.php:388
+#: admin/doifd-admin.php:401 admin/doifd-admin.php:438
+#: admin/doifd-admin.php:451 admin/doifd-admin.php:464
+#: admin/doifd-admin.php:477 admin/doifd-admin.php:490
+#: admin/doifd-admin.php:503 admin/doifd-admin.php:514
+#: admin/doifd-admin.php:527 admin/doifd-admin.php:540
+#: admin/doifd-admin.php:553 admin/doifd-admin.php:566
+#: admin/doifd-admin.php:579 admin/doifd-admin.php:592
+#: admin/doifd-admin.php:605 admin/doifd-admin.php:616
+#: admin/doifd-admin.php:627 admin/doifd-admin.php:638
+#: admin/doifd-admin.php:649 admin/doifd-admin.php:660
+#: admin/doifd-admin.php:673 admin/doifd-admin.php:684
+#: admin/doifd-admin.php:695 admin/doifd-admin.php:706
+#: admin/doifd-admin.php:719 admin/doifd-admin.php:732
+#: admin/doifd-admin.php:745 admin/doifd-admin.php:756
+#: admin/doifd-admin.php:767 admin/doifd-admin.php:778
+#: admin/doifd-admin.php:789 admin/doifd-admin.php:800
+#: admin/doifd-admin.php:816 admin/doifd-admin.php:827
+#: admin/doifd-admin.php:838 admin/doifd-admin.php:851
+#: admin/doifd-admin.php:909 admin/doifd-admin.php:920
+#: admin/doifd-admin.php:936 admin/doifd-admin.php:947
+#: admin/doifd-admin.php:963 admin/doifd-admin.php:974
+#: admin/doifd-admin.php:985 admin/doifd-admin.php:996
+#: admin/doifd-admin.php:1007
+msgid "You do not have sufficient permissions to access this page."
+msgstr ""
+
+#: admin/doifd-admin.php:300
+msgid "Premium DOIFD License Options"
+msgstr ""
+
+#: admin/doifd-admin.php:309
+msgid "License Key"
+msgstr ""
+
+#: admin/doifd-admin.php:313
+msgid "Enter your license key"
+msgstr ""
+
+#: admin/doifd-admin.php:319 admin/doifd-admin.php:330
+msgid "Activate License"
+msgstr ""
+
+#: admin/doifd-admin.php:323
+msgid "active"
+msgstr ""
+
+#: admin/doifd-admin.php:325
+msgid "Deactivate License"
+msgstr ""
+
+#: admin/doifd-admin.php:896
+msgid "You have not saved a valid license key for Premium DOIFD."
+msgstr ""
+
+#: includes/class-download.php:65
+msgid "You have exceed your number of downloads for this item."
+msgstr ""
+
+#: includes/class-download.php:96
+msgid "There is no download file."
+msgstr ""
+
+#: includes/class-email.php:41
+msgid "Email Sent"
+msgstr ""
+
+#: includes/class-email.php:44
+msgid "The Email was NOT Sent"
+msgstr ""
+
+#: includes/class-email.php:139
+#, php-format
+msgid "Your Free Download from %s"
+msgstr ""
+
+#: includes/class-install.php:96
+msgid ""
+"Dear {subscriber},\n"
+"\n"
+"Thank you for your interest in our free download {download}.\n"
+"\n"
+"Below you will find the link to your download file. We hope you will enjoy "
+"it.\n"
+"\n"
+"{url}\n"
+"\n"
+"Thank You"
+msgstr ""
+
+#: includes/class-landing-page.php:26
+msgid " Click Here For Your Free Download"
+msgstr ""
+
+#: includes/class-landing-page.php:49 includes/class-landing-page.php:62
+msgid "Not a valid verification number."
+msgstr ""
+
+#: includes/class-landing-page.php:80
+msgid "The download does not exist"
+msgstr ""
+
+#: includes/class-landing-page.php:86
+msgid "You have exceeded the maximum number of"
+msgstr ""
+
+#: includes/class-landing-page.php:86
+msgid "downloads for this item."
+msgstr ""
+
+#: includes/class-registration-form.php:22
+msgid "There is no download ID specified"
+msgstr ""
+
+#: includes/class-registration-form.php:33
+msgid "The download ID does not exist"
+msgstr ""
+
+#: includes/class-registration-form.php:41
+msgid "The download files does not exist"
+msgstr ""
+
+#: includes/class-registration-form.php:49 includes/doifd-widget.php:33
+msgid "Please provide your name and email address for your free download."
+msgstr ""
+
+#: includes/class-registration-form.php:59
+msgid "Submit"
+msgstr ""
+
+#: includes/class-registration-form.php:100
+msgid "Powered by Lab Web Development"
+msgstr ""
+
+#: includes/class-registration-form.php:100
+msgid "Powered by Lab Web Designs & Hosting"
+msgstr ""
+
+#: includes/class-registration.php:75 includes/class-registration.php:87
+msgid "Validation code does not match."
+msgstr ""
+
+#: includes/class-registration.php:99
+msgid "Please provide your name."
+msgstr ""
+
+#: includes/class-registration.php:107 includes/class-registration.php:116
+#: includes/class-registration.php:125
+msgid "is a required field."
+msgstr ""
+
+#: includes/class-registration.php:136
+msgid "Not a valid email address."
+msgstr ""
+
+#: includes/class-registration.php:146
+msgid "This email address has already been used."
+msgstr ""
+
+#: includes/class-registration.php:237
+msgid "Thank You for Registering!"
+msgstr ""
+
+#: includes/class-registration.php:237
+msgid "Please check your email for your link to your Free download."
+msgstr ""
+
+#: includes/class-registration.php:237
+msgid "Don't forget to check your junk or spam folder."
+msgstr ""
+
+#: includes/doifd-widget.php:8
+msgid "Display DOIFD Signup Form"
+msgstr ""
+
+#: includes/doifd-widget.php:9
+msgid "DOIFD Form"
+msgstr ""
+
+#: includes/doifd-widget.php:38
+msgid "Get Your Free Download"
+msgstr ""
+
+#: includes/doifd-widget.php:68
+msgid "Powered by"
+msgstr ""
+
+#: includes/doifd-widget.php:68
+msgid "Lab Web Development"
+msgstr ""
+
+#: includes/doifd-widget.php:145
+msgid "Title:"
+msgstr ""
+
+#: includes/doifd-widget.php:148
+msgid "Form Text:"
+msgstr ""
+
+#: includes/doifd-widget.php:151
+msgid "Button Text:"
+msgstr ""
+
+#: includes/doifd-widget.php:154
+msgid "Select Download:"
+msgstr ""
+
+#: views/view-admin-download-page.php:4
+msgid "Upload Your Download File Here"
+msgstr ""
+
+#: views/view-admin-download-page.php:69
+msgid "( Example: My Free eBook )"
+msgstr ""
+
+#: views/view-admin-download-page.php:94
+#: views/view-admin-download-page.php:101
+#: views/view-admin-edit-download-page.php:66
+#: views/view-admin-edit-download-page.php:73
+msgid "Select Landing Page"
+msgstr ""
+
+#: views/view-admin-download-page.php:111
+msgid "What is a Landing Page?"
+msgstr ""
+
+#: views/view-admin-download-page.php:120
+msgid "Select Your File"
+msgstr ""
+
+#: views/view-admin-download-page.php:123
+msgid ""
+"( Allowed File Types: .jpg, .jpeg, .png, .bmp, .gif, .pdf, .zip, .doc, ."
+"docx, ,mp3 )"
+msgstr ""
+
+#: views/view-admin-download-page.php:129
+msgid "Upload Your File"
+msgstr ""
+
+#: views/view-admin-download-page.php:140
+msgid "You are about to send this download into the cyber abyss! Are you sure?"
+msgstr ""
+
+#: views/view-admin-download-page.php:141
+msgid ""
+"Your selected file exceeds your servers PHP file upload size limit. To learn "
+"how to get around your PHP file upload size limit,"
+msgstr ""
+
+#: views/view-admin-edit-download-page.php:5
+msgid "Edit Download File"
+msgstr ""
+
+#: views/view-admin-edit-download-page.php:28
+msgid "Rename Your File"
+msgstr ""
+
+#: views/view-admin-edit-download-page.php:91
+msgid "Select Replacement File"
+msgstr ""
+
+#: views/view-admin-edit-download-page.php:93
+msgid ""
+"(Currently, the following file types are allowed; .jpg, .jpeg, .png, .bmp, ."
+"gif, .pdf, .zip, .doc, .docx )"
+msgstr ""
+
+#: views/view-admin-edit-download-page.php:99
+msgid "Reset Download Count"
+msgstr ""
+
+#: views/view-admin-edit-download-page.php:109
+msgid "Update"
+msgstr ""
+
+#: views/view-admin-subscribers-page.php:12
+msgid "Subscriber List"
+msgstr ""
+
+#: views/view-admin-subscribers-page.php:36
+msgid "Export Emails"
+msgstr ""
+
+#: views/view-admin-subscribers-page.php:38
+msgid "Download all emails or just verfied emails."
+msgstr ""
+
+#: views/view-admin-subscribers-page.php:41
+msgid "All Emails"
+msgstr ""
+
+#: views/view-admin-subscribers-page.php:42
+msgid "Only Verified Emails"
+msgstr ""
+
+#: views/view-admin-subscribers-page.php:47
+msgid "Download Subscribers (csv)"
+msgstr ""
+
+#: views/view-admin-subscribers-page.php:50
+msgid "Export automatically weeds out duplicate emails for you."
+msgstr ""
+
+#: views/view-admin-subscribers-page.php:55
+msgid ""
+"You are about to send this Subscriber into the cyber abyss! Are you sure?"
+msgstr ""
