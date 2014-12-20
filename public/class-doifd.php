@@ -23,6 +23,7 @@ class DOIFD {
         $this->doifd_options = $this->get_options();
 
         add_action( 'init', array( $this, 'load_plugin_textdomain' ) );
+        add_action( 'admin_init', array( $this, 'doifd_upgradecheck' ) );
         add_action( 'wpmu_new_blog', array( $this, 'activate_new_site' ) );
 
         add_action( 'wp_enqueue_scripts', array( $this, 'enqueue_styles' ) );
@@ -142,67 +143,7 @@ class DOIFD {
 
             update_option( 'doifd_lab_version', $current_version );
 
-            $download_table = $wpdb->prefix . 'doifd_lab_downloads';
-
-            $download = "CREATE TABLE $download_table (
-                        doifd_download_id INT(11) NOT NULL AUTO_INCREMENT ,
-                        doifd_download_name VARCHAR(250) NOT NULL ,
-                        doifd_download_file_name VARCHAR(250) NOT NULL ,
-                        doifd_download_landing_page INT(20) NOT NULL ,
-                        doifd_number_of_downloads TINYINT(1) DEFAULT '0' NOT NULL ,
-                        doifd_download_type TINYINT(1) DEFAULT '0' NOT NULL ,
-                        time datetime DEFAULT '0000-00-00 00:00:00' NOT NULL ,
-                        UNIQUE KEY id (doifd_download_id)
-                        );";
-
-            dbDelta( $download );
-
-            $subscriber_table = $wpdb->prefix . 'doifd_lab_subscribers';
-
-            $subscriber = "CREATE TABLE $subscriber_table (
-                        doifd_subscriber_id INT(11) NOT NULL AUTO_INCREMENT,
-                        doifd_name VARCHAR(250) NOT NULL ,
-                        doifd_email VARCHAR(250) NOT NULL ,
-                        doifd_email_verified TINYINT(1) DEFAULT '0' NOT NULL  ,
-                        doifd_verification_number VARCHAR(75) NOT NULL ,
-                        doifd_download_id VARCHAR(45) NOT NULL ,
-                        doifd_downloads_allowed TINYINT(1) DEFAULT '0' ,
-                        time datetime DEFAULT '0000-00-00 00:00:00' NOT NULL,
-                        UNIQUE KEY id (doifd_subscriber_id)
-                          );";
-
-            dbDelta( $subscriber );
-        }
-
-        if( !get_option( 'doifd_lab_options' ) ) {
-            $doifd_default_options = array(
-                'downloads_allowed' => '1',
-                'landing_page' => '',
-                'add_to_wpusers' => '0',
-                'form_security' => '0',
-                'promo_link' => '0',
-                'use_privacy_policy' => '0',
-                'privacy_link_text' => '',
-                'privacy_link_font_size' => '0.9em',
-                'privacy_page' => '',
-                'use_form_labels' => '1',
-                'use_widget_form_labels' => '1',
-                'notification_email' => '1',
-                'from_email' => '',
-                'email_name' => '',
-                'email_message' => __( 'Dear {subscriber},
-
-Thank you for your interest in our free download {download}.
-
-Below you will find the link to your download file. We hope you will enjoy it.
-
-{url}
-
-Thank You', 'double-opt-in-for-download' ),
-                'widget_class' => ''
-            );
-
-            add_option( 'doifd_lab_options', $doifd_default_options );
+            self::installRoutine();
         }
 
         /* Create download directory if it does not exist */
@@ -284,6 +225,93 @@ Thank You', 'double-opt-in-for-download' ),
         }
         echo json_encode( $download );
         die(); // this is required to terminate immediately and return a proper response
+    }
+
+    public function doifd_upgradecheck() {
+
+        $current_version = DOIFD::VERSION;
+
+        $installed_version = get_option( 'doifd_lab_version' );
+
+        if( !$installed_version ) {
+            //No installed version - we'll assume its just been freshly installed
+            add_option( 'doifd_lab_version', $current_version );
+        } elseif( $installed_version != $current_version ) {
+
+            self::installRoutine();
+
+            //Database is now up to date: update installed version to latest version
+            update_option( 'doifd_lab_version', $current_version );
+        }
+    }
+
+    private static function installRoutine() {
+        
+        require_once( ABSPATH . 'wp-admin/includes/upgrade.php' );
+
+        global $wpdb;
+
+        $download_table = $wpdb->prefix . 'doifd_lab_downloads';
+
+        $download = "CREATE TABLE $download_table (
+                        doifd_download_id INT(11) NOT NULL AUTO_INCREMENT ,
+                        doifd_download_name VARCHAR(250) NOT NULL ,
+                        doifd_download_file_name VARCHAR(250) NOT NULL ,
+                        doifd_download_landing_page INT(20) NOT NULL ,
+                        doifd_number_of_downloads TINYINT(1) DEFAULT '0' NOT NULL ,
+                        doifd_download_type TINYINT(1) DEFAULT '0' NOT NULL ,
+                        time datetime DEFAULT '0000-00-00 00:00:00' NOT NULL ,
+                        UNIQUE KEY id (doifd_download_id)
+                        );";
+
+        dbDelta( $download );
+
+        $subscriber_table = $wpdb->prefix . 'doifd_lab_subscribers';
+
+        $subscriber = "CREATE TABLE $subscriber_table (
+                        doifd_subscriber_id INT(11) NOT NULL AUTO_INCREMENT,
+                        doifd_name VARCHAR(250) NOT NULL ,
+                        doifd_email VARCHAR(250) NOT NULL ,
+                        doifd_email_verified TINYINT(1) DEFAULT '0' NOT NULL  ,
+                        doifd_verification_number VARCHAR(75) NOT NULL ,
+                        doifd_download_id VARCHAR(45) NOT NULL ,
+                        doifd_downloads_allowed TINYINT(1) DEFAULT '0' ,
+                        time datetime DEFAULT '0000-00-00 00:00:00' NOT NULL,
+                        UNIQUE KEY id (doifd_subscriber_id)
+                          );";
+
+        dbDelta( $subscriber );
+
+        if( !get_option( 'doifd_lab_options' ) ) {
+            $doifd_default_options = array(
+                'downloads_allowed' => '1',
+                'landing_page' => '',
+                'add_to_wpusers' => '0',
+                'form_security' => '0',
+                'promo_link' => '0',
+                'use_privacy_policy' => '0',
+                'privacy_link_text' => '',
+                'privacy_link_font_size' => '0.9em',
+                'privacy_page' => '',
+                'use_form_labels' => '1',
+                'use_widget_form_labels' => '1',
+                'notification_email' => '1',
+                'from_email' => '',
+                'email_name' => '',
+                'email_message' => __( 'Dear {subscriber},
+
+Thank you for your interest in our free download {download}.
+
+Below you will find the link to your download file. We hope you will enjoy it.
+
+{url}
+
+Thank You', 'double-opt-in-for-download' ),
+                'widget_class' => ''
+            );
+
+            add_option( 'doifd_lab_options', $doifd_default_options );
+        }
     }
 
 }

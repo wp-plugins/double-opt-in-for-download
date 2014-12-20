@@ -55,12 +55,6 @@ class DOIFDAdmin extends DOIFD {
                 ), $links
         );
     }
-    
-    public function doifd_lab_resend_verification_email() {
-
-        $resend_email = new DoifdEmail();
-        $resend_email->admin_resend_verification_email();
-    }
 
 }
 new DOIFDAdmin();
