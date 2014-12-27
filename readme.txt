@@ -6,7 +6,7 @@ License URI: http://www.gnu.org/licenses/gpl.html
 Tags: email, download, mailchimp, aweber, constant contact, ajax, double opt in, email marketing, marketing, email capture
 Requires at least: 3.5
 Tested up to: 4.1
-Stable tag: 2.0.2
+Stable tag: 2.0.3
 
 Capture visitors names and email addresses by offering FREE downloads to your visitors in exchange for their email address with our Double Opt-In Plugin
 
@@ -150,6 +150,16 @@ Post a comment on our Facebook page if you would like to see this plugin transla
 5. This is a screen shot of the subscribers admin screen.
 
 == Changelog ==
+
+= 2.0.3 =
+
+<ul>
+    <li>Added back - Bulk function delete to Subscriber and Download tables</li>
+    <li>Added back - Download Name to subscribers table</li>
+    <li>Added back - Subscriber table now sortable by Name, Email, Download and time</li>
+    <li>Fix - If multiple widgets selected on one sidebar only one would show.</li>
+    <li>Fix - Misc PHP notices thanks to <a href="http://www.davidtan.org" target="new">David Tan!</a></li>
+</ul>
 
 = 2.0.2 =
 
@@ -374,6 +384,16 @@ Changed location of download directory to avoid deletion when upgrading.
 * Initial beta release.
 
 == Upgrade Notice ==
+
+= 2.0.3 =
+
+<ul>
+    <li>Added back - Bulk function delete to Subscriber and Download tables</li>
+    <li>Added back - Download Name to subscribers table</li>
+    <li>Added back - Subscriber table now sortable by Name, Email, Download and time</li>
+    <li>Fix - If multiple widgets selected on one sidebar only one would show.</li>
+    <li>Fix - Misc PHP notices thanks to <a href="http://www.davidtan.org" target="new">David Tan!</a></li>
+</ul>
 
 = 2.0.2 =
 

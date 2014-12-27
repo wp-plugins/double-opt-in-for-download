@@ -19,10 +19,16 @@
         $dfdSubscriberTable = new DOIFDAdminSubscriberTable();
     }
 
-    $dfdSubscriberTable->display_table();
-    
+    $dfdSubscriberTable->prepare_items();
+    echo '<form method="get" >';
+    echo '<input type="hidden" name="page" value="' . $_REQUEST[ 'page' ] . '" />';
+    if( class_exists( 'DOIFDPremiumSubscriberTable' ) ) {
+    $dfdSubscriberTable->search_box('search', 'search_id');
+    }
+    $dfdSubscriberTable->display(); 
 
     ?>
+        </form>
         </div>
      </div>
 

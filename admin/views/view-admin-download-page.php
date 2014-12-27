@@ -31,15 +31,29 @@
 
         <hr />
 
-        <?php $dfdDownloadTable->display_table(); ?>
+        <?php $dfdDownloadTable->prepare_items();
 
+            echo '<form method="get" >';
+
+            echo '<input type="hidden" name="page" value="' . $_REQUEST[ 'page' ] . '" />';
+
+            $dfdDownloadTable->display();
+
+            echo '</form>';
+
+?>
         </div>
         <div id="tabs-2">
         <a href="#" id="doifdListModal" class='button button-primary' >Add Mailing List</a>
 
         <hr />
 
-        <?php $dfdListTable->display_table(); ?>
+        <?php 
+        
+        $dfdListTable->prepare_items();
+        $dfdListTable->display();
+        
+        ?>
 
         </div>
     </div> 
@@ -48,9 +62,9 @@
     
     $dfdDownloadTable->display_doifd_upload_form();
 
-        $dfdDownloadTable->display_download_edit_form();
+    $dfdDownloadTable->display_download_edit_form();
         
-        $dfdDownloadTable->display_doifd_list_form();
+    $dfdDownloadTable->display_doifd_list_form();
         
 ?>
 

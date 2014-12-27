@@ -1,32 +1,160 @@
 <?php
 
-class DOIFDAdminSubscriberTable extends DOIFDAdmin {
+class DOIFDAdminSubscriberTable extends DOIFD_List_Table {
 
-    protected $data = array( );
-    protected $display_limit = 5;
-    protected $pagenum;
+    function __construct() {
+        global $status, $page;
 
-    public function __construct() {
-        parent::__construct();
-        
-        global $current_screen;
-        
-        if (!isset($current_screen))
-            return null;
-        
-        $this->pagenum = $this->get_pagenum();
-        
-        if($current_screen->id === 'doifd_page_doifd-admin-menu_subscribers') {
-        $this->data = $this->get_data();
-        }
-  
+        //Set parent defaults
+        parent::__construct( array(
+            'singular' => 'subscriber', //singular name of the listed records
+            'plural' => 'subscribers', //plural name of the listed records
+            'ajax' => false        //does this table support ajax?
+        ) );
     }
 
-    public function get_data() {
+    function column_default( $item, $column_name ) {
+        switch ( $column_name ) {
+            case 'Subscriber Name':
+            case 'Email Address':
+            case 'Download Name':
+            case 'Successful Downloads':
+            case 'Date / Time':
+                return $item[ $column_name ];
+        }
+    }
+
+    function column_name( $item ) {
+
+        $doifd_lab_nonce = wp_create_nonce( 'doifd-delete-subscriber-nonce' );
+        //Build row actions
+        $actions = array(
+            'resend' => sprintf( '<a href="?page=%s&action=%s&name=%s&user_name=%s&user_email=%s&user_ver=%s&download_id=%s" >' . __( 'Resend Email',  $this->plugin_slug) . '</a>', $_REQUEST[ 'page' ], 'doifd_lab_resend_verification_email', 'doifd_lab_resend_verification_email', $item[ 'name' ], $item[ 'email' ], $item[ 'ver' ], $item[ 'download_id' ] ),
+            'delete' => sprintf( '<a href="?page=%s&action=%s&name=%s&_wpnonce=%s&id=%s" class="confirm" >' . __( 'Delete',  $this->plugin_slug ) . '</a>', $_REQUEST[ 'page' ], 'delete', 'delete', $doifd_lab_nonce, $item[ 'subscriber_id' ] ),
+        );
+
+        //Return the title contents
+        return sprintf( '%1$s <span style="color:silver">(id:%2$s)</span>%3$s',
+                /* $1%s */ $item[ 'name' ],
+                /* $2%s */ $item[ 'subscriber_id' ],
+                /* $4%s */ $this->row_actions( $actions )
+        );
+    }
+
+    function column_email( $item ) {
+
+        //Return the title contents
+        return sprintf( '%1$s',
+                /* $1%s */ $item[ 'email' ]
+        );
+    }
+
+    function column_download_name( $item ) {
+
+        //Return the title contents
+        return sprintf( '%1$s',
+                /* $1%s */ $item[ 'download_name' ]
+        );
+    }
+
+    function column_time( $item ) {
+
+        //Return the title contents
+        return sprintf( '%1$s',
+                /* $1%s */ $item[ 'time' ]
+        );
+    }
+
+    function column_verified( $item ) {
+
+        if( $item[ 'verified' ] == '0' ) {
+            return __( 'No',  $this->plugin_slug );
+        } elseif( $item[ 'verified' ] == '1' ) {
+            return __( 'Yes',  $this->plugin_slug );
+        } else {
+            return '';
+        }
+    }
+
+    function column_allowed( $item ) {
+
+        //Return the title contents
+        return sprintf( '%1$s',
+                /* $1%s */ $item[ 'allowed' ]
+        );
+    }
+
+    function column_cb( $item ) {
+
+        return sprintf(
+                '<input type="checkbox" name="id[]" value="%1$s" />',
+                /* $1%s */ $item[ 'subscriber_id' ] //The value of the checkbox should be the record's id
+        );
+    }
+
+    function get_columns() {
+        $columns = array(
+            'cb' => '<input type="checkbox" />', //Render a checkbox instead of text
+            'name' => __( 'Name',  $this->plugin_slug ),
+            'email' => __( 'Email Address', $this->plugin_slug ),
+            'verified' => __( 'Verified',  $this->plugin_slug ),
+            'download_name' => __( 'Download Name',  $this->plugin_slug ),
+            'allowed' => __( 'Successful Downloads',  $this->plugin_slug ),
+            'time' => __( 'Date / Time',  $this->plugin_slug )
+        );
+        return apply_filters( 'doifd_subscriber_table_headers', $columns );
+    }
+
+    function get_sortable_columns() {
+        $sortable_columns = array(
+            'name' => array( 'name', false ), //true means it's already sorted
+            'email' => array( 'email', false ),
+            'download_name' => array( 'download_name', false ),
+            'time' => array( 'time', false )
+        );
+        return $sortable_columns;
+    }
+
+    function get_bulk_actions() {
+        $actions = array(
+            'delete' => 'Delete'
+        );
+        return $actions;
+    }
+
+    function process_bulk_action() {
 
         global $wpdb;
-            
-        $offset = ( $this->pagenum - 1 ) * $this->display_limit;
+
+        $table_name = $wpdb->prefix . 'doifd_lab_subscribers'; // do not forget about tables prefix
+        //Detect when a bulk action is being triggered...
+        if( 'delete' === $this->current_action() ) {
+            $ids = isset( $_REQUEST[ 'id' ] ) ? $_REQUEST[ 'id' ] : array( );
+            if( is_array( $ids ) ) $ids = implode( ',', $ids );
+
+            // delete subscriber from subscriber table
+            if( !empty( $ids ) ) {
+                $wpdb->query( "DELETE FROM $table_name WHERE doifd_subscriber_id IN($ids)" );
+            }
+        }
+    }
+
+    function prepare_items() {
+        global $wpdb; //This is used only if making any database queries
+
+        /**
+         * First, lets decide how many records per page to show
+         */
+        $per_page = 5;
+
+        $columns = $this->get_columns();
+        $hidden = array( );
+        $sortable = $this->get_sortable_columns();
+
+
+        $this->_column_headers = array( $columns, $hidden, $sortable );
+
+        $this->process_bulk_action();
 
         $sql = "SELECT " . $wpdb->prefix . "doifd_lab_subscribers.doifd_name AS name, "
                 . $wpdb->prefix . "doifd_lab_subscribers.time, "
@@ -39,199 +167,33 @@ class DOIFDAdminSubscriberTable extends DOIFDAdmin {
                 . $wpdb->prefix . "doifd_lab_downloads.doifd_download_name AS download_name, "
                 . $wpdb->prefix . "doifd_lab_downloads.doifd_download_id AS download_id
             FROM " . $wpdb->prefix . "doifd_lab_subscribers
-            LEFT JOIN " . $wpdb->prefix . "doifd_lab_downloads ON " . $wpdb->prefix . "doifd_lab_subscribers.doifd_download_id =" . $wpdb->prefix . "doifd_lab_downloads.doifd_download_id LIMIT $offset, $this->display_limit";
-        $data = $wpdb->get_results ( $sql, ARRAY_A );
+            LEFT JOIN " . $wpdb->prefix . "doifd_lab_downloads ON " . $wpdb->prefix . "doifd_lab_subscribers.doifd_download_id =" . $wpdb->prefix . "doifd_lab_downloads.doifd_download_id ";
+        $subscribers = $wpdb->get_results( $sql, ARRAY_A );
 
-        return $data;
-    }
+        $data = $subscribers;
 
-    public function get_pagenum() {
-
-        if ( isset ( $_GET[ 'pagenum' ] ) ) {
-
-            $value = absint ( $_GET[ 'pagenum' ] );
-        } else {
-
-            $value = '1';
+        function usort_reorder( $a, $b ) {
+            $orderby = (!empty( $_REQUEST[ 'orderby' ] )) ? $_REQUEST[ 'orderby' ] : 'name'; //If no sort, default to title
+            $order = (!empty( $_REQUEST[ 'order' ] )) ? $_REQUEST[ 'order' ] : 'asc'; //If no order, default to asc
+            $result = strcmp( $a[ $orderby ], $b[ $orderby ] ); //Determine sort order
+            return ($order === 'asc') ? $result : -$result; //Send final sort direction to usort
         }
 
-        return $value;
-    }
+        usort( $data, 'usort_reorder' );
 
-    public function get_columns() {
+        $current_page = $this->get_pagenum();
 
-        $columns = array(
-            'doifd_name' => __ ( 'Subscriber Name', $this->plugin_slug ),
-            'doifd_email' => __ ( 'Email Address', $this->plugin_slug ),
-            'doifd_email_verified' => __ ( 'Verified', $this->plugin_slug ),
-            'doifd_downloads_allowed' => __ ( 'Successful Downloads', $this->plugin_slug ),
-            'time' => __ ( 'Date/Time', $this->plugin_slug )
-        );
+        $total_subscribers = count( $data );
 
-        return  $columns;
-    }
+        $data = array_slice( $data, (($current_page - 1) * $per_page ), $per_page );
 
-    public function prepare_rows() {
+        $this->items = $data;
 
-        global $wpdb;
-
-        $row = '';
-        if ( ! empty ( $this->data ) ) {
-
-            foreach ( $this->data as $key => $value ) {
-
-                $row .= '<tr>';
-                $row .= '<td width="25%" class="column-columnname">' . $this->column_doifd_name ( $value ) . '</td>';
-                $row .= '<td width="30%" class="column-columnname">' . $this->column_email ( $value ) . '</td>';
-                $row .= '<td width="15%" class="column-columnname">' . $this->column_verified ( $value ) . '</td>';
-                $row .= '<td width="15%" class="column-columnname">' . $this->column_allowed ( $value ) . '</td>';
-                $row .= '<td width="15%" class="column-columnname">' . $this->column_time ( $value ) . '</td>';
-                $row .= '<tr>';
-            }
-        } else {
-
-
-            $row = '<td colspan="6" align="center">No Subscribers Yet</td>';
-        }
-
-        echo apply_filters ( 'doifd_prepare_subscribers_rows', $row, $this->data );
-    }
-
-    public function column_doifd_name( $item ) {
-
-        $doifd_lab_nonce = wp_create_nonce ( 'doifd-delete-subscriber-nonce' );
-        //Build row actions
-        $actions = array(
-            'resend' => sprintf ( '<a href="?page=%s&action=%s&name=%s&user_name=%s&user_email=%s&user_ver=%s&download_id=%s" >' . __ ( 'Resend Email', 'double-opt-in-for-download' ) . '</a>', $_REQUEST[ 'page' ], 'doifd_lab_resend_verification_email', 'doifd_lab_resend_verification_email', $item[ 'name' ], $item[ 'email' ], $item[ 'ver' ], $item[ 'download_id' ] ),
-            'delete' => sprintf ( '<a data-confirm="' . __ ( 'You are about to send this subscriber into the cyber abyss! Are you sure?', $this->plugin_slug ) . '"href="?page=%s&action=%s&_wpnonce=%s&subscriber_id=%s" class="confirm" >' . __ ( 'Delete', 'double-opt-in-for-download' ) . '</a>', $_REQUEST[ 'page' ], 'delete', $doifd_lab_nonce, $item[ 'subscriber_id' ] ),
-        );
-
-        //Return the title contents
-        return sprintf ( '%1$s <span style="color:silver">(id:%2$s)</span>%3$s',
-                /* $1%s */ $item[ 'name' ],
-                /* $2%s */ $item[ 'subscriber_id' ],
-                /* $4%s */ $this->row_actions ( $actions )
-        );
-    }
-
-    function column_email( $item ) {
-
-        //Return the title contents
-        return sprintf ( '%1$s',
-                /* $1%s */ $item[ 'email' ]
-        );
-    }
-
-    function column_download_name( $item ) {
-
-        //Return the title contents
-        return sprintf ( '%1$s',
-                /* $1%s */ $item[ 'download_name' ]
-        );
-    }
-
-    function column_time( $item ) {
-
-        //Return the title contents
-        return sprintf ( '%1$s',
-                /* $1%s */ $item[ 'time' ]
-        );
-    }
-
-    function column_verified( $item ) {
-
-        if ( $item[ 'verified' ] == '0' ) {
-            return __ ( 'No', 'double-opt-in-for-download' );
-        } elseif ( $item[ 'verified' ] == '1' ) {
-            return __ ( 'Yes', 'double-opt-in-for-download' );
-        } else {
-            return '';
-        }
-    }
-
-    function column_allowed( $item ) {
-
-        //Return the title contents
-        return sprintf ( '%1$s',
-                /* $1%s */ $item[ 'allowed' ]
-        );
-    }
-
-    public function display_table() {
-
-        global $wpdb;
-
-        $offset = ( $this->pagenum - 1 ) * $this->display_limit;
-        $total = $wpdb->get_var ( "SELECT COUNT('doifd_subscriber_id') FROM {$wpdb->prefix}doifd_lab_subscribers" );
-        $num_of_pages = ceil ( $total / $this->display_limit );
-
-        $entries = $wpdb->get_results( "SELECT * FROM {$wpdb->prefix}doifd_lab_subscribers LIMIT $offset, $this->display_limit" );
-
-        echo '<table class="wp-list-table widefat">';
-        echo '<thead>';
-
-        $column = $this->get_columns ();
-        if ( ! empty ( $column ) ) {
-
-            foreach ( $column as $key => $value ) {
-
-                echo '<th class="manage-column column-columnname">' . $value . '</th>';
-            }
-        }
-
-        echo '</tr>';
-        echo '</thead>';
-        echo '<tfoot>';
-        echo '<tr>';
-
-        if ( ! empty ( $column ) ) {
-
-            foreach ( $column as $key => $value ) {
-
-                echo '<th class="manage-column column-columnname">' . $value . '</th>';
-            }
-        }
-
-        echo '</tr>';
-        echo '</tfoot>';
-        echo '<tbody>';
-
-        $this->prepare_rows ();
-
-
-        echo '</tbody>';
-        echo '</table>';
-
-        $page_links = paginate_links ( array(
-            'base' => add_query_arg ( 'pagenum', '%#%' ),
-            'format' => '',
-            'prev_text' => __ ( '&laquo;', 'text-domain' ),
-            'next_text' => __ ( '&raquo;', 'text-domain' ),
-            'total' => $num_of_pages,
-            'current' => $this->pagenum
-                ) );
-
-        if ( $page_links ) {
-            echo '<div class="tablenav"><div class="tablenav-pages" style="margin: 1em 0">' . $page_links . '</div></div>';
-        }
-    }
-
-    protected function row_actions( $actions, $always_visible = false ) {
-        $action_count = count ( $actions );
-        $i = 0;
-
-        if ( ! $action_count ) return '';
-
-        $out = '<div class="' . ( $always_visible ? 'row-actions visible' : 'row-actions' ) . '">';
-        foreach ( $actions as $action => $link ) {
- ++ $i;
-            ( $i == $action_count ) ? $sep = '' : $sep = ' | ';
-            $out .= "<span class='$action'>$link$sep</span>";
-        }
-        $out .= '</div>';
-
-        return $out;
+        $this->set_pagination_args( array(
+            'total_items' => $total_subscribers, //WE have to calculate the total number of items
+            'per_page' => $per_page, //WE have to determine how many items to show on a page
+            'total_pages' => ceil( $total_subscribers / $per_page )   //WE have to calculate the total number of pages
+        ) );
     }
 
 }
-new DOIFDAdminSubscriberTable();

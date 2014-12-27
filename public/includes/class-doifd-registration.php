@@ -80,7 +80,7 @@ if( !class_exists( 'DOIFDRegistrationProcess' ) ) {
 
                 global $wpdb;
 
-                if( $this->doifd_options[ 'form_security' ] == '0' ) {
+                if( isset($this->doifd_options[ 'form_security' ]) && $this->doifd_options[ 'form_security' ] == '0' ) {
 
                     if( !wp_verify_nonce( $_POST[ '_wpnonce' ], 'doifd-subscriber-registration-nonce' ) ) wp_die( 'Security check' );
                 }

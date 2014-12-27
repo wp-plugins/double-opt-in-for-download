@@ -122,8 +122,7 @@ if( !class_exists( 'DOIFDRegistrationForm' ) ) {
 
         public function getPrivacyPolicy() {
 
-            if( ( $this->doifd_options[ 'use_privacy_policy' ] == '1' ) ) {
-
+            if( isset($this->doifd_options[ 'use_privacy_policy' ]) && ( $this->doifd_options[ 'use_privacy_policy' ] == '1' ) ) {
                 $text = $this->doifd_options[ 'privacy_link_text' ];
                 $link = $this->doifd_options[ 'privacy_page' ];
 
@@ -154,6 +153,9 @@ if( !class_exists( 'DOIFDRegistrationForm' ) ) {
         
         public function render_form() {
             
+            global $download_id;
+            $download_id = $this->download_id;
+            
             $this->form_values = apply_filters( 'doifd_form_setup_values', array(
                 "form_text" => $this->headerText,
                 "id" => $this->download_id,
@@ -167,7 +169,7 @@ if( !class_exists( 'DOIFDRegistrationForm' ) ) {
                     ) );
 
             ob_start();
-            if( $this->doifd_options[ 'use_form_labels' ] == 1 ) {
+            if( isset($this->doifd_options[ 'use_form_labels' ]) && $this->doifd_options[ 'use_form_labels' ] == 1 ) {
                 $form = include_once ( DOIFD_DIR . '/public/views/forms/view-default.php' );
             } else {
                 $form = include_once ( DOIFD_DIR . 'public/views/forms/view-default-no-labels.php' );

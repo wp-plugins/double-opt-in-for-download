@@ -2,6 +2,7 @@
 
 //        require_once( DOIFD_DIR . '/admin/includes/class-doifd-custom-post-type.php' );
 //        require_once( DOIFD_DIR . '/admin/includes/class-doifd-post-meta.php' );
+        require_once( DOIFD_DIR . 'admin/includes/class-doifd-list-table.php' );
         require_once( DOIFD_DIR . 'admin/includes/class-doifd-enqueue.php' );
         require_once( DOIFD_DIR . 'includes/class-doifd-email.php' );
         require_once( DOIFD_DIR . 'admin/includes/class-doifd-admin-menu.php' );

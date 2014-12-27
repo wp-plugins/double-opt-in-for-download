@@ -134,9 +134,9 @@
             
             ob_start();
             if ($label == 1 ){
-            $widget_form = include_once ( DOIFD_DIR . 'public/views/forms/view-widget-form.php' );
+            $widget_form = include ( DOIFD_DIR . 'public/views/forms/view-widget-form.php' );
             } else {
-                $widget_form = include_once ( DOIFD_DIR . 'public/views/forms/view-widget-form-no-labels.php' );
+                $widget_form = include ( DOIFD_DIR . 'public/views/forms/view-widget-form-no-labels.php' );
             }
             $widget_form_output = ob_get_contents();
             ob_end_clean();
