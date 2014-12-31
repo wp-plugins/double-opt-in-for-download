@@ -459,6 +459,14 @@ jQuery(document).ready(function() {
     });
 });
 
+jQuery(document).ready(function() {
+    jQuery('#listMadMimiID').live('change', function() {
+
+        jQuery('input[name="listMadMimiName"]').val(this.options[this.selectedIndex].text);
+
+    });
+});
+
 /* Facebook Script */
 
 jQuery(document).ready(function(d, s, id) {

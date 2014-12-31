@@ -77,6 +77,16 @@
                     echo '<form action="options.php" method="post">';
                     settings_fields ( $array_key );
                     do_settings_sections ( $value );
+                    
+                                    
+                } elseif ( in_array ( "doifd_madmimi", $content, true ) ) {
+                        
+                    echo '</form>';
+                    echo '<form action="options.php" method="post">';
+                    settings_fields ( $array_key );
+                    do_settings_sections ( $value );
+                    echo '<input class="doifd_save_button" name="submit" type="submit" value="' . __ ( 'Save Changes', $this->plugin_slug ) . '">';
+                    
                 } else {
 
                     settings_fields ( $array_key );

@@ -13,6 +13,7 @@ if (is_multisite()) {
 	$blogs = $wpdb->get_results("SELECT blog_id FROM {$wpdb->blogs}", ARRAY_A); 
 		
 		delete_option( 'doifd_lab_version' );
+                delete_option( 'doifd_lab_premium_version' );
                 delete_option( 'doifd_lab_options' );
                 delete_option( 'doifd_lab_recaptcha_options' );
                 delete_option( 'doifd_constantcontact_options' );
@@ -35,6 +36,7 @@ if (is_multisite()) {
 			switch_to_blog($blog['blog_id']);
 
 			delete_option( 'doifd_lab_version' );
+                        delete_option( 'doifd_lab_premium_version' );
                         delete_option( 'doifd_lab_options' );
                         delete_option( 'doifd_lab_recaptcha_options' );
                         delete_option( 'doifd_constantcontact_options' );
@@ -63,6 +65,7 @@ else
 {
 
 	delete_option( 'doifd_lab_version' );
+        delete_option( 'doifd_lab_premium_version' );
         delete_option( 'doifd_lab_options' );
         delete_option( 'doifd_lab_recaptcha_options' );
         delete_option( 'doifd_constantcontact_options' );

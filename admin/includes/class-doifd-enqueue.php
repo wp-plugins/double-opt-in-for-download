@@ -25,6 +25,7 @@ class DOIFDEnqueue extends DOIFDAdmin {
             wp_enqueue_style( $this->plugin_slug . '-admin-jbox-tooltip-style', DOIFD_URL . 'admin/assets/css/TooltipBorder.css', array( ), DOIFD::VERSION );
             wp_enqueue_style( $this->plugin_slug . '-admin-js-ui-styles', DOIFD_URL . 'admin/assets/css/doifd-jquery-ui-min.css', array( ), DOIFD::VERSION );
             wp_enqueue_style( 'thickbox' );
+            wp_enqueue_style( 'dashicons' );
         }
     }
 

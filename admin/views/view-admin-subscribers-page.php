@@ -1,8 +1,6 @@
 <div class = "wrap">
     <div class="doifdAdminLoader"></div>
     <?php include_once( DOIFD_DIR . 'admin/views/view-admin-header.php' ); ?>
-
-    <div id="icon-edit-pages" class="icon32"><br></div><h2></h2>
      <div id="tabs">
         <ul>
             <li><h3><a href="#tabs-1"><?php echo apply_filters( 'doifd_subscriber_table_title', __( 'Subscribers', $this->plugin_slug ) ); ?></a></h3></li>

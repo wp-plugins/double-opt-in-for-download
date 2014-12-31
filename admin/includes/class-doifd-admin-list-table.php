@@ -118,7 +118,7 @@ class DOIFDAdminListTable extends DOIFD_List_Table {
             $file = explode ( ',' , $file ) ;
 
             foreach ( $file as $key=> $value ) {
-                unlink ( DOUBLE_OPT_IN_FOR_DOWNLOAD_DOWNLOAD_DIR . $value ) ;
+                unlink ( DOIFD_DOWNLOAD_DIR . $value ) ;
             }
         }
     }

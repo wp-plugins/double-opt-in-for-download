@@ -98,10 +98,37 @@ if ( ! class_exists ( 'DOIFDDownload' ) ) {
                         echo '<div class="exceeded"><img src="' . DOIFD_URL . 'public/assets/img/warning.png" alt="Warning" title="Warning" /><br />' . __ ( 'There is no download file.', $this->plugin_slug ) . '</div>';
                     } else {
 
+                            $wpdb->query (
+                                    "
+                        UPDATE $wpdb->doifd_downloads
+                        SET doifd_number_of_downloads = doifd_number_of_downloads+1 WHERE doifd_download_id = '$doifd_download_id'
+                    "
+                            );
 
-                        if( ! $fp = fopen ( $file, 'rb' ) ) {
+                            /* Update subscribers downloads_allowed */
+
+                            $wpdb->query (
+                                    "
+                        UPDATE $wpdb->doifd_subscribers
+                        SET doifd_downloads_allowed = doifd_downloads_allowed+1 WHERE doifd_verification_number = '$ver'
+                    "
+                            );
+
+                        $this->doDownload( $file, $extension, $fakeFileName );
+
+
+                    }
+                }
+            }
+        }
+        
+        
+        public function doDownload( $file, $extension, $fakeFileName ) {
+            
+                       if( ! $fp = fopen ( $file, 'rb' ) ) {
                             die("Cannot Open File!"); 
                         } else {
+                            
                         session_write_close(); 
 
                         /* Assign the appropriate Content-Type header for the file and send file to subscribers browser */
@@ -137,36 +164,9 @@ if ( ! class_exists ( 'DOIFDDownload' ) ) {
                         header ( "Content-Length: " . filesize ( $file ) . "" );
                         fpassthru ( $fp );
                         fclose($fp);
+                        exit();
 
                     }
-
-                        /* If the conection / download status was successful update subscriber
-                         * status to show successful download and download table to show total downloads
-                         */
-
-                        if ( connection_status () == CONNECTION_NORMAL ) {
-
-                            /* Update download table */
-
-                            $wpdb->query (
-                                    "
-                        UPDATE $wpdb->doifd_downloads
-                        SET doifd_number_of_downloads = doifd_number_of_downloads+1 WHERE doifd_download_id = '$doifd_download_id'
-                    "
-                            );
-
-                            /* Update subscribers downloads_allowed */
-
-                            $wpdb->query (
-                                    "
-                        UPDATE $wpdb->doifd_subscribers
-                        SET doifd_downloads_allowed = doifd_downloads_allowed+1 WHERE doifd_verification_number = '$ver'
-                    "
-                            );
-                        }
-                    }
-                }
-            }
         }
 
     }
