@@ -139,9 +139,9 @@ Post a comment on our Facebook page if you would like to see this plugin transla
 
 == Screenshots ==
 
-1. This is a screen shot of the registration forms, both page/post and widget.
+1. This is a screen shot of the registration forms, both page/post and widget in the 2015 theme.
 
-2. This is a screen shot of the thank you message after a user registers.
+2. This is a screen shot of the thank you message after a user registers in the 2015 theme.
 
 3. This is a screen shot of the admin options.
 
