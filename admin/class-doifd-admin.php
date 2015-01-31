@@ -27,8 +27,6 @@ class DOIFDAdmin extends DOIFD {
     public function __construct() {
         parent::__construct();
         
-        $plugin_basename = plugin_basename( plugin_dir_path( realpath( dirname( __FILE__ ) ) ) . $this->plugin_slug . '.php' );
-        add_filter( 'plugin_action_links_' . $plugin_basename, array( $this, 'add_action_links' ) );
         
     }
     
@@ -46,15 +44,6 @@ class DOIFDAdmin extends DOIFD {
         $this->doifd_options = get_option( 'doifd_lab_options' );
 
         return $this->doifd_options;
-    }
-
-        public function add_action_links( $links ) {
-
-        return array_merge(
-                array(
-            'settings' => '<a href="' . admin_url( 'options-general.php?page=' . $this->plugin_slug ) . '">' . __( 'Settings', $this->plugin_slug ) . '</a>'
-                ), $links
-        );
     }
 
 }

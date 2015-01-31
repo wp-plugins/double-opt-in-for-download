@@ -126,7 +126,7 @@ class DOIFDLandingPage extends DOIFD {
 
     public function notify_admin() {
 
-        if( $this->doifd_options[ 'notification_email' ] == '1' ) {
+        if( $this->doifd_options[ 'notification_email' ] == '1'  &&  $this->data[ 'doifd_email_verified' ] == '0' ) {
 
             $notify_admin = new DoifdEmail();
             $notify_admin->admin_notification( $dfdValue = array(

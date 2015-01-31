@@ -59,6 +59,8 @@ class DOIFDAdminDownloadTable extends DOIFD_List_Table {
 
         // get the file extension
         $ext = pathinfo ( DOIFD_DOWNLOAD_DIR . $filename , PATHINFO_EXTENSION ) ;
+        
+        $img = '';
 
         // show the appropriate image for the file extension
         if ( $ext == 'pdf' ) {
@@ -91,7 +93,6 @@ class DOIFDAdminDownloadTable extends DOIFD_List_Table {
         if ( $ext == '' ) {
             $img = '' ;
         }
-
             return apply_filters( 'doifd_download_table_type' , $img, $type, $ext ) ;
     }
 

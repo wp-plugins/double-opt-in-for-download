@@ -19,14 +19,15 @@ class DOIFDShortcodes extends DOIFD {
             $process = new DOIFDLandingPage( $attr, $content );
             $process->verify_email();
 
-            if( $process->getValidVer() ) {
-                $process->update_user();
+            if( $process->getValidVer() ) {                
                 if( class_exists( 'DOIFDPremiumLandingPage' ) ) {
                     $preProcess = new DOIFDPremiumLandingPage( $attr, $content );
                     $preProcess->notify_admin();
+                    $process->update_user();
                     $preProcess->permium_servies();
                 } else {
                 $process->notify_admin();
+                $process->update_user();
                 }
                 $landing = $process->renderButton();
 

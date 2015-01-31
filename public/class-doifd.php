@@ -22,6 +22,7 @@ class DOIFD {
 
         $this->doifd_options = $this->get_options();
 
+        
         add_action( 'init', array( $this, 'load_plugin_textdomain' ) );
         add_action( 'admin_init', array( $this, 'doifd_upgradecheck' ) );
         add_action( 'wpmu_new_blog', array( $this, 'activate_new_site' ) );
@@ -34,6 +35,7 @@ class DOIFD {
         add_action( 'wp_ajax_populate_download_edit_form', array( $this, 'populate_download_edit_form' ) );
 
         add_action( 'widgets_init', array( $this, 'doifd_lab_widget' ) );
+        
     }
 
     public static function get_instance() {
@@ -258,7 +260,7 @@ class DOIFD {
                         doifd_download_name VARCHAR(250) NOT NULL ,
                         doifd_download_file_name VARCHAR(250) NOT NULL ,
                         doifd_download_landing_page INT(20) NOT NULL ,
-                        doifd_number_of_downloads TINYINT(1) DEFAULT '0' NOT NULL ,
+                        doifd_number_of_downloads INT(11) DEFAULT '0' NOT NULL ,
                         doifd_download_type TINYINT(1) DEFAULT '0' NOT NULL ,
                         time datetime DEFAULT '0000-00-00 00:00:00' NOT NULL ,
                         UNIQUE KEY id (doifd_download_id)
