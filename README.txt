@@ -5,7 +5,7 @@ License: GPLv3
 License URI: http://www.gnu.org/licenses/gpl.html
 Tags: email, download, mailchimp, aweber, constant contact, ajax, double opt in, email marketing, marketing, email capture
 Requires at least: 3.5
-Tested up to: 4.1
+Tested up to: 4.2
 Stable tag: 2.0.5
 
 Capture visitors names and email addresses by offering FREE downloads to your visitors in exchange for their email address with our Double Opt-In Plugin
