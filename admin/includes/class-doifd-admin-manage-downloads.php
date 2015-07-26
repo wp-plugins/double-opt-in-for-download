@@ -101,7 +101,7 @@ class DOIFDDownloads extends DOIFDAdmin {
 
     public function allowed_file_types() {
 
-        $allowed_types = '.jpg, .jpeg, .png, .bmp, .gif, .pdf, .zip, .doc, .docx, ,mp3';
+        $allowed_types = '.jpg, .jpeg, .png, .bmp, .gif, .pdf, .zip, .doc, .docx, .xls, .xlsx, .mp3';
 
         return apply_filters( 'upload_form_allowed_file_types', $allowed_types );
     }
@@ -181,7 +181,7 @@ class DOIFDManageDownloads extends DOIFDAdmin {
 
     public function getValidExtension() {
 
-        $validExtension = apply_filters('premium_allowed_upload_types', $validExtension = array( 'jpg', 'jpeg', 'gif', 'png', 'bmp', 'pdf', 'zip', 'doc', 'docx', 'mp3') );
+        $validExtension = apply_filters('premium_allowed_upload_types', $validExtension = array( 'jpg', 'jpeg', 'gif', 'png', 'bmp', 'pdf', 'zip', 'doc', 'docx', 'xls', 'xlsx', 'mp3') );
         
         if (in_array($this->ext, $validExtension)) {
             $this->validExt = true;

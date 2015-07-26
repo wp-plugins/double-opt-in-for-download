@@ -12,7 +12,7 @@ class DOIFDValidation extends DOIFD {
     protected $clean_data = array( );
 
     public function __construct( $params ) {
-//        parent::__construct();
+        parent::__construct();
 
         if( empty( $params ) || !is_array( $params ) ) {
             throw new Exception( "Invalid data!" );
@@ -21,7 +21,7 @@ class DOIFDValidation extends DOIFD {
         $this->download_id = $this->getDownloadID();
         $this->name = $this->getName();
         $this->email = $this->getEmail();
-        $this->duplicate_email = $this->getIsDuplicateEmail();
+        $this->duplicate_email = $this->getIsDuplicateEmail();        
     }
 
     public function validate() {

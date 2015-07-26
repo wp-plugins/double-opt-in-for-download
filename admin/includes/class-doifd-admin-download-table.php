@@ -90,6 +90,9 @@ class DOIFDAdminDownloadTable extends DOIFD_List_Table {
         if ( $ext == 'mp3' ) {
             $img = '<img src="' . DOIFD_URL . 'admin/assets/img/mp3.png" alt="MP3 File Icon" class="document_icon" />' ;
         }
+        if ( $ext == 'xlsx' || $ext == 'xls'  ) {
+            $img = '<img src="' . DOIFD_URL . 'admin/assets/img/excel.png" alt="Excel File Icon" class="document_icon" />' ;
+        }
         if ( $ext == '' ) {
             $img = '' ;
         }

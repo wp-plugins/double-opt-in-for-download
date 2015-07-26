@@ -18,6 +18,9 @@ class DOIFDAdminGeneralOptionsFields extends DOIFDAdmin {
         add_settings_field (
                 'doifd_lab_downloads_allowed', __ ( 'Set Download Limit', $this->plugin_slug ), array( $this, 'allowed_downloads' ), 'doifd_lab_general', 'doifd_lab_main' );
 
+        apply_filters ( 'pre_allow_dup_emails', add_settings_field (
+                'doifd_lab_downloads_allow_dup_emails', __ ( 'Allow Duplicate Emails', $this->plugin_slug ), array( $this, 'allow_dup_emails' ), 'doifd_lab_general', 'doifd_lab_main' ) );
+        
         add_settings_field (
                 'doifd_lab_add_to_wpusers', __ ( 'Add Subscribers to the Wordpress User Table?', $this->plugin_slug ), array( $this, 'add_to_user_table' ), 'doifd_lab_general', 'doifd_lab_main' );
 
@@ -74,6 +77,16 @@ class DOIFDAdminGeneralOptionsFields extends DOIFDAdmin {
         echo '<input type="radio" id="add_to_wpusers" name="doifd_lab_options[add_to_wpusers]" ' . ((isset ( $add_to_wp_user ) && ($add_to_wp_user) == '1' ) ? 'checked="checked"' : "") . ' value="1" /> Yes ';
         echo '<input type="radio" id="add_to_wpusers" name="doifd_lab_options[add_to_wpusers]" ' . (isset ( $add_to_wp_user ) && ($add_to_wp_user == '0' ) ? 'checked="checked"' : "") . ' value="0" /> No ';
         echo '<p>' . __ ( 'Select YES to automatically add subscriber as a Subscriber to your Website/Blog', $this->plugin_slug ) . '</p>';
+        echo '</div>';
+    }
+
+    public function allow_dup_emails() {
+
+        /* Echo radio select button */
+        echo '<div class="doifd_options_fields">';
+        echo '<input type="radio" id="" name="" value="1" disabled/> Yes ';
+        echo '<input type="radio" id="" name="" value="0" disabled/> No ';
+        echo '<p>' . __ ( 'Select YES to allow users to subscriber with thier email address more than one time per download - <i>Premium Versions Only</i>', $this->plugin_slug ) . '</p>';
         echo '</div>';
     }
 

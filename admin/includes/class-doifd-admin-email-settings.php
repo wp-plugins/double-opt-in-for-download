@@ -107,7 +107,7 @@ class DOIFDAdminEmailSettings extends DOIFDAdmin {
 
         echo '<input type="radio" id="send_html" name="doifd_lab_options[send_html]" value="1" disabled/> Yes ';
         echo '<input type="radio" id="send_html" name="doifd_lab_options[send_html]" value="0" disabled/> No ';
-        echo '<p>' . __ ( 'Premium Version Only', $this->plugin_slug ) . '</p>';
+        echo '<p><a href="http://www.doubleoptinfordownload.com/premium-double-opt-in-for-download/" target="new">' . __ ( 'Premium Version Only', $this->plugin_slug ) . '</a></p>';
     }
 
     public function email_subject_option() {

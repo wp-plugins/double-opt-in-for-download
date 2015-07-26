@@ -32,6 +32,12 @@ if ( ! class_exists ( 'DoifdAdminValidation' ) ) {
             }
 
             $valid[ 'add_to_wpusers' ] = preg_replace ( '/[^0-9]/', '', $input[ 'add_to_wpusers' ] );
+            
+            if ( isset ( $input[ 'allow_dup_emails' ] ) ) {
+            
+            $valid[ 'allow_dup_emails' ] = preg_replace ( '/[^0-9]/', '', $input[ 'allow_dup_emails' ] );
+            
+            }
 
             $valid[ 'form_security' ] = preg_replace ( '/[^0-9]/', '', $input[ 'form_security' ] );
 

@@ -146,6 +146,10 @@ if ( ! class_exists ( 'DOIFDDownload' ) ) {
                             header ( "Content-Encoding: zip" );
                         } elseif ( $extension == 'gif' ) {
                             header ( 'Content-Type: image/gif' );
+                        } elseif ( $extension == 'xls' ) {
+                            header ( 'Content-Type: application/vnd.ms-excel' );
+                        } elseif ( $extension == 'xlsx' ) {
+                            header ( 'Content-Type: application/vnd.openxmlformats-officedocument.spreadsheetml.sheet' );
                         } elseif ( $extension == 'doc' ) {
                             header ( "Content-type: application/vnd.openxmlformats-officedocument.wordprocessingml.document" );
                         } elseif ( $extension == 'docx' ) {
@@ -156,6 +160,8 @@ if ( ! class_exists ( 'DOIFDDownload' ) ) {
                             header ( "Content-Type: application/octet-stream" );
                         } elseif ( $extension == 'mp4' ) {
                             header ( "Content-Type: video/mp4" );
+                        } elseif ( $extension == 'mobi' ) {
+                            header ( "Content-Type: application/octet-stream" );
                         } elseif ( $extension == 'epub' ) {
                             header ( "Content-Type: application/epub+zip" );
                         }
