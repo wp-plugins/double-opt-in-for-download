@@ -2,7 +2,7 @@
 
     class DOIFDFormWidget extends WP_Widget {
         
-  
+        
         function DOIFDFormWidget() {
 
             $description = __( 'Display DOIFD Signup Form', 'double-opt-in-for-download' );
@@ -12,7 +12,7 @@
                 'classname' => 'doifd_lab_widget_signup_class',
                 'description' => $description
             );
-            $this->WP_Widget( 'doifd_lab_widget_signup', $widget_title, $widget_ops );
+            parent::__construct( 'doifd_lab_widget_signup', $widget_title, $widget_ops );
         }
 
         function widget( $args, $instance ) {

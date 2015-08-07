@@ -5,8 +5,8 @@ License: GPLv3
 License URI: http://www.gnu.org/licenses/gpl.html
 Tags: email, download, mailchimp, aweber, constant contact, ajax, double opt in, email marketing, marketing, email capture
 Requires at least: 3.5
-Tested up to: 4.2.3
-Stable tag: 2.0.6
+Tested up to: 4.3
+Stable tag: 2.0.7
 
 Capture visitors names and email addresses by offering FREE downloads to your visitors in exchange for their email address with our Double Opt-In Plugin
 
@@ -150,6 +150,12 @@ Post a comment on our Facebook page if you would like to see this plugin transla
 5. This is a screen shot of the subscribers admin screen.
 
 == Changelog ==
+
+= 2.0.7 =
+
+<ul>
+    <li>Updated deprecated class structure for Wordpress 4.3 compatibility</li>
+</ul>
 
 = 2.0.6 =
 
@@ -408,6 +414,12 @@ Changed location of download directory to avoid deletion when upgrading.
 * Initial beta release.
 
 == Upgrade Notice ==
+
+= 2.0.7 =
+
+<ul>
+    <li>Updated deprecated class structure for Wordpress 4.3 compatibility</li>
+</ul>
 
 = 2.0.6 =
 
